@@ -98,7 +98,7 @@ def launch_setup(context, *args, **kwargs):
         remappings=[
           ('/tf', 'tf'),
           ('/tf_static', 'tf_static'),
-          ('/scan', 'sensors/lidar3d_0/scan'),
+          ('/scan', 'sensors/lidar3d_0/points'),
           ('/map', 'map'),
           ('/map_metadata', 'map_metadata'),
         ]

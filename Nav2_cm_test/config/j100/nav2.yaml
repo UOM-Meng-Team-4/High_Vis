@@ -172,7 +172,7 @@ local_costmap:
         observation_sources: pointcloud
         pointcloud:
           data_type: PointCloud2
-          topic: /sensors/lidar3d_0/scan
+          topic: /sensors/lidar3d_0/points
           marking: true
           clearing: true
           obstacle_range: 3.0
@@ -230,7 +230,7 @@ global_costmap:
         observation_sources: pointcloud
         pointcloud:
           data_type: PointCloud2
-          topic: /sensors/lidar3d_0/scan
+          topic: /sensors/lidar3d_0/points
           marking: true
           clearing: true
           obstacle_range: 3.0
