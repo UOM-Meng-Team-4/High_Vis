@@ -58,7 +58,7 @@ ARGUMENTS = [
 
 def launch_setup(context, *args, **kwargs):
     # Packages
-    pkg_clearpath_nav2_demos = get_package_share_directory('clearpath_nav2_gus')
+    pkg_Nav2_cm_test = get_package_share_directory('Nav2_cm_test')
 
     # Launch Configurations
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -73,7 +73,7 @@ def launch_setup(context, *args, **kwargs):
     platform_model = clearpath_config.platform.get_platform_model()
 
     file_parameters = PathJoinSubstitution([
-        pkg_clearpath_nav2_demos,
+        pkg_Nav2_cm_test,
         'config',
         platform_model,
         'slam.yaml'])
@@ -98,7 +98,7 @@ def launch_setup(context, *args, **kwargs):
         remappings=[
           ('/tf', 'tf'),
           ('/tf_static', 'tf_static'),
-          ('/scan', 'sensors/lidar2d_0/scan'),
+          ('/scan', 'sensors/lidar3d_0/scan'),
           ('/map', 'map'),
           ('/map_metadata', 'map_metadata'),
         ]

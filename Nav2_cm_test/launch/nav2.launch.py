@@ -59,7 +59,7 @@ ARGUMENTS = [
 
 def launch_setup(context, *args, **kwargs):
     # Packages
-    pkg_clearpath_nav2_gus = get_package_share_directory('clearpath_nav2_gus')
+    pkg_Nav2_cm_test = get_package_share_directory('Nav2_cm_test')
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
 
     # Launch Configurations
@@ -75,7 +75,7 @@ def launch_setup(context, *args, **kwargs):
     platform_model = clearpath_config.platform.get_platform_model()
 
     file_parameters = PathJoinSubstitution([
-        pkg_clearpath_nav2_gus,
+        pkg_Nav2_cm_test,
         'config',
         platform_model,
         'nav2.yaml'])
@@ -85,10 +85,10 @@ def launch_setup(context, *args, **kwargs):
 
     nav2 = GroupAction([
         PushRosNamespace(namespace),
-        SetRemap('/' + namespace + '/global_costmap/sensors/lidar2d_0/scan',
-                 '/' + namespace + '/sensors/lidar2d_0/scan'),
-        SetRemap('/' + namespace + '/local_costmap/sensors/lidar2d_0/scan',
-                 '/' + namespace + '/sensors/lidar2d_0/scan'),
+        SetRemap('/' + namespace + '/global_costmap/sensors/lidar3d_0/scan',
+                 '/' + namespace + '/sensors/lidar3d_0/scan'),
+        SetRemap('/' + namespace + '/local_costmap/sensors/lidar3d_0/scan',
+                 '/' + namespace + '/sensors/lidar3d_0/scan'),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(launch_nav2),

@@ -59,7 +59,7 @@ ARGUMENTS = [
 
 def launch_setup(context, *args, **kwargs):
     # Packages
-    pkg_clearpath_nav2_gus = get_package_share_directory('clearpath_nav2_gus')
+    pkg_Nav2_cm_test = get_package_share_directory('Nav2_cm_test')
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
 
     # Launch Configurations
@@ -76,7 +76,7 @@ def launch_setup(context, *args, **kwargs):
     platform_model = clearpath_config.platform.get_platform_model()
 
     file_parameters = PathJoinSubstitution([
-        pkg_clearpath_nav2_gus,
+        pkg_Nav2_cm_test,
         'config',
         platform_model,
         'localization.yaml'])
@@ -102,7 +102,7 @@ def launch_setup(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    pkg_clearpath_nav2_gus = get_package_share_directory('clearpath_nav2_gus')
+    pkg_clearpath_nav2_gus = get_package_share_directory('Nav2_cm_test')
 
     map_arg = DeclareLaunchArgument(
         'map',
