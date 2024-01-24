@@ -60,7 +60,9 @@ def generate_launch_description():
     remappings = [('/tf', 'j100_0000/tf'), ('/tf_static', 'j100_0000/tf_static')]
 
     # Create our own temporary YAML files that include substitutions
-    param_substitutions = {'autostart': autostart}
+    param_substitutions = {
+        'use_sim_time': use_sim_time,
+        'autostart': autostart}
 
     configured_params = ParameterFile(
         RewrittenYaml(
@@ -199,18 +201,7 @@ def generate_launch_description():
                 parameters=[configured_params],
                 arguments=['--ros-args', '--log-level', log_level],
                 remappings=remappings
-                + [('cmd_vel', 'cmd_vel_nav')],
-            ),
-            Node(
-                package='nav2_collision_monitor',
-                executable='collision_monitor',
-                name='collision_monitor',
-                output='screen',
-                respawn=use_respawn,
-                respawn_delay=2.0,
-                parameters=[configured_params],
-                arguments=['--ros-args', '--log-level', log_level],
-                remappings=remappings,
+                +  [('cmd_vel', 'cmd_vel_nav'), ('cmd_vel_smoothed', 'cmd_vel')],
             ),
             Node(
                 package='nav2_lifecycle_manager',
@@ -279,13 +270,6 @@ def generate_launch_description():
                         parameters=[configured_params],
                         remappings=remappings
                         + [('cmd_vel', 'cmd_vel_nav')],
-                    ),
-                    ComposableNode(
-                        package='nav2_collision_monitor',
-                        plugin='nav2_collision_monitor::CollisionMonitor',
-                        name='collision_monitor',
-                        parameters=[configured_params],
-                        remappings=remappings,
                     ),
                     ComposableNode(
                         package='nav2_lifecycle_manager',
