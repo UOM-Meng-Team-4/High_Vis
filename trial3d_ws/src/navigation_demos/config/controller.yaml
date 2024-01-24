@@ -64,7 +64,7 @@ local_costmap:
     ros__parameters:
       update_frequency: 5.0
       publish_frequency: 2.0
-      global_frame: j100_0000/platform/odom
+      global_frame: j100_0000/platform/odom/filtered
       robot_base_frame: base_link
       use_sim_time: True
       rolling_window: True
