@@ -6,7 +6,7 @@ controller_server:
     min_y_velocity_threshold: 0.5
     min_theta_velocity_threshold: 0.001
     failure_tolerance: 0.3
-    odom_topic: "j100_000/platform/odom/filtered"
+    odom_topic: "/odom"
     progress_checker_plugins: ["progress_checker"] # progress_checker_plugin: "progress_checker" For Humble and older
     goal_checker_plugin: "goal_checker"
     controller_plugins: ["FollowPath"] # This is where we define the DWB controller plugin
@@ -64,7 +64,7 @@ local_costmap:
     ros__parameters:
       update_frequency: 5.0
       publish_frequency: 2.0
-      global_frame: j100_0000/platform/odom/filtered
+      global_frame: odom
       robot_base_frame: base_link
       use_sim_time: True
       rolling_window: True
