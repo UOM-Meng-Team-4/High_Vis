@@ -23,7 +23,7 @@ global_costmap:
       resolution: 0.06
       track_unknown_space: true
       always_send_full_costmap: True
-      plugins: ["static_layer", "obstacle_layer", "inflation_layer","stvl_layer"]
+      plugins: ["static_layer","inflation_layer","stvl_layer"]
       static_layer:
         plugin: "nav2_costmap_2d::StaticLayer"
         map_subscribe_transient_local: True
@@ -68,4 +68,4 @@ global_costmap:
           vertical_fov_angle: 0.8745
           horizontal_fov_angle: 1.048
           decay_acceleration: 15.0
-          model_type: 0
+          model_type: 1
