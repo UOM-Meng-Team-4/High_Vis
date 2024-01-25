@@ -1,6 +1,7 @@
 serial_number: j100-0000
 version: 0
 system:
+  username: administrator
   hosts:
     self: cpr-j100-0000
     platform:
@@ -8,48 +9,57 @@ system:
     onboard: {}
     remote: {}
   ros2:
-    username: administrator
     namespace: j100_0000
     domain_id: 0
     rmw_implementation: rmw_fastrtps_cpp
-  extras:
-    ros_parameters:
-      linear.x.max_velocity": 2.0
-      linear.x.min_velocity": -2.0
-      linear.x.max_acceleration": 20.0
-      linear.x.min_acceleration": -20.0
-      angular.z.max_velocity": 4.0
-      angular.z.min_velocity": -4.0
-      angular.z.max_acceleration": 25.0
-      angular.z.min_acceleration": -25.0
+    workspaces: []
 platform:
   controller: ps4
-  decorations:
-    front_bumper:
-      enabled: true
-      model: default
-      xyz: [0.0, 0.0, 0.0]
-      rpy: [0.0, 0.0, 0.0]
-      extension: 0.0
-    rear_bumper:
-      enabled: true
-      model: default
-      xyz: [0.0, 0.0, 0.0]
-      rpy: [0.0, 0.0, 0.0]
-      extension: 0.0
-    top_plate:
-      enabled: true
-      model: default
-      xyz: [0.0, 0.0, 0.0]
-      rpy: [0.0, 0.0, 0.0]
+  battery:
+    model: HE2613
+    configuration: S1P1
+  attachments:
+    - name: front_fender
+      type: fender
+    - name: rear_fender
+      type: fender
+      rpy: [0.0, 0.0, 3.1415]
+  extras:
+    urdf: null
+    ros_parameters:
+      platform_velocity_controller:
+        linear.x.max_velocity": 2.0
+        linear.x.min_velocity": -2.0
+        linear.x.max_acceleration": 20.0
+        linear.x.min_acceleration": -20.0
+        angular.z.max_velocity": 4.0
+        angular.z.min_velocity": -4.0
+        angular.z.max_acceleration": 25.0
+        angular.z.min_acceleration": -25.0
+links:
+  box: []
+  cylinder: []
+  frame: []
+  mesh: []
+  sphere: []
+mounts:
+  bracket: []
+  fath_pivot: []
+  riser: []
+  disk: []
+  post: []
 sensors:
+  camera: []
+  gps: []
+  imu: []
+  lidar2d: []
   lidar3d:
   - model: velodyne_lidar
     urdf_enabled: true
     launch_enabled: true
-    parent: front_mount
-    xyz: [0.0, 0.03, 0.08]
-    rpy: [1.57, 0.0, 0.0]
+    parent: default_mount
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
     ros_parameters:
       velodyne_driver_node:
         frame_id: lidar3d_0_laser
@@ -60,20 +70,3 @@ sensors:
         model: VLP16
         fixed_frame: lidar3d_0_laser
         target_frame: lidar3d_0_laser
-  camera:
-  - model: intel_realsense
-    urdf_enabled: true
-    launch_enabled: true 
-    parent: base_link
-    xyz: [0.0, 0.0, 0.0]
-    rpy: [0.0, 0.0, 0.0]
-    ros_parameters:
-      camera:
-        camera_name: camera_0
-        device_type: d435
-        serial_no: "0"
-        enable_color: true
-        rgb_camera.profile: 640,480,30
-        enable_depth: true
-        depth_module.profile: 640,480,30
-        pointcloud.enable: true
