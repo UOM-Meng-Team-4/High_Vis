@@ -3,3 +3,9 @@ ros2 run camera_calibration cameracalibrator --size 8x6 --square 0.03 --ros-args
 
 ros2 launch Clearpath_gz simulation.launch.py setup_path:=$HOME/Your-path-here
 #This runs the Clearpath Default simulation with configurable setup path
+
+ros2 launch clearpath_viz view_navigation.launch.py namespace:=j100_0001
+#Launches Rviz for clearpath robot mapping with namespace j100_0001
+
+ros2 launch clearpath_nav2_demos slam.launch.py setup_path:=$HOME/clearpath/ use_sim_time:=true
+#Launches clearpath demo slam

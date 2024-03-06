@@ -1,0 +1,5 @@
+# Procedure 
+IP: 192.168.1.201
+```ros2 launch Velodyne Velodyne-all-nodes-VLP16-composed-launch.py
+   ros2 run rviz2 rviz2 -f velodyne```
+
