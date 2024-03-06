@@ -102,7 +102,7 @@ def launch_setup(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2_demos')
+    pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2')
 
     map_arg = DeclareLaunchArgument(
         'map',
