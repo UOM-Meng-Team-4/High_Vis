@@ -1,0 +1,21 @@
+[0.762s] Invoking command in '/home/harry/post_process/src/pdf_generator': PYTHONPATH=/home/harry/post_process/build/pdf_generator/prefix_override:/home/harry/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pdf_generator build --build-base /home/harry/post_process/build/pdf_generator/build install --record /home/harry/post_process/build/pdf_generator/install.log --single-version-externally-managed
+[0.973s] running egg_info
+[0.974s] writing ../../build/pdf_generator/pdf_generator.egg-info/PKG-INFO
+[0.976s] writing dependency_links to ../../build/pdf_generator/pdf_generator.egg-info/dependency_links.txt
+[0.977s] writing entry points to ../../build/pdf_generator/pdf_generator.egg-info/entry_points.txt
+[0.977s] writing requirements to ../../build/pdf_generator/pdf_generator.egg-info/requires.txt
+[0.977s] writing top-level names to ../../build/pdf_generator/pdf_generator.egg-info/top_level.txt
+[0.979s] reading manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[0.980s] writing manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[0.980s] running build
+[0.980s] running build_py
+[0.981s] running install
+[0.981s] running install_lib
+[0.982s] running install_data
+[0.982s] running install_egg_info
+[0.985s] removing '/home/harry/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator-0.0.0-py3.10.egg-info' (and everything under it)
+[0.985s] Copying ../../build/pdf_generator/pdf_generator.egg-info to /home/harry/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator-0.0.0-py3.10.egg-info
+[0.988s] running install_scripts
+[1.006s] Installing pg_node script to /home/harry/post_process/install/pdf_generator/lib/pdf_generator
+[1.007s] writing list of installed files to '/home/harry/post_process/build/pdf_generator/install.log'
+[1.033s] Invoked command in '/home/harry/post_process/src/pdf_generator' returned '0': PYTHONPATH=/home/harry/post_process/build/pdf_generator/prefix_override:/home/harry/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pdf_generator build --build-base /home/harry/post_process/build/pdf_generator/build install --record /home/harry/post_process/build/pdf_generator/install.log --single-version-externally-managed

@@ -1,0 +1,17 @@
+[1.035s] Invoking command in '/home/harry/High_Vis/post_process/build/pdf_generator': PYTHONPATH=/home/harry/High_Vis/post_process/build/pdf_generator/prefix_override:/home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/High_Vis/post_process/build/pdf_generator/build --no-deps install_data
+[1.327s] running develop
+[1.497s] running egg_info
+[1.497s] writing pdf_generator.egg-info/PKG-INFO
+[1.497s] writing dependency_links to pdf_generator.egg-info/dependency_links.txt
+[1.497s] writing entry points to pdf_generator.egg-info/entry_points.txt
+[1.498s] writing requirements to pdf_generator.egg-info/requires.txt
+[1.498s] writing top-level names to pdf_generator.egg-info/top_level.txt
+[1.500s] reading manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[1.501s] writing manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[1.502s] running build_ext
+[1.502s] Creating /home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf-generator.egg-link (link to .)
+[1.503s] Installing pg_node script to /home/harry/High_Vis/post_process/install/pdf_generator/lib/pdf_generator
+[1.504s] 
+[1.504s] Installed /home/harry/High_Vis/post_process/build/pdf_generator
+[1.504s] running install_data
+[1.545s] Invoked command in '/home/harry/High_Vis/post_process/build/pdf_generator' returned '0': PYTHONPATH=/home/harry/High_Vis/post_process/build/pdf_generator/prefix_override:/home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/High_Vis/post_process/build/pdf_generator/build --no-deps install_data
