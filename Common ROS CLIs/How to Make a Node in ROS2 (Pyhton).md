@@ -6,9 +6,9 @@
 3) Make source folder `mkdir src`
 4) Run `Colcon Build`
 5) `ls` to see if it has worked
-6) Copy the following "source ~/*workspace name*/install/setup.bash" (change workspace name)
+6) Copy the following `source ~/*workspace name*/install/setup.bash` (change workspace name)
 7) run `gedit .bashrc`
-8) Paste "source ~/*workspace name*/install/setup.bash" at bottom of bashrc
+8) Paste `source ~/*workspace name*/install/setup.bash` at bottom of bashrc
 
 ## Create a ROS2 Python Package
 1) cd to workspace in src directory
