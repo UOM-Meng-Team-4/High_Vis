@@ -1,0 +1,33 @@
+[1.847s] Invoking command in '/home/harry/High_Vis/post_process/src/hotspot_detection': PYTHONPATH=/home/harry/High_Vis/post_process/build/hotspot_detection/prefix_override:/home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/hotspot_detection build --build-base /home/harry/High_Vis/post_process/build/hotspot_detection/build install --record /home/harry/High_Vis/post_process/build/hotspot_detection/install.log --single-version-externally-managed
+[2.157s] running egg_info
+[2.158s] creating ../../build/hotspot_detection/hotspot_detection.egg-info
+[2.160s] writing ../../build/hotspot_detection/hotspot_detection.egg-info/PKG-INFO
+[2.160s] writing dependency_links to ../../build/hotspot_detection/hotspot_detection.egg-info/dependency_links.txt
+[2.161s] writing entry points to ../../build/hotspot_detection/hotspot_detection.egg-info/entry_points.txt
+[2.161s] writing requirements to ../../build/hotspot_detection/hotspot_detection.egg-info/requires.txt
+[2.162s] writing top-level names to ../../build/hotspot_detection/hotspot_detection.egg-info/top_level.txt
+[2.162s] writing manifest file '../../build/hotspot_detection/hotspot_detection.egg-info/SOURCES.txt'
+[2.165s] reading manifest file '../../build/hotspot_detection/hotspot_detection.egg-info/SOURCES.txt'
+[2.166s] writing manifest file '../../build/hotspot_detection/hotspot_detection.egg-info/SOURCES.txt'
+[2.166s] running build
+[2.166s] running build_py
+[2.167s] creating /home/harry/High_Vis/post_process/build/hotspot_detection/build
+[2.167s] creating /home/harry/High_Vis/post_process/build/hotspot_detection/build/lib
+[2.168s] creating /home/harry/High_Vis/post_process/build/hotspot_detection/build/lib/hotspot_detection
+[2.168s] copying hotspot_detection/__init__.py -> /home/harry/High_Vis/post_process/build/hotspot_detection/build/lib/hotspot_detection
+[2.169s] running install
+[2.169s] running install_lib
+[2.170s] creating /home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages/hotspot_detection
+[2.170s] copying /home/harry/High_Vis/post_process/build/hotspot_detection/build/lib/hotspot_detection/__init__.py -> /home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages/hotspot_detection
+[2.171s] byte-compiling /home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages/hotspot_detection/__init__.py to __init__.cpython-310.pyc
+[2.172s] running install_data
+[2.173s] creating /home/harry/High_Vis/post_process/install/hotspot_detection/share/ament_index
+[2.173s] creating /home/harry/High_Vis/post_process/install/hotspot_detection/share/ament_index/resource_index
+[2.174s] creating /home/harry/High_Vis/post_process/install/hotspot_detection/share/ament_index/resource_index/packages
+[2.174s] copying resource/hotspot_detection -> /home/harry/High_Vis/post_process/install/hotspot_detection/share/ament_index/resource_index/packages
+[2.174s] copying package.xml -> /home/harry/High_Vis/post_process/install/hotspot_detection/share/hotspot_detection
+[2.175s] running install_egg_info
+[2.177s] Copying ../../build/hotspot_detection/hotspot_detection.egg-info to /home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages/hotspot_detection-0.0.0-py3.10.egg-info
+[2.178s] running install_scripts
+[2.201s] writing list of installed files to '/home/harry/High_Vis/post_process/build/hotspot_detection/install.log'
+[2.242s] Invoked command in '/home/harry/High_Vis/post_process/src/hotspot_detection' returned '0': PYTHONPATH=/home/harry/High_Vis/post_process/build/hotspot_detection/prefix_override:/home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/hotspot_detection build --build-base /home/harry/High_Vis/post_process/build/hotspot_detection/build install --record /home/harry/High_Vis/post_process/build/hotspot_detection/install.log --single-version-externally-managed
