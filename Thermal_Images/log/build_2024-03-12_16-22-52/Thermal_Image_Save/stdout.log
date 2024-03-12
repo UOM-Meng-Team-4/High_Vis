@@ -1,0 +1,20 @@
+running egg_info
+writing ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/PKG-INFO
+writing dependency_links to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/dependency_links.txt
+writing entry points to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/entry_points.txt
+writing requirements to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/requires.txt
+writing top-level names to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/top_level.txt
+reading manifest file '../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/SOURCES.txt'
+writing manifest file '../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/Thermal_Image_Save
+running install_egg_info
+removing '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save-0.0.0-py3.10.egg-info
+running install_scripts
+Installing TI_save script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/Thermal_Image_Save
+writing list of installed files to '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/build/Thermal_Image_Save/install.log'

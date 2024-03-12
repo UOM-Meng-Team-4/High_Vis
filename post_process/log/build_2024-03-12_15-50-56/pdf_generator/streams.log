@@ -1,0 +1,23 @@
+[2.053s] Invoking command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/src/pdf_generator': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pdf_generator build --build-base /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build install --record /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/install.log --single-version-externally-managed
+[2.579s] running egg_info
+[2.581s] writing ../../build/pdf_generator/pdf_generator.egg-info/PKG-INFO
+[2.581s] writing dependency_links to ../../build/pdf_generator/pdf_generator.egg-info/dependency_links.txt
+[2.582s] writing entry points to ../../build/pdf_generator/pdf_generator.egg-info/entry_points.txt
+[2.582s] writing requirements to ../../build/pdf_generator/pdf_generator.egg-info/requires.txt
+[2.582s] writing top-level names to ../../build/pdf_generator/pdf_generator.egg-info/top_level.txt
+[2.585s] reading manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[2.586s] writing manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[2.587s] running build
+[2.587s] running build_py
+[2.587s] running install
+[2.587s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.588s]   warnings.warn(
+[2.588s] running install_lib
+[2.590s] running install_data
+[2.591s] running install_egg_info
+[2.595s] removing '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator-0.0.0-py3.10.egg-info' (and everything under it)
+[2.596s] Copying ../../build/pdf_generator/pdf_generator.egg-info to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator-0.0.0-py3.10.egg-info
+[2.598s] running install_scripts
+[2.636s] Installing pg_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/pdf_generator
+[2.636s] writing list of installed files to '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/install.log'
+[2.684s] Invoked command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/src/pdf_generator' returned '0': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pdf_generator build --build-base /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build install --record /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/install.log --single-version-externally-managed

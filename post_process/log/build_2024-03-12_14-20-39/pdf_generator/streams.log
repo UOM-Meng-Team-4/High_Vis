@@ -1,0 +1,39 @@
+[1.745s] Invoking command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/src/pdf_generator': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pdf_generator build --build-base /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build install --record /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/install.log --single-version-externally-managed
+[2.122s] running egg_info
+[2.123s] creating ../../build/pdf_generator/pdf_generator.egg-info
+[2.123s] writing ../../build/pdf_generator/pdf_generator.egg-info/PKG-INFO
+[2.124s] writing dependency_links to ../../build/pdf_generator/pdf_generator.egg-info/dependency_links.txt
+[2.124s] writing entry points to ../../build/pdf_generator/pdf_generator.egg-info/entry_points.txt
+[2.124s] writing requirements to ../../build/pdf_generator/pdf_generator.egg-info/requires.txt
+[2.125s] writing top-level names to ../../build/pdf_generator/pdf_generator.egg-info/top_level.txt
+[2.125s] writing manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[2.128s] reading manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[2.129s] writing manifest file '../../build/pdf_generator/pdf_generator.egg-info/SOURCES.txt'
+[2.130s] running build
+[2.130s] running build_py
+[2.130s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build
+[2.130s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build/lib
+[2.131s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build/lib/pdf_generator
+[2.131s] copying pdf_generator/pdf_gen_node.py -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build/lib/pdf_generator
+[2.132s] copying pdf_generator/__init__.py -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build/lib/pdf_generator
+[2.132s] running install
+[2.132s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.133s]   warnings.warn(
+[2.133s] running install_lib
+[2.133s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator
+[2.134s] copying /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build/lib/pdf_generator/pdf_gen_node.py -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator
+[2.134s] copying /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build/lib/pdf_generator/__init__.py -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator
+[2.134s] byte-compiling /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator/pdf_gen_node.py to pdf_gen_node.cpython-310.pyc
+[2.136s] byte-compiling /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator/__init__.py to __init__.cpython-310.pyc
+[2.136s] running install_data
+[2.137s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index
+[2.138s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index/resource_index
+[2.138s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index/resource_index/packages
+[2.138s] copying resource/pdf_generator -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index/resource_index/packages
+[2.138s] copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/pdf_generator
+[2.138s] running install_egg_info
+[2.143s] Copying ../../build/pdf_generator/pdf_generator.egg-info to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf_generator-0.0.0-py3.10.egg-info
+[2.144s] running install_scripts
+[2.176s] Installing pg_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/pdf_generator
+[2.177s] writing list of installed files to '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/install.log'
+[2.306s] Invoked command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/src/pdf_generator' returned '0': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/pdf_generator build --build-base /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/build install --record /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator/install.log --single-version-externally-managed
