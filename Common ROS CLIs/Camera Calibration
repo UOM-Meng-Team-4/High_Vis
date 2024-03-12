@@ -2,7 +2,6 @@ ros2 run camera_calibration cameracalibrator --size 8x6 --square 0.03 --ros-args
 # This Command is te one Andy ran to get it working.
 
 ros2 run usb_cam usb_cam_node_exe --ros-args --params-file src/usb_cam/config/params_2.yaml 
-
 ros2 run image_view image_view --ros-args -r /image:=/image_raw
 #These are to run Usb cam driver and to run Image Viewer
 
