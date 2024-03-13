@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
 ## Get it to run as executable
 1) open setup.py in package
-2) In 'console_scripts' add the following between the []: `executable_name = package_name.filename:main`
+2) In 'console_scripts' add the following between the [ ]: `"executable_name = package_name.filename:main"`
 3) cd to source folder
 4) Run `colcon build --symlink-install`
 5) Run `source install/setup.bash`
