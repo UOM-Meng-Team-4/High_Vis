@@ -11,8 +11,9 @@
 2) `git status` to see branch you're on and files that have not been added yet
 3) `git add -A` adds any files to the staging area
 4) `git commit -m "message about changes you've made"` commits files to git directory locally. Be specific in changes you've made
+5) `git branch -a` To see the branch you're on
 
 ## Commit Changes Remotely
 Need to do the previous steps before this
-1) `git pull origin *branch*` This makes sure you have all changes that have been pushed to the branch remotely
-2) `git push origin *branch*` Push files to remote repository 
+1) `git pull` This makes sure you have all changes that have been pushed to the branch remotely
+2) `git push` Push files to remote repository 
