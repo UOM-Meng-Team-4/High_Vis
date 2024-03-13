@@ -1,0 +1,3 @@
+[console_scripts]
+cm_top = cam_topic.camera_topic:main
+

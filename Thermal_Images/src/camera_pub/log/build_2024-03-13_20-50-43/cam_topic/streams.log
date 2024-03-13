@@ -1,0 +1,17 @@
+[1.366s] Invoking command in '/home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic': PYTHONPATH=/home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic/prefix_override:/home/harry/High_Vis/Thermal_Images/src/camera_pub/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic/build --no-deps install_data
+[1.663s] running develop
+[1.880s] running egg_info
+[1.880s] writing cam_topic.egg-info/PKG-INFO
+[1.881s] writing dependency_links to cam_topic.egg-info/dependency_links.txt
+[1.882s] writing entry points to cam_topic.egg-info/entry_points.txt
+[1.882s] writing requirements to cam_topic.egg-info/requires.txt
+[1.882s] writing top-level names to cam_topic.egg-info/top_level.txt
+[1.885s] reading manifest file 'cam_topic.egg-info/SOURCES.txt'
+[1.886s] writing manifest file 'cam_topic.egg-info/SOURCES.txt'
+[1.888s] running build_ext
+[1.889s] Creating /home/harry/High_Vis/Thermal_Images/src/camera_pub/install/cam_topic/lib/python3.10/site-packages/cam-topic.egg-link (link to .)
+[1.891s] Installing cm_top script to /home/harry/High_Vis/Thermal_Images/src/camera_pub/install/cam_topic/lib/cam_topic
+[1.893s] 
+[1.893s] Installed /home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic
+[1.893s] running install_data
+[1.942s] Invoked command in '/home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic' returned '0': PYTHONPATH=/home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic/prefix_override:/home/harry/High_Vis/Thermal_Images/src/camera_pub/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic/build --no-deps install_data

@@ -1,0 +1,422 @@
+[0.000000] (-) TimerEvent: {}
+[0.000483] (Thermal_Image_Save) JobQueued: {'identifier': 'Thermal_Image_Save', 'dependencies': OrderedDict()}
+[0.001226] (usb_cam) JobQueued: {'identifier': 'usb_cam', 'dependencies': OrderedDict()}
+[0.001592] (Thermal_Image_Save) JobStarted: {'identifier': 'Thermal_Image_Save'}
+[0.074611] (usb_cam) JobStarted: {'identifier': 'usb_cam'}
+[0.099348] (-) TimerEvent: {}
+[0.201505] (-) TimerEvent: {}
+[0.301954] (-) TimerEvent: {}
+[0.402635] (-) TimerEvent: {}
+[0.417020] (usb_cam) JobProgress: {'identifier': 'usb_cam', 'progress': 'cmake'}
+[0.417697] (usb_cam) Command: {'cmd': ['/usr/bin/cmake', '/home/harry/High_Vis/Thermal_Images/src/usb_cam', '-DCMAKE_INSTALL_PREFIX=/home/harry/High_Vis/Thermal_Images/install/usb_cam'], 'cwd': '/home/harry/High_Vis/Thermal_Images/build/usb_cam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'harry'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/harry'), ('OLDPWD', '/home/harry/High_Vis/Thermal_Images/src'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/harry/High_Vis/post_process/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'harry'), ('NAME', 'Harry-Laptop'), ('WSL_INTEROP', '/run/WSL/35602_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/snap/bin'), ('WT_SESSION', '5ac538c0-f4bb-4d04-958f-6a4a9246ce60'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/harry/High_Vis/Thermal_Images/build/usb_cam'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:/home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble')]), 'shell': False}
+[0.502881] (-) TimerEvent: {}
+[0.603302] (-) TimerEvent: {}
+[0.703749] (-) TimerEvent: {}
+[0.717881] (usb_cam) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.797950] (Thermal_Image_Save) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/Thermal_Image_Save', 'build', '--build-base', '/home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build', 'install', '--record', '/home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/install.log', '--single-version-externally-managed'], 'cwd': '/home/harry/High_Vis/Thermal_Images/src/Thermal_Image_Save', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'harry', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}', 'HOME': '/home/harry', 'OLDPWD': '/home/harry/High_Vis/Thermal_Images/src', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/harry/High_Vis/post_process/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'harry', 'NAME': 'Harry-Laptop', 'WSL_INTEROP': '/run/WSL/35602_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/snap/bin', 'WT_SESSION': '5ac538c0-f4bb-4d04-958f-6a4a9246ce60', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/prefix_override:/home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages:/home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:/home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[0.803844] (-) TimerEvent: {}
+[0.904178] (-) TimerEvent: {}
+[1.004577] (-) TimerEvent: {}
+[1.048374] (Thermal_Image_Save) StdoutLine: {'line': b'running egg_info\n'}
+[1.049124] (Thermal_Image_Save) StdoutLine: {'line': b'creating ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info\n'}
+[1.049568] (Thermal_Image_Save) StdoutLine: {'line': b'writing ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/PKG-INFO\n'}
+[1.049853] (Thermal_Image_Save) StdoutLine: {'line': b'writing dependency_links to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/dependency_links.txt\n'}
+[1.050162] (Thermal_Image_Save) StdoutLine: {'line': b'writing entry points to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/entry_points.txt\n'}
+[1.050250] (Thermal_Image_Save) StdoutLine: {'line': b'writing requirements to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/requires.txt\n'}
+[1.050305] (Thermal_Image_Save) StdoutLine: {'line': b'writing top-level names to ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/top_level.txt\n'}
+[1.050455] (Thermal_Image_Save) StdoutLine: {'line': b"writing manifest file '../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/SOURCES.txt'\n"}
+[1.052144] (Thermal_Image_Save) StdoutLine: {'line': b"reading manifest file '../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/SOURCES.txt'\n"}
+[1.052866] (Thermal_Image_Save) StdoutLine: {'line': b"writing manifest file '../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info/SOURCES.txt'\n"}
+[1.053281] (Thermal_Image_Save) StdoutLine: {'line': b'running build\n'}
+[1.053380] (Thermal_Image_Save) StdoutLine: {'line': b'running build_py\n'}
+[1.053523] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build\n'}
+[1.053584] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build/lib\n'}
+[1.054055] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build/lib/Thermal_Image_Save\n'}
+[1.054700] (Thermal_Image_Save) StdoutLine: {'line': b'copying Thermal_Image_Save/Launch_thermal.py -> /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build/lib/Thermal_Image_Save\n'}
+[1.054964] (Thermal_Image_Save) StdoutLine: {'line': b'copying Thermal_Image_Save/__init__.py -> /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build/lib/Thermal_Image_Save\n'}
+[1.055157] (Thermal_Image_Save) StdoutLine: {'line': b'running install\n'}
+[1.055552] (Thermal_Image_Save) StdoutLine: {'line': b'running install_lib\n'}
+[1.056330] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save\n'}
+[1.056641] (Thermal_Image_Save) StdoutLine: {'line': b'copying /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build/lib/Thermal_Image_Save/Launch_thermal.py -> /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save\n'}
+[1.056775] (Thermal_Image_Save) StdoutLine: {'line': b'copying /home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/build/lib/Thermal_Image_Save/__init__.py -> /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save\n'}
+[1.057134] (Thermal_Image_Save) StdoutLine: {'line': b'byte-compiling /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save/Launch_thermal.py to Launch_thermal.cpython-310.pyc\n'}
+[1.058028] (Thermal_Image_Save) StdoutLine: {'line': b'byte-compiling /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save/__init__.py to __init__.cpython-310.pyc\n'}
+[1.058388] (Thermal_Image_Save) StdoutLine: {'line': b'running install_data\n'}
+[1.058930] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/ament_index\n'}
+[1.059633] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/ament_index/resource_index\n'}
+[1.060061] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/ament_index/resource_index/packages\n'}
+[1.060442] (Thermal_Image_Save) StdoutLine: {'line': b'copying resource/Thermal_Image_Save -> /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/ament_index/resource_index/packages\n'}
+[1.060875] (Thermal_Image_Save) StdoutLine: {'line': b'creating /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/Thermal_Image_Save/launch\n'}
+[1.061715] (Thermal_Image_Save) StdoutLine: {'line': b'copying package.xml -> /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/share/Thermal_Image_Save\n'}
+[1.062227] (Thermal_Image_Save) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.065294] (Thermal_Image_Save) StdoutLine: {'line': b'Copying ../../build/Thermal_Image_Save/Thermal_Image_Save.egg-info to /home/harry/High_Vis/Thermal_Images/install/Thermal_Image_Save/lib/python3.10/site-packages/Thermal_Image_Save-0.0.0-py3.10.egg-info\n'}
+[1.066769] (Thermal_Image_Save) StdoutLine: {'line': b'running install_scripts\n'}
+[1.094746] (Thermal_Image_Save) StdoutLine: {'line': b"writing list of installed files to '/home/harry/High_Vis/Thermal_Images/build/Thermal_Image_Save/install.log'\n"}
+[1.104785] (-) TimerEvent: {}
+[1.131145] (Thermal_Image_Save) CommandEnded: {'returncode': 0}
+[1.180853] (Thermal_Image_Save) JobEnded: {'identifier': 'Thermal_Image_Save', 'rc': 0}
+[1.201798] (usb_cam) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.204947] (-) TimerEvent: {}
+[1.305281] (-) TimerEvent: {}
+[1.405719] (-) TimerEvent: {}
+[1.506127] (-) TimerEvent: {}
+[1.592750] (usb_cam) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.606230] (-) TimerEvent: {}
+[1.706576] (-) TimerEvent: {}
+[1.722991] (usb_cam) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.729571] (usb_cam) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.730527] (usb_cam) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.731199] (usb_cam) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.734884] (usb_cam) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.806703] (-) TimerEvent: {}
+[1.870597] (usb_cam) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.877936] (usb_cam) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.878204] (usb_cam) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.878568] (usb_cam) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.885052] (usb_cam) StdoutLine: {'line': b'-- Found ament_cmake_auto: 1.3.6 (/opt/ros/humble/share/ament_cmake_auto/cmake)\n'}
+[1.906895] (-) TimerEvent: {}
+[2.007308] (-) TimerEvent: {}
+[2.043981] (usb_cam) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[2.107492] (-) TimerEvent: {}
+[2.207934] (-) TimerEvent: {}
+[2.308303] (-) TimerEvent: {}
+[2.408713] (-) TimerEvent: {}
+[2.412595] (usb_cam) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[2.419961] (usb_cam) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[2.429799] (usb_cam) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[2.444681] (usb_cam) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.465950] (usb_cam) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.509010] (-) TimerEvent: {}
+[2.546207] (usb_cam) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[2.549505] (usb_cam) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.609191] (-) TimerEvent: {}
+[2.709662] (-) TimerEvent: {}
+[2.809998] (-) TimerEvent: {}
+[2.910345] (-) TimerEvent: {}
+[3.010679] (-) TimerEvent: {}
+[3.111092] (-) TimerEvent: {}
+[3.211508] (-) TimerEvent: {}
+[3.311893] (-) TimerEvent: {}
+[3.412311] (-) TimerEvent: {}
+[3.512707] (-) TimerEvent: {}
+[3.613158] (-) TimerEvent: {}
+[3.713517] (-) TimerEvent: {}
+[3.813883] (-) TimerEvent: {}
+[3.870346] (usb_cam) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[3.914038] (-) TimerEvent: {}
+[4.014464] (-) TimerEvent: {}
+[4.114855] (-) TimerEvent: {}
+[4.215270] (-) TimerEvent: {}
+[4.315771] (-) TimerEvent: {}
+[4.416214] (-) TimerEvent: {}
+[4.516637] (-) TimerEvent: {}
+[4.617037] (-) TimerEvent: {}
+[4.717400] (-) TimerEvent: {}
+[4.817774] (-) TimerEvent: {}
+[4.918101] (-) TimerEvent: {}
+[5.018525] (-) TimerEvent: {}
+[5.118976] (-) TimerEvent: {}
+[5.219431] (-) TimerEvent: {}
+[5.238896] (usb_cam) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[5.319634] (-) TimerEvent: {}
+[5.420065] (-) TimerEvent: {}
+[5.520444] (-) TimerEvent: {}
+[5.620910] (-) TimerEvent: {}
+[5.721420] (-) TimerEvent: {}
+[5.821827] (-) TimerEvent: {}
+[5.922193] (-) TimerEvent: {}
+[6.022715] (-) TimerEvent: {}
+[6.123135] (-) TimerEvent: {}
+[6.223604] (-) TimerEvent: {}
+[6.324065] (-) TimerEvent: {}
+[6.424511] (-) TimerEvent: {}
+[6.524975] (-) TimerEvent: {}
+[6.625428] (-) TimerEvent: {}
+[6.725936] (-) TimerEvent: {}
+[6.826360] (-) TimerEvent: {}
+[6.926694] (-) TimerEvent: {}
+[7.027050] (-) TimerEvent: {}
+[7.127449] (-) TimerEvent: {}
+[7.227801] (-) TimerEvent: {}
+[7.328122] (-) TimerEvent: {}
+[7.428466] (-) TimerEvent: {}
+[7.528796] (-) TimerEvent: {}
+[7.629130] (-) TimerEvent: {}
+[7.729466] (-) TimerEvent: {}
+[7.829802] (-) TimerEvent: {}
+[7.930296] (-) TimerEvent: {}
+[7.946949] (usb_cam) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[7.958350] (usb_cam) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[8.030477] (-) TimerEvent: {}
+[8.097091] (usb_cam) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[8.097478] (usb_cam) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[8.130718] (-) TimerEvent: {}
+[8.231136] (-) TimerEvent: {}
+[8.238273] (usb_cam) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[8.239315] (usb_cam) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[8.331367] (-) TimerEvent: {}
+[8.431771] (-) TimerEvent: {}
+[8.532235] (-) TimerEvent: {}
+[8.632681] (-) TimerEvent: {}
+[8.733109] (-) TimerEvent: {}
+[8.833732] (-) TimerEvent: {}
+[8.934208] (-) TimerEvent: {}
+[9.034670] (-) TimerEvent: {}
+[9.135142] (-) TimerEvent: {}
+[9.235582] (-) TimerEvent: {}
+[9.336183] (-) TimerEvent: {}
+[9.436612] (-) TimerEvent: {}
+[9.537057] (-) TimerEvent: {}
+[9.637407] (-) TimerEvent: {}
+[9.737743] (-) TimerEvent: {}
+[9.838136] (-) TimerEvent: {}
+[9.938565] (-) TimerEvent: {}
+[10.038939] (-) TimerEvent: {}
+[10.139280] (-) TimerEvent: {}
+[10.239674] (-) TimerEvent: {}
+[10.340056] (-) TimerEvent: {}
+[10.440460] (-) TimerEvent: {}
+[10.540864] (-) TimerEvent: {}
+[10.641281] (-) TimerEvent: {}
+[10.741728] (-) TimerEvent: {}
+[10.842234] (-) TimerEvent: {}
+[10.942697] (-) TimerEvent: {}
+[11.043088] (-) TimerEvent: {}
+[11.143475] (-) TimerEvent: {}
+[11.243843] (-) TimerEvent: {}
+[11.344233] (-) TimerEvent: {}
+[11.444640] (-) TimerEvent: {}
+[11.545058] (-) TimerEvent: {}
+[11.645440] (-) TimerEvent: {}
+[11.745813] (-) TimerEvent: {}
+[11.846194] (-) TimerEvent: {}
+[11.946534] (-) TimerEvent: {}
+[12.046859] (-) TimerEvent: {}
+[12.147197] (-) TimerEvent: {}
+[12.247533] (-) TimerEvent: {}
+[12.347883] (-) TimerEvent: {}
+[12.448211] (-) TimerEvent: {}
+[12.548613] (-) TimerEvent: {}
+[12.558747] (usb_cam) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.5.4") \n'}
+[12.562382] (usb_cam) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") \n'}
+[12.563252] (usb_cam) StdoutLine: {'line': b"-- Checking for module 'libavcodec'\n"}
+[12.574933] (usb_cam) StdoutLine: {'line': b'--   Found libavcodec, version 58.134.100\n'}
+[12.597975] (usb_cam) StdoutLine: {'line': b"-- Checking for module 'libavutil'\n"}
+[12.606119] (usb_cam) StdoutLine: {'line': b'--   Found libavutil, version 56.70.100\n'}
+[12.628352] (usb_cam) StdoutLine: {'line': b"-- Checking for module 'libswscale'\n"}
+[12.636790] (usb_cam) StdoutLine: {'line': b'--   Found libswscale, version 5.9.100\n'}
+[12.648835] (-) TimerEvent: {}
+[12.668413] (usb_cam) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.9 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[12.689708] (usb_cam) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[12.700496] (usb_cam) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[12.704190] (usb_cam) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[12.704672] (usb_cam) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/harry/High_Vis/Thermal_Images/src/usb_cam/include\n'}
+[12.704808] (usb_cam) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[12.709224] (usb_cam) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[12.709429] (usb_cam) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[12.710743] (usb_cam) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[12.712205] (usb_cam) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[12.713161] (usb_cam) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[12.715959] (usb_cam) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[12.716171] (usb_cam) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[12.716939] (usb_cam) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[12.720204] (usb_cam) StdoutLine: {'line': b'-- Configuring done\n'}
+[12.749067] (-) TimerEvent: {}
+[12.752786] (usb_cam) StdoutLine: {'line': b'-- Generating done\n'}
+[12.755748] (usb_cam) StdoutLine: {'line': b'-- Build files have been written to: /home/harry/High_Vis/Thermal_Images/build/usb_cam\n'}
+[12.767812] (usb_cam) CommandEnded: {'returncode': 0}
+[12.770370] (usb_cam) JobProgress: {'identifier': 'usb_cam', 'progress': 'build'}
+[12.770457] (usb_cam) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/harry/High_Vis/Thermal_Images/build/usb_cam', '--', '-j8', '-l8'], 'cwd': '/home/harry/High_Vis/Thermal_Images/build/usb_cam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'harry'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/harry'), ('OLDPWD', '/home/harry/High_Vis/Thermal_Images/src'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/harry/High_Vis/post_process/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'harry'), ('NAME', 'Harry-Laptop'), ('WSL_INTEROP', '/run/WSL/35602_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/snap/bin'), ('WT_SESSION', '5ac538c0-f4bb-4d04-958f-6a4a9246ce60'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/harry/High_Vis/Thermal_Images/build/usb_cam'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:/home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble')]), 'shell': False}
+[12.808264] (usb_cam) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o\x1b[0m\n'}
+[12.808511] (usb_cam) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[12.808626] (usb_cam) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/usb_cam_node_exe.dir/rclcpp_components/node_main_usb_cam_node_exe.cpp.o\x1b[0m\n'}
+[12.810232] (usb_cam) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o\x1b[0m\n'}
+[12.849262] (-) TimerEvent: {}
+[12.949768] (-) TimerEvent: {}
+[13.050229] (-) TimerEvent: {}
+[13.150699] (-) TimerEvent: {}
+[13.251203] (-) TimerEvent: {}
+[13.351710] (-) TimerEvent: {}
+[13.452184] (-) TimerEvent: {}
+[13.552683] (-) TimerEvent: {}
+[13.653253] (-) TimerEvent: {}
+[13.725138] (usb_cam) StdoutLine: {'line': b'[ 35%] \x1b[32m\x1b[1mLinking CXX static library libgtest_main.a\x1b[0m\n'}
+[13.753410] (-) TimerEvent: {}
+[13.766579] (usb_cam) StdoutLine: {'line': b'[ 35%] Built target gtest_main\n'}
+[13.853644] (-) TimerEvent: {}
+[13.954184] (-) TimerEvent: {}
+[14.054688] (-) TimerEvent: {}
+[14.155186] (-) TimerEvent: {}
+[14.255700] (-) TimerEvent: {}
+[14.356221] (-) TimerEvent: {}
+[14.456677] (-) TimerEvent: {}
+[14.557110] (-) TimerEvent: {}
+[14.657558] (-) TimerEvent: {}
+[14.758032] (-) TimerEvent: {}
+[14.858534] (-) TimerEvent: {}
+[14.959047] (-) TimerEvent: {}
+[15.048543] (usb_cam) StdoutLine: {'line': b'[ 42%] \x1b[32m\x1b[1mLinking CXX shared library libusb_cam.so\x1b[0m\n'}
+[15.059192] (-) TimerEvent: {}
+[15.159592] (-) TimerEvent: {}
+[15.260136] (-) TimerEvent: {}
+[15.360613] (-) TimerEvent: {}
+[15.393431] (usb_cam) StdoutLine: {'line': b'[ 42%] Built target usb_cam\n'}
+[15.414571] (usb_cam) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/usb_cam_node.dir/src/ros2/usb_cam_node.cpp.o\x1b[0m\n'}
+[15.460812] (-) TimerEvent: {}
+[15.561262] (-) TimerEvent: {}
+[15.661740] (-) TimerEvent: {}
+[15.762289] (-) TimerEvent: {}
+[15.862819] (-) TimerEvent: {}
+[15.963343] (-) TimerEvent: {}
+[16.063832] (-) TimerEvent: {}
+[16.164354] (-) TimerEvent: {}
+[16.264962] (-) TimerEvent: {}
+[16.365524] (-) TimerEvent: {}
+[16.466057] (-) TimerEvent: {}
+[16.542202] (usb_cam) StdoutLine: {'line': b'[ 57%] \x1b[32m\x1b[1mLinking CXX static library libgtest.a\x1b[0m\n'}
+[16.566270] (-) TimerEvent: {}
+[16.596668] (usb_cam) StdoutLine: {'line': b'[ 57%] Built target gtest\n'}
+[16.615733] (usb_cam) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/test_usb_cam_utils.dir/test/test_usb_cam_utils.cpp.o\x1b[0m\n'}
+[16.617895] (usb_cam) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/test_pixel_formats.dir/test/test_pixel_formats.cpp.o\x1b[0m\n'}
+[16.666419] (-) TimerEvent: {}
+[16.766854] (-) TimerEvent: {}
+[16.867304] (-) TimerEvent: {}
+[16.967767] (-) TimerEvent: {}
+[16.984033] (usb_cam) StdoutLine: {'line': b'[ 78%] \x1b[32m\x1b[1mLinking CXX executable usb_cam_node_exe\x1b[0m\n'}
+[17.067957] (-) TimerEvent: {}
+[17.168632] (-) TimerEvent: {}
+[17.269397] (-) TimerEvent: {}
+[17.355848] (usb_cam) StdoutLine: {'line': b'[ 78%] Built target usb_cam_node_exe\n'}
+[17.369584] (-) TimerEvent: {}
+[17.470016] (-) TimerEvent: {}
+[17.570495] (-) TimerEvent: {}
+[17.638227] (usb_cam) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking CXX executable test_usb_cam_utils\x1b[0m\n'}
+[17.670636] (-) TimerEvent: {}
+[17.771088] (-) TimerEvent: {}
+[17.871570] (-) TimerEvent: {}
+[17.915836] (usb_cam) StdoutLine: {'line': b'[ 85%] Built target test_usb_cam_utils\n'}
+[17.939629] (usb_cam) StdoutLine: {'line': b'[ 92%] \x1b[32m\x1b[1mLinking CXX executable test_pixel_formats\x1b[0m\n'}
+[17.971684] (-) TimerEvent: {}
+[18.072152] (-) TimerEvent: {}
+[18.175777] (-) TimerEvent: {}
+[18.189337] (usb_cam) StdoutLine: {'line': b'[ 92%] Built target test_pixel_formats\n'}
+[18.275976] (-) TimerEvent: {}
+[18.376542] (-) TimerEvent: {}
+[18.477006] (-) TimerEvent: {}
+[18.577475] (-) TimerEvent: {}
+[18.677938] (-) TimerEvent: {}
+[18.778407] (-) TimerEvent: {}
+[18.878862] (-) TimerEvent: {}
+[18.979379] (-) TimerEvent: {}
+[19.079913] (-) TimerEvent: {}
+[19.180421] (-) TimerEvent: {}
+[19.281097] (-) TimerEvent: {}
+[19.381615] (-) TimerEvent: {}
+[19.482172] (-) TimerEvent: {}
+[19.582758] (-) TimerEvent: {}
+[19.683289] (-) TimerEvent: {}
+[19.783882] (-) TimerEvent: {}
+[19.884365] (-) TimerEvent: {}
+[19.984868] (-) TimerEvent: {}
+[20.085391] (-) TimerEvent: {}
+[20.185861] (-) TimerEvent: {}
+[20.286431] (-) TimerEvent: {}
+[20.386929] (-) TimerEvent: {}
+[20.487472] (-) TimerEvent: {}
+[20.587974] (-) TimerEvent: {}
+[20.688437] (-) TimerEvent: {}
+[20.789177] (-) TimerEvent: {}
+[20.889674] (-) TimerEvent: {}
+[20.990195] (-) TimerEvent: {}
+[21.090781] (-) TimerEvent: {}
+[21.191203] (-) TimerEvent: {}
+[21.291680] (-) TimerEvent: {}
+[21.392296] (-) TimerEvent: {}
+[21.492776] (-) TimerEvent: {}
+[21.593248] (-) TimerEvent: {}
+[21.693738] (-) TimerEvent: {}
+[21.794177] (-) TimerEvent: {}
+[21.894632] (-) TimerEvent: {}
+[21.995120] (-) TimerEvent: {}
+[22.095772] (-) TimerEvent: {}
+[22.196389] (-) TimerEvent: {}
+[22.296936] (-) TimerEvent: {}
+[22.397390] (-) TimerEvent: {}
+[22.497821] (-) TimerEvent: {}
+[22.598435] (-) TimerEvent: {}
+[22.698911] (-) TimerEvent: {}
+[22.799379] (-) TimerEvent: {}
+[22.899895] (-) TimerEvent: {}
+[23.000391] (-) TimerEvent: {}
+[23.100928] (-) TimerEvent: {}
+[23.201585] (-) TimerEvent: {}
+[23.210592] (usb_cam) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libusb_cam_node.so\x1b[0m\n'}
+[23.301795] (-) TimerEvent: {}
+[23.402286] (-) TimerEvent: {}
+[23.502954] (-) TimerEvent: {}
+[23.603509] (-) TimerEvent: {}
+[23.704051] (-) TimerEvent: {}
+[23.804557] (-) TimerEvent: {}
+[23.814408] (usb_cam) StdoutLine: {'line': b'[100%] Built target usb_cam_node\n'}
+[23.823352] (usb_cam) CommandEnded: {'returncode': 0}
+[23.863757] (usb_cam) JobProgress: {'identifier': 'usb_cam', 'progress': 'install'}
+[23.872519] (usb_cam) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/harry/High_Vis/Thermal_Images/build/usb_cam'], 'cwd': '/home/harry/High_Vis/Thermal_Images/build/usb_cam', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'harry'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/harry'), ('OLDPWD', '/home/harry/High_Vis/Thermal_Images/src'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/harry/High_Vis/post_process/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'harry'), ('NAME', 'Harry-Laptop'), ('WSL_INTEROP', '/run/WSL/35602_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/snap/bin'), ('WT_SESSION', '5ac538c0-f4bb-4d04-958f-6a4a9246ce60'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/harry/High_Vis/Thermal_Images/build/usb_cam'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/harry/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages:/home/harry/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/home/harry/High_Vis/post_process/install/pdf_generator:/home/harry/High_Vis/post_process/install/hotspot_detection:/opt/ros/humble')]), 'shell': False}
+[23.879465] (usb_cam) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[23.883645] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/environment/library_path.sh\n'}
+[23.884056] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/environment/library_path.dsv\n'}
+[23.884449] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/usb_cam/usb_cam_node_exe\n'}
+[23.885831] (usb_cam) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/usb_cam/usb_cam_node_exe" to ""\n'}
+[23.885980] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/usb_cam/show_image.py\n'}
+[23.886325] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/libusb_cam.so\n'}
+[23.887810] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/libusb_cam_node.so\n'}
+[23.891597] (usb_cam) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/libusb_cam_node.so" to ""\n'}
+[23.891737] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include\n'}
+[23.892096] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam\n'}
+[23.892292] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/constants.hpp\n'}
+[23.892473] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/conversions.hpp\n'}
+[23.892834] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats\n'}
+[23.893002] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/rgb.hpp\n'}
+[23.893243] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/yuyv.hpp\n'}
+[23.893459] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/m420.hpp\n'}
+[23.893643] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/pixel_format_base.hpp\n'}
+[23.893820] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/mjpeg.hpp\n'}
+[23.894000] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/uyvy.hpp\n'}
+[23.894406] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/utils.hpp\n'}
+[23.894776] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/mono.hpp\n'}
+[23.894873] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/formats/av_pixel_format_helper.hpp\n'}
+[23.894964] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/usb_cam_node.hpp\n'}
+[23.895139] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/utils.hpp\n'}
+[23.895314] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/include/usb_cam/usb_cam.hpp\n'}
+[23.895489] (usb_cam) StdoutLine: {'line': b'-- Up-to-date: /home/harry/High_Vis/Thermal_Images/install/usb_cam/lib/libusb_cam_node.so\n'}
+[23.895667] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/launch\n'}
+[23.895844] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/launch/camera.launch.py\n'}
+[23.896020] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/launch/camera_config.py\n'}
+[23.896229] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/launch/__init__.py\n'}
+[23.896574] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/config\n'}
+[23.896721] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/config/camera_info.yaml\n'}
+[23.896901] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/config/params_1.yaml\n'}
+[23.897314] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/config/params_2.yaml\n'}
+[23.897374] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/ament_index/resource_index/package_run_dependencies/usb_cam\n'}
+[23.897426] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/ament_index/resource_index/parent_prefix_path/usb_cam\n'}
+[23.897474] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/environment/ament_prefix_path.sh\n'}
+[23.897531] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/environment/ament_prefix_path.dsv\n'}
+[23.897579] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/environment/path.sh\n'}
+[23.897627] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/environment/path.dsv\n'}
+[23.897675] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/local_setup.bash\n'}
+[23.897896] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/local_setup.sh\n'}
+[23.897958] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/local_setup.zsh\n'}
+[23.898166] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/local_setup.dsv\n'}
+[23.898383] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/package.dsv\n'}
+[23.898758] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/ament_index/resource_index/packages/usb_cam\n'}
+[23.899688] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/ament_index/resource_index/rclcpp_components/usb_cam\n'}
+[23.900024] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[23.900391] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[23.900571] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[23.900776] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/cmake/usb_camConfig.cmake\n'}
+[23.900848] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/cmake/usb_camConfig-version.cmake\n'}
+[23.901167] (usb_cam) StdoutLine: {'line': b'-- Installing: /home/harry/High_Vis/Thermal_Images/install/usb_cam/share/usb_cam/package.xml\n'}
+[23.903849] (usb_cam) CommandEnded: {'returncode': 0}
+[23.906756] (-) TimerEvent: {}
+[24.008379] (-) TimerEvent: {}
+[24.063575] (usb_cam) JobEnded: {'identifier': 'usb_cam', 'rc': 0}
+[24.065509] (-) EventReactorShutdown: {}
