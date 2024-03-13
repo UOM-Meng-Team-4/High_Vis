@@ -12,7 +12,7 @@
 ## Create a ROS2 Python Package
 1) cd to workspace in src directory
 2) Run `ros2 pkg create "Name_of_package" --build-type ament_python --dependencies rclpy` (add any other dependencies here)
-3) cd to workspace
+3) `cd ..`
 4) Run `Colcon Build`
 
 ## Create a ROS2 Node (Python)
