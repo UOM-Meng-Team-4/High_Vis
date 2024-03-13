@@ -19,7 +19,7 @@
 1) cd to workspace/src/package_name/package_name
 2) Create new python file:  `touch "filename.py"`
 3) Make it executable  `chmod +x "filename.py"`
-4) cd ../..
+4) `cd ../..`
 5) Open python file in text editor
 6) Use this template:
 
