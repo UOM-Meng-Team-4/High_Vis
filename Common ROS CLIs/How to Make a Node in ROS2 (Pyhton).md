@@ -6,9 +6,8 @@
 3) Make source folder `mkdir src`
 4) Run `Colcon Build`
 5) `ls` to see if it has worked
-6) Copy the following `source ~/*workspace name*/install/setup.bash` (change workspace name)
-7) run `gedit .bashrc`
-8) Paste `source ~/*workspace name*/install/setup.bash` at bottom of bashrc
+6) Run `source install/setup.bash` 
+
 
 ## Create a ROS2 Python Package
 1) cd to workspace in src directory
@@ -53,7 +52,7 @@ if __name__ == '__main__':
 2) In 'console_scripts' add the following between the []: `executable_name = package_name.filename:main`
 3) cd to source folder
 4) Run `colcon build --symlink-install`
-5) Run `source ~/.bashrc`
+5) Run `source install/setup.bash`
 6) To run the package type `ros2 run package_name executable_name`
 
 
