@@ -20,7 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "cm_top = cam_topic.camera_topic:main"
+            "cam_top_pub = cam_topic.camera_topic:main",
+            "cam_top_sub = cam_topic.camera_topic_sub:main",
+
         ],
     },
 )

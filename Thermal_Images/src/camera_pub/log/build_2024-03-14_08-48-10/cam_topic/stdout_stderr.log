@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing cam_topic.egg-info/PKG-INFO
+writing dependency_links to cam_topic.egg-info/dependency_links.txt
+writing entry points to cam_topic.egg-info/entry_points.txt
+writing requirements to cam_topic.egg-info/requires.txt
+writing top-level names to cam_topic.egg-info/top_level.txt
+reading manifest file 'cam_topic.egg-info/SOURCES.txt'
+writing manifest file 'cam_topic.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/harry/High_Vis/Thermal_Images/src/camera_pub/install/cam_topic/lib/python3.10/site-packages/cam-topic.egg-link (link to .)
+Installing cm_top script to /home/harry/High_Vis/Thermal_Images/src/camera_pub/install/cam_topic/lib/cam_topic
+
+Installed /home/harry/High_Vis/Thermal_Images/src/camera_pub/build/cam_topic
+running install_data

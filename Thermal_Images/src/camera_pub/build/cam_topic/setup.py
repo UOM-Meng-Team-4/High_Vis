@@ -1,1 +1,0 @@
-/home/harry/High_Vis/Thermal_Images/src/camera_pub/src/cam_topic/setup.py
