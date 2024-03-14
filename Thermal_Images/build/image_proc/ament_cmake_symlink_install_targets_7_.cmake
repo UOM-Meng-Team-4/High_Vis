@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/build/image_proc/image_proc" "TARGETS" "image_proc_exe" "DESTINATION" "lib/image_proc")

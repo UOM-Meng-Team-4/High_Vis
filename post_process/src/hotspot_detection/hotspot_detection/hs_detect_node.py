@@ -45,10 +45,10 @@ class MinimalSubscriber(Node):
         inner_circle_radius = 10
         outer_circle_radius = inner_circle_radius + 3  # Slightly larger radius
         circle_color = (0, 0, 255)  # Red color
-        cv2.circle(self.cv_image, (x, y), outer_circle_radius, circle_color, 2)  # Thickness = 1
+        #cv2.circle(self.cv_image, (x, y), outer_circle_radius, circle_color, 2)  # Thickness = 1
 
         print(f"Circle drawn around the brightest point at ({x}, {y}).")
-        self.timer = self.timer + 1
+        self.timer = self.timer + 7
         output_image_path = f"test {str(self.timer)} hotspot.jpg"
         print(f"Modified image saved as '{output_image_path}'")
         cv2.imwrite(output_image_path, self.cv_image)

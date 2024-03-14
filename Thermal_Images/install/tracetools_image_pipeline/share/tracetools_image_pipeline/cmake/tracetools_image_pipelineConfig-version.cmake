@@ -1,1 +1,0 @@
-/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/build/tracetools_image_pipeline/ament_cmake_core/tracetools_image_pipelineConfig-version.cmake

@@ -1,1 +1,0 @@
-/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/Thermal_Images/src/image_pipeline/stereo_image_proc/launch/stereo_image_proc.launch.py
