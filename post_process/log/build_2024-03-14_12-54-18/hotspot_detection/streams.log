@@ -1,0 +1,28 @@
+[2.128s] Invoking command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection/build --no-deps install_data
+[2.564s] running develop
+[2.564s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[2.565s]   warnings.warn(
+[2.566s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.567s]   warnings.warn(
+[2.830s] running egg_info
+[2.830s] creating hotspot_detection.egg-info
+[2.830s] writing hotspot_detection.egg-info/PKG-INFO
+[2.830s] writing dependency_links to hotspot_detection.egg-info/dependency_links.txt
+[2.831s] writing entry points to hotspot_detection.egg-info/entry_points.txt
+[2.831s] writing requirements to hotspot_detection.egg-info/requires.txt
+[2.831s] writing top-level names to hotspot_detection.egg-info/top_level.txt
+[2.831s] writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+[2.835s] reading manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+[2.838s] writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+[2.839s] running build_ext
+[2.839s] Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages/hotspot-detection.egg-link (link to .)
+[2.840s] Installing hs_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/lib/hotspot_detection
+[2.841s] 
+[2.841s] Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection
+[2.841s] running install_data
+[2.842s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/share/ament_index
+[2.842s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/share/ament_index/resource_index
+[2.842s] creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/share/ament_index/resource_index/packages
+[2.842s] copying resource/hotspot_detection -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/share/ament_index/resource_index/packages
+[2.842s] copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/share/hotspot_detection
+[2.888s] Invoked command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection' returned '0': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/hotspot_detection/build --no-deps install_data

@@ -52,14 +52,14 @@ class MinimalSubscriber(Node):
         output_image_path = f"test {str(self.timer)} hotspot.jpg"
         print(f"Modified image saved as '{output_image_path}'")
         cv2.imwrite(output_image_path, self.cv_image)
-
+        
 
 
 def main(args=None):
     rclpy.init(args=args)
 
     minimal_subscriber = MinimalSubscriber()
-    rclpy.spin(minimal_subscriber)
+    rclpy.spin_once(minimal_subscriber)
 
     rclpy.shutdown()
 

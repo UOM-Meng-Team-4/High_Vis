@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating pdf_generator.egg-info
+writing pdf_generator.egg-info/PKG-INFO
+writing dependency_links to pdf_generator.egg-info/dependency_links.txt
+writing entry points to pdf_generator.egg-info/entry_points.txt
+writing requirements to pdf_generator.egg-info/requires.txt
+writing top-level names to pdf_generator.egg-info/top_level.txt
+writing manifest file 'pdf_generator.egg-info/SOURCES.txt'
+reading manifest file 'pdf_generator.egg-info/SOURCES.txt'
+writing manifest file 'pdf_generator.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/python3.10/site-packages/pdf-generator.egg-link (link to .)
+Installing pg_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/lib/pdf_generator
+
+Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/build/pdf_generator
+running install_data
+creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index
+creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index/resource_index
+creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index/resource_index/packages
+copying resource/pdf_generator -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/ament_index/resource_index/packages
+copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/post_process/install/pdf_generator/share/pdf_generator
