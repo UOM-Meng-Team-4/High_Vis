@@ -10,7 +10,11 @@ setup.py
 ../../build/hotspot_detection/hotspot_detection.egg-info/zip-safe
 hotspot_detection/__init__.py
 hotspot_detection/hs_detect_node.py
+hotspot_detection.egg-info/PKG-INFO
+hotspot_detection.egg-info/SOURCES.txt
+hotspot_detection.egg-info/dependency_links.txt
+hotspot_detection.egg-info/entry_points.txt
+hotspot_detection.egg-info/requires.txt
+hotspot_detection.egg-info/top_level.txt
+hotspot_detection.egg-info/zip-safe
 resource/hotspot_detection
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py

@@ -1,3 +1,0 @@
-[console_scripts]
-pg_node = pdf_generator.pdf_gen_node:main
-

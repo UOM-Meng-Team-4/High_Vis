@@ -11,7 +11,11 @@ setup.py
 cam_topic/__init__.py
 cam_topic/camera_topic.py
 cam_topic/camera_topic_sub.py
+cam_topic.egg-info/PKG-INFO
+cam_topic.egg-info/SOURCES.txt
+cam_topic.egg-info/dependency_links.txt
+cam_topic.egg-info/entry_points.txt
+cam_topic.egg-info/requires.txt
+cam_topic.egg-info/top_level.txt
+cam_topic.egg-info/zip-safe
 resource/cam_topic
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py
