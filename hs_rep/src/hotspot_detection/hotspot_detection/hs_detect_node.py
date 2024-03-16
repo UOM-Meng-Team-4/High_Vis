@@ -31,6 +31,15 @@ class MinimalSubscriber(Node):
             self.x2 = 540
             self.imROI = self.cv_image[self.y1:self.y2, self.x1:self.x2]
 
+            # Erosion
+            self.padded_image = cv2.copyMakeBorder(self.imROI, top=54, bottom=54,
+                                                   left=0, right=0, borderType=cv2.BORDER_CONSTANT, value=0)
+            kernel = np.ones((3,3), np.uint8)
+            self.erosion_image = cv2.erode(self.padded_image, kernel, iterations=1)
+            self.dilated_image = cv2.dilate(self.padded_image, kernel, iterations=1)
+            self.ed_image = cv2.dilate(self.erosion_image, kernel, iterations=1)
+
+
            # Call hotspot detection function
             MinimalSubscriber.hotspot_detection(self)
 
@@ -41,8 +50,8 @@ class MinimalSubscriber(Node):
     def hotspot_detection(self):
 
         # Find the maximum pixel intensity value (brightest point)
-        max_intensity = np.max(self.imROI)
-        max_intensity_location = np.where(self.imROI == max_intensity)
+        max_intensity = np.max(self.erosion_image)
+        max_intensity_location = np.where(self.erosion_image == max_intensity)
 
         # Get the coordinates of the brightest point
         x, y = max_intensity_location[1][0], max_intensity_location[0][0]
@@ -51,16 +60,23 @@ class MinimalSubscriber(Node):
         inner_circle_radius = 10
         outer_circle_radius = inner_circle_radius + 3  # Slightly larger radius
         circle_color = (0, 0, 255)  # Red color
-        cv2.circle(self.imROI, (x, y), outer_circle_radius, circle_color, 2)  # Thickness = 1
+        cv2.circle(self.cv_image, (x, y), outer_circle_radius, circle_color, 2)
+        cv2.circle(self.erosion_image, (x, y), outer_circle_radius, circle_color, 2)
 
         # Draw rectangle for ROI (Optional)
         cv2.rectangle(self.cv_image, (self.x1, self.y1), (self.x2, self.y2), (255, 0, 0), 2)
+        cv2.rectangle(self.erosion_image, (self.x1, self.y1), (self.x2, self.y2), (255, 0, 0), 2)
 
         print(f"Circle drawn around the brightest point at ({x}, {y}).")
-        self.measurement_point = 1
+        self.measurement_point = 2
         output_image_path = f"{str(self.measurement_point)} hotspot.jpg"
         print(f"Modified image saved as '{output_image_path}'")
         cv2.imwrite(output_image_path, self.cv_image)
+        cv2.imwrite("eroded image.jpg", self.erosion_image)
+        cv2.imwrite("dilated image.jpg", self.dilated_image)
+        cv2.imwrite("ed image.jpg", self.ed_image)
+        #cv2.imshow('Eroded image', self.ersion_image)
+        #cv2.waitKey(0)
         
 
 
