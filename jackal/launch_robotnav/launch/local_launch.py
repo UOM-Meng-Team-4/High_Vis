@@ -16,7 +16,7 @@ ARGUMENTS = [
     DeclareLaunchArgument('setup_path',
                           default_value=[ '//etc/clearpath/'],
                           description='Clearpath setup path'),
-    DeclareLaunchArgument('use_sim_time', default_value='false',
+    DeclareLaunchArgument('use_sim_time', default_value='true',
                           choices=['true', 'false'],
                           description='use_sim_time'),
     DeclareLaunchArgument('namespace', default_value='j100_0219',
@@ -92,7 +92,7 @@ def generate_launch_description():
     #ld.add_action(simul)
     ld.add_action(point_to_laser)
     #ld.add_action(viz)
-    ld.add_action(slam)
-    #ld.add_action(local)
+    #ld.add_action(slam)
+    ld.add_action(local)
     ld.add_action(nav2)
     return ld
