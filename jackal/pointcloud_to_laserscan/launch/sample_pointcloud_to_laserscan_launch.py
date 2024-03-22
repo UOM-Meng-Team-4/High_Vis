@@ -29,7 +29,7 @@ def generate_launch_description():
         ),
         Node(
             package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
-            remappings=[('cloud_in', [LaunchConfiguration(variable_name='j100_0219'), '/sensors/lidar3d_0/points']),
+            remappings=[('cloud_in', [LaunchConfiguration(variable_name='j100_0219'), '/sensors/lidar3d_0/velodyne_points']),
                         ('scan', [LaunchConfiguration(variable_name='j100_0219'), '/sensors/lidar2d_0/scan']),
                         ('/tf','j100_0219/tf'),
                         ( '/tf_static', 'j100_0219/tf_static')],
