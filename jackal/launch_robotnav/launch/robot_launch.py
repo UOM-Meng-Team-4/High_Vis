@@ -24,21 +24,7 @@ ARGUMENTS = [
 ]
 
 def generate_launch_description():
-    pkg_clearpath_gz = get_package_share_directory(
-        'clearpath_gz')
 
-    # Paths
-    simul_launch = PathJoinSubstitution(
-        [pkg_clearpath_gz, 'launch', 'simulation.launch.py'])
-    #Launch Simulation 
-    simul= IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([simul_launch]),
-        launch_arguments=[
-            ('world', LaunchConfiguration('world')),
-            ('use_sim_time', LaunchConfiguration('use_sim_time')),
-            ('setup_path', LaunchConfiguration('setup_path'))
-        ]
-    )
     # Laserscan Node
     point_to_laser = Node(
             package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
@@ -62,20 +48,6 @@ def generate_launch_description():
             }],
             name='pointcloud_to_laserscan'
         )
-    
-    pkg_clearpath_viz = get_package_share_directory(
-        'clearpath_viz')
-
-    # Paths
-    viz_launch = PathJoinSubstitution(
-        [pkg_clearpath_viz, 'launch', 'view_navigation.launch.py'])
-    #Launch Simulation 
-    viz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([viz_launch]),
-        launch_arguments=[
-            ('namespace', LaunchConfiguration('namespace'))  
-        ]
-    )
 
     # Nav2 Package
     pkg_clearpath_nav2 = get_package_share_directory(
@@ -117,9 +89,9 @@ def generate_launch_description():
 
 
     ld = LaunchDescription(ARGUMENTS)
-    ld.add_action(simul)
+    #ld.add_action(simul)
     ld.add_action(point_to_laser)
-    ld.add_action(viz)
+    #ld.add_action(viz)
     ld.add_action(slam)
     #ld.add_action(local)
     ld.add_action(nav2)
