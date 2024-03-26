@@ -1,0 +1,2 @@
+[console_scripts]
+hs_node = hotspot_detection.hs_detect_node:main

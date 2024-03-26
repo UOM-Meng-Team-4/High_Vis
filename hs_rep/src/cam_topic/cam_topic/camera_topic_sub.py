@@ -18,8 +18,8 @@ class MinimalSubscriber(Node):
 
             # Process the image (e.g., display it, save it, etc.)
             # For demonstration purposes, let's display the image
-            cv2.imshow("Received Image", cv_image)
-            cv2.waitKey(1)  # Wait for a key press (optional)
+            cv2.imwrite("new_test_hotspot_thermal_overlay.jpg", cv_image)
+            #cv2.waitKey(1)  # Wait for a key press (optional)
 
         except Exception as e:
             self.get_logger().error(f"Error processing image: {str(e)}")
@@ -27,7 +27,7 @@ class MinimalSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
     minimal_subscriber = MinimalSubscriber()
-    rclpy.spin(minimal_subscriber)
+    rclpy.spin_once(minimal_subscriber)
     rclpy.shutdown()
 
 if __name__ == '__main__':

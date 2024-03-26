@@ -1,0 +1,204 @@
+[0.000000] (-) TimerEvent: {}
+[0.000389] (cam_topic) JobQueued: {'identifier': 'cam_topic', 'dependencies': OrderedDict()}
+[0.000589] (hotspot_detection) JobQueued: {'identifier': 'hotspot_detection', 'dependencies': OrderedDict()}
+[0.000649] (pdf_generator) JobQueued: {'identifier': 'pdf_generator', 'dependencies': OrderedDict()}
+[0.000685] (cam_topic) JobStarted: {'identifier': 'cam_topic'}
+[0.098714] (-) TimerEvent: {}
+[0.112304] (hotspot_detection) JobStarted: {'identifier': 'hotspot_detection'}
+[0.198810] (-) TimerEvent: {}
+[0.207809] (pdf_generator) JobStarted: {'identifier': 'pdf_generator'}
+[0.299214] (-) TimerEvent: {}
+[0.399567] (-) TimerEvent: {}
+[0.499873] (-) TimerEvent: {}
+[0.600306] (-) TimerEvent: {}
+[0.700738] (-) TimerEvent: {}
+[0.801067] (-) TimerEvent: {}
+[0.901361] (-) TimerEvent: {}
+[1.001810] (-) TimerEvent: {}
+[1.102263] (-) TimerEvent: {}
+[1.202580] (-) TimerEvent: {}
+[1.303090] (-) TimerEvent: {}
+[1.403598] (-) TimerEvent: {}
+[1.503974] (-) TimerEvent: {}
+[1.604619] (-) TimerEvent: {}
+[1.705107] (-) TimerEvent: {}
+[1.805564] (-) TimerEvent: {}
+[1.905948] (-) TimerEvent: {}
+[2.006313] (-) TimerEvent: {}
+[2.106829] (-) TimerEvent: {}
+[2.207193] (-) TimerEvent: {}
+[2.307651] (-) TimerEvent: {}
+[2.364270] (cam_topic) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/cam_topic/build', '--no-deps', 'install_data'], 'cwd': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/cam_topic', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_GB:en', 'USER': 'msc-robot', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/msc-robot', 'OLDPWD': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '371812', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'msc-robot', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'msc-robot', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/mscrobot-ThinkPad-X260:@/tmp/.ICE-unix/162344,unix/mscrobot-ThinkPad-X260:/tmp/.ICE-unix/162344', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/260cc2c7_c4cb_43d9_8fdc_0c03a7a333f1', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.0TBVK2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.761', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/cam_topic', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/cam_topic/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.407777] (-) TimerEvent: {}
+[2.508265] (-) TimerEvent: {}
+[2.608778] (-) TimerEvent: {}
+[2.666037] (hotspot_detection) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection/build', '--no-deps', 'install_data'], 'cwd': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_GB:en', 'USER': 'msc-robot', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/msc-robot', 'OLDPWD': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '371812', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'msc-robot', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'msc-robot', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/mscrobot-ThinkPad-X260:@/tmp/.ICE-unix/162344,unix/mscrobot-ThinkPad-X260:/tmp/.ICE-unix/162344', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/260cc2c7_c4cb_43d9_8fdc_0c03a7a333f1', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.0TBVK2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.761', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.708893] (-) TimerEvent: {}
+[2.740962] (pdf_generator) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator/build', '--no-deps', 'install_data'], 'cwd': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_GB:en', 'USER': 'msc-robot', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/msc-robot', 'OLDPWD': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '371812', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'humble', 'LOGNAME': 'msc-robot', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'msc-robot', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/mscrobot-ThinkPad-X260:@/tmp/.ICE-unix/162344,unix/mscrobot-ThinkPad-X260:/tmp/.ICE-unix/162344', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/260cc2c7_c4cb_43d9_8fdc_0c03a7a333f1', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.0TBVK2', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.761', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.809023] (-) TimerEvent: {}
+[2.909369] (-) TimerEvent: {}
+[3.009742] (-) TimerEvent: {}
+[3.087794] (cam_topic) StdoutLine: {'line': b'running develop\n'}
+[3.091045] (cam_topic) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[3.091319] (cam_topic) StderrLine: {'line': b'!!\n'}
+[3.091491] (cam_topic) StderrLine: {'line': b'\n'}
+[3.091666] (cam_topic) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.091807] (cam_topic) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[3.091947] (cam_topic) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.092106] (cam_topic) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.092253] (cam_topic) StderrLine: {'line': b'\n'}
+[3.092409] (cam_topic) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[3.092561] (cam_topic) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.092724] (cam_topic) StderrLine: {'line': b'\n'}
+[3.092872] (cam_topic) StderrLine: {'line': b'!!\n'}
+[3.093027] (cam_topic) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[3.109849] (-) TimerEvent: {}
+[3.177155] (cam_topic) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n'}
+[3.177483] (cam_topic) StderrLine: {'line': b'!!\n'}
+[3.177666] (cam_topic) StderrLine: {'line': b'\n'}
+[3.177827] (cam_topic) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.177992] (cam_topic) StderrLine: {'line': b'        Please avoid running ``setup.py`` directly.\n'}
+[3.178146] (cam_topic) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.178391] (cam_topic) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.178573] (cam_topic) StderrLine: {'line': b'\n'}
+[3.178728] (cam_topic) StderrLine: {'line': b'        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.\n'}
+[3.178886] (cam_topic) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.179042] (cam_topic) StderrLine: {'line': b'\n'}
+[3.179170] (cam_topic) StderrLine: {'line': b'!!\n'}
+[3.179325] (cam_topic) StderrLine: {'line': b'  self.initialize_options()\n'}
+[3.209988] (-) TimerEvent: {}
+[3.229875] (hotspot_detection) StdoutLine: {'line': b'running develop\n'}
+[3.230305] (hotspot_detection) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[3.230585] (hotspot_detection) StderrLine: {'line': b'!!\n'}
+[3.230754] (hotspot_detection) StderrLine: {'line': b'\n'}
+[3.230911] (hotspot_detection) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.231068] (hotspot_detection) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[3.231224] (hotspot_detection) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.231382] (hotspot_detection) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.231536] (hotspot_detection) StderrLine: {'line': b'\n'}
+[3.231690] (hotspot_detection) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[3.231841] (hotspot_detection) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.231992] (hotspot_detection) StderrLine: {'line': b'\n'}
+[3.232140] (hotspot_detection) StderrLine: {'line': b'!!\n'}
+[3.232300] (hotspot_detection) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[3.291622] (hotspot_detection) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n'}
+[3.291877] (hotspot_detection) StderrLine: {'line': b'!!\n'}
+[3.292034] (hotspot_detection) StderrLine: {'line': b'\n'}
+[3.292168] (hotspot_detection) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.292313] (hotspot_detection) StderrLine: {'line': b'        Please avoid running ``setup.py`` directly.\n'}
+[3.292450] (hotspot_detection) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.292580] (hotspot_detection) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.292706] (hotspot_detection) StderrLine: {'line': b'\n'}
+[3.292830] (hotspot_detection) StderrLine: {'line': b'        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.\n'}
+[3.292954] (hotspot_detection) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.293085] (hotspot_detection) StderrLine: {'line': b'\n'}
+[3.293207] (hotspot_detection) StderrLine: {'line': b'!!\n'}
+[3.293353] (hotspot_detection) StderrLine: {'line': b'  self.initialize_options()\n'}
+[3.310089] (-) TimerEvent: {}
+[3.410497] (-) TimerEvent: {}
+[3.503969] (pdf_generator) StdoutLine: {'line': b'running develop\n'}
+[3.504609] (pdf_generator) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[3.504952] (pdf_generator) StderrLine: {'line': b'!!\n'}
+[3.505209] (pdf_generator) StderrLine: {'line': b'\n'}
+[3.505492] (pdf_generator) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.505668] (pdf_generator) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[3.505824] (pdf_generator) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.505999] (pdf_generator) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.506154] (pdf_generator) StderrLine: {'line': b'\n'}
+[3.506307] (pdf_generator) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[3.506493] (pdf_generator) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.506652] (pdf_generator) StderrLine: {'line': b'\n'}
+[3.506809] (pdf_generator) StderrLine: {'line': b'!!\n'}
+[3.506961] (pdf_generator) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[3.520768] (-) TimerEvent: {}
+[3.593390] (pdf_generator) StderrLine: {'line': b'/usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n'}
+[3.593659] (pdf_generator) StderrLine: {'line': b'!!\n'}
+[3.593834] (pdf_generator) StderrLine: {'line': b'\n'}
+[3.593996] (pdf_generator) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.594149] (pdf_generator) StderrLine: {'line': b'        Please avoid running ``setup.py`` directly.\n'}
+[3.594304] (pdf_generator) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.594495] (pdf_generator) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.594652] (pdf_generator) StderrLine: {'line': b'\n'}
+[3.594803] (pdf_generator) StderrLine: {'line': b'        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.\n'}
+[3.594958] (pdf_generator) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.595105] (pdf_generator) StderrLine: {'line': b'\n'}
+[3.595265] (pdf_generator) StderrLine: {'line': b'!!\n'}
+[3.595416] (pdf_generator) StderrLine: {'line': b'  self.initialize_options()\n'}
+[3.620882] (-) TimerEvent: {}
+[3.641887] (hotspot_detection) StdoutLine: {'line': b'running egg_info\n'}
+[3.642248] (hotspot_detection) StdoutLine: {'line': b'creating hotspot_detection.egg-info\n'}
+[3.662458] (cam_topic) StdoutLine: {'line': b'running egg_info\n'}
+[3.662802] (cam_topic) StdoutLine: {'line': b'creating cam_topic.egg-info\n'}
+[3.677095] (hotspot_detection) StdoutLine: {'line': b'writing hotspot_detection.egg-info/PKG-INFO\n'}
+[3.677911] (hotspot_detection) StdoutLine: {'line': b'writing dependency_links to hotspot_detection.egg-info/dependency_links.txt\n'}
+[3.678293] (hotspot_detection) StdoutLine: {'line': b'writing entry points to hotspot_detection.egg-info/entry_points.txt\n'}
+[3.678659] (hotspot_detection) StdoutLine: {'line': b'writing requirements to hotspot_detection.egg-info/requires.txt\n'}
+[3.678923] (hotspot_detection) StdoutLine: {'line': b'writing top-level names to hotspot_detection.egg-info/top_level.txt\n'}
+[3.679154] (hotspot_detection) StdoutLine: {'line': b"writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'\n"}
+[3.700136] (cam_topic) StdoutLine: {'line': b'writing cam_topic.egg-info/PKG-INFO\n'}
+[3.701104] (cam_topic) StdoutLine: {'line': b'writing dependency_links to cam_topic.egg-info/dependency_links.txt\n'}
+[3.701620] (cam_topic) StdoutLine: {'line': b'writing entry points to cam_topic.egg-info/entry_points.txt\n'}
+[3.702058] (cam_topic) StdoutLine: {'line': b'writing requirements to cam_topic.egg-info/requires.txt\n'}
+[3.702403] (cam_topic) StdoutLine: {'line': b'writing top-level names to cam_topic.egg-info/top_level.txt\n'}
+[3.702764] (cam_topic) StdoutLine: {'line': b"writing manifest file 'cam_topic.egg-info/SOURCES.txt'\n"}
+[3.720996] (-) TimerEvent: {}
+[3.734122] (hotspot_detection) StdoutLine: {'line': b"reading manifest file 'hotspot_detection.egg-info/SOURCES.txt'\n"}
+[3.735268] (hotspot_detection) StdoutLine: {'line': b"writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'\n"}
+[3.763011] (hotspot_detection) StdoutLine: {'line': b'running build_ext\n'}
+[3.763350] (hotspot_detection) StdoutLine: {'line': b'Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages/hotspot-detection.egg-link (link to .)\n'}
+[3.764504] (hotspot_detection) StdoutLine: {'line': b'Installing hs_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/hotspot_detection\n'}
+[3.765014] (hotspot_detection) StdoutLine: {'line': b'\n'}
+[3.765266] (hotspot_detection) StdoutLine: {'line': b'Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection\n'}
+[3.765551] (hotspot_detection) StdoutLine: {'line': b'running install_data\n'}
+[3.765839] (hotspot_detection) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index\n'}
+[3.766068] (hotspot_detection) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index\n'}
+[3.766239] (hotspot_detection) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index/packages\n'}
+[3.766575] (hotspot_detection) StdoutLine: {'line': b'copying resource/hotspot_detection -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index/packages\n'}
+[3.766774] (hotspot_detection) StdoutLine: {'line': b'copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection\n'}
+[3.790497] (cam_topic) StdoutLine: {'line': b"reading manifest file 'cam_topic.egg-info/SOURCES.txt'\n"}
+[3.790818] (cam_topic) StdoutLine: {'line': b"writing manifest file 'cam_topic.egg-info/SOURCES.txt'\n"}
+[3.821095] (-) TimerEvent: {}
+[3.822658] (hotspot_detection) CommandEnded: {'returncode': 0}
+[3.829252] (cam_topic) StdoutLine: {'line': b'running build_ext\n'}
+[3.829521] (cam_topic) StdoutLine: {'line': b'Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages/cam-topic.egg-link (link to .)\n'}
+[3.830999] (cam_topic) StdoutLine: {'line': b'Installing cam_top_pub script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/lib/cam_topic\n'}
+[3.831320] (cam_topic) StdoutLine: {'line': b'Installing cam_top_sub script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/lib/cam_topic\n'}
+[3.831894] (cam_topic) StdoutLine: {'line': b'\n'}
+[3.832074] (cam_topic) StdoutLine: {'line': b'Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/cam_topic\n'}
+[3.832293] (cam_topic) StdoutLine: {'line': b'running install_data\n'}
+[3.832444] (cam_topic) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/share/ament_index\n'}
+[3.832619] (cam_topic) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/share/ament_index/resource_index\n'}
+[3.832763] (cam_topic) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/share/ament_index/resource_index/packages\n'}
+[3.832924] (cam_topic) StdoutLine: {'line': b'copying resource/cam_topic -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/share/ament_index/resource_index/packages\n'}
+[3.833100] (cam_topic) StdoutLine: {'line': b'copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic\n'}
+[3.921225] (-) TimerEvent: {}
+[3.953407] (hotspot_detection) JobEnded: {'identifier': 'hotspot_detection', 'rc': 0}
+[3.955284] (cam_topic) CommandEnded: {'returncode': 0}
+[4.014787] (pdf_generator) StdoutLine: {'line': b'running egg_info\n'}
+[4.015077] (pdf_generator) StdoutLine: {'line': b'creating pdf_generator.egg-info\n'}
+[4.021411] (-) TimerEvent: {}
+[4.041336] (pdf_generator) StdoutLine: {'line': b'writing pdf_generator.egg-info/PKG-INFO\n'}
+[4.042502] (pdf_generator) StdoutLine: {'line': b'writing dependency_links to pdf_generator.egg-info/dependency_links.txt\n'}
+[4.043200] (pdf_generator) StdoutLine: {'line': b'writing entry points to pdf_generator.egg-info/entry_points.txt\n'}
+[4.044042] (pdf_generator) StdoutLine: {'line': b'writing requirements to pdf_generator.egg-info/requires.txt\n'}
+[4.044192] (pdf_generator) StdoutLine: {'line': b'writing top-level names to pdf_generator.egg-info/top_level.txt\n'}
+[4.044335] (pdf_generator) StdoutLine: {'line': b"writing manifest file 'pdf_generator.egg-info/SOURCES.txt'\n"}
+[4.099783] (cam_topic) JobEnded: {'identifier': 'cam_topic', 'rc': 0}
+[4.116280] (pdf_generator) StdoutLine: {'line': b"reading manifest file 'pdf_generator.egg-info/SOURCES.txt'\n"}
+[4.117184] (pdf_generator) StdoutLine: {'line': b"writing manifest file 'pdf_generator.egg-info/SOURCES.txt'\n"}
+[4.121487] (-) TimerEvent: {}
+[4.145514] (pdf_generator) StdoutLine: {'line': b'running build_ext\n'}
+[4.145771] (pdf_generator) StdoutLine: {'line': b'Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages/pdf-generator.egg-link (link to .)\n'}
+[4.146906] (pdf_generator) StdoutLine: {'line': b'Installing pg_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/pdf_generator\n'}
+[4.147376] (pdf_generator) StdoutLine: {'line': b'\n'}
+[4.147601] (pdf_generator) StdoutLine: {'line': b'Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator\n'}
+[4.147848] (pdf_generator) StdoutLine: {'line': b'running install_data\n'}
+[4.148069] (pdf_generator) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index\n'}
+[4.148217] (pdf_generator) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index\n'}
+[4.148397] (pdf_generator) StdoutLine: {'line': b'creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index/packages\n'}
+[4.148536] (pdf_generator) StdoutLine: {'line': b'copying resource/pdf_generator -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index/packages\n'}
+[4.148667] (pdf_generator) StdoutLine: {'line': b'copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator\n'}
+[4.191408] (pdf_generator) CommandEnded: {'returncode': 0}
+[4.221971] (-) TimerEvent: {}
+[4.288692] (pdf_generator) JobEnded: {'identifier': 'pdf_generator', 'rc': 0}
+[4.289885] (-) EventReactorShutdown: {}

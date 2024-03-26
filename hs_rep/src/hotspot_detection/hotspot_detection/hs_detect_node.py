@@ -93,7 +93,7 @@ class MinimalSubscriber(Node):
         cv2.rectangle(self.cv_image, (self.LTx1, self.LTy1), (self.LTx2, self.LTy2), (255, 0, 255), 2)
 
         print(f"Circle drawn around the brightest point at ({x}, {y}).")
-        self.measurement_point = 10
+        self.measurement_point = 11
         output_image_path = f"{str(self.measurement_point)} hotspot.jpg"
         print(f"Modified image saved as '{output_image_path}'")
         cv2.imwrite(output_image_path, self.cv_image)

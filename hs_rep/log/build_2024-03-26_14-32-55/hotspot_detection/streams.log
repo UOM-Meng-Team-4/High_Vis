@@ -1,0 +1,45 @@
+[2.586s] Invoking command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection/build --no-deps install_data
+[3.191s] running develop
+[3.192s] /usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[3.192s] !!
+[3.192s] 
+[3.192s]         ********************************************************************************
+[3.192s]         Please avoid running ``setup.py`` and ``easy_install``.
+[3.192s]         Instead, use pypa/build, pypa/installer or other
+[3.193s]         standards-based tools.
+[3.193s] 
+[3.193s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[3.193s]         ********************************************************************************
+[3.193s] 
+[3.193s] !!
+[3.193s]   easy_install.initialize_options(self)
+[3.283s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[3.283s] !!
+[3.283s] 
+[3.283s]         ********************************************************************************
+[3.283s]         Please avoid running ``setup.py`` directly.
+[3.283s]         Instead, use pypa/build, pypa/installer or other
+[3.283s]         standards-based tools.
+[3.284s] 
+[3.284s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[3.284s]         ********************************************************************************
+[3.284s] 
+[3.284s] !!
+[3.284s]   self.initialize_options()
+[3.629s] running egg_info
+[3.661s] writing hotspot_detection.egg-info/PKG-INFO
+[3.662s] writing dependency_links to hotspot_detection.egg-info/dependency_links.txt
+[3.662s] writing entry points to hotspot_detection.egg-info/entry_points.txt
+[3.662s] writing requirements to hotspot_detection.egg-info/requires.txt
+[3.663s] writing top-level names to hotspot_detection.egg-info/top_level.txt
+[3.717s] reading manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+[3.720s] writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+[3.749s] running build_ext
+[3.749s] Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages/hotspot-detection.egg-link (link to .)
+[3.750s] Installing hs_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/hotspot_detection
+[3.751s] 
+[3.751s] Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection
+[3.751s] running install_data
+[3.751s] copying resource/hotspot_detection -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index/packages
+[3.752s] copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection
+[3.923s] Invoked command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection' returned '0': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/hotspot_detection/build --no-deps install_data

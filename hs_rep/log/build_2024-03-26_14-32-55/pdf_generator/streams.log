@@ -1,0 +1,45 @@
+[2.570s] Invoking command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator/build --no-deps install_data
+[3.287s] running develop
+[3.288s] /usr/local/lib/python3.10/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[3.288s] !!
+[3.288s] 
+[3.288s]         ********************************************************************************
+[3.288s]         Please avoid running ``setup.py`` and ``easy_install``.
+[3.289s]         Instead, use pypa/build, pypa/installer or other
+[3.289s]         standards-based tools.
+[3.289s] 
+[3.289s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[3.289s]         ********************************************************************************
+[3.289s] 
+[3.289s] !!
+[3.290s]   easy_install.initialize_options(self)
+[3.371s] /usr/local/lib/python3.10/dist-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+[3.371s] !!
+[3.371s] 
+[3.372s]         ********************************************************************************
+[3.372s]         Please avoid running ``setup.py`` directly.
+[3.372s]         Instead, use pypa/build, pypa/installer or other
+[3.372s]         standards-based tools.
+[3.372s] 
+[3.372s]         See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+[3.373s]         ********************************************************************************
+[3.373s] 
+[3.373s] !!
+[3.373s]   self.initialize_options()
+[3.807s] running egg_info
+[3.845s] writing pdf_generator.egg-info/PKG-INFO
+[3.846s] writing dependency_links to pdf_generator.egg-info/dependency_links.txt
+[3.846s] writing entry points to pdf_generator.egg-info/entry_points.txt
+[3.847s] writing requirements to pdf_generator.egg-info/requires.txt
+[3.847s] writing top-level names to pdf_generator.egg-info/top_level.txt
+[3.903s] reading manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[3.904s] writing manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[3.947s] running build_ext
+[3.948s] Creating /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages/pdf-generator.egg-link (link to .)
+[3.949s] Installing pg_node script to /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/pdf_generator
+[3.950s] 
+[3.950s] Installed /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator
+[3.950s] running install_data
+[3.950s] copying resource/pdf_generator -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index/packages
+[3.950s] copying package.xml -> /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator
+[4.003s] Invoked command in '/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator' returned '0': PYTHONPATH=/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/build/pdf_generator/build --no-deps install_data
