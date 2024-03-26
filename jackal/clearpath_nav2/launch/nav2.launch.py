@@ -54,8 +54,11 @@ ARGUMENTS = [
                           description='Use sim time'),
     DeclareLaunchArgument('setup_path',
                           default_value=['//etc/clearpath/'],
-                          description='Clearpath setup path')
-]
+                          description='Clearpath setup path'),
+    DeclareLaunchArgument('params_file',
+                          default_value=['nav2.yaml'],
+                          description='Nav2 Parameters File')
+    ]
 
 
 def launch_setup(context, *args, **kwargs):
@@ -66,7 +69,7 @@ def launch_setup(context, *args, **kwargs):
     # Launch Configurations
     use_sim_time = LaunchConfiguration('use_sim_time')
     setup_path = LaunchConfiguration('setup_path')
-
+    params_file = LaunchConfiguration('params_file')
     # Read robot YAML
     config = read_yaml(setup_path.perform(context) + 'robot.yaml')
     # Parse robot YAML into config
@@ -79,7 +82,7 @@ def launch_setup(context, *args, **kwargs):
         pkg_clearpath_nav2,
         'config',
         platform_model,
-        'nav2.yaml'])
+        params_file])
 
     launch_nav2 = PathJoinSubstitution(
       [pkg_nav2_bringup, 'launch', 'navigation_launch.py'])

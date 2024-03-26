@@ -20,7 +20,10 @@ ARGUMENTS = [
                           choices=['true', 'false'],
                           description='use_sim_time'),
     DeclareLaunchArgument('namespace', default_value='j100_0219',
-            description='Namespace for sample topics')
+            description='Namespace for sample topics'),
+    DeclareLaunchArgument('params_file',
+                          default_value=['nav2.yaml'],
+                          description='Nav2 Parameters File')
 ]
 
 def generate_launch_description():
@@ -48,6 +51,9 @@ def generate_launch_description():
             }],
             name='pointcloud_to_laserscan'
         )
+     
+    #Gets Params file from Launch Config
+    params_file = LaunchConfiguration('params_file')
 
     # Nav2 Package
     pkg_clearpath_nav2 = get_package_share_directory(
@@ -83,7 +89,8 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([nav2_launch]),
         launch_arguments=[
             ('use_sim_time', LaunchConfiguration('use_sim_time')),
-            ('setup_path', LaunchConfiguration('setup_path'))
+            ('setup_path', LaunchConfiguration('setup_path'),
+            ('params_file', params_file))
         ]
     )
 

@@ -166,7 +166,7 @@ local_costmap:
         scan:
           topic: sensors/lidar2d_0/scan
           max_obstacle_height: 2.0
-          clearing: True
+          clearing: False
           marking: True
           data_type: "LaserScan"
           raytrace_max_range: 3.0
