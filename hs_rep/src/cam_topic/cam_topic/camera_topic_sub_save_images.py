@@ -13,6 +13,10 @@ class MinimalSubscriber(Node):
 
     def image_callback(self, msg):
         try:
+            for i in range(10):
+                i += 1
+                for j in range(5):
+                    j += 1
                     # Convert ROS 2 Image message to OpenCV format
                     cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
 

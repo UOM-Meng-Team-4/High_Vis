@@ -1,1 +1,0 @@
-/home/msc-robot/Documents/Team4_ros_ws/src/High_Vis/hs_rep/src/hotspot_detection/setup.py

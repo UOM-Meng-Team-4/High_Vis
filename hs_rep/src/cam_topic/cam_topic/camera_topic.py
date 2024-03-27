@@ -20,7 +20,7 @@ class MinimalPublisher(Node):
 
     def timer_callback(self):
         # Define the path to your image file
-        image_path = 'test 6 hotspot.jpg'
+        image_path = 'new_test_hotspot_thermal_overlay.jpg'
 
         # Read the image using OpenCV
         cv_image = cv2.imread(image_path)
