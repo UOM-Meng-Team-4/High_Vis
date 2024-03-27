@@ -11,18 +11,23 @@ from launch.substitutions import EnvironmentVariable, LaunchConfiguration, PathJ
 ARGUMENTS = [
     DeclareLaunchArgument('rviz', default_value='false',
                           choices=['true', 'false'], description='Start rviz.'),
+
     DeclareLaunchArgument('world', default_value='electrical_substation_shorten',
                           description='Gazebo World'),
+
     DeclareLaunchArgument('setup_path',
                           default_value=[ '//etc/clearpath/'],
                           description='Clearpath setup path'),
+
     DeclareLaunchArgument('use_sim_time', default_value='false',
                           choices=['true', 'false'],
                           description='use_sim_time'),
+
     DeclareLaunchArgument('namespace', default_value='j100_0219',
             description='Namespace for sample topics'),
+
     DeclareLaunchArgument('params_file',
-                          default_value=['nav2.yaml'],
+                          default_value='nav2.yaml',
                           description='Nav2 Parameters File')
 ]
 
@@ -89,8 +94,8 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([nav2_launch]),
         launch_arguments=[
             ('use_sim_time', LaunchConfiguration('use_sim_time')),
-            ('setup_path', LaunchConfiguration('setup_path'),
-            ('params_file', params_file))
+            ('setup_path', LaunchConfiguration('setup_path')),
+            ('params_file', params_file)
         ]
     )
 
