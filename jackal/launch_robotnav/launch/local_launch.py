@@ -16,7 +16,7 @@ ARGUMENTS = [
     DeclareLaunchArgument('setup_path',
                           default_value=[ '//etc/clearpath/'],
                           description='Clearpath setup path'),
-    DeclareLaunchArgument('use_sim_time', default_value='true',
+    DeclareLaunchArgument('use_sim_time', default_value='false',
                           choices=['true', 'false'],
                           description='use_sim_time'),
     DeclareLaunchArgument('namespace', default_value='j100_0219',
