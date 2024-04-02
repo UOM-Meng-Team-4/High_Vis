@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "hs_node = hotspot_detection.hs_detect_node:main"
+            "hs_node = hotspot_detection.hs_detect_node_cam_hs:main"
         ],
     },
 )
