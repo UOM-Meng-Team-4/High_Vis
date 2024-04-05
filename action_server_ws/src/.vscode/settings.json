@@ -1,0 +1,32 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/kacper/action_server_ws/build/actions_py",
+        "/home/kacper/action_server_ws/install/actions_py/lib/python3.10/site-packages",
+        "/home/kacper/action_server_ws/install/my_robot_interfaces/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/launch_robotnav/lib/python3.10/site-packages",
+        "/home/kacper/project_ws/install/clearpath_generator_gz/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/clearpath_generator_common/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/clearpath_platform_msgs/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/clearpath_config/lib/python3.10/site-packages",
+        "/home/kacper/navigation2_tutorials/nav2_gps_waypoint_follower_demo/install/nav2_gps_waypoint_follower_demo/lib/python3.10/site-packages",
+        "/home/kacper/clearpath_ws4/install/clearpath_generator_gz/local/lib/python3.10/dist-packages",
+        "/home/kacper/robotis_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/kacper/action_server_ws/build/actions_py",
+        "/home/kacper/action_server_ws/install/actions_py/lib/python3.10/site-packages",
+        "/home/kacper/action_server_ws/install/my_robot_interfaces/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/launch_robotnav/lib/python3.10/site-packages",
+        "/home/kacper/project_ws/install/clearpath_generator_gz/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/clearpath_generator_common/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/clearpath_platform_msgs/local/lib/python3.10/dist-packages",
+        "/home/kacper/project_ws/install/clearpath_config/lib/python3.10/site-packages",
+        "/home/kacper/navigation2_tutorials/nav2_gps_waypoint_follower_demo/install/nav2_gps_waypoint_follower_demo/lib/python3.10/site-packages",
+        "/home/kacper/clearpath_ws4/install/clearpath_generator_gz/local/lib/python3.10/dist-packages",
+        "/home/kacper/robotis_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
