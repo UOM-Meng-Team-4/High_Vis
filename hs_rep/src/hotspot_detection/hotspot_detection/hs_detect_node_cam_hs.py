@@ -5,6 +5,8 @@ import cv2
 import numpy as np
 import pytesseract
 import re
+import requests
+import json
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -16,13 +18,34 @@ class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('minimal_subscriber')
-
+        
         # Subscribe to /image_raw topic
         self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
         self.subscription  # Prevent unused variable warning
         self.bridge = CvBridge()
 
+    def get_ambient_temperature(self, city_name, api_key):
+        base_url = "http://api.openweathermap.org/data/2.5/weather"
+        params = {
+            "q": city_name,
+            "appid": api_key,
+            "units": "metric"  # Use "imperial" for Fahrenheit
+        }
+        response = requests.get(base_url, params=params)
+        data = response.json()
+        return data["main"]["temp"]
+
     def image_callback(self, msg):
+
+        # Ambient temperature
+        self.city_name = "Manchester"
+        self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
+
+        #self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
+        self.ambient_temp = 130
+
+        print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
+
         try:
             # Convert ROS 2 Image message to OpenCV format
             self.cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
@@ -71,32 +94,30 @@ class MinimalSubscriber(Node):
         # Get the coordinates of the brightest point
         x, y = max_intensity_location[1][0], max_intensity_location[0][0]
 
-        # Only draw a rectangle when hotspot is over 100 degC
+        # Convert the image to grayscale
+        gray = cv2.cvtColor(self.imROI, cv2.COLOR_BGR2GRAY)
+        # cv2.imwrite("gray.jpg", gray)
 
-        if int(float(self.HT_text)) > 100:
+        # Thresholding and Dilation
+        _, thresholded = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY)
+        kernel = np.ones((3,3), np.uint8)
+        thresholded = cv2.dilate(thresholded, kernel, iterations=5)
+        # cv2.imwrite("thresholded.jpg", thresholded)
 
-            # Convert the image to grayscale
-            gray = cv2.cvtColor(self.imROI, cv2.COLOR_BGR2GRAY)
-            # cv2.imwrite("gray.jpg", gray)
+        # Find contours in the thresholded image
+        contours, _ = cv2.findContours(thresholded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-            # Thresholding and Dilation
-            _, thresholded = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY)
-            kernel = np.ones((3,3), np.uint8)
-            thresholded = cv2.dilate(thresholded, kernel, iterations=5)
-            # cv2.imwrite("thresholded.jpg", thresholded)
+        # Correct for offset due to imROI
+        for contour in contours:
 
-            # Find contours in the thresholded image
-            contours, _ = cv2.findContours(thresholded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-            # Correct for offset due to imROI
-            for contour in contours:
-                contour[:,0,1] += 85
+            x, y, w, h = cv2.boundingRect(contour)
+            contour[:,0,1] += 85
 
             # Find the largest contour (assuming this is the hotspot)
-            largest_contour = max(contours, key=cv2.contourArea)
+            #largest_contour = max(contours, key=cv2.contourArea)
 
             # Calculate the rotated bounding rectangle of the largest contour
-            rect = cv2.minAreaRect(largest_contour)
+            rect = cv2.minAreaRect(contour)
             box = cv2.boxPoints(rect)
             box = np.int0(box)
 
@@ -104,7 +125,22 @@ class MinimalSubscriber(Node):
             cv2.drawContours(self.cv_image, contours, -1, (0,255,0), 3)
 
             # Draw the rectangle
-            cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)
+            # Using ANSI/NETA standard for temperature classification
+            hs_temp = int(float(self.HT_text)) - self.ambient_temp
+            if 1<hs_temp<10: 
+                cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
+
+            elif 11<hs_temp<20:
+                cv2.drawContours(self.cv_image, [box], 0, (0, 255, 128), 2)     # Yellow
+                
+            elif 21<hs_temp<40:
+                cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
+
+            elif hs_temp>40:
+                cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)   # Red
+
+            else:
+                pass
             
             print(f"Rectangle drawn around the hotspot at ({x}, {y}).")
 

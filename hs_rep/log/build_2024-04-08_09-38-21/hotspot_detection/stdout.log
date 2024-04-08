@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating hotspot_detection.egg-info
+writing hotspot_detection.egg-info/PKG-INFO
+writing dependency_links to hotspot_detection.egg-info/dependency_links.txt
+writing entry points to hotspot_detection.egg-info/entry_points.txt
+writing requirements to hotspot_detection.egg-info/requires.txt
+writing top-level names to hotspot_detection.egg-info/top_level.txt
+writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+reading manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+writing manifest file 'hotspot_detection.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages/hotspot-detection.egg-link (link to .)
+Installing hs_node script to /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/hotspot_detection
+
+Installed /home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection
+running install_data
+creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index
+creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index
+creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index/packages
+copying resource/hotspot_detection -> /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/ament_index/resource_index/packages
+copying package.xml -> /home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection

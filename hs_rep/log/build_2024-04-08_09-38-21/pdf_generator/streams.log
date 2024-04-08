@@ -1,0 +1,24 @@
+[1.569s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/build --no-deps install_data
+[1.839s] running develop
+[1.982s] running egg_info
+[1.982s] creating pdf_generator.egg-info
+[1.982s] writing pdf_generator.egg-info/PKG-INFO
+[1.983s] writing dependency_links to pdf_generator.egg-info/dependency_links.txt
+[1.983s] writing entry points to pdf_generator.egg-info/entry_points.txt
+[1.983s] writing requirements to pdf_generator.egg-info/requires.txt
+[1.984s] writing top-level names to pdf_generator.egg-info/top_level.txt
+[1.984s] writing manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[1.987s] reading manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[1.987s] writing manifest file 'pdf_generator.egg-info/SOURCES.txt'
+[1.989s] running build_ext
+[1.989s] Creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages/pdf-generator.egg-link (link to .)
+[1.990s] Installing pg_node script to /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/pdf_generator
+[1.991s] 
+[1.991s] Installed /home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator
+[1.991s] running install_data
+[1.992s] creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index
+[1.992s] creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index
+[1.992s] creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index/packages
+[1.992s] copying resource/pdf_generator -> /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/ament_index/resource_index/packages
+[1.992s] copying package.xml -> /home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator
+[2.031s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/build --no-deps install_data
