@@ -41,8 +41,8 @@ class MinimalSubscriber(Node):
         self.city_name = "Manchester"
         self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
 
-        #self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
-        self.ambient_temp = 130
+        self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
+        #self.ambient_temp = 130
 
         print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
 
@@ -54,7 +54,7 @@ class MinimalSubscriber(Node):
             self.HTy1 = 0
             self.HTy2 = 50
             self.HTx1 = 50
-            self.HTx2 = 125 # May need to adjust this value if temp is approximate
+            self.HTx2 = 100 # May need to adjust this value if temp is approximate
             self.HT_ROI =  self.cv_image[self.HTy1:self.HTy2, self.HTx1:self.HTx2]
 
             # Preprocess the image
@@ -65,17 +65,18 @@ class MinimalSubscriber(Node):
 
              # Text Recognition
             custom_config = r'--oem 3 --psm 6'
-            self.HT_text = pytesseract.image_to_string(self.HT_ROI, config=custom_config)
+            #self.HT_text = pytesseract.image_to_string(self.HT_ROI, config=custom_config)
 
             # Discard all non-numerical characters
-            self.HT_text = re.sub(r'\D', '', self.HT_text)
+            #self.HT_text = re.sub(r'\D', '', self.HT_text)
+            self.HT_text = 60
             print(f"Hotspot Temp = {self.HT_text}")
 
             # Limit area hotspot detection works in
             self.y1 = 70
             self.y2 = 410
-            self.x1 = 20
-            self.x2 = 500
+            self.x1 = 30
+            self.x2 = 602
             self.imROI = self.cv_image[self.y1:self.y2, self.x1:self.x2]
 
             # Call hotspot detection function
@@ -99,7 +100,8 @@ class MinimalSubscriber(Node):
         # cv2.imwrite("gray.jpg", gray)
 
         # Thresholding and Dilation
-        _, thresholded = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY)
+        #_, thresholded = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY)
+        _, thresholded = cv2.threshold(gray, 170, 255, cv2.THRESH_BINARY)
         kernel = np.ones((3,3), np.uint8)
         thresholded = cv2.dilate(thresholded, kernel, iterations=5)
         # cv2.imwrite("thresholded.jpg", thresholded)
@@ -108,10 +110,13 @@ class MinimalSubscriber(Node):
         contours, _ = cv2.findContours(thresholded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         # Correct for offset due to imROI
+       
         for contour in contours:
 
-            x, y, w, h = cv2.boundingRect(contour)
-            contour[:,0,1] += 85
+            #x, y, w, h = cv2.boundingRect(contour)
+
+            contour[:, :, 1] += 70
+            contour[:, :, 0] += 30
 
             # Find the largest contour (assuming this is the hotspot)
             #largest_contour = max(contours, key=cv2.contourArea)
@@ -120,9 +125,6 @@ class MinimalSubscriber(Node):
             rect = cv2.minAreaRect(contour)
             box = cv2.boxPoints(rect)
             box = np.int0(box)
-
-            # Draw contours for testing
-            cv2.drawContours(self.cv_image, contours, -1, (0,255,0), 3)
 
             # Draw the rectangle
             # Using ANSI/NETA standard for temperature classification
@@ -144,12 +146,16 @@ class MinimalSubscriber(Node):
             
             print(f"Rectangle drawn around the hotspot at ({x}, {y}).")
 
+        
+        # Draw contours for testing
+        #cv2.drawContours(self.cv_image, contours, -1, (0,255,0), 3)
+
         # Draw rectangle for ROI (Optional)
         cv2.rectangle(self.cv_image, (self.x1, self.y1), (self.x2, self.y2), (255, 0, 0), 2)
         cv2.rectangle(self.cv_image, (self.HTx1, self.HTy1), (self.HTx2, self.HTy2), (0, 255, 0), 2)
         
         # Measurement point (needs to be adaptive in future)
-        self.measurement_point = 12
+        self.measurement_point = 13
 
         # Save image with hotspot located
         output_image_path = f"{str(self.measurement_point)} hotspot.jpg"
