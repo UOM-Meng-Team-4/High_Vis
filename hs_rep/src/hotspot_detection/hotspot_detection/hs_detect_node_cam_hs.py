@@ -99,12 +99,34 @@ class MinimalSubscriber(Node):
         gray = cv2.cvtColor(self.imROI, cv2.COLOR_BGR2GRAY)
         # cv2.imwrite("gray.jpg", gray)
 
-        # Thresholding and Dilation
-        #_, thresholded = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY)
-        _, thresholded = cv2.threshold(gray, 170, 255, cv2.THRESH_BINARY)
+        # K-means clustering
+        pixel_vals = gray.reshape((-1, 2))     
+        pixel_vals = np.float32(pixel_vals)  
+        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.85) 
+        k = 5
+        retval, labels, centers = cv2.kmeans(pixel_vals, k, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS) 
+
+        # Calculate the mean grayscale value for each cluster
+        mean_values = np.zeros(k)
+        for i in range(k):
+            mean_values[i] = np.mean(pixel_vals[labels.flatten() == i])
+        
+        # Find the cluster with the highest mean value (hotspot)
+        max_center = np.argmax(mean_values)   
+        mask = labels.flatten() == (max_center)
+         
+        segmented_data = np.zeros_like(pixel_vals, dtype=np.uint8)    
+        segmented_data[mask] = 255
+        
+        # Reshape the segmented data into the original image shape with mask
+        thresholded = segmented_data.reshape((gray.shape))
+      
+        # Dilation
+        #_, thresholded = cv2.threshold(thresholded, 150, 255, cv2.THRESH_BINARY)
+        #thresholded = cv2.erode(thresholded, kernel, iterations=3)
         kernel = np.ones((3,3), np.uint8)
-        thresholded = cv2.dilate(thresholded, kernel, iterations=5)
-        # cv2.imwrite("thresholded.jpg", thresholded)
+        thresholded = cv2.dilate(thresholded, kernel, iterations=10)
+        cv2.imwrite("hotspot photos/thresholded.jpg", thresholded)
 
         # Find contours in the thresholded image
         contours, _ = cv2.findContours(thresholded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -113,15 +135,10 @@ class MinimalSubscriber(Node):
        
         for contour in contours:
 
-            #x, y, w, h = cv2.boundingRect(contour)
-
             contour[:, :, 1] += 70
             contour[:, :, 0] += 30
 
-            # Find the largest contour (assuming this is the hotspot)
-            #largest_contour = max(contours, key=cv2.contourArea)
-
-            # Calculate the rotated bounding rectangle of the largest contour
+            # Calculate the rotated bounding rectangle of the contour
             rect = cv2.minAreaRect(contour)
             box = cv2.boxPoints(rect)
             box = np.int0(box)
@@ -151,14 +168,14 @@ class MinimalSubscriber(Node):
         #cv2.drawContours(self.cv_image, contours, -1, (0,255,0), 3)
 
         # Draw rectangle for ROI (Optional)
-        cv2.rectangle(self.cv_image, (self.x1, self.y1), (self.x2, self.y2), (255, 0, 0), 2)
-        cv2.rectangle(self.cv_image, (self.HTx1, self.HTy1), (self.HTx2, self.HTy2), (0, 255, 0), 2)
+        #cv2.rectangle(self.cv_image, (self.x1, self.y1), (self.x2, self.y2), (255, 0, 0), 2)
+        #cv2.rectangle(self.cv_image, (self.HTx1, self.HTy1), (self.HTx2, self.HTy2), (0, 255, 0), 2)
         
         # Measurement point (needs to be adaptive in future)
-        self.measurement_point = 13
+        self.measurement_point = 3
 
         # Save image with hotspot located
-        output_image_path = f"{str(self.measurement_point)} hotspot.jpg"
+        output_image_path = f"hotspot photos/sub_hs_{str(self.measurement_point)} hotspot.jpg"
         print(f"Modified image saved as '{output_image_path}'")
         cv2.imwrite(output_image_path, self.cv_image)
         
