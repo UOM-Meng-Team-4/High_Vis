@@ -1,0 +1,328 @@
+[1.479s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[1.480s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f46bc0653c0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f46bc2bfb80>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f46bc2bfb80>>)
+[1.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.581s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.581s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/harry/ros2_ws/src/High_Vis/hs_rep'
+[1.581s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.583s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.618s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extensions ['ignore', 'ignore_ament_install']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'ignore'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'ignore_ament_install'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extensions ['colcon_pkg']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'colcon_pkg'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extensions ['colcon_meta']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'colcon_meta'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extensions ['ros']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'ros'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extensions ['cmake', 'python']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'cmake'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'python'
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extensions ['python_setup_py']
+[1.619s] Level 1:colcon.colcon_core.package_identification:_identify(hotspot photos) by extension 'python_setup_py'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extensions ['ignore', 'ignore_ament_install']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'ignore'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'ignore_ament_install'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extensions ['colcon_pkg']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'colcon_pkg'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extensions ['colcon_meta']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'colcon_meta'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extensions ['ros']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'ros'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extensions ['cmake', 'python']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'cmake'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'python'
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extensions ['python_setup_py']
+[1.620s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1) by extension 'python_setup_py'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extensions ['ignore', 'ignore_ament_install']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'ignore'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'ignore_ament_install'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extensions ['colcon_pkg']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'colcon_pkg'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extensions ['colcon_meta']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'colcon_meta'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extensions ['ros']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'ros'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extensions ['cmake', 'python']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'cmake'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'python'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extensions ['python_setup_py']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/acoustic) by extension 'python_setup_py'
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extensions ['ignore', 'ignore_ament_install']
+[1.621s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'ignore'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'ignore_ament_install'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extensions ['colcon_pkg']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'colcon_pkg'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extensions ['colcon_meta']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'colcon_meta'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extensions ['ros']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'ros'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extensions ['cmake', 'python']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'cmake'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'python'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extensions ['python_setup_py']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_1/thermal) by extension 'python_setup_py'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extensions ['ignore', 'ignore_ament_install']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'ignore'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'ignore_ament_install'
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extensions ['colcon_pkg']
+[1.622s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'colcon_pkg'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extensions ['colcon_meta']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'colcon_meta'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extensions ['ros']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'ros'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extensions ['cmake', 'python']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'cmake'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'python'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extensions ['python_setup_py']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_2) by extension 'python_setup_py'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extensions ['ignore', 'ignore_ament_install']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'ignore'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'ignore_ament_install'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extensions ['colcon_pkg']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'colcon_pkg'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extensions ['colcon_meta']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'colcon_meta'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extensions ['ros']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'ros'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extensions ['cmake', 'python']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'cmake'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'python'
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extensions ['python_setup_py']
+[1.623s] Level 1:colcon.colcon_core.package_identification:_identify(mp_3) by extension 'python_setup_py'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.624s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extensions ['ignore', 'ignore_ament_install']
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extension 'ignore'
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extension 'ignore_ament_install'
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extensions ['colcon_pkg']
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extension 'colcon_pkg'
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extensions ['colcon_meta']
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extension 'colcon_meta'
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extensions ['ros']
+[1.625s] Level 1:colcon.colcon_core.package_identification:_identify(src/cam_topic) by extension 'ros'
+[1.636s] DEBUG:colcon.colcon_core.package_identification:Package 'src/cam_topic' with type 'ros.ament_python' and name 'cam_topic'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extensions ['ignore', 'ignore_ament_install']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extension 'ignore'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extension 'ignore_ament_install'
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extensions ['colcon_pkg']
+[1.636s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extension 'colcon_pkg'
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extensions ['colcon_meta']
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extension 'colcon_meta'
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extensions ['ros']
+[1.637s] Level 1:colcon.colcon_core.package_identification:_identify(src/hotspot_detection) by extension 'ros'
+[1.638s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hotspot_detection' with type 'ros.ament_python' and name 'hotspot_detection'
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extensions ['ignore', 'ignore_ament_install']
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extension 'ignore'
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extension 'ignore_ament_install'
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extensions ['colcon_pkg']
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extension 'colcon_pkg'
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extensions ['colcon_meta']
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extension 'colcon_meta'
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extensions ['ros']
+[1.638s] Level 1:colcon.colcon_core.package_identification:_identify(src/pdf_generator) by extension 'ros'
+[1.639s] DEBUG:colcon.colcon_core.package_identification:Package 'src/pdf_generator' with type 'ros.ament_python' and name 'pdf_generator'
+[1.640s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.640s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.640s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.640s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.640s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.745s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.745s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.759s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[1.759s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[1.759s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[1.780s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/harry/ros2_ws/src/High_Vis/hs_rep/install
+[1.795s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 376 installed packages in /opt/ros/humble
+[1.796s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.936s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'cmake_args' from command line to 'None'
+[1.936s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'cmake_target' from command line to 'None'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'cmake_clean_cache' from command line to 'False'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'cmake_clean_first' from command line to 'False'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'cmake_force_configure' from command line to 'False'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'ament_cmake_args' from command line to 'None'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'catkin_cmake_args' from command line to 'None'
+[1.937s] Level 5:colcon.colcon_core.verb:set package 'cam_topic' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.937s] DEBUG:colcon.colcon_core.verb:Building package 'cam_topic' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic', 'merge_install': False, 'path': '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/cam_topic', 'symlink_install': True, 'test_result_base': None}
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'cmake_args' from command line to 'None'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'cmake_target' from command line to 'None'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'cmake_clean_cache' from command line to 'False'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'cmake_clean_first' from command line to 'False'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'cmake_force_configure' from command line to 'False'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'ament_cmake_args' from command line to 'None'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'catkin_cmake_args' from command line to 'None'
+[1.949s] Level 5:colcon.colcon_core.verb:set package 'hotspot_detection' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.949s] DEBUG:colcon.colcon_core.verb:Building package 'hotspot_detection' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection', 'merge_install': False, 'path': '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/hotspot_detection', 'symlink_install': True, 'test_result_base': None}
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'cmake_args' from command line to 'None'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'cmake_target' from command line to 'None'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'cmake_clean_cache' from command line to 'False'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'cmake_clean_first' from command line to 'False'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'cmake_force_configure' from command line to 'False'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'ament_cmake_args' from command line to 'None'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'catkin_cmake_args' from command line to 'None'
+[1.962s] Level 5:colcon.colcon_core.verb:set package 'pdf_generator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.962s] DEBUG:colcon.colcon_core.verb:Building package 'pdf_generator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator', 'merge_install': False, 'path': '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/pdf_generator', 'symlink_install': True, 'test_result_base': None}
+[1.974s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.990s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.991s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/cam_topic' with build type 'ament_python'
+[1.991s] Level 1:colcon.colcon_core.shell:create_environment_hook('cam_topic', 'ament_prefix_path')
+[2.019s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[2.019s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/hook/ament_prefix_path.ps1'
+[2.021s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/hook/ament_prefix_path.dsv'
+[2.022s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/hook/ament_prefix_path.sh'
+[2.035s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.035s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.076s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/hotspot_detection' with build type 'ament_python'
+[2.077s] Level 1:colcon.colcon_core.shell:create_environment_hook('hotspot_detection', 'ament_prefix_path')
+[2.095s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/hook/ament_prefix_path.ps1'
+[2.096s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/hook/ament_prefix_path.dsv'
+[2.097s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/hook/ament_prefix_path.sh'
+[2.111s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.111s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.153s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/pdf_generator' with build type 'ament_python'
+[2.154s] Level 1:colcon.colcon_core.shell:create_environment_hook('pdf_generator', 'ament_prefix_path')
+[2.174s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/hook/ament_prefix_path.ps1'
+[2.177s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/hook/ament_prefix_path.dsv'
+[2.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/hook/ament_prefix_path.sh'
+[2.199s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.200s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.515s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/cam_topic'
+[2.531s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.532s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.815s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/hotspot_detection'
+[2.828s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.828s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.109s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/harry/ros2_ws/src/High_Vis/hs_rep/src/pdf_generator'
+[3.123s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.123s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.769s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/build --no-deps install_data
+[3.775s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/build --no-deps install_data
+[3.781s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/build --no-deps install_data
+[4.251s] Level 1:colcon.colcon_core.shell:create_environment_hook('hotspot_detection', 'pythonpath_develop')
+[4.252s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/build --no-deps install_data
+[4.274s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/share/hotspot_detection/hook/pythonpath_develop.ps1'
+[4.276s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/share/hotspot_detection/hook/pythonpath_develop.dsv'
+[4.277s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection/share/hotspot_detection/hook/pythonpath_develop.sh'
+[4.305s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection' for CMake module files
+[4.305s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection' for CMake config files
+[4.306s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib'
+[4.306s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/bin'
+[4.306s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/pkgconfig/hotspot_detection.pc'
+[4.306s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages'
+[4.307s] Level 1:colcon.colcon_core.shell:create_environment_hook('hotspot_detection', 'pythonpath')
+[4.320s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/hook/pythonpath.ps1'
+[4.320s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/hook/pythonpath.dsv'
+[4.321s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/hook/pythonpath.sh'
+[4.321s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/bin'
+[4.321s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hotspot_detection)
+[4.334s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/package.ps1'
+[4.335s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/package.dsv'
+[4.336s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/package.sh'
+[4.338s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/package.bash'
+[4.339s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/hotspot_detection/package.zsh'
+[4.340s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/share/colcon-core/packages/hotspot_detection)
+[4.344s] Level 1:colcon.colcon_core.shell:create_environment_hook('pdf_generator', 'pythonpath_develop')
+[4.345s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/build --no-deps install_data
+[4.360s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/share/pdf_generator/hook/pythonpath_develop.ps1'
+[4.361s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/share/pdf_generator/hook/pythonpath_develop.dsv'
+[4.361s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator/share/pdf_generator/hook/pythonpath_develop.sh'
+[4.375s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator' for CMake module files
+[4.375s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator' for CMake config files
+[4.376s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib'
+[4.376s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/bin'
+[4.376s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/pkgconfig/pdf_generator.pc'
+[4.376s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages'
+[4.376s] Level 1:colcon.colcon_core.shell:create_environment_hook('pdf_generator', 'pythonpath')
+[4.389s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/hook/pythonpath.ps1'
+[4.390s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/hook/pythonpath.dsv'
+[4.390s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/hook/pythonpath.sh'
+[4.390s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/bin'
+[4.390s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pdf_generator)
+[4.405s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/package.ps1'
+[4.406s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/package.dsv'
+[4.406s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/package.sh'
+[4.407s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/package.bash'
+[4.407s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/pdf_generator/package.zsh'
+[4.407s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/share/colcon-core/packages/pdf_generator)
+[4.408s] Level 1:colcon.colcon_core.shell:create_environment_hook('cam_topic', 'pythonpath_develop')
+[4.412s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/build --no-deps install_data
+[4.425s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/share/cam_topic/hook/pythonpath_develop.ps1'
+[4.426s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/share/cam_topic/hook/pythonpath_develop.dsv'
+[4.427s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/share/cam_topic/hook/pythonpath_develop.sh'
+[4.441s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic' for CMake module files
+[4.442s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic' for CMake config files
+[4.442s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib'
+[4.442s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/bin'
+[4.442s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/pkgconfig/cam_topic.pc'
+[4.443s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages'
+[4.443s] Level 1:colcon.colcon_core.shell:create_environment_hook('cam_topic', 'pythonpath')
+[4.456s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/hook/pythonpath.ps1'
+[4.456s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/hook/pythonpath.dsv'
+[4.457s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/hook/pythonpath.sh'
+[4.457s] Level 1:colcon.colcon_core.environment:checking '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/bin'
+[4.457s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cam_topic)
+[4.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/package.ps1'
+[4.471s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/package.dsv'
+[4.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/package.sh'
+[4.472s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/package.bash'
+[4.472s] INFO:colcon.colcon_core.shell:Creating package script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/cam_topic/package.zsh'
+[4.473s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/share/colcon-core/packages/cam_topic)
+[4.474s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[4.474s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[4.475s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[4.475s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[4.572s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[4.572s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[4.572s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[4.572s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.575s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[4.576s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.591s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/local_setup.ps1'
+[4.593s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/_local_setup_util_ps1.py'
+[4.596s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/setup.ps1'
+[4.615s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/local_setup.sh'
+[4.616s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/_local_setup_util_sh.py'
+[4.617s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/setup.sh'
+[4.631s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/local_setup.bash'
+[4.632s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/setup.bash'
+[4.646s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/local_setup.zsh'
+[4.647s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/harry/ros2_ws/src/High_Vis/hs_rep/install/setup.zsh'

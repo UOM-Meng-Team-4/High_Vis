@@ -1,0 +1,18 @@
+[1.566s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/build --no-deps install_data
+[1.873s] running develop
+[2.031s] running egg_info
+[2.031s] writing cam_topic.egg-info/PKG-INFO
+[2.032s] writing dependency_links to cam_topic.egg-info/dependency_links.txt
+[2.032s] writing entry points to cam_topic.egg-info/entry_points.txt
+[2.032s] writing requirements to cam_topic.egg-info/requires.txt
+[2.033s] writing top-level names to cam_topic.egg-info/top_level.txt
+[2.035s] reading manifest file 'cam_topic.egg-info/SOURCES.txt'
+[2.036s] writing manifest file 'cam_topic.egg-info/SOURCES.txt'
+[2.038s] running build_ext
+[2.039s] Creating /home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages/cam-topic.egg-link (link to .)
+[2.040s] Installing cam_top_pub script to /home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/cam_topic
+[2.040s] Installing cam_top_sub script to /home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/cam_topic
+[2.041s] 
+[2.041s] Installed /home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic
+[2.041s] running install_data
+[2.087s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/prefix_override:/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic/build --no-deps install_data
