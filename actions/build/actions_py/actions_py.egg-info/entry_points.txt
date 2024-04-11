@@ -1,0 +1,4 @@
+[console_scripts]
+hotspot_detection = actions_py.hotspot_detection:main
+hs_detection_client = actions_py.hs_detection_client:main
+

@@ -1,0 +1,28 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/build/pdf_generator",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/install/pdf_generator/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/build/hotspot_detection",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/install/hotspot_detection/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/build/cam_topic",
+        "/home/harry/ros2_ws/src/High_Vis/hs_rep/install/cam_topic/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

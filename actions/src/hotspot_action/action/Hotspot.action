@@ -1,0 +1,7 @@
+# Goal
+bool take_image
+---
+# Result
+string hotspot_image_path
+---
+# Feedback

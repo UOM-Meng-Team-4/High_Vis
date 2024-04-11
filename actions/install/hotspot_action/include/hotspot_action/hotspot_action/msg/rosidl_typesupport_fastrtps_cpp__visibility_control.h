@@ -1,0 +1,1 @@
+/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_typesupport_fastrtps_cpp/hotspot_action/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
