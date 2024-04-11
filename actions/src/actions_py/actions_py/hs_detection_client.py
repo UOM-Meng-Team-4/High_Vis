@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import rclpy
+import time
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.action.client import ClientGoalHandle
@@ -20,10 +21,12 @@ class HotspotClient(Node):
         goal.take_image = take_image
 
         # Send the goal
-        self.get_logger().info(f"Sending goal {goal}")
-        self.hs_detection_client. \
-            send_goal_async(goal). \
-                add_done_callback(self.goal_response_callback)
+        for i in range(5):
+            self.get_logger().info(f"Sending goal {goal}")
+            self.hs_detection_client. \
+                send_goal_async(goal). \
+                    add_done_callback(self.goal_response_callback)
+            time.sleep(2)
 
     def goal_response_callback(self, future):
         self.goal_handle_: ClientGoalHandle = future.result()

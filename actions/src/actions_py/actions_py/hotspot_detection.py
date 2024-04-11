@@ -19,6 +19,11 @@ from hotspot_action.action import Hotspot
 class MinimalSubscriber(Node):
     def __init__(self):
         super().__init__("hotspot_detection") # Change node name to what you want
+        self.output_image_path = "hotspot_detected.jpg"
+        # Subscribe to /image_raw topic 
+        self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
+        self.subscription  # Prevent unused variable warning
+        self.bridge = CvBridge()
 
         # Create action server
         self.hotspot_detection = ActionServer(self, 
@@ -46,26 +51,24 @@ class MinimalSubscriber(Node):
         # Execute the action
         if target == True: 
             print("Hi")
-            # Subscribe to /image_raw topic 
-            self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
-            self.subscription  # Prevent unused variable warning
-            self.bridge = CvBridge()
-            
+            MinimalSubscriber.image_processing(self)
                 
         # Once done, set goal final state
         
         goal_handle.succeed()
 
         # and send the result
-        self.output_image_path = "hotspot_detected.jpg"
+        
         result = Hotspot.Result()
         result.hotspot_image_path = self.output_image_path
         target = False
         return result
             
-        
     def image_callback(self, msg):
-        self.subscription = None
+        # Convert ROS 2 Image message to OpenCV format
+        self.cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+        
+    def image_processing(self):
         # Ambient temperature
         self.city_name = "Manchester"
         self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
@@ -77,8 +80,7 @@ class MinimalSubscriber(Node):
         
         try:
             
-            # Convert ROS 2 Image message to OpenCV format
-            self.cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+            
 
             # High Temperature Reading ROI
             self.HTy1 = 10
