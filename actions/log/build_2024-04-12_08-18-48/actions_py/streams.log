@@ -1,0 +1,18 @@
+[1.644s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py': AMENT_PREFIX_PATH=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action LD_LIBRARY_PATH=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build --no-deps install_data
+[2.008s] running develop
+[2.272s] running egg_info
+[2.272s] writing actions_py.egg-info/PKG-INFO
+[2.272s] writing dependency_links to actions_py.egg-info/dependency_links.txt
+[2.272s] writing entry points to actions_py.egg-info/entry_points.txt
+[2.278s] writing requirements to actions_py.egg-info/requires.txt
+[2.279s] writing top-level names to actions_py.egg-info/top_level.txt
+[2.279s] reading manifest file 'actions_py.egg-info/SOURCES.txt'
+[2.284s] writing manifest file 'actions_py.egg-info/SOURCES.txt'
+[2.286s] running build_ext
+[2.286s] Creating /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions-py.egg-link (link to .)
+[2.288s] Installing hotspot_detection script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[2.288s] Installing hs_detection_client script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[2.288s] 
+[2.288s] Installed /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py
+[2.288s] running install_data
+[2.358s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py' returned '0': AMENT_PREFIX_PATH=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action LD_LIBRARY_PATH=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build --no-deps install_data

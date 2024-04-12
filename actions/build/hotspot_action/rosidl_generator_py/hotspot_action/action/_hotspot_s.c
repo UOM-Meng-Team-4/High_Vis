@@ -59,6 +59,33 @@ bool hotspot_action__action__hotspot__goal__convert_from_py(PyObject * _pymsg, v
     ros_message->take_image = (Py_True == field);
     Py_DECREF(field);
   }
+  {  // measurement_point
+    PyObject * field = PyObject_GetAttrString(_pymsg, "measurement_point");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->measurement_point = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
+  {  // pan_position
+    PyObject * field = PyObject_GetAttrString(_pymsg, "pan_position");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->pan_position = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
+  {  // tilt_position
+    PyObject * field = PyObject_GetAttrString(_pymsg, "tilt_position");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->tilt_position = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -86,6 +113,39 @@ PyObject * hotspot_action__action__hotspot__goal__convert_to_py(void * raw_ros_m
     field = PyBool_FromLong(ros_message->take_image ? 1 : 0);
     {
       int rc = PyObject_SetAttrString(_pymessage, "take_image", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // measurement_point
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->measurement_point);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "measurement_point", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // pan_position
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->pan_position);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "pan_position", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // tilt_position
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->tilt_position);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "tilt_position", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

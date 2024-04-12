@@ -29,6 +29,27 @@ inline void to_flow_style_yaml(
   {
     out << "take_image: ";
     rosidl_generator_traits::value_to_yaml(msg.take_image, out);
+    out << ", ";
+  }
+
+  // member: measurement_point
+  {
+    out << "measurement_point: ";
+    rosidl_generator_traits::value_to_yaml(msg.measurement_point, out);
+    out << ", ";
+  }
+
+  // member: pan_position
+  {
+    out << "pan_position: ";
+    rosidl_generator_traits::value_to_yaml(msg.pan_position, out);
+    out << ", ";
+  }
+
+  // member: tilt_position
+  {
+    out << "tilt_position: ";
+    rosidl_generator_traits::value_to_yaml(msg.tilt_position, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -44,6 +65,36 @@ inline void to_block_style_yaml(
     }
     out << "take_image: ";
     rosidl_generator_traits::value_to_yaml(msg.take_image, out);
+    out << "\n";
+  }
+
+  // member: measurement_point
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "measurement_point: ";
+    rosidl_generator_traits::value_to_yaml(msg.measurement_point, out);
+    out << "\n";
+  }
+
+  // member: pan_position
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "pan_position: ";
+    rosidl_generator_traits::value_to_yaml(msg.pan_position, out);
+    out << "\n";
+  }
+
+  // member: tilt_position
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "tilt_position: ";
+    rosidl_generator_traits::value_to_yaml(msg.tilt_position, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)

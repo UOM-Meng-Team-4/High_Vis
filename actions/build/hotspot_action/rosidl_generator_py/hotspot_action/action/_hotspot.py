@@ -56,14 +56,23 @@ class Hotspot_Goal(metaclass=Metaclass_Hotspot_Goal):
 
     __slots__ = [
         '_take_image',
+        '_measurement_point',
+        '_pan_position',
+        '_tilt_position',
     ]
 
     _fields_and_field_types = {
         'take_image': 'boolean',
+        'measurement_point': 'int64',
+        'pan_position': 'int64',
+        'tilt_position': 'int64',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -71,6 +80,9 @@ class Hotspot_Goal(metaclass=Metaclass_Hotspot_Goal):
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.take_image = kwargs.get('take_image', bool())
+        self.measurement_point = kwargs.get('measurement_point', int())
+        self.pan_position = kwargs.get('pan_position', int())
+        self.tilt_position = kwargs.get('tilt_position', int())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -103,6 +115,12 @@ class Hotspot_Goal(metaclass=Metaclass_Hotspot_Goal):
             return False
         if self.take_image != other.take_image:
             return False
+        if self.measurement_point != other.measurement_point:
+            return False
+        if self.pan_position != other.pan_position:
+            return False
+        if self.tilt_position != other.tilt_position:
+            return False
         return True
 
     @classmethod
@@ -122,6 +140,51 @@ class Hotspot_Goal(metaclass=Metaclass_Hotspot_Goal):
                 isinstance(value, bool), \
                 "The 'take_image' field must be of type 'bool'"
         self._take_image = value
+
+    @builtins.property
+    def measurement_point(self):
+        """Message field 'measurement_point'."""
+        return self._measurement_point
+
+    @measurement_point.setter
+    def measurement_point(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'measurement_point' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'measurement_point' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._measurement_point = value
+
+    @builtins.property
+    def pan_position(self):
+        """Message field 'pan_position'."""
+        return self._pan_position
+
+    @pan_position.setter
+    def pan_position(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'pan_position' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'pan_position' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._pan_position = value
+
+    @builtins.property
+    def tilt_position(self):
+        """Message field 'tilt_position'."""
+        return self._tilt_position
+
+    @tilt_position.setter
+    def tilt_position(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'tilt_position' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'tilt_position' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._tilt_position = value
 
 
 # Import statements for member types

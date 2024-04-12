@@ -54,6 +54,21 @@ static bool _Hotspot_Goal__cdr_serialize(
     cdr << (ros_message->take_image ? true : false);
   }
 
+  // Field name: measurement_point
+  {
+    cdr << ros_message->measurement_point;
+  }
+
+  // Field name: pan_position
+  {
+    cdr << ros_message->pan_position;
+  }
+
+  // Field name: tilt_position
+  {
+    cdr << ros_message->tilt_position;
+  }
+
   return true;
 }
 
@@ -71,6 +86,21 @@ static bool _Hotspot_Goal__cdr_deserialize(
     uint8_t tmp;
     cdr >> tmp;
     ros_message->take_image = tmp ? true : false;
+  }
+
+  // Field name: measurement_point
+  {
+    cdr >> ros_message->measurement_point;
+  }
+
+  // Field name: pan_position
+  {
+    cdr >> ros_message->pan_position;
+  }
+
+  // Field name: tilt_position
+  {
+    cdr >> ros_message->tilt_position;
   }
 
   return true;
@@ -93,6 +123,24 @@ size_t get_serialized_size_hotspot_action__action__Hotspot_Goal(
   // field.name take_image
   {
     size_t item_size = sizeof(ros_message->take_image);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name measurement_point
+  {
+    size_t item_size = sizeof(ros_message->measurement_point);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name pan_position
+  {
+    size_t item_size = sizeof(ros_message->pan_position);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name tilt_position
+  {
+    size_t item_size = sizeof(ros_message->tilt_position);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -132,6 +180,30 @@ size_t max_serialized_size_hotspot_action__action__Hotspot_Goal(
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
+  // member: measurement_point
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint64_t);
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+  // member: pan_position
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint64_t);
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+  // member: tilt_position
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint64_t);
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -141,7 +213,7 @@ size_t max_serialized_size_hotspot_action__action__Hotspot_Goal(
     using DataType = hotspot_action__action__Hotspot_Goal;
     is_plain =
       (
-      offsetof(DataType, take_image) +
+      offsetof(DataType, tilt_position) +
       last_member_size
       ) == ret_val;
   }

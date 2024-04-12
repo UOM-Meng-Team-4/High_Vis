@@ -21,6 +21,9 @@ extern "C"
 typedef struct hotspot_action__action__Hotspot_Goal
 {
   bool take_image;
+  int64_t measurement_point;
+  int64_t pan_position;
+  int64_t tilt_position;
 } hotspot_action__action__Hotspot_Goal;
 
 // Struct for a sequence of hotspot_action__action__Hotspot_Goal.

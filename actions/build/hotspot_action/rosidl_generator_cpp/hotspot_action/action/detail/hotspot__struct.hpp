@@ -39,6 +39,9 @@ struct Hotspot_Goal_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->take_image = false;
+      this->measurement_point = 0ll;
+      this->pan_position = 0ll;
+      this->tilt_position = 0ll;
     }
   }
 
@@ -49,6 +52,9 @@ struct Hotspot_Goal_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->take_image = false;
+      this->measurement_point = 0ll;
+      this->pan_position = 0ll;
+      this->tilt_position = 0ll;
     }
   }
 
@@ -56,12 +62,39 @@ struct Hotspot_Goal_
   using _take_image_type =
     bool;
   _take_image_type take_image;
+  using _measurement_point_type =
+    int64_t;
+  _measurement_point_type measurement_point;
+  using _pan_position_type =
+    int64_t;
+  _pan_position_type pan_position;
+  using _tilt_position_type =
+    int64_t;
+  _tilt_position_type tilt_position;
 
   // setters for named parameter idiom
   Type & set__take_image(
     const bool & _arg)
   {
     this->take_image = _arg;
+    return *this;
+  }
+  Type & set__measurement_point(
+    const int64_t & _arg)
+  {
+    this->measurement_point = _arg;
+    return *this;
+  }
+  Type & set__pan_position(
+    const int64_t & _arg)
+  {
+    this->pan_position = _arg;
+    return *this;
+  }
+  Type & set__tilt_position(
+    const int64_t & _arg)
+  {
+    this->tilt_position = _arg;
     return *this;
   }
 
@@ -108,6 +141,15 @@ struct Hotspot_Goal_
   bool operator==(const Hotspot_Goal_ & other) const
   {
     if (this->take_image != other.take_image) {
+      return false;
+    }
+    if (this->measurement_point != other.measurement_point) {
+      return false;
+    }
+    if (this->pan_position != other.pan_position) {
+      return false;
+    }
+    if (this->tilt_position != other.tilt_position) {
       return false;
     }
     return true;

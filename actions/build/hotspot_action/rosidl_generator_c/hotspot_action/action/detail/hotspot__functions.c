@@ -18,6 +18,9 @@ hotspot_action__action__Hotspot_Goal__init(hotspot_action__action__Hotspot_Goal 
     return false;
   }
   // take_image
+  // measurement_point
+  // pan_position
+  // tilt_position
   return true;
 }
 
@@ -28,6 +31,9 @@ hotspot_action__action__Hotspot_Goal__fini(hotspot_action__action__Hotspot_Goal 
     return;
   }
   // take_image
+  // measurement_point
+  // pan_position
+  // tilt_position
 }
 
 bool
@@ -38,6 +44,18 @@ hotspot_action__action__Hotspot_Goal__are_equal(const hotspot_action__action__Ho
   }
   // take_image
   if (lhs->take_image != rhs->take_image) {
+    return false;
+  }
+  // measurement_point
+  if (lhs->measurement_point != rhs->measurement_point) {
+    return false;
+  }
+  // pan_position
+  if (lhs->pan_position != rhs->pan_position) {
+    return false;
+  }
+  // tilt_position
+  if (lhs->tilt_position != rhs->tilt_position) {
     return false;
   }
   return true;
@@ -53,6 +71,12 @@ hotspot_action__action__Hotspot_Goal__copy(
   }
   // take_image
   output->take_image = input->take_image;
+  // measurement_point
+  output->measurement_point = input->measurement_point;
+  // pan_position
+  output->pan_position = input->pan_position;
+  // tilt_position
+  output->tilt_position = input->tilt_position;
   return true;
 }
 

@@ -1,0 +1,34 @@
+[2.243s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/build/clearpath_config': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/build/clearpath_config/prefix_override:/home/harry/ros2_ws/src/High_Vis/install/clearpath_config/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/build/clearpath_config/build --no-deps install_data
+[3.827s] running develop
+[3.827s] running egg_info
+[3.827s] creating clearpath_config.egg-info
+[3.827s] writing clearpath_config.egg-info/PKG-INFO
+[3.827s] writing dependency_links to clearpath_config.egg-info/dependency_links.txt
+[3.828s] writing requirements to clearpath_config.egg-info/requires.txt
+[3.828s] writing top-level names to clearpath_config.egg-info/top_level.txt
+[3.828s] writing manifest file 'clearpath_config.egg-info/SOURCES.txt'
+[3.828s] reading manifest file 'clearpath_config.egg-info/SOURCES.txt'
+[3.828s] writing manifest file 'clearpath_config.egg-info/SOURCES.txt'
+[3.829s] running build_ext
+[3.829s] Creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/lib/python3.10/site-packages/clearpath-config.egg-link (link to .)
+[3.829s] 
+[3.829s] Installed /home/harry/ros2_ws/src/High_Vis/build/clearpath_config
+[3.829s] running install_data
+[3.830s] creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index
+[3.830s] creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index/resource_index
+[3.830s] creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index/resource_index/packages
+[3.830s] copying resource/clearpath_config -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index/resource_index/packages
+[3.830s] copying package.xml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config
+[3.831s] creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.831s] copying clearpath_config/sample/a200/a200_default.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.831s] copying clearpath_config/sample/a200/a200_dual_laser.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.831s] copying clearpath_config/sample/a200/a200_sample.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.831s] copying clearpath_config/sample/a200/a200_velodyne.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.831s] copying clearpath_config/sample/j100/j100_default.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.832s] copying clearpath_config/sample/j100/j100_dual_laser.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.832s] copying clearpath_config/sample/j100/j100_sample.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.832s] copying clearpath_config/sample/j100/j100_velodyne.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.832s] copying clearpath_config/sample/w200/w200_default.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.832s] copying clearpath_config/sample/w200/w200_dual_laser.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.833s] copying clearpath_config/sample/w200/w200_velodyne.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+[3.926s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/build/clearpath_config' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/build/clearpath_config/prefix_override:/home/harry/ros2_ws/src/High_Vis/install/clearpath_config/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/build/clearpath_config/build --no-deps install_data

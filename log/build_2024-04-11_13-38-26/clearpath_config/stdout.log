@@ -1,0 +1,32 @@
+running develop
+running egg_info
+creating clearpath_config.egg-info
+writing clearpath_config.egg-info/PKG-INFO
+writing dependency_links to clearpath_config.egg-info/dependency_links.txt
+writing requirements to clearpath_config.egg-info/requires.txt
+writing top-level names to clearpath_config.egg-info/top_level.txt
+writing manifest file 'clearpath_config.egg-info/SOURCES.txt'
+reading manifest file 'clearpath_config.egg-info/SOURCES.txt'
+writing manifest file 'clearpath_config.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/lib/python3.10/site-packages/clearpath-config.egg-link (link to .)
+
+Installed /home/harry/ros2_ws/src/High_Vis/build/clearpath_config
+running install_data
+creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index
+creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index/resource_index
+creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index/resource_index/packages
+copying resource/clearpath_config -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/ament_index/resource_index/packages
+copying package.xml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config
+creating /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/a200/a200_default.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/a200/a200_dual_laser.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/a200/a200_sample.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/a200/a200_velodyne.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/j100/j100_default.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/j100/j100_dual_laser.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/j100/j100_sample.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/j100/j100_velodyne.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/w200/w200_default.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/w200/w200_dual_laser.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample
+copying clearpath_config/sample/w200/w200_velodyne.yaml -> /home/harry/ros2_ws/src/High_Vis/install/clearpath_config/share/clearpath_config/sample

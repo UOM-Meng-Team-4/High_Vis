@@ -1,0 +1,17 @@
+[0.492s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/build/clearpath_platform_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake /home/harry/ros2_ws/src/High_Vis/Robot_launch_ws/clearpath_msgs/clearpath_platform_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/harry/ros2_ws/src/High_Vis/install/clearpath_platform_msgs
+[1.411s] -- The C compiler identification is GNU 11.4.0
+[2.004s] -- The CXX compiler identification is GNU 11.4.0
+[2.526s] -- Detecting C compiler ABI info
+[2.767s] -- Detecting C compiler ABI info - done
+[2.780s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.782s] -- Detecting C compile features
+[2.786s] -- Detecting C compile features - done
+[2.794s] -- Detecting CXX compiler ABI info
+[3.135s] -- Detecting CXX compiler ABI info - done
+[3.161s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.162s] -- Detecting CXX compile features
+[3.163s] -- Detecting CXX compile features - done
+[3.214s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.635s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[3.771s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[3.823s] -- Found std_msgs: 4.2.3 (/opt/ros/humble/share/std_msgs/cmake)

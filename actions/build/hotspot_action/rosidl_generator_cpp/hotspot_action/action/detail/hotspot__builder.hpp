@@ -21,16 +21,64 @@ namespace action
 namespace builder
 {
 
+class Init_Hotspot_Goal_tilt_position
+{
+public:
+  explicit Init_Hotspot_Goal_tilt_position(::hotspot_action::action::Hotspot_Goal & msg)
+  : msg_(msg)
+  {}
+  ::hotspot_action::action::Hotspot_Goal tilt_position(::hotspot_action::action::Hotspot_Goal::_tilt_position_type arg)
+  {
+    msg_.tilt_position = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::hotspot_action::action::Hotspot_Goal msg_;
+};
+
+class Init_Hotspot_Goal_pan_position
+{
+public:
+  explicit Init_Hotspot_Goal_pan_position(::hotspot_action::action::Hotspot_Goal & msg)
+  : msg_(msg)
+  {}
+  Init_Hotspot_Goal_tilt_position pan_position(::hotspot_action::action::Hotspot_Goal::_pan_position_type arg)
+  {
+    msg_.pan_position = std::move(arg);
+    return Init_Hotspot_Goal_tilt_position(msg_);
+  }
+
+private:
+  ::hotspot_action::action::Hotspot_Goal msg_;
+};
+
+class Init_Hotspot_Goal_measurement_point
+{
+public:
+  explicit Init_Hotspot_Goal_measurement_point(::hotspot_action::action::Hotspot_Goal & msg)
+  : msg_(msg)
+  {}
+  Init_Hotspot_Goal_pan_position measurement_point(::hotspot_action::action::Hotspot_Goal::_measurement_point_type arg)
+  {
+    msg_.measurement_point = std::move(arg);
+    return Init_Hotspot_Goal_pan_position(msg_);
+  }
+
+private:
+  ::hotspot_action::action::Hotspot_Goal msg_;
+};
+
 class Init_Hotspot_Goal_take_image
 {
 public:
   Init_Hotspot_Goal_take_image()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  ::hotspot_action::action::Hotspot_Goal take_image(::hotspot_action::action::Hotspot_Goal::_take_image_type arg)
+  Init_Hotspot_Goal_measurement_point take_image(::hotspot_action::action::Hotspot_Goal::_take_image_type arg)
   {
     msg_.take_image = std::move(arg);
-    return std::move(msg_);
+    return Init_Hotspot_Goal_measurement_point(msg_);
   }
 
 private:

@@ -6,7 +6,7 @@ import numpy as np
 import pytesseract
 import re
 import requests
-import json
+import os
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -19,7 +19,14 @@ from hotspot_action.action import Hotspot
 class MinimalSubscriber(Node):
     def __init__(self):
         super().__init__("hotspot_detection") # Change node name to what you want
-        self.output_image_path = "hotspot_detected.jpg"
+        
+        # Measurement point (needs to be adaptive in future)
+        self.measurement_point = 13
+        pan = 1
+        tilt = 1
+
+        
+
         # Subscribe to /image_raw topic 
         self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
         self.subscription  # Prevent unused variable warning
@@ -46,11 +53,21 @@ class MinimalSubscriber(Node):
     def execute_callback(self, goal_handle: ServerGoalHandle):
         # Get request from goal
         target = goal_handle.request.take_image
+        mp = goal_handle.request.measurement_point
+        pan = goal_handle.request.pan_position
+        tilt = goal_handle.request.tilt_position
         self.get_logger().info(f"Received request to take image {target}")
+
+        # Create directory if it doesn't exist
+        directory = os.path.join("photos", f"mp_{mp}")
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
+        self.output_image_path = os.path.join(directory, f"p_{pan}_t_{tilt}.jpg")
         
         # Execute the action
         if target == True: 
-            print("Hi")
+           #print("Hi")
             MinimalSubscriber.image_processing(self)
                 
         # Once done, set goal final state
@@ -79,9 +96,6 @@ class MinimalSubscriber(Node):
         print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
         
         try:
-            
-            
-
             # High Temperature Reading ROI
             self.HTy1 = 10
             self.HTy2 = 50
@@ -213,19 +227,12 @@ class MinimalSubscriber(Node):
         cv2.rectangle(self.cv_image, (self.x1, self.y1), (self.x2, self.y2), (255, 0, 0), 2)
         cv2.rectangle(self.cv_image, (self.HTx1, self.HTy1), (self.HTx2, self.HTy2), (0, 255, 0), 2)
         
-        # Measurement point (needs to be adaptive in future)
-        self.measurement_point = 13
-        pan = 1
-        tilt = 1
-
         # Save image with hotspot located
         #output_image_path = f"mp_{str(self.measurement_point)}/p_{pan}_t_{tilt}.jpg"
         
         print(f"Modified image saved as '{self.output_image_path}'")
         cv2.imwrite(self.output_image_path, self.cv_image)
         
-        
-
 
 def main(args=None):
     rclpy.init(args=args)

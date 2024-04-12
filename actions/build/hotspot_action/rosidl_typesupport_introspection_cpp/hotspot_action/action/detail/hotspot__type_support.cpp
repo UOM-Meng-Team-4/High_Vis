@@ -37,7 +37,7 @@ void Hotspot_Goal_fini_function(void * message_memory)
   typed_message->~Hotspot_Goal();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember Hotspot_Goal_message_member_array[1] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember Hotspot_Goal_message_member_array[4] = {
   {
     "take_image",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
@@ -54,13 +54,64 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Hotspot_Goal_
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "measurement_point",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(hotspot_action::action::Hotspot_Goal, measurement_point),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "pan_position",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(hotspot_action::action::Hotspot_Goal, pan_position),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "tilt_position",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(hotspot_action::action::Hotspot_Goal, tilt_position),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers Hotspot_Goal_message_members = {
   "hotspot_action::action",  // message namespace
   "Hotspot_Goal",  // message name
-  1,  // number of fields
+  4,  // number of fields
   sizeof(hotspot_action::action::Hotspot_Goal),
   Hotspot_Goal_message_member_array,  // message members
   Hotspot_Goal_init_function,  // function to initialize message memory (memory has to be allocated)

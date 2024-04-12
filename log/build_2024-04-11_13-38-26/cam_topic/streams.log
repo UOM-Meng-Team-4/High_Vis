@@ -1,0 +1,25 @@
+[1.889s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/build/cam_topic': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/build/cam_topic/prefix_override:/home/harry/ros2_ws/src/High_Vis/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/build/cam_topic/build --no-deps install_data
+[3.483s] running develop
+[3.484s] running egg_info
+[3.484s] creating cam_topic.egg-info
+[3.484s] writing cam_topic.egg-info/PKG-INFO
+[3.485s] writing dependency_links to cam_topic.egg-info/dependency_links.txt
+[3.485s] writing entry points to cam_topic.egg-info/entry_points.txt
+[3.485s] writing requirements to cam_topic.egg-info/requires.txt
+[3.485s] writing top-level names to cam_topic.egg-info/top_level.txt
+[3.486s] writing manifest file 'cam_topic.egg-info/SOURCES.txt'
+[3.486s] reading manifest file 'cam_topic.egg-info/SOURCES.txt'
+[3.487s] writing manifest file 'cam_topic.egg-info/SOURCES.txt'
+[3.487s] running build_ext
+[3.487s] Creating /home/harry/ros2_ws/src/High_Vis/install/cam_topic/lib/python3.10/site-packages/cam-topic.egg-link (link to .)
+[3.487s] Installing cam_top_pub script to /home/harry/ros2_ws/src/High_Vis/install/cam_topic/lib/cam_topic
+[3.487s] Installing cam_top_sub script to /home/harry/ros2_ws/src/High_Vis/install/cam_topic/lib/cam_topic
+[3.487s] 
+[3.487s] Installed /home/harry/ros2_ws/src/High_Vis/build/cam_topic
+[3.487s] running install_data
+[3.487s] creating /home/harry/ros2_ws/src/High_Vis/install/cam_topic/share/ament_index
+[3.488s] creating /home/harry/ros2_ws/src/High_Vis/install/cam_topic/share/ament_index/resource_index
+[3.488s] creating /home/harry/ros2_ws/src/High_Vis/install/cam_topic/share/ament_index/resource_index/packages
+[3.488s] copying resource/cam_topic -> /home/harry/ros2_ws/src/High_Vis/install/cam_topic/share/ament_index/resource_index/packages
+[3.488s] copying package.xml -> /home/harry/ros2_ws/src/High_Vis/install/cam_topic/share/cam_topic
+[3.507s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/build/cam_topic' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/build/cam_topic/prefix_override:/home/harry/ros2_ws/src/High_Vis/install/cam_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/build/cam_topic/build --no-deps install_data

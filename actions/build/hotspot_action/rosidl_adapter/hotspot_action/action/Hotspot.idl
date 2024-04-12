@@ -9,6 +9,12 @@ module hotspot_action {
       "Goal")
     struct Hotspot_Goal {
       boolean take_image;
+
+      int64 measurement_point;
+
+      int64 pan_position;
+
+      int64 tilt_position;
     };
     @verbatim (language="comment", text=
       "Result")

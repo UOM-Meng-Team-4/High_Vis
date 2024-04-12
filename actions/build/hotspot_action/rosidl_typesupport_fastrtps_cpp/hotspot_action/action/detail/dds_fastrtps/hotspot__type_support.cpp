@@ -34,6 +34,12 @@ cdr_serialize(
 {
   // Member: take_image
   cdr << (ros_message.take_image ? true : false);
+  // Member: measurement_point
+  cdr << ros_message.measurement_point;
+  // Member: pan_position
+  cdr << ros_message.pan_position;
+  // Member: tilt_position
+  cdr << ros_message.tilt_position;
   return true;
 }
 
@@ -49,6 +55,15 @@ cdr_deserialize(
     cdr >> tmp;
     ros_message.take_image = tmp ? true : false;
   }
+
+  // Member: measurement_point
+  cdr >> ros_message.measurement_point;
+
+  // Member: pan_position
+  cdr >> ros_message.pan_position;
+
+  // Member: tilt_position
+  cdr >> ros_message.tilt_position;
 
   return true;
 }
@@ -69,6 +84,24 @@ get_serialized_size(
   // Member: take_image
   {
     size_t item_size = sizeof(ros_message.take_image);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: measurement_point
+  {
+    size_t item_size = sizeof(ros_message.measurement_point);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: pan_position
+  {
+    size_t item_size = sizeof(ros_message.pan_position);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: tilt_position
+  {
+    size_t item_size = sizeof(ros_message.tilt_position);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -104,6 +137,33 @@ max_serialized_size_Hotspot_Goal(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
+  // Member: measurement_point
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint64_t);
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
+  // Member: pan_position
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint64_t);
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
+  // Member: tilt_position
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint64_t);
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -112,7 +172,7 @@ max_serialized_size_Hotspot_Goal(
     using DataType = hotspot_action::action::Hotspot_Goal;
     is_plain =
       (
-      offsetof(DataType, take_image) +
+      offsetof(DataType, tilt_position) +
       last_member_size
       ) == ret_val;
   }
