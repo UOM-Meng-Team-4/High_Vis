@@ -25,3 +25,14 @@ Hotspot detection algorithm. Currently takes image from /image_raw topic and det
 Takes images saved in file and saves them in a pdf.
 
 `ros2 run pdf_generator pg_node`
+
+## Hotspot Action Server
+
+### Server
+
+`ros2 run actions_py hotspot_detection`
+
+### Client
+
+`ros2 run actions_py hs_detection_client`
+
