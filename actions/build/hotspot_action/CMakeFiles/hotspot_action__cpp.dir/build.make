@@ -70,6 +70,10 @@ CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/hotsp
 CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/hotspot__builder.hpp
 CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/hotspot__struct.hpp
 CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/hotspot__traits.hpp
+CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/nav.hpp
+CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/nav__builder.hpp
+CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/nav__struct.hpp
+CMakeFiles/hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/nav__traits.hpp
 
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_cpp/__init__.py
@@ -87,6 +91,7 @@ rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/share/ro
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: rosidl_adapter/hotspot_action/action/Hotspot.idl
+rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: rosidl_adapter/hotspot_action/action/Nav.idl
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/share/action_msgs/msg/GoalInfo.idl
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/share/action_msgs/msg/GoalStatus.idl
 rosidl_generator_cpp/hotspot_action/action/hotspot.hpp: /opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl
@@ -106,11 +111,27 @@ rosidl_generator_cpp/hotspot_action/action/detail/hotspot__struct.hpp: rosidl_ge
 rosidl_generator_cpp/hotspot_action/action/detail/hotspot__traits.hpp: rosidl_generator_cpp/hotspot_action/action/hotspot.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hotspot_action/action/detail/hotspot__traits.hpp
 
+rosidl_generator_cpp/hotspot_action/action/nav.hpp: rosidl_generator_cpp/hotspot_action/action/hotspot.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hotspot_action/action/nav.hpp
+
+rosidl_generator_cpp/hotspot_action/action/detail/nav__builder.hpp: rosidl_generator_cpp/hotspot_action/action/hotspot.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hotspot_action/action/detail/nav__builder.hpp
+
+rosidl_generator_cpp/hotspot_action/action/detail/nav__struct.hpp: rosidl_generator_cpp/hotspot_action/action/hotspot.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hotspot_action/action/detail/nav__struct.hpp
+
+rosidl_generator_cpp/hotspot_action/action/detail/nav__traits.hpp: rosidl_generator_cpp/hotspot_action/action/hotspot.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/hotspot_action/action/detail/nav__traits.hpp
+
 hotspot_action__cpp: CMakeFiles/hotspot_action__cpp
 hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/hotspot__builder.hpp
 hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/hotspot__struct.hpp
 hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/hotspot__traits.hpp
+hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/nav__builder.hpp
+hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/nav__struct.hpp
+hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/detail/nav__traits.hpp
 hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/hotspot.hpp
+hotspot_action__cpp: rosidl_generator_cpp/hotspot_action/action/nav.hpp
 hotspot_action__cpp: CMakeFiles/hotspot_action__cpp.dir/build.make
 .PHONY : hotspot_action__cpp
 

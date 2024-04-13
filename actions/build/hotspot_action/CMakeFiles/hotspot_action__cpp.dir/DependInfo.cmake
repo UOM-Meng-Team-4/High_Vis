@@ -15,6 +15,10 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/detail/hotspot__builder.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
   "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/detail/hotspot__struct.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
   "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/detail/hotspot__traits.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
+  "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/detail/nav__builder.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
+  "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/detail/nav__struct.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
+  "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/detail/nav__traits.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
+  "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/nav.hpp" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_cpp/hotspot_action/action/hotspot.hpp"
   )
 
 

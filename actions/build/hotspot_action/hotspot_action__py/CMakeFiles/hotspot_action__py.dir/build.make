@@ -70,8 +70,10 @@ hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_ac
 hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_introspection_c.c
 hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_c.c
 hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/action/_hotspot.py
+hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/action/_nav.py
 hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/action/__init__.py
 hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/action/_hotspot_s.c
+hotspot_action__py/CMakeFiles/hotspot_action__py: rosidl_generator_py/hotspot_action/action/_nav_s.c
 
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py
@@ -87,6 +89,7 @@ rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastr
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/hotspot_action/action/Hotspot.idl
+rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/hotspot_action/action/Nav.idl
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/action_msgs/msg/GoalInfo.idl
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/action_msgs/msg/GoalStatus.idl
 rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl
@@ -106,11 +109,17 @@ rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_c.c: 
 rosidl_generator_py/hotspot_action/action/_hotspot.py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hotspot_action/action/_hotspot.py
 
+rosidl_generator_py/hotspot_action/action/_nav.py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hotspot_action/action/_nav.py
+
 rosidl_generator_py/hotspot_action/action/__init__.py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hotspot_action/action/__init__.py
 
 rosidl_generator_py/hotspot_action/action/_hotspot_s.c: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hotspot_action/action/_hotspot_s.c
+
+rosidl_generator_py/hotspot_action/action/_nav_s.c: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/hotspot_action/action/_nav_s.c
 
 hotspot_action__py: hotspot_action__py/CMakeFiles/hotspot_action__py
 hotspot_action__py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_c.c
@@ -119,6 +128,8 @@ hotspot_action__py: rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosi
 hotspot_action__py: rosidl_generator_py/hotspot_action/action/__init__.py
 hotspot_action__py: rosidl_generator_py/hotspot_action/action/_hotspot.py
 hotspot_action__py: rosidl_generator_py/hotspot_action/action/_hotspot_s.c
+hotspot_action__py: rosidl_generator_py/hotspot_action/action/_nav.py
+hotspot_action__py: rosidl_generator_py/hotspot_action/action/_nav_s.c
 hotspot_action__py: hotspot_action__py/CMakeFiles/hotspot_action__py.dir/build.make
 .PHONY : hotspot_action__py
 

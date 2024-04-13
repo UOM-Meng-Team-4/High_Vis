@@ -208,4 +208,7 @@ CMakeFiles/hotspot_action__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/h
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h \
  /opt/ros/humble/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h \
- /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/hotspot__functions.h
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/hotspot__functions.h \
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__type_support.h \
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__struct.h \
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__functions.h

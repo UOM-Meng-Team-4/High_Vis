@@ -21,7 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             "hotspot_detection = actions_py.hotspot_detection:main",
-            "hs_detection_client = actions_py.hs_detection_client:main"
+            "hs_detection_client = actions_py.hs_detection_client:main",
+            "nav_server = actions_py.nav_server:main",
+            "overall_client = actions_py.overall_client:main"
         ],
     },
 )
