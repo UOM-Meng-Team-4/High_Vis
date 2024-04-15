@@ -26,13 +26,16 @@ Takes images saved in file and saves them in a pdf.
 
 `ros2 run pdf_generator pg_node`
 
-## Hotspot Action Server
+## Clients and Servers
 
-### Server
+### Servers
+**Hotspot**
+`ros2 run actions_py hotspot_server`
 
-`ros2 run actions_py hotspot_detection`
+**Navigation**
+`ros2 run actions_py nav_server`
 
 ### Client
 
-`ros2 run actions_py hs_detection_client`
+`ros2 run actions_py overall_client`
 
