@@ -1,0 +1,47 @@
+[1.410s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build
+[1.859s] running develop
+[2.125s] Removing /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions-py.egg-link (link to .)
+[2.185s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build
+[2.188s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/src/actions_py': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/actions_py build --build-base /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build install --record /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/install.log --single-version-externally-managed
+[2.692s] running egg_info
+[2.693s] writing ../../build/actions_py/actions_py.egg-info/PKG-INFO
+[2.693s] writing dependency_links to ../../build/actions_py/actions_py.egg-info/dependency_links.txt
+[2.693s] writing entry points to ../../build/actions_py/actions_py.egg-info/entry_points.txt
+[2.694s] writing requirements to ../../build/actions_py/actions_py.egg-info/requires.txt
+[2.694s] writing top-level names to ../../build/actions_py/actions_py.egg-info/top_level.txt
+[2.696s] reading manifest file '../../build/actions_py/actions_py.egg-info/SOURCES.txt'
+[2.698s] writing manifest file '../../build/actions_py/actions_py.egg-info/SOURCES.txt'
+[2.698s] running build
+[2.698s] running build_py
+[2.698s] copying actions_py/overall_client.py -> /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py
+[2.699s] copying actions_py/pt_server.py -> /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py
+[2.699s] copying actions_py/hotspot_server.py -> /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py
+[2.699s] copying actions_py/hotspot_detection.py -> /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py
+[2.699s] copying actions_py/hs_detection_client.py -> /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py
+[2.699s] copying actions_py/nav_server.py -> /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py
+[2.699s] running install
+[2.700s] running install_lib
+[2.701s] creating /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.702s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/overall_client.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.702s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/pt_server.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.702s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/hotspot_server.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.703s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/hotspot_detection.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.703s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/hs_detection_client.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.703s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/nav_server.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.703s] copying /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build/lib/actions_py/__init__.py -> /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py
+[2.703s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/overall_client.py to overall_client.cpython-310.pyc
+[2.706s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/pt_server.py to pt_server.cpython-310.pyc
+[2.706s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/hotspot_server.py to hotspot_server.cpython-310.pyc
+[2.708s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/hotspot_detection.py to hotspot_detection.cpython-310.pyc
+[2.710s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/hs_detection_client.py to hs_detection_client.cpython-310.pyc
+[2.711s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/nav_server.py to nav_server.cpython-310.pyc
+[2.712s] byte-compiling /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py/__init__.py to __init__.cpython-310.pyc
+[2.712s] running install_data
+[2.712s] running install_egg_info
+[2.714s] Copying ../../build/actions_py/actions_py.egg-info to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions_py-0.0.0-py3.10.egg-info
+[2.715s] running install_scripts
+[2.734s] Installing hotspot_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[2.734s] Installing nav_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[2.734s] Installing pt_server = actions_py.pt_server:mainoverall_client script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[2.734s] writing list of installed files to '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/install.log'
+[2.766s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/src/actions_py' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/actions_py build --build-base /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build install --record /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/install.log --single-version-externally-managed

@@ -1,0 +1,19 @@
+[0.879s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build --no-deps install_data
+[1.107s] running develop
+[1.243s] running egg_info
+[1.243s] writing actions_py.egg-info/PKG-INFO
+[1.243s] writing dependency_links to actions_py.egg-info/dependency_links.txt
+[1.244s] writing entry points to actions_py.egg-info/entry_points.txt
+[1.244s] writing requirements to actions_py.egg-info/requires.txt
+[1.244s] writing top-level names to actions_py.egg-info/top_level.txt
+[1.246s] reading manifest file 'actions_py.egg-info/SOURCES.txt'
+[1.247s] writing manifest file 'actions_py.egg-info/SOURCES.txt'
+[1.249s] running build_ext
+[1.250s] Creating /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions-py.egg-link (link to .)
+[1.250s] Installing hotspot_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[1.251s] Installing nav_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[1.251s] Installing pt_server = actions_py.pt_server:mainoverall_client script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py
+[1.251s] 
+[1.251s] Installed /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py
+[1.251s] running install_data
+[1.287s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py' returned '0': PYTHONPATH=/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build --no-deps install_data

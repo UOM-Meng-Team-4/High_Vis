@@ -7,3 +7,4 @@ hotspot_action.egg-info/top_level.txt
 hotspot_action/action/__init__.py
 hotspot_action/action/_hotspot.py
 hotspot_action/action/_nav.py
+hotspot_action/action/_pan_and_tilt.py

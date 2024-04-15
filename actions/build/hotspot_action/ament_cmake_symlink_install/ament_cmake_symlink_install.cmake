@@ -364,11 +364,17 @@ ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/
 # install(FILES "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_adapter/hotspot_action/action/Nav.idl" "DESTINATION" "share/hotspot_action/action")
 ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action" FILES "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_adapter/hotspot_action/action/Nav.idl" "DESTINATION" "share/hotspot_action/action")
 
+# install(FILES "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_adapter/hotspot_action/action/PanAndTilt.idl" "DESTINATION" "share/hotspot_action/action")
+ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action" FILES "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_adapter/hotspot_action/action/PanAndTilt.idl" "DESTINATION" "share/hotspot_action/action")
+
 # install(FILES "/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/Hotspot.action" "DESTINATION" "share/hotspot_action/action")
 ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action" FILES "/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/Hotspot.action" "DESTINATION" "share/hotspot_action/action")
 
 # install(FILES "/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/Nav.action" "DESTINATION" "share/hotspot_action/action")
 ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action" FILES "/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/Nav.action" "DESTINATION" "share/hotspot_action/action")
+
+# install(FILES "/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/PanAndTilt.action" "DESTINATION" "share/hotspot_action/action")
+ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action" FILES "/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/PanAndTilt.action" "DESTINATION" "share/hotspot_action/action")
 
 # install(FILES "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/hotspot_action" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action" FILES "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/hotspot_action" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

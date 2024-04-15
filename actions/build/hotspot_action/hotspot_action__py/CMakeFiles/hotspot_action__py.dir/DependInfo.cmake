@@ -19,6 +19,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/action/_hotspot_s.c" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/action/_nav.py" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/action/_nav_s.c" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/action/_pan_and_tilt.py" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/action/_pan_and_tilt_s.c" "/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

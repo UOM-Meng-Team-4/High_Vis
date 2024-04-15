@@ -1,0 +1,180 @@
+[0.065s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake /home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action
+[0.077s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.212s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.218s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.219s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.222s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.369s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.724s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.889s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.105s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.124s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.143s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.143s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.144s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.167s] -- Configuring done
+[1.202s] -- Generating done
+[1.205s] -- Build files have been written to: /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action
+[1.213s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake /home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action
+[1.214s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake --build /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action -- -j8 -l8
+[1.249s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_generator_c[0m
+[1.256s] [  2%] Built target hotspot_action__cpp
+[1.264s] [ 12%] Built target hotspot_action__rosidl_generator_c
+[1.267s] [ 12%] Built target ament_cmake_python_symlink_hotspot_action
+[1.270s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_cpp[0m
+[1.274s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_introspection_cpp[0m
+[1.276s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_fastrtps_cpp[0m
+[1.277s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_fastrtps_c[0m
+[1.280s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_c[0m
+[1.283s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_introspection_c[0m
+[1.294s] [ 34%] Built target hotspot_action__rosidl_typesupport_introspection_cpp
+[1.295s] [ 34%] Built target hotspot_action__rosidl_typesupport_cpp
+[1.298s] [ 74%] Built target hotspot_action__rosidl_typesupport_fastrtps_cpp
+[1.298s] [ 74%] Built target hotspot_action__rosidl_typesupport_introspection_c
+[1.299s] [ 74%] Built target hotspot_action__rosidl_typesupport_c
+[1.299s] [ 76%] Built target hotspot_action__rosidl_typesupport_fastrtps_c
+[1.316s] [ 76%] Built target hotspot_action
+[1.335s] [ 78%] Built target hotspot_action__py
+[1.344s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_generator_py[0m
+[1.358s] [ 87%] Built target hotspot_action__rosidl_generator_py
+[1.367s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_fastrtps_c__pyext[0m
+[1.369s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_introspection_c__pyext[0m
+[1.376s] [35m[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_c__pyext[0m
+[1.383s] [ 91%] Built target hotspot_action__rosidl_typesupport_fastrtps_c__pyext
+[1.385s] [ 95%] Built target hotspot_action__rosidl_typesupport_introspection_c__pyext
+[1.389s] [100%] Built target hotspot_action__rosidl_typesupport_c__pyext
+[1.567s] running egg_info
+[1.568s] writing hotspot_action.egg-info/PKG-INFO
+[1.568s] writing dependency_links to hotspot_action.egg-info/dependency_links.txt
+[1.568s] writing top-level names to hotspot_action.egg-info/top_level.txt
+[1.570s] reading manifest file 'hotspot_action.egg-info/SOURCES.txt'
+[1.571s] writing manifest file 'hotspot_action.egg-info/SOURCES.txt'
+[1.596s] [100%] Built target ament_cmake_python_build_hotspot_action_egg
+[1.606s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake --build /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action -- -j8 -l8
+[1.694s] Invoking command in '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake --install /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action
+[1.700s] -- Install configuration: ""
+[1.701s] -- Execute custom install script
+[1.701s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/rosidl_interfaces/hotspot_action
+[1.701s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__functions.h
+[1.702s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__struct.h
+[1.702s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__type_support.h
+[1.702s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__functions.h
+[1.703s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__struct.h
+[1.703s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__type_support.h
+[1.703s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__functions.h
+[1.704s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__struct.h
+[1.704s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__type_support.h
+[1.704s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/hotspot.h
+[1.704s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/nav.h
+[1.705s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/pan_and_tilt.h
+[1.705s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_generator_c__visibility_control.h
+[1.705s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/library_path.sh
+[1.705s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/library_path.dsv
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_fastrtps_c.h
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_fastrtps_c.h
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_fastrtps_c.h
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_introspection_c.h
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_introspection_c.h
+[1.706s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_introspection_c.h
+[1.707s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.707s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__builder.hpp
+[1.707s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__struct.hpp
+[1.707s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__traits.hpp
+[1.707s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__builder.hpp
+[1.708s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__struct.hpp
+[1.708s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__traits.hpp
+[1.708s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__builder.hpp
+[1.708s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__struct.hpp
+[1.708s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__traits.hpp
+[1.708s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/hotspot.hpp
+[1.709s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/nav.hpp
+[1.709s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/pan_and_tilt.hpp
+[1.709s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_fastrtps_cpp.hpp
+[1.709s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_fastrtps_cpp.hpp
+[1.709s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_fastrtps_cpp.hpp
+[1.710s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.710s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_introspection_cpp.hpp
+[1.710s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_introspection_cpp.hpp
+[1.710s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_introspection_cpp.hpp
+[1.710s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/pythonpath.sh
+[1.711s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/pythonpath.dsv
+[1.711s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/PKG-INFO
+[1.711s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.711s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.711s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/top_level.txt
+[1.712s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/__init__.py
+[1.712s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_c.c
+[1.712s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c
+[1.713s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_introspection_c.c
+[1.713s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/__init__.py
+[1.713s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_hotspot.py
+[1.713s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_hotspot_s.c
+[1.713s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_nav.py
+[1.713s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_nav_s.c
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_pan_and_tilt.py
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_pan_and_tilt_s.c
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/libhotspot_action__rosidl_generator_py.so
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.714s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Hotspot.idl
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Nav.idl
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/PanAndTilt.idl
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Hotspot.action
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Nav.action
+[1.715s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/PanAndTilt.action
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/package_run_dependencies/hotspot_action
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/parent_prefix_path/hotspot_action
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/ament_prefix_path.sh
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/ament_prefix_path.dsv
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/path.sh
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/path.dsv
+[1.716s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.bash
+[1.717s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.sh
+[1.717s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.zsh
+[1.717s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.dsv
+[1.717s] -- Symlinking: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/package.dsv
+[1.724s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/packages/hotspot_action
+[1.724s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/rosidl_cmake-extras.cmake
+[1.724s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.725s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.725s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_libraries-extras.cmake
+[1.725s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_targets-extras.cmake
+[1.726s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.726s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.726s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_actionConfig.cmake
+[1.726s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_actionConfig-version.cmake
+[1.727s] -- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/package.xml
+[1.727s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_generator_c.so
+[1.727s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_fastrtps_c.so
+[1.728s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_introspection_c.so
+[1.728s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_c.so
+[1.728s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_fastrtps_cpp.so
+[1.728s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_introspection_cpp.so
+[1.728s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_cpp.so
+[1.761s] Listing '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action'...
+[1.761s] Compiling '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/__init__.py'...
+[1.761s] Listing '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action'...
+[1.766s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_generator_py.so
+[1.766s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_cExport.cmake
+[1.766s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_cExport-noconfig.cmake
+[1.767s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cExport.cmake
+[1.767s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[1.767s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cExport.cmake
+[1.767s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cExport.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cExport-noconfig.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_cppExport.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cppExport.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cppExport.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cppExport-noconfig.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_pyExport.cmake
+[1.768s] -- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_pyExport-noconfig.cmake
+[1.770s] Invoked command in '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble /usr/bin/cmake --install /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action

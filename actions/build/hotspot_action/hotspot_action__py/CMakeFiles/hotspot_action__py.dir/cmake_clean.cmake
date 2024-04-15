@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/hotspot_action/action/_hotspot_s.c"
   "../rosidl_generator_py/hotspot_action/action/_nav.py"
   "../rosidl_generator_py/hotspot_action/action/_nav_s.c"
+  "../rosidl_generator_py/hotspot_action/action/_pan_and_tilt.py"
+  "../rosidl_generator_py/hotspot_action/action/_pan_and_tilt_s.c"
   "CMakeFiles/hotspot_action__py"
 )
 

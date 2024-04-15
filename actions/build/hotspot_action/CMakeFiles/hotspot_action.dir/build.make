@@ -68,6 +68,7 @@ include CMakeFiles/hotspot_action.dir/progress.make
 
 CMakeFiles/hotspot_action: /home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/Hotspot.action
 CMakeFiles/hotspot_action: /home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/Nav.action
+CMakeFiles/hotspot_action: /home/harry/ros2_ws/src/High_Vis/actions/src/hotspot_action/action/PanAndTilt.action
 CMakeFiles/hotspot_action: /opt/ros/humble/share/action_msgs/msg/GoalInfo.idl
 CMakeFiles/hotspot_action: /opt/ros/humble/share/action_msgs/msg/GoalStatus.idl
 CMakeFiles/hotspot_action: /opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl

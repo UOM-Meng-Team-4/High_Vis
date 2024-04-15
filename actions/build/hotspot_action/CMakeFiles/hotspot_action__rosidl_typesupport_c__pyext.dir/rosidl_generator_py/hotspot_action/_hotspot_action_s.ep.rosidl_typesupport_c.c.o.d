@@ -211,4 +211,7 @@ CMakeFiles/hotspot_action__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/h
  /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/hotspot__functions.h \
  /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__type_support.h \
  /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__struct.h \
- /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__functions.h
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/nav__functions.h \
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__type_support.h \
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__struct.h \
+ /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__functions.h

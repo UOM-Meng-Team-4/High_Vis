@@ -252,8 +252,13 @@ CMakeFiles/hotspot_action__rosidl_typesupport_introspection_c__pyext.dir/rosidl_
   rosidl_generator_c/hotspot_action/action/detail/hotspot__functions.h \
   rosidl_generator_c/hotspot_action/action/detail/nav__type_support.h \
   rosidl_generator_c/hotspot_action/action/detail/nav__struct.h \
-  rosidl_generator_c/hotspot_action/action/detail/nav__functions.h
+  rosidl_generator_c/hotspot_action/action/detail/nav__functions.h \
+  rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__type_support.h \
+  rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__struct.h \
+  rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__functions.h
 
+
+rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__functions.h:
 
 rosidl_generator_c/hotspot_action/action/detail/nav__functions.h:
 
@@ -334,6 +339,8 @@ rosidl_generator_c/hotspot_action/action/detail/hotspot__type_support.h:
 /usr/include/python3.10/code.h:
 
 /usr/include/python3.10/pycapsule.h:
+
+rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__struct.h:
 
 /usr/include/python3.10/cpython/fileobject.h:
 
@@ -570,6 +577,8 @@ rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_intro
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__type_support.h:
 
 /usr/include/python3.10/cpython/pydebug.h:
 

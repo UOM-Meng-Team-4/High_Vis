@@ -2,3 +2,5 @@ action/Hotspot.action
 action/Hotspot.idl
 action/Nav.action
 action/Nav.idl
+action/PanAndTilt.action
+action/PanAndTilt.idl
