@@ -23,7 +23,7 @@ setup(
             "hotspot_server = actions_py.hotspot_server:main",
             "nav_server = actions_py.nav_server:main",
             "pt_server = actions_py.pt_server:main",
-            "overall_client = actions_py.overall_client:main"
+            "monitoring_client = actions_py.monitoring_client:main"
         ],
     },
 )

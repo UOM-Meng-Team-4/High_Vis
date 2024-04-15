@@ -19,6 +19,8 @@ module hotspot_action {
     @verbatim (language="comment", text=
       "Result")
     struct Hotspot_Result {
+      @verbatim (language="comment", text=
+        "need to change this to bool")
       string hotspot_image_path;
     };
     @verbatim (language="comment", text=

@@ -145,32 +145,85 @@ def main(args=None):
     [9.29, -16.9],
     [0.0 , 0.0]]
 
-    pan_positions = [1.0, 2.0, 3.0]
+    mp_ints = [1, 2, 3, 4, 5, 6, 7]
+
+    pan_positions = [1.0, 2.0, 3.0, 4.0, 5.0]
     tilt_positions = [1.0, 2.0, 3.0]
+
+    p_sent = []
+    t_sent = []
 
     hotspot_node = HS_Client()
     nav_node = Nav_Client()
     pt_node = PT_Client()
 
+    for mp in mp_ints:
+        # Tell nav server to move to next waypoint
+        nav_node.send_nav_goal(measurement_points[mp][0], measurement_points[mp][1])
+        while nav_node.nav_result is None:
+            rclpy.spin_once(nav_node)
+
+        for p in pan_positions:
+            for t in tilt_positions:
+                # Tell PT server to move to next pan/tilt position
+                pt_node.send_pt_goal(p, t)
+                while pt_node.pt_result is None:
+                    rclpy.spin_once(pt_node)
+
+                # Tell Hotpot server to take a thermal image
+                hotspot_node.send_hs_goal(True, mp, p, t)
+                while hotspot_node.hs_result is None:
+                    rclpy.spin_once(hotspot_node)
+
+            # Reset tilt to 0 after all tilt positions have been sent
+            pt_node.send_pt_goal(p, 0.0)
+            while pt_node.pt_result is None:
+                rclpy.spin_once(pt_node)
+
+
+    '''
+
     # Tell nav server to move to next waypoint
-    nav_node.send_nav_goal(measurement_points[0][0], measurement_points[0][1])
+    if mp_sent == []:
+        i = 0
+        nav_node.send_nav_goal(measurement_points[0][0], measurement_points[0][1])
+        mp_sent = measurement_points[i]
 
-    while nav_node.nav_result is None:
-        rclpy.spin_once(nav_node)
+    else:
+        i += 1
+        nav_node.send_nav_goal(measurement_points[i][0], measurement_points[i][1])
+        mp_sent = measurement_points[i]
 
-    # Tell PT server to move to next pan/tilt position
-    if nav_node.nav_result:
-        pt_node.send_pt_goal(pan_positions[1], tilt_positions[1])
-        while pt_node.pt_result is None:
-            rclpy.spin_once(pt_node)
+        while nav_node.nav_result is None:
+            rclpy.spin_once(nav_node)
 
-    # Tell Hotpot server to take a thermal image
-    if pt_node.pt_result:
-        hotspot_node.send_hs_goal(True, 1, 1, 1)
-        while hotspot_node.hs_result is None:
-            rclpy.spin_once(hotspot_node)
+        # Tell PT server to move to next pan/tilt position
+        if nav_node.nav_result:
+            if p_sent == [] & t_sent == []:
+                j = 0
+                p_sent = pan_positions[j]
+                t_sent = tilt_positions[j]
+                pt_node.send_pt_goal(pan_positions[j], tilt_positions[j]) # Put pan and tile into origin position
 
-    
+            elif :
+                j += 1
+                p_sent = pan_positions[j]
+                t_sent = tilt_positions[j]
+                pt_node.send_pt_goal(pan_positions[j], tilt_positions[j])
+            
+
+
+
+            while pt_node.pt_result is None:
+                rclpy.spin_once(pt_node)
+
+        # Tell Hotpot server to take a thermal image
+        if pt_node.pt_result:
+            hotspot_node.send_hs_goal(True, 1, 1, 1)
+            while hotspot_node.hs_result is None:
+                rclpy.spin_once(hotspot_node)
+
+    '''
 
 
     #rclpy.spin(hotspot_node)

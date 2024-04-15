@@ -5,6 +5,6 @@ int64 pan_position
 int64 tilt_position
 ---
 # Result
-string hotspot_image_path
+string hotspot_image_path # need to change this to bool
 ---
 # Feedback

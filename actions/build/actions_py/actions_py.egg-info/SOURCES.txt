@@ -12,6 +12,7 @@ actions_py/__init__.py
 actions_py/hotspot_detection.py
 actions_py/hotspot_server.py
 actions_py/hs_detection_client.py
+actions_py/monitoring_client.py
 actions_py/nav_server.py
 actions_py/overall_client.py
 actions_py/pt_server.py

@@ -46,6 +46,7 @@ typedef struct hotspot_action__action__Hotspot_Goal__Sequence
 /// Struct defined in action/Hotspot in the package hotspot_action.
 typedef struct hotspot_action__action__Hotspot_Result
 {
+  /// need to change this to bool
   rosidl_runtime_c__String hotspot_image_path;
 } hotspot_action__action__Hotspot_Result;
 

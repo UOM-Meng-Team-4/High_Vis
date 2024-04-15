@@ -1,6 +1,6 @@
 [console_scripts]
 hotspot_server = actions_py.hotspot_server:main
+monitoring_client = actions_py.monitoring_client:main
 nav_server = actions_py.nav_server:main
-overall_client = actions_py.overall_client:main
 pt_server = actions_py.pt_server:main
 

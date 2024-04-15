@@ -1,0 +1,453 @@
+[0.000000] (-) TimerEvent: {}
+[0.001168] (hotspot_action) JobQueued: {'identifier': 'hotspot_action', 'dependencies': OrderedDict()}
+[0.002131] (actions_py) JobQueued: {'identifier': 'actions_py', 'dependencies': OrderedDict([('hotspot_action', '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action')])}
+[0.002691] (hotspot_action) JobStarted: {'identifier': 'hotspot_action'}
+[0.064304] (hotspot_action) JobProgress: {'identifier': 'hotspot_action', 'progress': 'cmake'}
+[0.066337] (hotspot_action) JobProgress: {'identifier': 'hotspot_action', 'progress': 'build'}
+[0.066553] (hotspot_action) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action', '--', '-j8', '-l8'], 'cwd': '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'harry'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/harry'), ('OLDPWD', '/home/harry/ros2_ws/src/High_Vis/actions/src/actions_py/actions_py'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'harry'), ('NAME', 'Harry-Laptop'), ('WSL_INTEROP', '/run/WSL/5095_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/harry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/harry/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', '2ea90cc4-ea1e-4e80-bb7c-87bdb3b7d52a'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[0.099457] (-) TimerEvent: {}
+[0.171790] (hotspot_action) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.199611] (-) TimerEvent: {}
+[0.300024] (-) TimerEvent: {}
+[0.361106] (hotspot_action) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.395594] (hotspot_action) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.400167] (-) TimerEvent: {}
+[0.401771] (hotspot_action) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.409870] (hotspot_action) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.500341] (-) TimerEvent: {}
+[0.600728] (-) TimerEvent: {}
+[0.607916] (hotspot_action) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.700893] (-) TimerEvent: {}
+[0.801424] (-) TimerEvent: {}
+[0.902265] (-) TimerEvent: {}
+[1.003009] (-) TimerEvent: {}
+[1.066336] (hotspot_action) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.103197] (-) TimerEvent: {}
+[1.203709] (-) TimerEvent: {}
+[1.253700] (hotspot_action) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.303954] (-) TimerEvent: {}
+[1.404567] (-) TimerEvent: {}
+[1.502622] (hotspot_action) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.504757] (-) TimerEvent: {}
+[1.529517] (hotspot_action) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.559237] (hotspot_action) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.559455] (hotspot_action) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.559523] (hotspot_action) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.603594] (hotspot_action) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.604886] (-) TimerEvent: {}
+[1.706730] (-) TimerEvent: {}
+[1.724271] (hotspot_action) StdoutLine: {'line': b'-- Generating done\n'}
+[1.741487] (hotspot_action) StdoutLine: {'line': b'-- Build files have been written to: /home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action\n'}
+[1.768235] (hotspot_action) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.777315] (hotspot_action) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.784302] (hotspot_action) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_symlink_hotspot_action\n'}
+[1.806918] (-) TimerEvent: {}
+[1.907349] (-) TimerEvent: {}
+[2.007813] (-) TimerEvent: {}
+[2.071729] (hotspot_action) StdoutLine: {'line': b'running egg_info\n'}
+[2.072291] (hotspot_action) StdoutLine: {'line': b'writing hotspot_action.egg-info/PKG-INFO\n'}
+[2.072586] (hotspot_action) StdoutLine: {'line': b'writing dependency_links to hotspot_action.egg-info/dependency_links.txt\n'}
+[2.072935] (hotspot_action) StdoutLine: {'line': b'writing top-level names to hotspot_action.egg-info/top_level.txt\n'}
+[2.076684] (hotspot_action) StdoutLine: {'line': b"reading manifest file 'hotspot_action.egg-info/SOURCES.txt'\n"}
+[2.077167] (hotspot_action) StdoutLine: {'line': b"writing manifest file 'hotspot_action.egg-info/SOURCES.txt'\n"}
+[2.105430] (hotspot_action) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_build_hotspot_action_egg\n'}
+[2.107960] (-) TimerEvent: {}
+[2.208344] (-) TimerEvent: {}
+[2.308739] (-) TimerEvent: {}
+[2.409182] (-) TimerEvent: {}
+[2.509772] (-) TimerEvent: {}
+[2.610296] (-) TimerEvent: {}
+[2.710778] (-) TimerEvent: {}
+[2.811210] (-) TimerEvent: {}
+[2.911705] (-) TimerEvent: {}
+[3.014710] (-) TimerEvent: {}
+[3.059583] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_generator_c\x1b[0m\n'}
+[3.079563] (hotspot_action) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_generator_c.dir/rosidl_generator_c/hotspot_action/action/detail/hotspot__functions.c.o\x1b[0m\n'}
+[3.080468] (hotspot_action) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_generator_c.dir/rosidl_generator_c/hotspot_action/action/detail/pan_and_tilt__functions.c.o\x1b[0m\n'}
+[3.080796] (hotspot_action) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_generator_c.dir/rosidl_generator_c/hotspot_action/action/detail/nav__functions.c.o\x1b[0m\n'}
+[3.081743] (hotspot_action) StdoutLine: {'line': b'[ 10%] Built target hotspot_action__cpp\n'}
+[3.093012] (hotspot_action) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.099796] (hotspot_action) StdoutLine: {'line': b'[ 14%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.108392] (hotspot_action) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[3.114858] (-) TimerEvent: {}
+[3.215259] (-) TimerEvent: {}
+[3.315723] (-) TimerEvent: {}
+[3.416148] (-) TimerEvent: {}
+[3.516565] (-) TimerEvent: {}
+[3.617011] (-) TimerEvent: {}
+[3.719189] (-) TimerEvent: {}
+[3.819870] (-) TimerEvent: {}
+[3.844263] (hotspot_action) StdoutLine: {'line': b'[ 19%] \x1b[32m\x1b[1mLinking C shared library libhotspot_action__rosidl_generator_c.so\x1b[0m\n'}
+[3.920021] (-) TimerEvent: {}
+[4.020514] (-) TimerEvent: {}
+[4.121092] (-) TimerEvent: {}
+[4.177610] (hotspot_action) StdoutLine: {'line': b'[ 19%] Built target hotspot_action__rosidl_generator_c\n'}
+[4.178811] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_cpp\x1b[0m\n'}
+[4.194240] (hotspot_action) StdoutLine: {'line': b'[ 21%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[4.196129] (hotspot_action) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[4.199789] (hotspot_action) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[4.221253] (-) TimerEvent: {}
+[4.231138] (hotspot_action) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hotspot_action/action/nav__type_support.cpp.o\x1b[0m\n'}
+[4.242749] (hotspot_action) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hotspot_action/action/pan_and_tilt__type_support.cpp.o\x1b[0m\n'}
+[4.270473] (hotspot_action) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hotspot_action/action/hotspot__type_support.cpp.o\x1b[0m\n'}
+[4.321413] (-) TimerEvent: {}
+[4.422020] (-) TimerEvent: {}
+[4.522353] (-) TimerEvent: {}
+[4.622790] (-) TimerEvent: {}
+[4.723377] (-) TimerEvent: {}
+[4.824277] (-) TimerEvent: {}
+[4.833162] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[4.924419] (-) TimerEvent: {}
+[4.940959] (hotspot_action) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hotspot_action/action/detail/hotspot__type_support.cpp.o\x1b[0m\n'}
+[5.024639] (-) TimerEvent: {}
+[5.125120] (-) TimerEvent: {}
+[5.172210] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[5.225275] (-) TimerEvent: {}
+[5.245120] (hotspot_action) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hotspot_action/action/detail/dds_fastrtps/hotspot__type_support.cpp.o\x1b[0m\n'}
+[5.325422] (-) TimerEvent: {}
+[5.427861] (-) TimerEvent: {}
+[5.529116] (-) TimerEvent: {}
+[5.630318] (-) TimerEvent: {}
+[5.730805] (-) TimerEvent: {}
+[5.831850] (-) TimerEvent: {}
+[5.927318] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_c\x1b[0m\n'}
+[5.931995] (-) TimerEvent: {}
+[6.032484] (-) TimerEvent: {}
+[6.133368] (-) TimerEvent: {}
+[6.139450] (hotspot_action) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_c.dir/rosidl_typesupport_c/hotspot_action/action/hotspot__type_support.cpp.o\x1b[0m\n'}
+[6.233590] (-) TimerEvent: {}
+[6.334636] (-) TimerEvent: {}
+[6.435540] (-) TimerEvent: {}
+[6.536115] (-) TimerEvent: {}
+[6.636656] (-) TimerEvent: {}
+[6.737274] (-) TimerEvent: {}
+[6.838685] (-) TimerEvent: {}
+[6.939472] (-) TimerEvent: {}
+[7.039961] (-) TimerEvent: {}
+[7.140545] (-) TimerEvent: {}
+[7.241150] (-) TimerEvent: {}
+[7.341947] (-) TimerEvent: {}
+[7.435140] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[7.442264] (-) TimerEvent: {}
+[7.520837] (hotspot_action) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_c.dir/rosidl_typesupport_c/hotspot_action/action/nav__type_support.cpp.o\x1b[0m\n'}
+[7.542541] (-) TimerEvent: {}
+[7.570548] (hotspot_action) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hotspot_action/action/detail/hotspot__type_support.c.o\x1b[0m\n'}
+[7.642717] (-) TimerEvent: {}
+[7.743257] (-) TimerEvent: {}
+[7.796878] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[7.843446] (-) TimerEvent: {}
+[7.843906] (hotspot_action) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hotspot_action/action/detail/hotspot__type_support_c.cpp.o\x1b[0m\n'}
+[7.877019] (hotspot_action) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_c.dir/rosidl_typesupport_c/hotspot_action/action/pan_and_tilt__type_support.cpp.o\x1b[0m\n'}
+[7.893157] (hotspot_action) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hotspot_action/action/detail/nav__type_support_c.cpp.o\x1b[0m\n'}
+[7.943574] (-) TimerEvent: {}
+[7.960477] (hotspot_action) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hotspot_action/action/detail/nav__type_support.c.o\x1b[0m\n'}
+[7.995999] (hotspot_action) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hotspot_action/action/detail/pan_and_tilt__type_support.c.o\x1b[0m\n'}
+[8.042539] (hotspot_action) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX shared library libhotspot_action__rosidl_typesupport_c.so\x1b[0m\n'}
+[8.043731] (-) TimerEvent: {}
+[8.123605] (hotspot_action) StdoutLine: {'line': b'[ 57%] \x1b[32m\x1b[1mLinking CXX shared library libhotspot_action__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[8.143905] (-) TimerEvent: {}
+[8.177791] (hotspot_action) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hotspot_action/action/detail/dds_fastrtps/nav__type_support.cpp.o\x1b[0m\n'}
+[8.195389] (hotspot_action) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking C shared library libhotspot_action__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[8.244061] (-) TimerEvent: {}
+[8.344657] (-) TimerEvent: {}
+[8.445221] (-) TimerEvent: {}
+[8.545731] (-) TimerEvent: {}
+[8.564068] (hotspot_action) StdoutLine: {'line': b'[ 61%] Built target hotspot_action__rosidl_typesupport_c\n'}
+[8.581135] (hotspot_action) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hotspot_action/action/detail/dds_fastrtps/pan_and_tilt__type_support.cpp.o\x1b[0m\n'}
+[8.651520] (-) TimerEvent: {}
+[8.674591] (hotspot_action) StdoutLine: {'line': b'[ 63%] Built target hotspot_action__rosidl_typesupport_cpp\n'}
+[8.715176] (hotspot_action) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hotspot_action/action/detail/pan_and_tilt__type_support_c.cpp.o\x1b[0m\n'}
+[8.744157] (hotspot_action) StdoutLine: {'line': b'[ 65%] Built target hotspot_action__rosidl_typesupport_introspection_c\n'}
+[8.751664] (-) TimerEvent: {}
+[8.841569] (hotspot_action) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hotspot_action/action/detail/nav__type_support.cpp.o\x1b[0m\n'}
+[8.851819] (-) TimerEvent: {}
+[8.952497] (-) TimerEvent: {}
+[9.053437] (-) TimerEvent: {}
+[9.153923] (-) TimerEvent: {}
+[9.254401] (-) TimerEvent: {}
+[9.355028] (-) TimerEvent: {}
+[9.455519] (-) TimerEvent: {}
+[9.556022] (-) TimerEvent: {}
+[9.600001] (hotspot_action) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hotspot_action/action/detail/pan_and_tilt__type_support.cpp.o\x1b[0m\n'}
+[9.656211] (-) TimerEvent: {}
+[9.756755] (-) TimerEvent: {}
+[9.857264] (-) TimerEvent: {}
+[9.957845] (-) TimerEvent: {}
+[10.058349] (-) TimerEvent: {}
+[10.158937] (-) TimerEvent: {}
+[10.259500] (-) TimerEvent: {}
+[10.360021] (-) TimerEvent: {}
+[10.461333] (-) TimerEvent: {}
+[10.561846] (-) TimerEvent: {}
+[10.640110] (hotspot_action) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking CXX shared library libhotspot_action__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[10.662008] (-) TimerEvent: {}
+[10.762531] (-) TimerEvent: {}
+[10.863052] (-) TimerEvent: {}
+[10.972281] (-) TimerEvent: {}
+[10.989576] (hotspot_action) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libhotspot_action__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[11.020206] (hotspot_action) StdoutLine: {'line': b'[ 74%] Built target hotspot_action__rosidl_typesupport_fastrtps_c\n'}
+[11.072484] (-) TimerEvent: {}
+[11.173044] (-) TimerEvent: {}
+[11.273660] (-) TimerEvent: {}
+[11.327748] (hotspot_action) StdoutLine: {'line': b'[ 74%] Built target hotspot_action__rosidl_typesupport_fastrtps_cpp\n'}
+[11.373865] (-) TimerEvent: {}
+[11.474414] (-) TimerEvent: {}
+[11.574879] (-) TimerEvent: {}
+[11.577300] (hotspot_action) StdoutLine: {'line': b'[ 76%] \x1b[32m\x1b[1mLinking CXX shared library libhotspot_action__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[11.675072] (-) TimerEvent: {}
+[11.775597] (-) TimerEvent: {}
+[11.807392] (hotspot_action) StdoutLine: {'line': b'[ 76%] Built target hotspot_action__rosidl_typesupport_introspection_cpp\n'}
+[11.834483] (hotspot_action) StdoutLine: {'line': b'[ 76%] Built target hotspot_action\n'}
+[11.855459] (hotspot_action) StdoutLine: {'line': b'[ 78%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[11.875770] (-) TimerEvent: {}
+[11.976300] (-) TimerEvent: {}
+[12.076834] (-) TimerEvent: {}
+[12.177341] (-) TimerEvent: {}
+[12.282127] (-) TimerEvent: {}
+[12.382777] (-) TimerEvent: {}
+[12.483667] (-) TimerEvent: {}
+[12.584134] (-) TimerEvent: {}
+[12.684555] (-) TimerEvent: {}
+[12.785100] (-) TimerEvent: {}
+[12.885666] (-) TimerEvent: {}
+[12.986138] (-) TimerEvent: {}
+[13.086609] (-) TimerEvent: {}
+[13.187032] (-) TimerEvent: {}
+[13.287523] (-) TimerEvent: {}
+[13.388387] (-) TimerEvent: {}
+[13.488910] (-) TimerEvent: {}
+[13.610927] (-) TimerEvent: {}
+[13.711601] (-) TimerEvent: {}
+[13.812144] (-) TimerEvent: {}
+[13.912567] (-) TimerEvent: {}
+[14.012948] (-) TimerEvent: {}
+[14.113356] (-) TimerEvent: {}
+[14.213802] (-) TimerEvent: {}
+[14.314230] (-) TimerEvent: {}
+[14.414650] (-) TimerEvent: {}
+[14.470358] (hotspot_action) StdoutLine: {'line': b'[ 78%] Built target hotspot_action__py\n'}
+[14.479748] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_generator_py\x1b[0m\n'}
+[14.493515] (hotspot_action) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_generator_py.dir/rosidl_generator_py/hotspot_action/action/_hotspot_s.c.o\x1b[0m\n'}
+[14.493903] (hotspot_action) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_generator_py.dir/rosidl_generator_py/hotspot_action/action/_nav_s.c.o\x1b[0m\n'}
+[14.495868] (hotspot_action) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_generator_py.dir/rosidl_generator_py/hotspot_action/action/_pan_and_tilt_s.c.o\x1b[0m\n'}
+[14.514888] (-) TimerEvent: {}
+[14.615572] (-) TimerEvent: {}
+[14.708019] (hotspot_action) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hotspot_action/libhotspot_action__rosidl_generator_py.so\x1b[0m\n'}
+[14.715795] (-) TimerEvent: {}
+[14.816445] (-) TimerEvent: {}
+[14.827538] (hotspot_action) StdoutLine: {'line': b'[ 87%] Built target hotspot_action__rosidl_generator_py\n'}
+[14.837781] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[14.838028] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[14.842648] (hotspot_action) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hotspot_action__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[14.853809] (hotspot_action) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[14.854077] (hotspot_action) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[14.857900] (hotspot_action) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/hotspot_action__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[14.916639] (-) TimerEvent: {}
+[15.017189] (-) TimerEvent: {}
+[15.071685] (hotspot_action) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hotspot_action/hotspot_action_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[15.072769] (hotspot_action) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hotspot_action/hotspot_action_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[15.089649] (hotspot_action) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hotspot_action/hotspot_action_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[15.117371] (-) TimerEvent: {}
+[15.172724] (hotspot_action) StdoutLine: {'line': b'[100%] Built target hotspot_action__rosidl_typesupport_c__pyext\n'}
+[15.180164] (hotspot_action) StdoutLine: {'line': b'[100%] Built target hotspot_action__rosidl_typesupport_fastrtps_c__pyext\n'}
+[15.213521] (hotspot_action) StdoutLine: {'line': b'[100%] Built target hotspot_action__rosidl_typesupport_introspection_c__pyext\n'}
+[15.217533] (-) TimerEvent: {}
+[15.227721] (hotspot_action) CommandEnded: {'returncode': 0}
+[15.317690] (-) TimerEvent: {}
+[15.343537] (hotspot_action) JobProgress: {'identifier': 'hotspot_action', 'progress': 'install'}
+[15.355169] (hotspot_action) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action'], 'cwd': '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'harry'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}'), ('HOME', '/home/harry'), ('OLDPWD', '/home/harry/ros2_ws/src/High_Vis/actions/src/actions_py/actions_py'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'harry'), ('NAME', 'Harry-Laptop'), ('WSL_INTEROP', '/run/WSL/5095_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/harry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/harry/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', '2ea90cc4-ea1e-4e80-bb7c-87bdb3b7d52a'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/opt/ros/humble'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:')]), 'shell': False}
+[15.364176] (hotspot_action) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[15.365743] (hotspot_action) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[15.367498] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/rosidl_interfaces/hotspot_action\n'}
+[15.368540] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__functions.h\n'}
+[15.368956] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__struct.h\n'}
+[15.369336] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__type_support.h\n'}
+[15.369455] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__functions.h\n'}
+[15.369815] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__struct.h\n'}
+[15.370167] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__type_support.h\n'}
+[15.370441] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__functions.h\n'}
+[15.370503] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__struct.h\n'}
+[15.370726] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__type_support.h\n'}
+[15.370973] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/hotspot.h\n'}
+[15.371212] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/nav.h\n'}
+[15.371505] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/pan_and_tilt.h\n'}
+[15.371698] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_generator_c__visibility_control.h\n'}
+[15.371842] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/library_path.sh\n'}
+[15.371947] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/library_path.dsv\n'}
+[15.372179] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_fastrtps_c.h\n'}
+[15.372699] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_fastrtps_c.h\n'}
+[15.372892] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_fastrtps_c.h\n'}
+[15.373027] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[15.374244] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_introspection_c.h\n'}
+[15.374602] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_introspection_c.h\n'}
+[15.374901] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_introspection_c.h\n'}
+[15.375175] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[15.375652] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__builder.hpp\n'}
+[15.375824] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__struct.hpp\n'}
+[15.376040] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__traits.hpp\n'}
+[15.376147] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__builder.hpp\n'}
+[15.376412] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__struct.hpp\n'}
+[15.376676] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__traits.hpp\n'}
+[15.376939] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__builder.hpp\n'}
+[15.377093] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__struct.hpp\n'}
+[15.377201] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__traits.hpp\n'}
+[15.377458] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/hotspot.hpp\n'}
+[15.377603] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/nav.hpp\n'}
+[15.378144] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/pan_and_tilt.hpp\n'}
+[15.378505] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[15.378892] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[15.379684] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[15.379841] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[15.379953] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/hotspot__rosidl_typesupport_introspection_cpp.hpp\n'}
+[15.380055] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/nav__rosidl_typesupport_introspection_cpp.hpp\n'}
+[15.380697] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/hotspot_action/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_introspection_cpp.hpp\n'}
+[15.381083] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/pythonpath.sh\n'}
+[15.381224] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/pythonpath.dsv\n'}
+[15.381347] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[15.381553] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[15.381717] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[15.381851] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[15.381959] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/__init__.py\n'}
+[15.382072] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_c.c\n'}
+[15.382192] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[15.382330] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/_hotspot_action_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[15.383514] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/__init__.py\n'}
+[15.383969] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_hotspot.py\n'}
+[15.384179] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_hotspot_s.c\n'}
+[15.384341] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_nav.py\n'}
+[15.384557] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_nav_s.c\n'}
+[15.384681] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_pan_and_tilt.py\n'}
+[15.384841] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_pan_and_tilt_s.c\n'}
+[15.384973] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[15.385118] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[15.385239] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[15.385664] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/libhotspot_action__rosidl_generator_py.so\n'}
+[15.386108] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[15.386363] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[15.386646] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/hotspot_action_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[15.386893] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Hotspot.idl\n'}
+[15.387161] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Nav.idl\n'}
+[15.387541] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/PanAndTilt.idl\n'}
+[15.387925] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Hotspot.action\n'}
+[15.389087] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/Nav.action\n'}
+[15.389490] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/action/PanAndTilt.action\n'}
+[15.389660] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/package_run_dependencies/hotspot_action\n'}
+[15.389775] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/parent_prefix_path/hotspot_action\n'}
+[15.389881] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/ament_prefix_path.sh\n'}
+[15.389994] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/ament_prefix_path.dsv\n'}
+[15.390140] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/path.sh\n'}
+[15.390264] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/environment/path.dsv\n'}
+[15.390375] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.bash\n'}
+[15.390485] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.sh\n'}
+[15.390846] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.zsh\n'}
+[15.390996] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/local_setup.dsv\n'}
+[15.391103] (hotspot_action) StdoutLine: {'line': b'-- Symlinking: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/package.dsv\n'}
+[15.401296] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/ament_index/resource_index/packages/hotspot_action\n'}
+[15.401760] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/rosidl_cmake-extras.cmake\n'}
+[15.402135] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[15.402522] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[15.402817] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[15.402969] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[15.403217] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[15.403579] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[15.403979] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_actionConfig.cmake\n'}
+[15.404072] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_actionConfig-version.cmake\n'}
+[15.404127] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date symlink: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/package.xml\n'}
+[15.404750] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_generator_c.so\n'}
+[15.405623] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_generator_c.so" to ""\n'}
+[15.405997] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_fastrtps_c.so\n'}
+[15.406512] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[15.406885] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_introspection_c.so\n'}
+[15.407364] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_introspection_c.so" to ""\n'}
+[15.407683] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_c.so\n'}
+[15.408110] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_c.so" to ""\n'}
+[15.408648] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_fastrtps_cpp.so\n'}
+[15.412513] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[15.412882] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_introspection_cpp.so\n'}
+[15.415973] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[15.416625] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_cpp.so\n'}
+[15.417845] (-) TimerEvent: {}
+[15.418405] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_typesupport_cpp.so" to ""\n'}
+[15.486232] (hotspot_action) StdoutLine: {'line': b"Listing '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action'...\n"}
+[15.486464] (hotspot_action) StdoutLine: {'line': b"Compiling '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/__init__.py'...\n"}
+[15.486538] (hotspot_action) StdoutLine: {'line': b"Listing '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action'...\n"}
+[15.486600] (hotspot_action) StdoutLine: {'line': b"Compiling '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/__init__.py'...\n"}
+[15.486657] (hotspot_action) StdoutLine: {'line': b"Compiling '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_hotspot.py'...\n"}
+[15.486715] (hotspot_action) StdoutLine: {'line': b"Compiling '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_nav.py'...\n"}
+[15.486770] (hotspot_action) StdoutLine: {'line': b"Compiling '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages/hotspot_action/action/_pan_and_tilt.py'...\n"}
+[15.492672] (hotspot_action) StdoutLine: {'line': b'-- Installing: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_generator_py.so\n'}
+[15.493337] (hotspot_action) StdoutLine: {'line': b'-- Set runtime path of "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib/libhotspot_action__rosidl_generator_py.so" to ""\n'}
+[15.493679] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_cExport.cmake\n'}
+[15.493923] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_cExport-noconfig.cmake\n'}
+[15.494315] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[15.494459] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[15.494787] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cExport.cmake\n'}
+[15.495151] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[15.495392] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cExport.cmake\n'}
+[15.495667] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[15.495924] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_cppExport.cmake\n'}
+[15.496180] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[15.496604] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[15.497145] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[15.497338] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[15.497483] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cppExport.cmake\n'}
+[15.497571] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/hotspot_action__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[15.497627] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_pyExport.cmake\n'}
+[15.497681] (hotspot_action) StdoutLine: {'line': b'-- Up-to-date: /home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/share/hotspot_action/cmake/export_hotspot_action__rosidl_generator_pyExport-noconfig.cmake\n'}
+[15.500499] (hotspot_action) CommandEnded: {'returncode': 0}
+[15.518223] (-) TimerEvent: {}
+[15.618895] (-) TimerEvent: {}
+[15.719504] (-) TimerEvent: {}
+[15.766890] (hotspot_action) JobEnded: {'identifier': 'hotspot_action', 'rc': 0}
+[15.770403] (actions_py) JobStarted: {'identifier': 'actions_py'}
+[15.819734] (-) TimerEvent: {}
+[15.920624] (-) TimerEvent: {}
+[16.021106] (-) TimerEvent: {}
+[16.121577] (-) TimerEvent: {}
+[16.222016] (-) TimerEvent: {}
+[16.322555] (-) TimerEvent: {}
+[16.423109] (-) TimerEvent: {}
+[16.523550] (-) TimerEvent: {}
+[16.623995] (-) TimerEvent: {}
+[16.724423] (-) TimerEvent: {}
+[16.824898] (-) TimerEvent: {}
+[16.925386] (-) TimerEvent: {}
+[17.025880] (-) TimerEvent: {}
+[17.126328] (-) TimerEvent: {}
+[17.226810] (-) TimerEvent: {}
+[17.327271] (-) TimerEvent: {}
+[17.427763] (-) TimerEvent: {}
+[17.532204] (-) TimerEvent: {}
+[17.632713] (-) TimerEvent: {}
+[17.733261] (-) TimerEvent: {}
+[17.833820] (-) TimerEvent: {}
+[17.934336] (-) TimerEvent: {}
+[18.034876] (-) TimerEvent: {}
+[18.206685] (actions_py) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--editable', '--build-directory', '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/build', '--no-deps', 'install_data'], 'cwd': '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'harry', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{e5a83caa-4c73-52b3-ae6b-bc438d721ef9}', 'HOME': '/home/harry', 'OLDPWD': '/home/harry/ros2_ws/src/High_Vis/actions/src/actions_py/actions_py', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/harry/ros2_ws/src/High_Vis/actions/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'harry', 'NAME': 'Harry-Laptop', 'WSL_INTEROP': '/run/WSL/5095_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/harry/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Users/harry/gcc/bin:/mnt/c/Users/harry/gcc/libexec/gcc/i686-pc-mingw32/10.2.0:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/MATLAB/R2023b/runtime/win64:/mnt/c/Program Files/MATLAB/R2023b/bin:/mnt/c/Program Files/MATLAB/R2020b/bin:/mnt/c/Program Files/MATLAB/R2020a/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/MATLAB Runtime/v94/runtime/win64:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/harry/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/harry/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/harry/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin', 'WT_SESSION': '2ea90cc4-ea1e-4e80-bb7c-87bdb3b7d52a', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py/prefix_override:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py:/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages:/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action', 'WSLENV': 'WT_SESSION:WT_PROFILE_ID:'}, 'shell': False}
+[18.210917] (-) TimerEvent: {}
+[18.311233] (-) TimerEvent: {}
+[18.411700] (-) TimerEvent: {}
+[18.459999] (actions_py) StdoutLine: {'line': b'running develop\n'}
+[18.511887] (-) TimerEvent: {}
+[18.604028] (actions_py) StdoutLine: {'line': b'running egg_info\n'}
+[18.662253] (-) TimerEvent: {}
+[18.662518] (actions_py) StdoutLine: {'line': b'writing actions_py.egg-info/PKG-INFO\n'}
+[18.663052] (actions_py) StdoutLine: {'line': b'writing dependency_links to actions_py.egg-info/dependency_links.txt\n'}
+[18.663629] (actions_py) StdoutLine: {'line': b'writing entry points to actions_py.egg-info/entry_points.txt\n'}
+[18.664274] (actions_py) StdoutLine: {'line': b'writing requirements to actions_py.egg-info/requires.txt\n'}
+[18.665033] (actions_py) StdoutLine: {'line': b'writing top-level names to actions_py.egg-info/top_level.txt\n'}
+[18.667834] (actions_py) StdoutLine: {'line': b"reading manifest file 'actions_py.egg-info/SOURCES.txt'\n"}
+[18.668653] (actions_py) StdoutLine: {'line': b"writing manifest file 'actions_py.egg-info/SOURCES.txt'\n"}
+[18.670172] (actions_py) StdoutLine: {'line': b'running build_ext\n'}
+[18.670449] (actions_py) StdoutLine: {'line': b'Creating /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages/actions-py.egg-link (link to .)\n'}
+[18.671390] (actions_py) StdoutLine: {'line': b'Installing hotspot_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py\n'}
+[18.671616] (actions_py) StdoutLine: {'line': b'Installing nav_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py\n'}
+[18.671838] (actions_py) StdoutLine: {'line': b'Installing overall_client script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py\n'}
+[18.672020] (actions_py) StdoutLine: {'line': b'Installing pt_server script to /home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/actions_py\n'}
+[18.672276] (actions_py) StdoutLine: {'line': b'\n'}
+[18.672449] (actions_py) StdoutLine: {'line': b'Installed /home/harry/ros2_ws/src/High_Vis/actions/build/actions_py\n'}
+[18.672738] (actions_py) StdoutLine: {'line': b'running install_data\n'}
+[18.710863] (actions_py) CommandEnded: {'returncode': 0}
+[18.762925] (-) TimerEvent: {}
+[18.775538] (actions_py) JobEnded: {'identifier': 'actions_py', 'rc': 0}
+[18.777003] (-) EventReactorShutdown: {}
