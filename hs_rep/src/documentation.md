@@ -26,7 +26,7 @@ Takes images saved in file and saves them in a pdf.
 
 `ros2 run pdf_generator pg_node`
 
-## Hotspot Action Server
+## Clients and Servers
 
 ### Servers
 **Hotspot**
