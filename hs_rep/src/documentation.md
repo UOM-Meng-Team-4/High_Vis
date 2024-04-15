@@ -37,5 +37,5 @@ Takes images saved in file and saves them in a pdf.
 
 ### Client
 
-`ros2 run actions_py hs_detection_client`
+`ros2 run actions_py overall_client`
 
