@@ -29,6 +29,7 @@ def main():
 
     navigator = BasicNavigator('basic_navigator', 'j100_0001')
     inspection_route = [
+        [2.80, 0.0],
         [26.80, -3.74],
         [26.20, -13.74],
         [26.4, -19.6],
@@ -42,8 +43,8 @@ def main():
     initial_pose.header.stamp = navigator.get_clock().now().to_msg()
     initial_pose.pose.position.x = 0.0
     initial_pose.pose.position.y = 0.0
-    initial_pose.pose.orientation.z = 0.0707
-    initial_pose.pose.orientation.w = 0.707
+    initial_pose.pose.orientation.z = 0.0
+    initial_pose.pose.orientation.w = 1.0
     navigator.setInitialPose(initial_pose)
 
     # Activate navigation, if not autostarted. This should be called after setInitialPose()
@@ -68,8 +69,8 @@ def main():
         inspection_pose = PoseStamped()
         inspection_pose.header.frame_id = 'map'
         inspection_pose.header.stamp = navigator.get_clock().now().to_msg()
-        inspection_pose.pose.orientation.z = 1.0
-        inspection_pose.pose.orientation.w = 0.0
+        inspection_pose.pose.orientation.z = 0.0
+        inspection_pose.pose.orientation.w = 1.0
         for pt in inspection_route:
             inspection_pose.pose.position.x = pt[0]
             inspection_pose.pose.position.y = pt[1]
@@ -80,8 +81,8 @@ def main():
         
         path = navigator.getPath(initial_pose, inspection_points[1])
         for point in inspection_points:
-            navigator.gotopose(point)
-
+            navigator.goToPose(point)
+            i = 0
             while not navigator.isTaskComplete():
                        
                 ################################################
@@ -112,7 +113,8 @@ def main():
             result = navigator.getResult()
             if result == TaskResult.SUCCEEDED:
                 navigator.info('Goal succeeded!')
-
+                current_pose  = feedback.current_pose
+                navigator.info(f'Current pose {current_pose.pose.position.x}')
                 #Run code to start PT server
 
             elif result == TaskResult.CANCELED:
@@ -120,6 +122,7 @@ def main():
                 
                 navigator.info('Goal was canceled!')
                 continue
+            
             elif result == TaskResult.FAILED:
                 navigator.info('Goal failed!')
                 continue
