@@ -28,9 +28,12 @@ Takes images saved in file and saves them in a pdf.
 
 ## Hotspot Action Server
 
-### Server
+### Servers
+**Hotspot**
+`ros2 run actions_py hotspot_server`
 
-`ros2 run actions_py hotspot_detection`
+**Navigation**
+`ros2 run actions_py nav_server`
 
 ### Client
 
