@@ -1,1 +1,0 @@
-/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_generator_c/hotspot_action/msg/rosidl_generator_c__visibility_control.h

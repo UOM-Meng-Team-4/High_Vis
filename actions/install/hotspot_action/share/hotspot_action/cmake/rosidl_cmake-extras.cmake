@@ -1,1 +1,0 @@
-/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_cmake/rosidl_cmake-extras.cmake

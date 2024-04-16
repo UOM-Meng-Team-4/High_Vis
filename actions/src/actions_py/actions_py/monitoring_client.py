@@ -9,16 +9,19 @@ from rclpy.action.client import ClientGoalHandle
 from hotspot_action.action import Hotspot
 from hotspot_action.action import Nav
 from hotspot_action.action import PanAndTilt
+from hotspot_action.action import Acoustic
 
 class Client(Node):
     def __init__(self):
         super().__init__("client") # Change node name to what you want
-        self.hs_client = ActionClient(self, Hotspot, "hotspot_detection")
+        self.hs_client = ActionClient(self, Hotspot, "hotspot_server")
         self.nav_client = ActionClient(self, Nav, "nav_server")
         self.pt_client = ActionClient(self, PanAndTilt, "pt_server")
+        self.ac_client = ActionClient(self, Acoustic, "ac_server")
         self.pt_result = None
         self.nav_result = None
         self.hs_result = None
+        self.ac_result = None
 
     # Hotspot
 
@@ -68,7 +71,6 @@ class Client(Node):
             send_goal_async(goal, feedback_callback=self.feedback_callback_nav). \
                 add_done_callback(self.goal_response_callback_nav)
         
-       
         
     def goal_response_callback_nav(self, future):
         self.goal_handle_: ClientGoalHandle = future.result()
@@ -83,6 +85,7 @@ class Client(Node):
     def feedback_callback_nav(self, feedback_msg):
         feedback = feedback_msg.feedback
         self.get_logger().info(f"Time to next measurement point: {feedback.time_to_mp}")
+
 
     # Pan and Tilt
 
@@ -115,6 +118,37 @@ class Client(Node):
     def feedback_callback_pt(self, feedback_msg):
         feedback = feedback_msg.feedback
         self.get_logger().info(f"Pan Angle: {feedback.pan_feedback:.1f}, Tilt Angle: {feedback.tilt_feedback:.1f}")
+
+    
+    # Acoustic
+
+    def send_ac_goal(self, take_ac_reading, measurement_point, pan_position, tilt_position):
+        # Wait for the server
+        self.ac_client.wait_for_server()
+
+        # Create a goal
+        goal = Acoustic.Goal()
+        goal.take_ac_reading = take_ac_reading
+        goal.measurement_point = measurement_point
+        goal.pan_position = pan_position
+        goal.tilt_position = tilt_position
+
+        # Send the goal       
+        self.get_logger().info(f"Sending ac goal")
+        self.ac_client. \
+            send_goal_async(goal). \
+                add_done_callback(self.goal_response_callback_ac)
+        
+    def goal_response_callback_ac(self, future):
+        self.goal_handle_: ClientGoalHandle = future.result()
+        if self.goal_handle_.accepted: 
+            self.goal_handle_.get_result_async().add_done_callback(self.goal_result_callback_ac)
+
+    def goal_result_callback_ac(self, future):
+        result = future.result().result
+        self.ac_result = result.ac_save_path
+        self.get_logger().info(f"Result: " +str(result.ac_save_path))
+
 
 
 
@@ -151,6 +185,7 @@ def main(args=None):
         node.nav_result = node.send_nav_goal(mp[0], mp[1])
 
 
+
         while node.nav_result is None:
             rclpy.spin_once(node)
            
@@ -174,7 +209,20 @@ def main(args=None):
                 node.pt_result = None
 
                 # Send hs goal
-                node.send_hs_goal(True, mp_int, p_int, t_int)
+                node.hs_result= node.send_hs_goal(True, mp_int, p_int, t_int)
+                node.ac_result = node.send_ac_goal(True, mp_int, p_int, t_int)
+                                                                          
+            
+                while node.hs_result is None:
+                    while node.ac_result is None:
+                        rclpy.spin_once(node, timeout_sec=5.0)
+                    #print(node.hs_result)
+                    #print(node.ac_result)
+                 #   print("im here")
+
+                node.hs_result = None
+                node.ac_result = None
+
                 time.sleep(2)
 
             t_int = 0

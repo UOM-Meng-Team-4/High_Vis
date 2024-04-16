@@ -18,7 +18,7 @@ from hotspot_action.action import Hotspot
 
 class MinimalSubscriber(Node):
     def __init__(self):
-        super().__init__("hotspot_detection") # Change node name to what you want
+        super().__init__("hotspot_server") # Change node name to what you want
         
         # Measurement point (needs to be adaptive in future)
         self.measurement_point = 13
@@ -33,7 +33,7 @@ class MinimalSubscriber(Node):
         # Create action server
         self.hotspot_detection = ActionServer(self, 
             Hotspot, 
-            "hotspot_detection", 
+            "hotspot_server", 
             execute_callback=self.execute_callback)
         self.get_logger().info("Action Server has been started.")
 
@@ -57,7 +57,7 @@ class MinimalSubscriber(Node):
         self.get_logger().info(f"Received request to take image {target}")
 
         # Create directory if it doesn't exist
-        directory = os.path.join("photos", f"mp_{mp}")
+        directory = os.path.join("photos", f"mp_{mp}", "thermal")
         if not os.path.exists(directory):
             os.makedirs(directory)
 

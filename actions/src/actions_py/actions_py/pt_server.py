@@ -18,25 +18,26 @@ class PTServer(Node):
             execute_callback=self.execute_callback)
         self.get_logger().info("Action Server has been started.")
 
-        self.previous_tilt = 0.0
-        self.previous_pan = 0.0
+        self.p = self.previous_tilt = 0.0
+        self.t = self.previous_pan = 0.0
 
     def execute_callback(self, goal_handle: ServerGoalHandle):
         pan = goal_handle.request.pan
         tilt = goal_handle.request.tilt
         self.get_logger().info(f"Received request to move to pan position:{pan}, tilt position:{tilt}")
 
+
         if self.previous_tilt < tilt:
-            for t in np.arange(self.previous_tilt, tilt, 0.2):
+            for self.t in np.arange(self.previous_tilt, tilt, 0.2):
                 time.sleep(0.5)
-                goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = pan, tilt_feedback = tilt))
-                print(f"Reaching tilt position {t:.1f}")  
+                goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = self.p, tilt_feedback = self.t))
+                print(f"Reaching tilt position {self.t:.1f}")  
 
         if self.previous_pan < pan:
-            for p in np.arange(self.previous_pan, pan, 0.2):
+            for self.p in np.arange(self.previous_pan, pan, 0.2):
                 time.sleep(0.5)
-                goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = pan, tilt_feedback = tilt))
-                print(f"Reaching pan position {p:.1f}")
+                goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = self.p, tilt_feedback = self.t))
+                print(f"Reaching pan position {self.p:.1f}")
         
         else:
             print("No movement required")

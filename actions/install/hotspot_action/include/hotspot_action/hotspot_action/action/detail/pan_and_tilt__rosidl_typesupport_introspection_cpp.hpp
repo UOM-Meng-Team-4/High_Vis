@@ -1,1 +1,0 @@
-/home/harry/ros2_ws/src/High_Vis/actions/build/hotspot_action/rosidl_typesupport_introspection_cpp/hotspot_action/action/detail/pan_and_tilt__rosidl_typesupport_introspection_cpp.hpp
