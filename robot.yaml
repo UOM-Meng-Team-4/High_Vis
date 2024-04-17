@@ -60,14 +60,14 @@ sensors:
   camera:
   - model: intel_realsense
     urdf_enabled: true
-    launch_enabled: true 
+    launch_enabled: true
     parent: default_mount
     xyz: [0.2, 0.0, 0.0]
     rpy: [0.0, 0.0, 0.0]
     ros_parameters:
       camera:
         camera_name: camera_0
-        device_type: d435
+        device_type: d435i
         serial_no: "0"
         enable_color: true
         rgb_camera.profile: 640,480,30
