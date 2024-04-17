@@ -1,0 +1,21 @@
+# Goal
+# Hotspot Detection
+bool take_image
+int64 measurement_point
+int64 pan_position
+int64 tilt_position
+
+# Navigation
+float64 coordinate_x
+float64 coordinate_y
+---
+# Result
+# Hotspot Detection
+string hotspot_image_path
+
+# Navigation
+bool mp_reached
+---
+# Feedback
+# Navigation
+int64 time_to_mp

@@ -100,7 +100,7 @@ controller_server:
       debug_trajectory_details: True
       min_vel_x: 0.0
       min_vel_y: 0.0
-      max_vel_x: 0.25 #Changed By AM
+      max_vel_x: 0.1 #Changed By AM
       max_vel_y: 0.0
       max_vel_theta: 0.5 #Changed by AM
       min_speed_xy: 0.0
@@ -151,8 +151,8 @@ local_costmap:
       plugins: ["static_layer", "voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 1.0
-        inflation_radius: 0.5
+        cost_scaling_factor: 5.0
+        inflation_radius: 1.5
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -168,6 +168,7 @@ local_costmap:
           max_obstacle_height: 2.0
           clearing: True
           marking: True
+          inf_is_valid: False
           data_type: "LaserScan"
           raytrace_max_range: 3.0
           raytrace_min_range: 0.0

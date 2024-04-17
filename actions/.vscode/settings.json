@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/harry/ros2_ws/src/High_Vis/actions/build/actions_py",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/actions_py/lib/python3.10/site-packages",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

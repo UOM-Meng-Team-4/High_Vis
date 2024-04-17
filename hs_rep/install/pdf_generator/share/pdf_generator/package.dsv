@@ -1,0 +1,9 @@
+source;share/pdf_generator/hook/pythonpath.ps1
+source;share/pdf_generator/hook/pythonpath.dsv
+source;share/pdf_generator/hook/pythonpath.sh
+source;share/pdf_generator/hook/ament_prefix_path.ps1
+source;share/pdf_generator/hook/ament_prefix_path.dsv
+source;share/pdf_generator/hook/ament_prefix_path.sh
+source;../../build/pdf_generator/share/pdf_generator/hook/pythonpath_develop.ps1
+source;../../build/pdf_generator/share/pdf_generator/hook/pythonpath_develop.dsv
+source;../../build/pdf_generator/share/pdf_generator/hook/pythonpath_develop.sh

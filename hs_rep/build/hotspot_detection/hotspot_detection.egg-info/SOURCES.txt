@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+hotspot_detection/__init__.py
+hotspot_detection/hs_detect_node.py
+hotspot_detection/hs_detect_node_cam_hs.py
+hotspot_detection.egg-info/PKG-INFO
+hotspot_detection.egg-info/SOURCES.txt
+hotspot_detection.egg-info/dependency_links.txt
+hotspot_detection.egg-info/entry_points.txt
+hotspot_detection.egg-info/requires.txt
+hotspot_detection.egg-info/top_level.txt
+hotspot_detection.egg-info/zip-safe
+resource/hotspot_detection
