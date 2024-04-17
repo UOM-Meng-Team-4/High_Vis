@@ -24,7 +24,8 @@ setup(
             "nav_server = actions_py.nav_server:main",
             "pt_server = actions_py.pt_server:main",
             "ac_server = actions_py.ac_server:main",
-            "monitoring_client = actions_py.monitoring_client:main"
+            "monitoring_client = actions_py.monitoring_client:main",
+            "monitoring_client_before_integration = actions_py.monitoring_client_before_integration:main",
             "integration_executable = actions_py.integration_executable:main"
         ],
     },
