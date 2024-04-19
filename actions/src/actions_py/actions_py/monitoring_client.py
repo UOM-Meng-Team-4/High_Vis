@@ -156,82 +156,8 @@ class Client(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    # Measurement Points
-    measurement_points = [
-    [26.80, -3.74],
-    [26.20, -13.74],
-    [26.4, -19.6],
-    [25.1,-25.1],
-    [12.4, -17.9],
-    [9.29, -16.9],
-    [0.0 , 0.0]]
-
-    mp_int = 0
-    p_int = 0
-    t_int = 0
-    pan_positions = [1.0, 2.0, 3.0, 4.0, 5.0]
-    tilt_positions = [1.0, 2.0, 3.0]
-
-    
-
-
-    node = Client()
-
-    for mp in measurement_points:
-
-        mp_int += 1
-
-        # Send nav goal
-        node.nav_result = node.send_nav_goal(mp[0], mp[1])
-
-
-
-        while node.nav_result is None:
-            rclpy.spin_once(node)
-           
-
-        node.nav_result = None
-            
-        for p in pan_positions:
-            p_int += 1
-            for t in tilt_positions:
-            
-                # Send pt goal
-                time.sleep(2)
-                node.pt_result = node.send_pt_goal(p, t)
-
-                
-                t_int += 1
-
-                while node.pt_result is None:
-                    rclpy.spin_once(node)
-
-                node.pt_result = None
-
-                # Send hs goal
-                node.hs_result= node.send_hs_goal(True, mp_int, p_int, t_int)
-                node.ac_result = node.send_ac_goal(True, mp_int, p_int, t_int)
-                                                                          
-            
-                while node.hs_result is None:
-                    while node.ac_result is None:
-                        rclpy.spin_once(node, timeout_sec=5.0)
-                    #print(node.hs_result)
-                    #print(node.ac_result)
-                 #   print("im here")
-
-                node.hs_result = None
-                node.ac_result = None
-
-                time.sleep(2)
-
-            t_int = 0
-
-        p_int = 0
-        
-
-
-    #rclpy.spin(node)
+    node = Client() 
+    rclpy.spin(node)
 
     rclpy.shutdown()
 

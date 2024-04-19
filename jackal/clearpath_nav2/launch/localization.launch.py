@@ -106,7 +106,7 @@ def generate_launch_description():
 
     map_arg = DeclareLaunchArgument(
         'map',
-        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'room.yaml']),
+        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'hallway.yaml.yaml']),
         description='Full path to map yaml file to load')
 
     ld = LaunchDescription(ARGUMENTS)

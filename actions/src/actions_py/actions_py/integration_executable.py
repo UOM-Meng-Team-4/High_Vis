@@ -22,10 +22,10 @@ class IntegrationExecutable:
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = navigator.get_clock().now().to_msg()
-        initial_pose.pose.position.x = 0.0
-        initial_pose.pose.position.y = 0.0
-        initial_pose.pose.orientation.z = 0.0
-        initial_pose.pose.orientation.w = 1.0
+        initial_pose.pose.position.x = -6.06
+        initial_pose.pose.position.y = -0.39
+        initial_pose.pose.orientation.z = -0.98
+        initial_pose.pose.orientation.w = 0.180
         navigator.setInitialPose(initial_pose)
 
         # Activate navigation, if not autostarted. This should be called after setInitialPose()
@@ -139,14 +139,9 @@ def main():
     rclpy.init()
 
     inspection_route = [
-        [2.80, 0.0],
-        [26.80, -3.74],
-        [26.20, -13.74],
-        [26.4, -19.6],
-        [25.1,-25.1],
-        [12.4, -17.9],
-        [9.29, -16.9],
-        [0.0 , 0.0]]
+        [-1.68, -0.566],
+	[4.61, -0.163],
+	[8.07, 1.49]]
 
     # Define the node and navigator
     node = Client()
