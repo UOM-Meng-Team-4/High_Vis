@@ -7,16 +7,16 @@ from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
 import copy
 from rclpy.duration import Duration
-
+from rclpy.node import Node
 """
 Basic navigation demo to go to poses.
 """
-class IntegrationExecutable:
+class IntegrationExecutable(Node):
 
     def __init__(self):
         super().__init__("integration_executable")
 
-    def run_navigator(self, navigator, inspection_route):
+    def run_navigator(self, navigator, inspection_route, client):
 
 
         initial_pose = PoseStamped()
@@ -27,7 +27,7 @@ class IntegrationExecutable:
         initial_pose.pose.orientation.z = 0.0
         initial_pose.pose.orientation.w = 1.0
         navigator.setInitialPose(initial_pose)
-
+        
         # Activate navigation, if not autostarted. This should be called after setInitialPose()
         # or this will initialize at the origin of the map and update the costmap with bogus readings.
         # If autostart, you should `waitUntilNav2Active()` instead.
@@ -69,7 +69,7 @@ class IntegrationExecutable:
                 
                     i = i +1
                     feedback = navigator.getFeedback()
-                    self.current_pose = feedback.current_pose
+                    
 
                     if feedback and i % 5==0 :
                         navigator.info('Estimated time of arrival: ' + '{0:.0f}'.format(
@@ -87,9 +87,35 @@ class IntegrationExecutable:
                     
                     # Do something depending on the return code
 
+                    self.current_pose = feedback.current_pose
+
                     
 
                 self.result = navigator.getResult()
+                if self.result == TaskResult.SUCCEEDED:
+            
+                    navigator.info('Goal succeeded!')
+                    current_pose  = self.current_pose
+                    navigator.info(f'Current pose {current_pose.pose.position.x}')
+
+                    # Run Pan and Tilt
+                    
+                    self.run_pan_tilt(client)
+
+                elif self.result == TaskResult.CANCELED:
+                    #Run Code to move to next Goal 
+                    
+                    navigator.info('Goal was canceled!')
+                    #continue
+                
+                elif self.result == TaskResult.FAILED:
+                    navigator.info('Goal failed!')
+                    #continue
+
+                else:
+                    print('Goal has an invalid return status!')
+        
+        #Add Code Hear to move to action server. 
 
                 
 
@@ -158,31 +184,9 @@ def main():
     navigator = BasicNavigator('basic_navigator', 'j100_0001')
 
     # Run Navigation
-    integration.run_navigator(navigator, inspection_route)
+    integration.run_navigator(navigator, inspection_route, node)
     
-    if integration.result == TaskResult.SUCCEEDED:
-            
-            navigator.info('Goal succeeded!')
-            current_pose  = integration.current_pose
-            navigator.info(f'Current pose {current_pose.pose.position.x}')
-
-            # Run Pan and Tilt
-            integration.run_pan_tilt(node)
-
-    elif integration.result == TaskResult.CANCELED:
-        #Run Code to move to next Goal 
-        
-        navigator.info('Goal was canceled!')
-        #continue
-    
-    elif integration.result == TaskResult.FAILED:
-        navigator.info('Goal failed!')
-        #continue
-
-    else:
-        print('Goal has an invalid return status!')
-        
-        #Add Code Hear to move to action server. 
+   
 
     navigator.lifecycleShutdown()
 
