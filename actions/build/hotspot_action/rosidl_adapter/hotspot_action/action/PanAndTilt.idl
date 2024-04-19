@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hotspot_action/action/PanAndTilt.action
+// generated code does not contain a copyright notice
+
+
+module hotspot_action {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct PanAndTilt_Goal {
+      double pan;
+
+      double tilt;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct PanAndTilt_Result {
+      boolean move_finished;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct PanAndTilt_Feedback {
+      double pan_feedback;
+
+      double tilt_feedback;
+    };
+  };
+};

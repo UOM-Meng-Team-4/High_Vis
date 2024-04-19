@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from hotspot_action/action/Hotspot.action
+// generated code does not contain a copyright notice
+
+
+module hotspot_action {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct Hotspot_Goal {
+      boolean take_image;
+
+      int64 measurement_point;
+
+      int64 pan_position;
+
+      int64 tilt_position;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct Hotspot_Result {
+      @verbatim (language="comment", text=
+        "need to change this to bool")
+      string hotspot_image_path;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct Hotspot_Feedback {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

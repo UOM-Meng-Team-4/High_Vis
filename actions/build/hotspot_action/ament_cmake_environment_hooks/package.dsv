@@ -1,0 +1,4 @@
+source;share/hotspot_action/local_setup.bash
+source;share/hotspot_action/local_setup.dsv
+source;share/hotspot_action/local_setup.sh
+source;share/hotspot_action/local_setup.zsh
