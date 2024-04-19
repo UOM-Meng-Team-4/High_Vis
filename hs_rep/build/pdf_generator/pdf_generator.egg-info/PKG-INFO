@@ -1,12 +1,8 @@
 Metadata-Version: 2.1
-Name: pdf-generator
+Name: pdf_generator
 Version: 0.0.0
 Summary: TODO: Package description
-Home-page: UNKNOWN
 Maintainer: harry
 Maintainer-email: harry@todo.todo
 License: TODO: License declaration
-Platform: UNKNOWN
-
-UNKNOWN
-
+Requires-Dist: setuptools

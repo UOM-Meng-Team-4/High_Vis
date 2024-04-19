@@ -229,7 +229,8 @@ local_costmap:
         observation_sources: D435i
         D435i:
           #topic: /D435i/depth/color/points
-          topic: /depth_camera/depth/color/points
+          #topic: /depth_camera/depth/color/points
+          topic: sensors/camera_0/depth/color/points
           max_obstacle_height: 1.0
           clearing: True
           marking: True
