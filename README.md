@@ -70,4 +70,15 @@ Takes images saved in file and saves them in a pdf.
 - In a new terminal run the monitoring client: `ros2 run actions_py monitoring_client`
 - In a new terminal run integration executable: `ros2 run actions_py integration_executable`
 
+## Documentation for Starting Navigation. 
+`ros2 launch launch_robotnav robot_launch.py params_file:=nav2.yaml`
+### Launch Robot_Launch.py Launch File
+- Launches Pointcloud to Laser scan node with params for Velodyne.
+- Launches Navigation 2 node with params file.
+- Launches Slam node.
+
+### Launch Local_launch.py Launch File.
+`ros2 launch launch_robotnav local_launch.py`
+- Launches with Localisation instead of SLAM. Requires Map Change. 
+
 
