@@ -4,6 +4,7 @@ import rclpy
 import time
 import numpy as np
 import os
+from std_msgs.msg import Int32
 from PIL import Image
 from rclpy.node import Node
 from rclpy.action import ActionServer
@@ -19,7 +20,7 @@ class ACServer(Node):
         self.counter = 0
         self.previous_average = 0
         self.average = 0
-        self.acoustic_subscriber = self.create_subscription(type, "cubemx_publisher", self.acoustic_callback, 10)
+        self.acoustic_subscriber = self.create_subscription(Int32, "cubemx_publisher", self.acoustic_callback, 10)
 
         # Action Server
         self.ac_server = ActionServer(self, 
@@ -33,7 +34,7 @@ class ACServer(Node):
         self.get_pd_buffer = deque([0]*20,maxlen=20)
 
     # Subscriber Callback
-    def acoustic_callback(self, msg: type):
+    def acoustic_callback(self, msg: Int32):
         self.pd_buffer.appendleft(msg)
 
     # Action Server Callback
@@ -77,26 +78,33 @@ class ACServer(Node):
         scaling_factor = 255/40
 
         # Open the file in write node
+        
         with open(self.filename, 'a') as file:
             
             # Get PD Data
             self.get_pd_buffer = self.pd_buffer
 
             for i in range(20):
-                if self.get_pd_buffer(i) > 1:
-                    self.average = self.average + self.get_pd_buffer(i)
+        
+                if self.get_pd_buffer[i].data > 1:
+                    self.average = self.average + self.get_pd_buffer[i].data
                     self.counter = self.counter + 1
-                elif self.counter > 9:
-                    self.average = self.average / self.counter
-                else:
-                    self.average = 0
 
-                scaled_average = self.average * scaling_factor
+            if self.counter > 9:
+                self.average = self.average / self.counter
+                    
+            else:
+                self.average = 0
 
-                self.counter = 0
+            print(f"counter = {self.counter}")
+            print(f"average = {self.average}")
+
+            scaled_average = self.average * scaling_factor
+
+            self.counter = 0
 
             # Write the formatted string to the file
-            file.write(f"{self.average} dB\n")
+            file.write(f"{self.average:.1f} dB\n")
             image_array = np.full(image_size, scaled_average, dtype=np.uint8)
             img = Image.fromarray(image_array, 'L')
             img.save(self.output_reading_path)
