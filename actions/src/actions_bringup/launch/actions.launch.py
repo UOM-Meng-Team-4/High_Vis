@@ -19,8 +19,15 @@ def generate_launch_description():
         executable = "pt_server",
     ) 
 
+    thermal_camera_node = Node(
+        package = "usb_cam",
+        executable = "usb_cam_node_exe",
+        ros_arguments = ['--params-file', 'src/High_Vis/usb_cam/config/params_2.yaml']
+    )
+
     ld.add_action(hotspot_node)
     ld.add_action(acoustic_node)
     ld.add_action(pt_node)
+    ld.add_action(thermal_camera_node)
     
     return ld

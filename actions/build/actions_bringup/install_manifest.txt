@@ -1,0 +1,16 @@
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/launch/actions.launch.py
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/ament_index/resource_index/package_run_dependencies/actions_bringup
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/ament_index/resource_index/parent_prefix_path/actions_bringup
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/environment/ament_prefix_path.sh
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/environment/ament_prefix_path.dsv
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/environment/path.sh
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/environment/path.dsv
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/local_setup.bash
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/local_setup.sh
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/local_setup.zsh
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/local_setup.dsv
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/package.dsv
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/ament_index/resource_index/packages/actions_bringup
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/cmake/actions_bringupConfig.cmake
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/cmake/actions_bringupConfig-version.cmake
+/home/harry/ros2_ws/src/High_Vis/actions/install/actions_bringup/share/actions_bringup/package.xml
