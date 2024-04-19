@@ -26,7 +26,7 @@ class IntegrationExecutable(Node):
         initial_pose.pose.position.y = -0.39
         initial_pose.pose.orientation.z = -0.98
         initial_pose.pose.orientation.w = 0.180
-        navigator.setInitialPose(initial_pose)
+        #navigator.setInitialPose(initial_pose)
         
         # Activate navigation, if not autostarted. This should be called after setInitialPose()
         # or this will initialize at the origin of the map and update the costmap with bogus readings.
@@ -124,8 +124,8 @@ class IntegrationExecutable(Node):
         mp_int = 0
         p_int = 0
         t_int = 0
-        pan_positions = [1.0, 2.0, 3.0, 4.0, 5.0]
-        tilt_positions = [1.0, 2.0, 3.0]
+        pan_positions = [1.0, 2.0]
+        tilt_positions = [1.0, 2.0]
 
         mp_int += 1
 
@@ -169,14 +169,14 @@ def main():
     rclpy.init()
 
     inspection_route = [
-        [-1.68, -0.566],
-	[4.61, -0.163],
-	[8.07, 1.49]]
+        [-1.29, -0.473],
+	[-0.085, -0.297],
+	[2.21, 0.208]]
 
     # Define the node and navigator
     node = Client()
     integration = IntegrationExecutable()
-    navigator = BasicNavigator('basic_navigator', 'j100_0001')
+    navigator = BasicNavigator('basic_navigator', 'j100_0219')
 
     # Run Navigation
     integration.run_navigator(navigator, inspection_route, node)

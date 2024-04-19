@@ -22,7 +22,7 @@ def generate_launch_description():
     thermal_camera_node = Node(
         package = "usb_cam",
         executable = "usb_cam_node_exe",
-        ros_arguments = ['--params-file', 'src/High_Vis/usb_cam/config/params_2.yaml']
+        ros_arguments = ['--params-file', 'src/meng_team4/High_Vis/usb_cam/config/params_2.yaml']
     )
 
     ld.add_action(hotspot_node)

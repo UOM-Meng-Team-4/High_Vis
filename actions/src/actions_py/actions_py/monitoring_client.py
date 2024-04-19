@@ -149,20 +149,3 @@ class Client(Node):
         self.ac_result = result.ac_save_path
         self.get_logger().info(f"Result: " +str(result.ac_save_path))
 
-<<<<<<< HEAD
-
-
-
-
-def main(args=None):
-    rclpy.init(args=args)
-
-    node = Client() 
-    rclpy.spin(node)
-
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
-=======
->>>>>>> 53b345800ac3ec8fccb079f18b426261e19e5773
