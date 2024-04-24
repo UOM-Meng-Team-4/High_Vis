@@ -26,7 +26,7 @@ class MinimalSubscriber(Node):
         tilt = 1
 
         # Subscribe to /image_raw topic 
-        self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
+        self.subscription = self.create_subscription(Image, '/j100_0219/sensors/thermal_cam/image_raw', self.image_callback, 10)
         self.subscription  # Prevent unused variable warning
         self.bridge = CvBridge()
 
@@ -54,7 +54,7 @@ class MinimalSubscriber(Node):
         mp = goal_handle.request.measurement_point
         pan = goal_handle.request.pan_position
         tilt = goal_handle.request.tilt_position
-        self.get_logger().info(f"Received request to take image {target}")
+        self.get_logger().info(f"Received request to take image")
 
         # Create directory if it doesn't exist
         directory = os.path.join("photos", f"mp_{mp}", "thermal")
@@ -82,6 +82,7 @@ class MinimalSubscriber(Node):
     def image_callback(self, msg):
         # Convert ROS 2 Image message to OpenCV format
         self.cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+     
         
     def image_processing(self):
         # Ambient temperature
@@ -112,8 +113,8 @@ class MinimalSubscriber(Node):
             self.HT_text = pytesseract.image_to_string(self.HT_ROI, config=custom_config)
 
             # Discard all non-numerical characters
-            self.HT_text = re.sub(r'\D', '', self.HT_text)
-            cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
+            self.HT_text = re.sub(r'[\d.]', '', self.HT_text)
+            
 
             # If no text is detected, set smaller ROI for 2 digit temperature
             if self.HT_text == '':
@@ -127,7 +128,7 @@ class MinimalSubscriber(Node):
                 _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
                 cv2.rectangle(self.HT_ROI, (0, 0), (100, 100), (255, 255, 255), 2)
             
-                cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
+                
 
                 # Text Recognition
                 custom_config = r'--oem 3 --psm 6'

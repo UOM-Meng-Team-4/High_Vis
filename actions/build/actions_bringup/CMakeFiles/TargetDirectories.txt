@@ -1,9 +1,0 @@
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/uninstall.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/actions_bringup_uninstall.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/test.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/edit_cache.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/rebuild_cache.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/list_install_components.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/install.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/install/local.dir
-/home/harry/ros2_ws/src/High_Vis/actions/build/actions_bringup/CMakeFiles/install/strip.dir

@@ -1,0 +1,9 @@
+# Goal
+bool take_visual_image
+int64 measurement_point
+int64 pan_position
+---
+# Result
+string visual_image_path
+---
+# Feedback

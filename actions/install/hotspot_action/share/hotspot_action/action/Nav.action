@@ -1,9 +1,0 @@
-# Goal
-float64 coordinate_x
-float64 coordinate_y
----
-# Result
-bool mp_reached
----
-# Feedback
-int64 time_to_mp

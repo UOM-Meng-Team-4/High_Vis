@@ -3,7 +3,6 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
-import os
 
 class MinimalSubscriber(Node):
     def __init__(self):
@@ -11,26 +10,19 @@ class MinimalSubscriber(Node):
         self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
         self.subscription  # Prevent unused variable warning
         self.bridge = CvBridge()
-        self.x = 0
 
     def image_callback(self, msg):
-        self.x += 1
         try:
+            for i in range(10):
+                i += 1
+                for j in range(5):
+                    j += 1
                     # Convert ROS 2 Image message to OpenCV format
                     cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
 
                     # Process the image (e.g., display it, save it, etc.)
                     # For demonstration purposes, let's display the image
-
-                    filename = f"images_pan_{self.x}.jpg"
-                    
-                    directory = os.path.join("photos fom site", "images_8")
-                    if not os.path.exists(directory):
-                        os.makedirs(directory)
-
-                    output_image_path = os.path.join(directory, filename)
-
-                    cv2.imwrite(output_image_path, cv_image)
+                    cv2.imwrite(f"mp_1/p_{i}_t_{j}.jpg", cv_image)
                     #cv2.waitKey(1)  # Wait for a key press (optional)
 
         except Exception as e:
@@ -39,7 +31,7 @@ class MinimalSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
     minimal_subscriber = MinimalSubscriber()
-    rclpy.spin(minimal_subscriber)
+    rclpy.spin_once(minimal_subscriber)
     rclpy.shutdown()
 
 if __name__ == '__main__':
