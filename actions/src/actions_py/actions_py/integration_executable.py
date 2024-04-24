@@ -124,8 +124,8 @@ class IntegrationExecutable(Node):
         mp_int = 0
         p_int = 0
         t_int = 0
-        pan_positions = [1.0, 2.0]
-        tilt_positions = [1.0, 2.0]
+        pan_positions = [1.0]
+        tilt_positions = [1.0]
 
         mp_int += 1
 
@@ -169,9 +169,10 @@ def main():
     rclpy.init()
 
     inspection_route = [
-        [-1.29, -0.473],
-	[-0.085, -0.297],
-	[2.21, 0.208]]
+        [8.54, -11.1],
+	[6.1,-20],
+	[4.6, -27.4],
+	[10.1, 2.84]]
 
     # Define the node and navigator
     node = Client()
