@@ -29,7 +29,9 @@ class Client(Node):
 
     def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position):
         # Wait for the server
-        self.hs_client.wait_for_server()
+        if not self.hs_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('Hotspot server not available after waiting')
+            return
 
         # Create a goal
         goal = Hotspot.Goal()
@@ -58,7 +60,9 @@ class Client(Node):
 
     def send_visual_goal(self, take_visual_image, measurement_point, pan_position):
         # Wait for the server
-        self.visual_client.wait_for_server()
+        if not self.visual_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('Visual Cam server not available after waiting')
+            return
 
         # Create a goal
         goal = Visual.Goal()
@@ -86,7 +90,7 @@ class Client(Node):
 
     def send_nav_goal(self, coordinate_x, coordinate_y):
         # Wait for the server
-        if not self.nav_client.wait_for_server(timeout_sec=5.0):
+        if not self.nav_client.wait_for_server(timeout_sec=1.0):
             self.get_logger().info('Nav server not available after waiting')
             return
 
@@ -121,7 +125,9 @@ class Client(Node):
 
     def send_pt_goal(self, pan, tilt):
         # Wait for the server
-        self.pt_client.wait_for_server()
+        if not self.pt_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('PT server not available after waiting')
+            return
 
         # Create a goal
         goal = PanAndTilt.Goal()
@@ -154,7 +160,9 @@ class Client(Node):
 
     def send_ac_goal(self, take_ac_reading, measurement_point, pan_position, tilt_position):
         # Wait for the server
-        self.ac_client.wait_for_server()
+        if not self.ac_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('Acoustic server not available after waiting')
+            return
 
         # Create a goal
         goal = Acoustic.Goal()
@@ -199,8 +207,8 @@ def main(args=None):
     mp_int = 0
     p_int = 0
     t_int = 0
-    pan_positions = [1.0, 2.0, 3.0, 4.0, 5.0]
-    tilt_positions = [1.0, 2.0, 3.0]
+    pan_positions = [1.0]
+    tilt_positions = [1.0]
 
     
 

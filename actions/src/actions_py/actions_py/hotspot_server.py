@@ -37,6 +37,8 @@ class MinimalSubscriber(Node):
             execute_callback=self.execute_callback)
         self.get_logger().info("Action Server has been started.")
 
+    '''    
+
     def get_ambient_temperature(self, city_name, api_key):
         base_url = "http://api.openweathermap.org/data/2.5/weather"
         params = {
@@ -47,6 +49,8 @@ class MinimalSubscriber(Node):
         response = requests.get(base_url, params=params)
         data = response.json()
         return data["main"]["temp"]
+
+    '''
 
     def execute_callback(self, goal_handle: ServerGoalHandle):
         # Get request from goal
@@ -86,13 +90,13 @@ class MinimalSubscriber(Node):
         
     def image_processing(self):
         # Ambient temperature
-        self.city_name = "Manchester"
-        self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
+        #self.city_name = "Manchester"
+        #self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
 
-        self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
+        #self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
         #self.ambient_temp = 130
 
-        print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
+        #print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
         
         try:
             # High Temperature Reading ROI
@@ -107,13 +111,15 @@ class MinimalSubscriber(Node):
             gray = cv2.cvtColor(self.HT_ROI, cv2.COLOR_BGR2GRAY)
             blurred = cv2.GaussianBlur(gray, (5, 5), 0)
             _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
+            self.HT_ROI = cv2.bitwise_not(self.HT_ROI)
+            cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
             
             # Text Recognition
             custom_config = r'--oem 3 --psm 6'
             self.HT_text = pytesseract.image_to_string(self.HT_ROI, config=custom_config)
 
             # Discard all non-numerical characters
-            self.HT_text = re.sub(r'[\d.]', '', self.HT_text)
+            self.HT_text = re.sub(r'[^0-9.]', '', self.HT_text)
             
 
             # If no text is detected, set smaller ROI for 2 digit temperature
@@ -203,6 +209,7 @@ class MinimalSubscriber(Node):
 
             # Draw the rectangle
             # Using ANSI/NETA standard for temperature classification
+            self.ambient_temp = 15
             hs_temp = int(float(self.HT_text)) - self.ambient_temp
             if 1<hs_temp<10: 
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
