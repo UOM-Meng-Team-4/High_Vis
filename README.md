@@ -59,7 +59,7 @@ Takes images saved in file and saves them in a pdf.
 `ros2 run actions_py ac_server`
 
 ### Client
-`ros2 run actions_py monitoring_client`
+`ros2 run actions_py monitoring_client_before_integration`
 
 ### Integration Executable
 `ros2 run actions_py integration_executable`
