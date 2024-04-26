@@ -15,6 +15,7 @@ class IntegrationExecutable(Node):
 
     def __init__(self):
         super().__init__("integration_executable")
+        self.mp_int = 0
 
     def run_navigator(self, navigator, inspection_route, client):
 
@@ -121,13 +122,13 @@ class IntegrationExecutable(Node):
 
     def run_pan_tilt(self, node):
         # Define Pan and Tilt Positions
-        mp_int = 0
+        
         p_int = 0
         t_int = 0
-        pan_positions = [1.0]
-        tilt_positions = [1.0]
+        pan_positions = [1.0 2.0]
+        tilt_positions = [1.0 2.0]
 
-        mp_int += 1
+        self.mp_int += 1
 
         #Run code to start PT server
         for p in pan_positions:
@@ -146,15 +147,18 @@ class IntegrationExecutable(Node):
                 node.pt_result = None
 
                 # Send hs goal
-                node.hs_result= node.send_hs_goal(True, mp_int, p_int, t_int)
-                node.ac_result = node.send_ac_goal(True, mp_int, p_int, t_int)
+                node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int)
+                node.visual_result = node.send_visual_goal(True, self.mp_int, p_int)
+                node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int)
                                                                         
             
                 while node.hs_result is None:
-                    while node.ac_result is None:
-                        rclpy.spin_once(node, timeout_sec=5.0)
+                    while node.visual_result is None:
+                        while node.ac_result is None:
+                            rclpy.spin_once(node, timeout_sec=5.0)
 
                 node.hs_result = None
+                node.visual_result = None
                 node.ac_result = None
 
                 time.sleep(2)
@@ -169,10 +173,10 @@ def main():
     rclpy.init()
 
     inspection_route = [
-        [8.54, -11.1],
-	[6.1,-20],
-	[4.6, -27.4],
-	[10.1, 2.84]]
+    [-1.03, -0.39],
+	[-0.79, -1.92],
+	[1.4, -1.9],
+	[0.761, 1.54]]
 
     # Define the node and navigator
     node = Client()

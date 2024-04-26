@@ -33,7 +33,7 @@ def generate_launch_description():
 
     visual_camera_node = Node(
         package = "usb_cam",
-        executable = "usb_cam_node_exe",
+        executable = "usb_cam_nodssh adminie_exe",
         ros_arguments = ['--remap', '__ns:=/j100_0219/sensors/visual_cam', '--params-file', 'src/meng_team4/High_Vis/usb_cam/config/params_1.yaml']
     )
 
