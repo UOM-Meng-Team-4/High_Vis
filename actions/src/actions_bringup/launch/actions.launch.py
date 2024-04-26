@@ -33,11 +33,11 @@ def generate_launch_description():
     )
 
 
-
     ld.add_action(hotspot_node)
     ld.add_action(acoustic_node)
     ld.add_action(pt_node)
     ld.add_action(thermal_camera_node)
     ld.add_action(visual_camera_node)
+
     
     return ld
