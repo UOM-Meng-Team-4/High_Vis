@@ -57,11 +57,7 @@ ARGUMENTS = [
                           description='Clearpath setup path'),
     DeclareLaunchArgument('params_file',
                           default_value=['nav2.yaml'],
-                          description='Nav2 Parameters File'),
-    DeclareLaunchArgument(
-        'map',
-        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'site1.yaml']),
-        description='Full path to map yaml file to load')
+                          description='Nav2 Parameters File')
     ]
 
 
@@ -69,7 +65,7 @@ def launch_setup(context, *args, **kwargs):
     # Packages
     pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2')
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
-
+    map = LaunchConfiguration('map')
     # Launch Configurations
     use_sim_time = LaunchConfiguration('use_sim_time')
     setup_path = LaunchConfiguration('setup_path')
@@ -106,7 +102,7 @@ def launch_setup(context, *args, **kwargs):
                 ('use_composition', 'False'),
                 ('namespace', namespace),
                 ('slam', 'True'),
-                ('map', LaunchConfiguration('map'))
+                ('map', map)
               ]
         ),
     ])
@@ -115,8 +111,14 @@ def launch_setup(context, *args, **kwargs):
 
 
 def generate_launch_description():
+    pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2')
+
     ld = LaunchDescription(ARGUMENTS)
+    map_args = DeclareLaunchArgument(
+        'map',
+        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'site1.yaml']),
+        description='Full path to map yaml file to load')
     
-    
+    ld.add_action(map_arg)
     ld.add_action(OpaqueFunction(function=launch_setup))
     return ld
