@@ -91,7 +91,7 @@ def generate_launch_description():
     )
     
     nav2_launch = PathJoinSubstitution(
-        [pkg_clearpath_nav2, 'launch', 'nav2.launch.py'])
+        [pkg_clearpath_nav2, 'launch', 'nav2_bringup.launch.py'])
     #Launch Nav2
     nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([nav2_launch]),

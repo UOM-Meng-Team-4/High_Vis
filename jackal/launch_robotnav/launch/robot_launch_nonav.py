@@ -28,10 +28,7 @@ ARGUMENTS = [
 
     DeclareLaunchArgument('params_file',
                           default_value='nav2.yaml',
-                          description='Nav2 Parameters File'),
-    DeclareLaunchArgument('slam',
-                          default_value='True',
-                          description='Use Slam as Localisation')
+                          description='Nav2 Parameters File')
 ]
 
 def generate_launch_description():
@@ -98,8 +95,7 @@ def generate_launch_description():
         launch_arguments=[
             ('use_sim_time', LaunchConfiguration('use_sim_time')),
             ('setup_path', LaunchConfiguration('setup_path')),
-            ('params_file', params_file),
-            ('slam', LaunchConfiguration('slam'))
+            ('params_file', params_file)
         ]
     )
 
@@ -110,5 +106,5 @@ def generate_launch_description():
     #ld.add_action(viz)
     ld.add_action(slam)
     #ld.add_action(local)
-    ld.add_action(nav2)
+    #ld.add_action(nav2)
     return ld
