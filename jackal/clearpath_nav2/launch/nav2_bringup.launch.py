@@ -114,7 +114,7 @@ def generate_launch_description():
     pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2')
 
     ld = LaunchDescription(ARGUMENTS)
-    map_args = DeclareLaunchArgument(
+    map_arg = DeclareLaunchArgument(
         'map',
         default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'site1.yaml']),
         description='Full path to map yaml file to load')
