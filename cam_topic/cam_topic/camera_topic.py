@@ -20,17 +20,18 @@ class MinimalPublisher(Node):
         self.i = 0
 
     def timer_callback(self):
+
         # Define the path to your image file
-        image_path_thermal = 'images_pan_7.jpg'
+        image_path_thermal = 'src/photos fom site - 22_04_24/images_pan_1/images_pan_378.jpg'
         
         #image_path = 'project_room_roof.jpg'
 
         # Read the image using OpenCV
         cv_image_thermal = cv2.imread(image_path_thermal)
-       
+    
         # Convert the OpenCV image to a ROS 2 Image message using CvBridge
         image_msg_thermal = self.bridge.cv2_to_imgmsg(cv_image_thermal, encoding="bgr8")
-       
+    
 
         # Update the header information (optional but recommended)
         image_msg_thermal.header.stamp = self.get_clock().now().to_msg()

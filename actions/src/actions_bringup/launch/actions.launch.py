@@ -9,6 +9,11 @@ def generate_launch_description():
         executable = "hotspot_server",
     ) 
 
+    visual_server_node = Node(
+        package = "actions_py",
+        executable = "visual_cam_server",
+    )
+
     acoustic_node = Node(
         package = "actions_py",
         executable = "ac_server",
@@ -34,6 +39,7 @@ def generate_launch_description():
 
 
     ld.add_action(hotspot_node)
+    ld.add_action(visual_server_node)
     ld.add_action(acoustic_node)
     ld.add_action(pt_node)
     ld.add_action(thermal_camera_node)
