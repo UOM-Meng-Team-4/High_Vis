@@ -26,7 +26,7 @@ class MinimalSubscriber(Node):
         tilt = 1
 
         # Subscribe to /image_raw topic 
-        self.subscription = self.create_subscription(Image, '/image_raw', self.image_callback, 10)
+        self.subscription = self.create_subscription(Image, '/j100_0219/sensors/thermal_cam/image_raw', self.image_callback, 10)
         self.subscription  # Prevent unused variable warning
         self.bridge = CvBridge()
 
@@ -36,6 +36,8 @@ class MinimalSubscriber(Node):
             "hotspot_server", 
             execute_callback=self.execute_callback)
         self.get_logger().info("Action Server has been started.")
+
+    '''    
 
     def get_ambient_temperature(self, city_name, api_key):
         base_url = "http://api.openweathermap.org/data/2.5/weather"
@@ -48,13 +50,15 @@ class MinimalSubscriber(Node):
         data = response.json()
         return data["main"]["temp"]
 
+    '''
+
     def execute_callback(self, goal_handle: ServerGoalHandle):
         # Get request from goal
         target = goal_handle.request.take_image
         mp = goal_handle.request.measurement_point
         pan = goal_handle.request.pan_position
         tilt = goal_handle.request.tilt_position
-        self.get_logger().info(f"Received request to take image {target}")
+        self.get_logger().info(f"Received request to take image")
 
         # Create directory if it doesn't exist
         directory = os.path.join("photos", f"mp_{mp}", "thermal")
@@ -82,16 +86,17 @@ class MinimalSubscriber(Node):
     def image_callback(self, msg):
         # Convert ROS 2 Image message to OpenCV format
         self.cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+     
         
     def image_processing(self):
         # Ambient temperature
-        self.city_name = "Manchester"
-        self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
+        #self.city_name = "Manchester"
+        #self.api_key = "e7f19ea18faaa047a9505ccf73288a52"
 
-        self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
+        #self.ambient_temp = self.get_ambient_temperature(self.city_name, self.api_key)
         #self.ambient_temp = 130
 
-        print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
+        #print(f"Ambient temperature in {self.city_name} is {self.ambient_temp} degree Celsius")
         
         try:
             # High Temperature Reading ROI
@@ -106,14 +111,16 @@ class MinimalSubscriber(Node):
             gray = cv2.cvtColor(self.HT_ROI, cv2.COLOR_BGR2GRAY)
             blurred = cv2.GaussianBlur(gray, (5, 5), 0)
             _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
+            self.HT_ROI = cv2.bitwise_not(self.HT_ROI)
+            cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
             
             # Text Recognition
             custom_config = r'--oem 3 --psm 6'
             self.HT_text = pytesseract.image_to_string(self.HT_ROI, config=custom_config)
 
             # Discard all non-numerical characters
-            self.HT_text = re.sub(r'\D', '', self.HT_text)
-            cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
+            self.HT_text = re.sub(r'[^0-9.]', '', self.HT_text)
+            
 
             # If no text is detected, set smaller ROI for 2 digit temperature
             if self.HT_text == '':
@@ -127,7 +134,7 @@ class MinimalSubscriber(Node):
                 _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
                 cv2.rectangle(self.HT_ROI, (0, 0), (100, 100), (255, 255, 255), 2)
             
-                cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
+                
 
                 # Text Recognition
                 custom_config = r'--oem 3 --psm 6'
@@ -202,6 +209,7 @@ class MinimalSubscriber(Node):
 
             # Draw the rectangle
             # Using ANSI/NETA standard for temperature classification
+            self.ambient_temp = 15
             hs_temp = int(float(self.HT_text)) - self.ambient_temp
             if 1<hs_temp<10: 
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green

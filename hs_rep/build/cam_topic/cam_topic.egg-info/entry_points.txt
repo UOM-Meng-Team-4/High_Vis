@@ -1,3 +1,0 @@
-[console_scripts]
-cam_top_pub = cam_topic.camera_topic:main
-cam_top_sub = cam_topic.camera_topic_sub:main

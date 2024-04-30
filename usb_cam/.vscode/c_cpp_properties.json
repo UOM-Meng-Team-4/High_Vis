@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/harry/ros2_ws/install/usb_cam/include/**",
+        "/home/harry/ros2_ws/install/pointcloud_to_laserscan/include/**",
+        "/home/harry/ros2_ws/install/hotspot_action/include/**",
+        "/home/harry/ros2_ws/src/High_Vis/actions/install/hotspot_action/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/harry/ros2_ws/src/High_Vis/jackal/pointcloud_to_laserscan/include/**",
+        "/home/harry/ros2_ws/src/High_Vis/usb_cam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

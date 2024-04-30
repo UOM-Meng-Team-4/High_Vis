@@ -91,7 +91,7 @@ def generate_launch_description():
     )
     
     nav2_launch = PathJoinSubstitution(
-        [pkg_clearpath_nav2, 'launch', 'nav2.launch.py'])
+        [pkg_clearpath_nav2, 'launch', 'nav2_bringup.launch.py'])
     #Launch Nav2
     nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([nav2_launch]),
@@ -108,7 +108,7 @@ def generate_launch_description():
     #ld.add_action(simul)
     ld.add_action(point_to_laser)
     #ld.add_action(viz)
-    ld.add_action(slam)
+    #ld.add_action(slam)
     #ld.add_action(local)
     ld.add_action(nav2)
     return ld

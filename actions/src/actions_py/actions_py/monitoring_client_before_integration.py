@@ -2,7 +2,6 @@
 
 import rclpy
 import time
-import threading
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.action.client import ClientGoalHandle
@@ -10,6 +9,7 @@ from hotspot_action.action import Hotspot
 from hotspot_action.action import Nav
 from hotspot_action.action import PanAndTilt
 from hotspot_action.action import Acoustic
+from hotspot_action.action import Visual
 
 class Client(Node):
     def __init__(self):
@@ -18,16 +18,20 @@ class Client(Node):
         self.nav_client = ActionClient(self, Nav, "nav_server")
         self.pt_client = ActionClient(self, PanAndTilt, "pt_server")
         self.ac_client = ActionClient(self, Acoustic, "ac_server")
+        self.visual_client = ActionClient(self, Visual, "visual_cam_server")
         self.pt_result = None
         self.nav_result = None
         self.hs_result = None
         self.ac_result = None
+        self.visual_result = None
 
     # Hotspot
 
     def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position):
         # Wait for the server
-        self.hs_client.wait_for_server()
+        if not self.hs_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('Hotspot server not available after waiting')
+            return
 
         # Create a goal
         goal = Hotspot.Goal()
@@ -52,11 +56,41 @@ class Client(Node):
         self.hs_result = result.hotspot_image_path
         self.get_logger().info(f"Result: " +str(result.hotspot_image_path))
 
+    # Visual Cam
+
+    def send_visual_goal(self, take_visual_image, measurement_point, pan_position):
+        # Wait for the server
+        if not self.visual_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('Visual Cam server not available after waiting')
+            return
+
+        # Create a goal
+        goal = Visual.Goal()
+        goal.take_visual_image = take_visual_image
+        goal.measurement_point = measurement_point
+        goal.pan_position = pan_position
+
+        # Send the goal       
+        self.get_logger().info(f"Sending visual cam goal")
+        self.visual_client. \
+            send_goal_async(goal). \
+                add_done_callback(self.goal_response_callback_visual)
+        
+    def goal_response_callback_visual(self, future):
+        self.goal_handle_: ClientGoalHandle = future.result()
+        if self.goal_handle_.accepted: 
+            self.goal_handle_.get_result_async().add_done_callback(self.goal_result_callback_visual)
+
+    def goal_result_callback_visual(self, future):
+        result = future.result().result
+        self.hs_result = result.visual_image_path
+        self.get_logger().info(f"Result: " +str(result.visual_image_path))
+
     # Navigation
 
     def send_nav_goal(self, coordinate_x, coordinate_y):
         # Wait for the server
-        if not self.nav_client.wait_for_server(timeout_sec=5.0):
+        if not self.nav_client.wait_for_server(timeout_sec=1.0):
             self.get_logger().info('Nav server not available after waiting')
             return
 
@@ -91,7 +125,9 @@ class Client(Node):
 
     def send_pt_goal(self, pan, tilt):
         # Wait for the server
-        self.pt_client.wait_for_server()
+        if not self.pt_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('PT server not available after waiting')
+            return
 
         # Create a goal
         goal = PanAndTilt.Goal()
@@ -124,7 +160,9 @@ class Client(Node):
 
     def send_ac_goal(self, take_ac_reading, measurement_point, pan_position, tilt_position):
         # Wait for the server
-        self.ac_client.wait_for_server()
+        if not self.ac_client.wait_for_server(timeout_sec=1.0):
+            self.get_logger().info('Acoustic server not available after waiting')
+            return
 
         # Create a goal
         goal = Acoustic.Goal()
@@ -169,8 +207,8 @@ def main(args=None):
     mp_int = 0
     p_int = 0
     t_int = 0
-    pan_positions = [1.0, 2.0, 3.0, 4.0, 5.0]
-    tilt_positions = [1.0, 2.0, 3.0]
+    pan_positions = [1.0]
+    tilt_positions = [1.0]
 
     
 
@@ -210,17 +248,17 @@ def main(args=None):
 
                 # Send hs goal
                 node.hs_result= node.send_hs_goal(True, mp_int, p_int, t_int)
+                node.visual_result = node.send_visual_goal(True, mp_int, p_int)
                 node.ac_result = node.send_ac_goal(True, mp_int, p_int, t_int)
                                                                           
             
                 while node.hs_result is None:
-                    while node.ac_result is None:
-                        rclpy.spin_once(node, timeout_sec=5.0)
-                    #print(node.hs_result)
-                    #print(node.ac_result)
-                 #   print("im here")
-
+                    while node.visual_result is None:
+                        while node.ac_result is None:
+                            rclpy.spin_once(node, timeout_sec=5.0)
+                    
                 node.hs_result = None
+                node.visual_result = None
                 node.ac_result = None
 
                 time.sleep(2)

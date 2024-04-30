@@ -41,10 +41,11 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch.substitutions import (
     LaunchConfiguration,
-    PathJoinSubstitution
+    PathJoinSubstitution,
+    EnvironmentVariable
 )
 
-from launch_ros.actions import PushRosNamespace
+from launch_ros.actions import PushRosNamespace, SetRemap
 
 
 ARGUMENTS = [
@@ -52,21 +53,23 @@ ARGUMENTS = [
                           choices=['true', 'false'],
                           description='Use sim time'),
     DeclareLaunchArgument('setup_path',
-                          default_value='/etc/clearpath/',
-                          description='Clearpath setup path')
-]
+                          default_value=['//etc/clearpath/'],
+                          description='Clearpath setup path'),
+    DeclareLaunchArgument('params_file',
+                          default_value=['nav2.yaml'],
+                          description='Nav2 Parameters File')
+    ]
 
 
 def launch_setup(context, *args, **kwargs):
     # Packages
     pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2')
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
-
+    map = LaunchConfiguration('map')
     # Launch Configurations
     use_sim_time = LaunchConfiguration('use_sim_time')
     setup_path = LaunchConfiguration('setup_path')
-    map = LaunchConfiguration('map')
-
+    params_file = LaunchConfiguration('params_file')
     # Read robot YAML
     config = read_yaml(setup_path.perform(context) + 'robot.yaml')
     # Parse robot YAML into config
@@ -79,37 +82,43 @@ def launch_setup(context, *args, **kwargs):
         pkg_clearpath_nav2,
         'config',
         platform_model,
-        'localization.yaml'])
+        params_file])
 
-    launch_localization = PathJoinSubstitution(
-      [pkg_nav2_bringup, 'launch', 'localization_launch.py'])
+    launch_nav2 = PathJoinSubstitution(
+      [pkg_nav2_bringup, 'launch', 'bringup_launch.py'])
 
-    localization = GroupAction([
+    nav2 = GroupAction([
         PushRosNamespace(namespace),
+        SetRemap('/' + namespace + '/global_costmap/sensors/lidar2d_0/scan',
+                 '/' + namespace + '/sensors/lidar2d_0/scan'),
+        SetRemap('/' + namespace + '/local_costmap/sensors/lidar2d_0/scan',
+                 '/' + namespace + '/sensors/lidar2d_0/scan'),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(launch_localization),
+            PythonLaunchDescriptionSource(launch_nav2),
             launch_arguments=[
-                ('namespace', namespace),
-                ('map', map),
                 ('use_sim_time', use_sim_time),
-                ('params_file', file_parameters)
+                ('params_file', file_parameters),
+                ('use_composition', 'False'),
+                ('namespace', namespace),
+                ('slam', 'True'),
+                ('map', map)
               ]
         ),
     ])
-
-    return [localization]
+    
+    return [nav2]
 
 
 def generate_launch_description():
     pkg_clearpath_nav2 = get_package_share_directory('clearpath_nav2')
 
+    ld = LaunchDescription(ARGUMENTS)
     map_arg = DeclareLaunchArgument(
         'map',
-        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'maps.yaml']),
+        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'site1.yaml']),
         description='Full path to map yaml file to load')
-#Map
-    ld = LaunchDescription(ARGUMENTS)
+    
     ld.add_action(map_arg)
     ld.add_action(OpaqueFunction(function=launch_setup))
     return ld

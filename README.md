@@ -59,16 +59,21 @@ Takes images saved in file and saves them in a pdf.
 `ros2 run actions_py ac_server`
 
 ### Client
-`ros2 run actions_py monitoring_client`
+`ros2 run actions_py monitoring_client_before_integration`
 
 ### Integration Executable
 `ros2 run actions_py integration_executable`
 
-### How to run integration executable
-- Run camera_topic node: `ros2 run cam_topic cam_top_pub`
-- In new terminals run hotspot, acoustic, and pan/tilt servers (see run commands above)
-- In a new terminal run the monitoring client: `ros2 run actions_py monitoring_client`
-- In a new terminal run integration executable: `ros2 run actions_py integration_executable`
+### How to run integration executable on Jackal
+- Run launch file (see nodes launched below): `ros2 launch actions_bringup actions.launch.py`
+  - hotspot server
+  - acoustic server
+  - pan/tilt server
+  - thermal camera node
+  - visual camera node
+- Ensure Navigation is prepped and running (see below)
+- Run integration_executable: `ros2 run actions_py integration_executable`
+
 
 ## Documentation for Starting Navigation. 
 `ros2 launch launch_robotnav robot_launch.py params_file:=nav2.yaml`

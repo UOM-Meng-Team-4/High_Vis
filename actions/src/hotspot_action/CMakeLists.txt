@@ -14,6 +14,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "action/Nav.action"
   "action/PanAndTilt.action"
   "action/Acoustic.action"
+  "action/Visual.action"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
