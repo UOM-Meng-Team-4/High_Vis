@@ -178,7 +178,6 @@ def main():
         [0.876, -0.114],
         [0.0, 0.768]]
 
-
     # Define the node and navigator
     node = Client()
     integration = IntegrationExecutable()
