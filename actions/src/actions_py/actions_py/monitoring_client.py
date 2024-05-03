@@ -84,7 +84,7 @@ class Client(Node):
 
     def goal_result_callback_visual(self, future):
         result = future.result().result
-        self.hs_result = result.visual_image_path
+        self.visual_result = result.visual_image_path
         self.get_logger().info(f"Result: " +str(result.visual_image_path))
 
     # Navigation
