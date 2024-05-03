@@ -143,7 +143,7 @@ class IntegrationExecutable(Node):
 
                 while node.pt_result is None:
                     rclpy.spin_once(node)
-
+                print("Got to here")
                 node.pt_result = None
 
                 # Send hs goal
@@ -161,11 +161,11 @@ class IntegrationExecutable(Node):
                 node.hs_result = None
                 node.visual_result = None
                 node.ac_result = None
-
+                print("Finish first loop")
                 #time.sleep(2)
 
             t_int = 0
-
+        print("Finish second loop")
         p_int = 0
 
     
