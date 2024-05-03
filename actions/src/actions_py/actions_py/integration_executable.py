@@ -152,11 +152,9 @@ class IntegrationExecutable(Node):
                 node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int)
                                                                         
             
-                while node.hs_result is None:
-                    while node.visual_result is None:
-                        while node.ac_result is None:
-                            rclpy.spin_once(node, timeout_sec=5.0)
-			    print("Running")
+                while node.hs_result is None & node.visual_result is None & node.ac_result is None:
+                    rclpy.spin_once(node, timeout_sec=5.0)
+                    print("Running")
 
                 node.hs_result = None
                 node.visual_result = None
