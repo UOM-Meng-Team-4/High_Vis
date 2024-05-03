@@ -23,10 +23,10 @@ class IntegrationExecutable(Node):
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = navigator.get_clock().now().to_msg()
-        initial_pose.pose.position.x = -6.06
-        initial_pose.pose.position.y = -0.39
-        initial_pose.pose.orientation.z = -0.98
-        initial_pose.pose.orientation.w = 0.180
+        initial_pose.pose.position.x = 0.0
+        initial_pose.pose.position.y = -0.0
+        initial_pose.pose.orientation.z = 0.0
+        initial_pose.pose.orientation.w = 1.0
         #navigator.setInitialPose(initial_pose)
         
         # Activate navigation, if not autostarted. This should be called after setInitialPose()
@@ -136,7 +136,7 @@ class IntegrationExecutable(Node):
             for t in tilt_positions:
             
                 # Send pt goal
-                time.sleep(2)
+                #time.sleep(2)
                 node.pt_result = node.send_pt_goal(p, t)
 
                 t_int += 1
@@ -156,12 +156,13 @@ class IntegrationExecutable(Node):
                     while node.visual_result is None:
                         while node.ac_result is None:
                             rclpy.spin_once(node, timeout_sec=5.0)
+			    print("Running")
 
                 node.hs_result = None
                 node.visual_result = None
                 node.ac_result = None
 
-                time.sleep(2)
+                #time.sleep(2)
 
             t_int = 0
 
@@ -173,10 +174,11 @@ def main():
     rclpy.init()
 
     inspection_route = [
-        [-1.05, 0.636],
-        [1.18, 2.18],
-        [0.876, -0.114],
-        [0.0, 0.768]]
+        [2.17, 2.66],
+        [7.2, 2.61],
+        [10.7, -0.865],
+        [-0.2, -1.89],
+	[0.0, 0.0]]
 
     # Define the node and navigator
     node = Client()

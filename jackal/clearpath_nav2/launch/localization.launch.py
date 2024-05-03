@@ -106,7 +106,7 @@ def generate_launch_description():
 
     map_arg = DeclareLaunchArgument(
         'map',
-        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'kacper_map.yaml']),
+        default_value=PathJoinSubstitution([pkg_clearpath_nav2, 'maps', 'HVLab2.yaml']),
         description='Full path to map yaml file to load')
 #Map
     ld = LaunchDescription(ARGUMENTS)
