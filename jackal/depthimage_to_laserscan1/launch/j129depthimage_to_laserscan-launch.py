@@ -33,6 +33,6 @@ def generate_launch_description():
                         ('depth_camera_info', 'j100_0219/sensors/camera_0/depth/camera_info'),
                         ('/tf','j100_0219/tf'),
                         ( '/tf_static', 'j100_0219/tf_static'),
-                        ( 'scan', 'j100_0219/scan1')],
+                        ( 'scan', 'j100_0219/sensors/camera_0/scan')],
             parameters=[param_config])
     ])
