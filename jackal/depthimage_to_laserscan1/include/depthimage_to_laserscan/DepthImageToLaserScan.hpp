@@ -169,7 +169,7 @@ private:
 
     int offset = static_cast<int>(cam_model.cy() - static_cast<double>(scan_height) / 2.0);
     depth_row += offset * row_step;  // Offset to center of image
-    for (int v = offset; v < offset + scan_height_; v++, depth_row += row_step) {
+    for (int v = offset; v < offset + scan_height_; v += 5, depth_row += 5 * row_step) {
       for (uint32_t u = 0; u < depth_msg->width; u++) {  // Loop over each pixel in row
         T depth = depth_row[u];
 
