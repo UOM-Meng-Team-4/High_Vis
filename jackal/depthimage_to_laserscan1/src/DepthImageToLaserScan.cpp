@@ -136,7 +136,7 @@ sensor_msgs::msg::LaserScan::UniquePtr DepthImageToLaserScan::convert_msg(
   }
   scan_msg->angle_min = angle_min;
   scan_msg->angle_max = angle_max;
-  scan_msg->angle_increment = (scan_msg->angle_max - scan_msg->angle_min) / ((depth_msg->width - 1)/4);
+  scan_msg->angle_increment = (scan_msg->angle_max - scan_msg->angle_min) / ((depth_msg->width - 1));
   scan_msg->time_increment = 0.0;
   scan_msg->scan_time = scan_time_;
   scan_msg->range_min = range_min_;
@@ -153,7 +153,7 @@ sensor_msgs::msg::LaserScan::UniquePtr DepthImageToLaserScan::convert_msg(
 
   // Calculate and fill the ranges
   uint32_t ranges_size = depth_msg->width;
-  ranges_size = ranges_size /4; // This must match the increment of U in the class, for instance u+=2 means ranges/2
+  ranges_size = ranges_size; // This must match the increment of U in the class, for instance u+=2 means ranges/2
   scan_msg->ranges.assign(ranges_size, std::numeric_limits<float>::quiet_NaN());
 
   if (depth_msg->encoding == sensor_msgs::image_encodings::TYPE_16UC1) {
