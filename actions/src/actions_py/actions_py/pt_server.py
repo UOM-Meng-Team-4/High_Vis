@@ -3,6 +3,7 @@
 import rclpy
 import time
 import numpy as np
+from std_msgs.msg import Int32
 from rclpy.node import Node
 from rclpy.action import ActionServer
 from rclpy.action.server import ServerGoalHandle
@@ -12,45 +13,44 @@ class PTServer(Node):
     def __init__(self):
         super().__init__("pt_server") 
 
-        self.nav_server = ActionServer(self, 
+        self.pan = 10
+        self.tilt = 10
+
+        self.pt_server = ActionServer(self, 
             PanAndTilt, 
             "pt_server", 
             execute_callback=self.execute_callback)
         self.get_logger().info("Action Server has been started.")
 
-        self.p = self.previous_tilt = 0.0
-        self.t = self.previous_pan = 0.0
+        self.publisher = self.create_publisher(Int32, "pt_subscriber", 10)
+        self.timer = self.create_timer(0.04, self.timer_callback)
+        self.subscriber = self.create_subscription(Int32, "pt_publisher", self.subscriber_callback, 10)
 
     def execute_callback(self, goal_handle: ServerGoalHandle):
-        pan = goal_handle.request.pan
-        tilt = goal_handle.request.tilt
-        self.get_logger().info(f"Received request to move to pan position:{pan}, tilt position:{tilt}")
+        self.pan = goal_handle.request.pan
+        self.tilt = goal_handle.request.tilt
+        self.get_logger().info(f"Received request to move to pan position:{self.pan}, tilt position:{self.tilt}")
 
+        if self.p == self.pan and self.t == self.tilt:
+            goal_handle.succeed()
+            result = PanAndTilt.Result()
+            result.move_finished = True
+            print("Pan Position reached")
+            return result
 
-        if self.previous_tilt < tilt:
-            for self.t in np.arange(self.previous_tilt, tilt, 0.2):
-                time.sleep(0.5)
-                goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = self.p, tilt_feedback = self.t))
-                print(f"Reaching tilt position {self.t:.1f}")  
-
-        if self.previous_pan < pan:
-            for self.p in np.arange(self.previous_pan, pan, 0.2):
-                time.sleep(0.5)
-                goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = self.p, tilt_feedback = self.t))
-                print(f"Reaching pan position {self.p:.1f}")
-        
         else:
-            print("No movement required")
+            goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = self.p, tilt_feedback = self.t))
+    
+    def timer_callback(self):
+        msg = Int32()
+        msg.data = self.pan|(self.tilt<<9) 
+        self.publisher.publish(msg)
+        #self.get_logger().info(f"Publishing: {msg.data}")
 
-        self.previous_tilt = tilt
-        self.previous_pan = pan
-
-        goal_handle.succeed()
-        result = PanAndTilt.Result()
-        result.move_finished = True
-        print("Pan Position reached")
-        return result
-            
+    def subscriber_callback(self, msg: Int32):
+        self.p = msg.data&511
+        self.t = msg.data>>9
+        
         
 def main(args=None):
     rclpy.init(args=args)

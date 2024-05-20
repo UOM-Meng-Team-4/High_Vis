@@ -53,7 +53,7 @@ class ACServer(Node):
         goal_handle.succeed()
         result = Acoustic.Result()
         result.ac_save_path = self.output_reading_path
-        print(f"Avergae dB value saved to {self.filename}")
+        print(f"Average dB value saved to {self.filename}")
         print(f"Grayscale image saved to {self.output_reading_path}")
         return result 
     

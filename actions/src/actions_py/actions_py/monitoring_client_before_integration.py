@@ -207,8 +207,8 @@ def main(args=None):
     mp_int = 0
     p_int = 0
     t_int = 0
-    pan_positions = [1.0]
-    tilt_positions = [1.0]
+    pan_positions = [0, 20, 40, 60]
+    tilt_positions = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
 
     
 
