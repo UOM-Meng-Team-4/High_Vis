@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-import rclpy
-import time
-import threading
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.action.client import ClientGoalHandle
@@ -15,20 +12,25 @@ from hotspot_action.action import Visual
 class Client(Node):
     def __init__(self):
         super().__init__("client") # Change node name to what you want
+
+        # Set up clients
         self.hs_client = ActionClient(self, Hotspot, "hotspot_server")
         self.nav_client = ActionClient(self, Nav, "nav_server")
         self.pt_client = ActionClient(self, PanAndTilt, "pt_server")
         self.ac_client = ActionClient(self, Acoustic, "ac_server")
         self.visual_client = ActionClient(self, Visual, "visual_cam_server")
+
+        # Set up results as None
         self.pt_result = None
         self.nav_result = None
         self.hs_result = None
         self.ac_result = None
         self.visual_result = None
 
-    # Hotspot
+    # Hotspot Client
 
     def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position):
+
         # Wait for the server
         if not self.hs_client.wait_for_server(timeout_sec=1.0):
             self.get_logger().info('Hotspot server not available after waiting')
@@ -47,11 +49,13 @@ class Client(Node):
             send_goal_async(goal). \
                 add_done_callback(self.goal_response_callback_hs)
         
+    # Requests result from server
     def goal_response_callback_hs(self, future):
         self.goal_handle_: ClientGoalHandle = future.result()
         if self.goal_handle_.accepted: 
             self.goal_handle_.get_result_async().add_done_callback(self.goal_result_callback_hs)
 
+    # Creates a result variable and prints the result to command prompt
     def goal_result_callback_hs(self, future):
         result = future.result().result
         self.hs_result = result.hotspot_image_path
@@ -60,6 +64,7 @@ class Client(Node):
     # Visual Cam
 
     def send_visual_goal(self, take_visual_image, measurement_point, pan_position):
+
         # Wait for the server
         if not self.visual_client.wait_for_server(timeout_sec=1.0):
             self.get_logger().info('Visual Cam server not available after waiting')
@@ -84,7 +89,7 @@ class Client(Node):
 
     def goal_result_callback_visual(self, future):
         result = future.result().result
-        self.hs_result = result.visual_image_path
+        self.visual_result = result.visual_image_path
         self.get_logger().info(f"Result: " +str(result.visual_image_path))
 
     # Navigation
