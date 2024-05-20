@@ -21,10 +21,10 @@ class IntegrationExecutable(Node):
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = navigator.get_clock().now().to_msg()
-        initial_pose.pose.position.x = -6.06
-        initial_pose.pose.position.y = -0.39
-        initial_pose.pose.orientation.z = -0.98
-        initial_pose.pose.orientation.w = 0.180
+        initial_pose.pose.position.x = 0.0
+        initial_pose.pose.position.y = -0.0
+        initial_pose.pose.orientation.z = 0.0
+        initial_pose.pose.orientation.w = 1.0
         #navigator.setInitialPose(initial_pose)
         
         # Activate navigation, if not autostarted. This should be called after setInitialPose()
@@ -123,8 +123,8 @@ class IntegrationExecutable(Node):
         
         p_int = 0
         t_int = 0
-        pan_positions = [1.0 2.0]
-        tilt_positions = [1.0 2.0]
+        pan_positions = [1.0, 2.0]
+        tilt_positions = [1.0, 2.0]
 
         self.mp_int += 1
 
@@ -134,14 +134,14 @@ class IntegrationExecutable(Node):
             for t in tilt_positions:
             
                 # Send pt goal
-                time.sleep(2)
+                #time.sleep(2)
                 node.pt_result = node.send_pt_goal(p, t)
 
                 t_int += 1
 
                 while node.pt_result is None:
                     rclpy.spin_once(node)
-
+                print("Got to here")
                 node.pt_result = None
 
                 # Send hs goal
@@ -153,16 +153,24 @@ class IntegrationExecutable(Node):
                 while node.hs_result is None:
                     while node.visual_result is None:
                         while node.ac_result is None:
+                            print("Before spin")
                             rclpy.spin_once(node, timeout_sec=5.0)
-
+                            print("Running")
+                        rclpy.spin_once(node, timeout_sec=5.0)
+                        print("finished AC loop")
+                    rclpy.spin_once(node, timeout_sec=5.0)
+                    print("Visual loop")
+                    print("finished visual loop")
+                print("Finished HS loop")
+                print()
                 node.hs_result = None
                 node.visual_result = None
                 node.ac_result = None
-
-                time.sleep(2)
+                print("Finish first loop")
+                #time.sleep(2)
 
             t_int = 0
-
+        print("Finish second loop")
         p_int = 0
 
     
@@ -171,10 +179,11 @@ def main():
     rclpy.init()
 
     inspection_route = [
-    [-1.03, -0.39],
-	[-0.79, -1.92],
-	[1.4, -1.9],
-	[0.761, 1.54]]
+        [2.17, 2.66],
+        [7.2, 2.61],
+        [10.7, -0.865],
+        [-0.2, -1.89],
+	    [0.0, 0.0]]
 
     # Define the node and navigator
     node = Client()
