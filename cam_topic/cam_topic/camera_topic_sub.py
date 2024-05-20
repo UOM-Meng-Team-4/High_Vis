@@ -18,7 +18,7 @@ class MinimalSubscriber(Node):
 
                     # Process the image (e.g., display it, save it, etc.)
                     # For demonstration purposes, let's display the image
-                    cv2.imwrite(f"Thermal_Image_Save.jpg", cv_image)
+                    cv2.imwrite(f"HS_Tech_Report_2.jpg", cv_image)
                     #cv2.waitKey(1)  # Wait for a key press (optional)
 
         except Exception as e:
