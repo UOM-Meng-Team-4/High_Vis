@@ -108,11 +108,16 @@ class MinimalSubscriber(Node):
 
             # Preprocess the image
             self.HT_ROI = cv2.resize(self.HT_ROI, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
+            cv2.imwrite("HT_ROI_1.jpg", self.HT_ROI)
             gray = cv2.cvtColor(self.HT_ROI, cv2.COLOR_BGR2GRAY)
+            cv2.imwrite("gray.jpg", gray)
             blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+            cv2.imwrite("blurred.jpg", blurred)
             _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
+            cv2.imwrite("HT_ROI_2.jpg", self.HT_ROI)
             self.HT_ROI = cv2.bitwise_not(self.HT_ROI)
-            cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
+            cv2.imwrite("HT_ROI_3.jpg", self.HT_ROI)
+            
             
             # Text Recognition
             custom_config = r'--oem 3 --psm 6'
@@ -152,6 +157,7 @@ class MinimalSubscriber(Node):
             self.x1 = 30
             self.x2 = 602
             self.imROI = self.cv_image[self.y1:self.y2, self.x1:self.x2]
+
 
             # Call hotspot detection function
             MinimalSubscriber.hotspot_detection(self)

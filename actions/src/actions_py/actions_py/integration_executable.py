@@ -8,9 +8,7 @@ import rclpy
 import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
-"""
-Basic navigation demo to go to poses.
-"""
+
 class IntegrationExecutable(Node):
 
     def __init__(self):
@@ -18,8 +16,8 @@ class IntegrationExecutable(Node):
         self.mp_int = 0
 
     def run_navigator(self, navigator, inspection_route, client):
-
-
+        
+        # Set initial pose
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = navigator.get_clock().now().to_msg()
@@ -173,18 +171,10 @@ def main():
     rclpy.init()
 
     inspection_route = [
-<<<<<<< HEAD
     [-1.03, -0.39],
 	[-0.79, -1.92],
 	[1.4, -1.9],
 	[0.761, 1.54]]
-=======
-        [-1.03, -0.39],
-        [-0.79, -1.92],
-        [1.4, -1.9],
-        [0.761, 1.54],
-        [-1.03,-0.39]]
->>>>>>> 4b18f75db552be0f73bc831f4691626fe776a3a4
 
     # Define the node and navigator
     node = Client()
