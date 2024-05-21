@@ -2,6 +2,8 @@
 import rclpy
 import numpy as np
 import os
+import glob
+from PyPDF2 import PdfMerger
 from PIL import Image, ImageDraw, ImageFont
 from datetime import date
 from rclpy.node import Node
@@ -14,31 +16,32 @@ class MyNode(Node):
 
     def __init__(self):
         super().__init__("pdf_node")
+        self.counter = 0
 
 
-    def template_creator(self):
+    def template_creator(self, mp):
+        self.mp_formatted = 'MP' + mp.split('_')[1]
+        pdf_filename = f"template_{self.mp_formatted}.pdf"
         
-        pdf_filename = "template.pdf"
         template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/')
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('template.html')
-        output_text = template.render()
-
+        
+        output_text = template.render(mp=self.mp_formatted)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Landscape',
             'page-size': 'A4',
         }
         pdfkit.from_string(output_text, pdf_filename, configuration=config, options=options)
+        self.counter += 1
 
-    def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual):
-        pdf_template = convert_from_path("template.pdf")
-        today = date.today().strftime("%Y-%m-%d")
+    def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp):
+        
+        pdf_template = convert_from_path(f"template_{self.mp_formatted}.pdf")
+        #today = date.today().strftime("%Y-%m-%d")
         scaling_factor = 0.3
-
-        # Create an A4-sized white canvas (scaled 10x)
-        a4_width, a4_height = 8420, 5950
         canvas = pdf_template[0]
 
         # Set starting coordinates to paste images and spacing between them
@@ -103,7 +106,7 @@ class MyNode(Node):
         y_ac = 310
         x = x_start + 40
         i = 0
-        with open('mp_1/acoustic/avg_db_values.txt', 'r') as file:
+        with open(f'{mp}/acoustic/avg_db_values.txt', 'r') as file:
             
             for line in file:
                     i += 1
@@ -118,52 +121,60 @@ class MyNode(Node):
                         x += x_spacing
 
         # Save as PDF with today's date
-        today = date.today().strftime("%d-%m-%Y")
-        pdf_filename = f"substation_scan_{today}.pdf"
+        pdf_filename = f"template_{self.mp_formatted}.pdf"
         canvas.save(pdf_filename, "PDF", resolution=100.0, save_all=True)
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = MyNode()
-
-    # Create pdf template
-    node.template_creator()
-
-    # Meaurement point (should be dynamic in actual code)
-    mp_thermal = "mp_1/thermal"
-    mp_acoustic = "mp_1/acoustic"
-    mp_visual = "mp_1/visual"
-
+    merger = PdfMerger()
+    mp_folders = sorted(glob.glob('mp_*'))
+    print(mp_folders)
     # Number of rows (tilt positions) and columns (pan positions)
     x_columns = 10
     y_rows = 4
+    mp = 0
 
-    img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
-    img_path_acoustic = np.empty((y_rows, x_columns), dtype=object)
-    img_path_visual = np.empty((x_columns), dtype=object)
+    for mp_folder in mp_folders:
+        #mp_thermal = sorted(glob.glob(os.path.join(mp_folder, '/thermal')))  # replace '.thermal' with the actual extension
+        #mp_acoustic = sorted(glob.glob(os.path.join(mp_folder, '/acoustic')))  # replace '.acoustic' with the actual extension
+        #mp_visual = sorted(glob.glob(os.path.join(mp_folder, '/visual')))  # replace '.visual' with the actual extension
 
-    for x in range (1, x_columns + 1):
-        for y in range(1, y_rows + 1):
-            image_filename_thermal = f"p_{x}_t_{y}.jpg"
-            image_join_thermal = os.path.join(mp_thermal, image_filename_thermal)
-            img_path_thermal[y-1, x-1] = image_join_thermal
-            
-    for x in range (1, x_columns + 1):
-        for y in range(1, y_rows + 1):
-            image_filename_acoustic = f"p_{x}_t_{y}.jpg"
-            image_join_acoustic = os.path.join(mp_acoustic, image_filename_acoustic)
-            img_path_acoustic[y-1, x-1] = image_join_acoustic
+        img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
+        img_path_acoustic = np.empty((y_rows, x_columns), dtype=object)
+        img_path_visual = np.empty((x_columns), dtype=object)
 
-    for x in range (1, x_columns + 1):
-        image_filename_visual = f"p_{x}.jpg"
-        image_join_visual = os.path.join(mp_visual, image_filename_visual)
-        img_path_visual[x-1] = image_join_visual
+        for x in range (1, x_columns + 1):
+            for y in range(1, y_rows + 1):
+                image_filename_thermal = f"p_{x}_t_{y}.jpg"
+                image_join_thermal = os.path.join(mp_folder, 'thermal', image_filename_thermal)
+                img_path_thermal[y-1, x-1] = image_join_thermal
+                
+        for x in range (1, x_columns + 1):
+            for y in range(1, y_rows + 1):
+                image_filename_acoustic = f"p_{x}_t_{y}.jpg"
+                image_join_acoustic = os.path.join(mp_folder, 'acoustic', image_filename_acoustic)
+                img_path_acoustic[y-1, x-1] = image_join_acoustic
+
+        for x in range (1, x_columns + 1):
+            image_filename_visual = f"p_{x}.jpg"
+            image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
+            img_path_visual[x-1] = image_join_visual
+
+        # Create pdf template
+        node.template_creator(mp_folder)
+        node.create_centered_pdf(img_path_thermal, img_path_acoustic, img_path_visual, mp_folder)
+        
+        pdf_filename = f"template_{node.mp_formatted}.pdf"
+        merger.append(pdf_filename)
+
+        mp += 1
+
+    today = date.today().strftime("%d-%m-%Y")
+    merger.write(f"substation_scan_{today}.pdf")
+    merger.close()
     
-    #today = date.today().strftime("%Y-%m-%d")
-    #pdf_filename = f"substation_scan_{today}.pdf"
-
-    node.create_centered_pdf(img_path_thermal, img_path_acoustic, img_path_visual)
     print(f"PDF saved")
 
     rclpy.shutdown()
