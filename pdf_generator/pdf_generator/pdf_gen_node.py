@@ -2,6 +2,9 @@
 import rclpy
 import numpy as np
 import os
+import yaml
+import cv2
+import math
 from PIL import Image, ImageDraw, ImageFont
 from datetime import date
 from rclpy.node import Node
@@ -10,6 +13,8 @@ class MyNode(Node):
 
     def __init__(self):
         super().__init__("pdf_node")
+
+    
 
 
     def create_centered_pdf(image_paths_thermal, image_paths_acoustic, output_file):
@@ -33,9 +38,6 @@ class MyNode(Node):
         num_rows = len(image_paths_acoustic)
         num_cols = len(image_paths_acoustic[0]) if num_rows > 0 else 0
 
-         
-            
-        
 
         # Paste images onto the canvas
         for row in image_paths_thermal:
@@ -161,6 +163,7 @@ def main(args=None):
     # Meaurement point (should be dynamic in actual code)
     mp_thermal = "mp_1/thermal"
     mp_acoustic = "mp_1/acoustic"
+    mp_visual = "mp_1/visual"
 
     # Number of rows (tilt positions) and columns (pan positions)
     x_columns = 10
