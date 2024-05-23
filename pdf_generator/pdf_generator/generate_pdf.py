@@ -309,8 +309,6 @@ def main(args=None):
     title_pdf_page = node.title_template_creator()
     merger.append(title_pdf_page)
 
-#################### MAP SAVING ####################
-
     for scan_folder in scan_folders:
         # Sorts all monitoring point folders in order
         mp_folders = sorted(glob.glob(f'{scan_folder}/2. Monitoring Images/mp_*'))
@@ -369,8 +367,6 @@ def main(args=None):
 
         # Close all open windows
         cv2.destroyAllWindows()
-
-#################### PDF GENERATION  ####################
 
         for mp_folder in mp_folders:
             
