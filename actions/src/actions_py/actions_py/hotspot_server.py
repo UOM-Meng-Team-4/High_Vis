@@ -68,6 +68,8 @@ class MinimalSubscriber(Node):
             os.makedirs(directory)
 
         self.output_image_path = os.path.join(directory, f"p_{pan}_t_{tilt}.jpg")
+        self.image_name = f"mp_{mp}: p_{pan}_t_{tilt}"
+        self.hotspot_text_file = os.path.join("2. Monitoring Images", "hotspots.txt")
         
         # Execute the action
         if target == True: 
@@ -219,17 +221,24 @@ class MinimalSubscriber(Node):
             # Using ANSI/NETA standard for temperature classification
             self.ambient_temp = 15
             hs_temp = int(float(self.HT_text)) - self.ambient_temp
-            if 1<hs_temp<10: 
-                cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
+            #if 1<hs_temp<10: 
+                #cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
 
-            elif 11<hs_temp<20:
+            if 11<hs_temp<20:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 128), 2)     # Yellow
+                with open(self.hotspot_text_file, "a") as file:
+                    file.write(f"self.image_name\n")
+
                 
             elif 21<hs_temp<40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
+                with open(self.hotspot_text_file, "a") as file:
+                    file.write(f"self.image_name\n")
 
             elif hs_temp>40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)   # Red
+                with open(self.hotspot_text_file, "a") as file:
+                    file.write(f"self.image_name\n")
 
             else:
                 pass

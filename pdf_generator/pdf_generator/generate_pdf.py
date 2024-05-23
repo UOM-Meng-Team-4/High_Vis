@@ -8,6 +8,7 @@ import cv2
 import jinja2
 import pdfkit
 import math
+import itertools
 from PyPDF2 import PdfMerger
 from PIL import Image, ImageDraw, ImageFont
 from datetime import date
@@ -20,6 +21,7 @@ class MyNode(Node):
     def __init__(self):
         super().__init__("pdf_node")
         self.counter = 0
+        self.i = 0
 
     def quaternion_to_euler(x, y, z, w):
         t0 = +2.0 * (w * x + y * z)
@@ -117,23 +119,23 @@ class MyNode(Node):
         return map_image
 
     # Create template for measurement point pages
-    def template_creator(self, mp):
+    def template_creator(self, mp, pan, x):
 
         # essentially changes the mp path to the format MPX (so it looks nicer on the pdf)
         self.mp_preformat = mp.split('/')[-1] 
         self.mp_formatted = 'MP' + self.mp_preformat.split('_')[1]
-        pdf_filename = f"template_{self.mp_formatted}.pdf"
+        pdf_filename = f"template_{self.mp_formatted}_pan_{pan}.pdf"
         
         # loads template.html
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/')
+        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
         template_env = jinja2.Environment(loader=template_loader)
-        template = template_env.get_template('template.html')
+        template = template_env.get_template('mp_template.html')
         
         # renders the template
-        output_text = template.render(mp=self.mp_formatted, date=date.today().strftime("%d-%m-%Y"))
+        output_text = template.render(mp=self.mp_formatted, date=date.today().strftime("%d-%m-%Y"), pan=pan, x=x+1)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
-            'orientation': 'Landscape',
+            'orientation': 'Portrait',
             'page-size': 'A4',
         }
         pdfkit.from_string(output_text, pdf_filename, configuration=config, options=options)
@@ -149,14 +151,14 @@ class MyNode(Node):
 
         pdf_filename = "map_template.pdf"
         
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/')
+        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
         template_env = jinja2.Environment(loader=template_loader)
         template = template_env.get_template('map_template.html')
         
         output_text = template.render(date=date.today().strftime("%d-%m-%Y"))
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
-            'orientation': 'Landscape',
+            'orientation': 'Portrait',
             'page-size': 'A4',
         }
         pdfkit.from_string(output_text, pdf_filename, configuration=config, options=options)
@@ -167,7 +169,7 @@ class MyNode(Node):
     def title_template_creator(self):
         pdf_filename = "title_template.pdf"
 
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/')
+        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('title_template.html')
@@ -175,12 +177,31 @@ class MyNode(Node):
         output_text = template.render(date=date.today().strftime("%d-%m-%Y"))
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
-            'orientation': 'Landscape',
+            'orientation': 'Portrait',
+            'page-size': 'A2',
+        }
+        pdfkit.from_string(output_text, pdf_filename, configuration=config, options=options)
+
+        return pdf_filename
+    
+    def hotspots_template_creator(self): 
+        pdf_filename = "hotspots_template.pdf"
+
+        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
+        template_env = jinja2.Environment(loader=template_loader)
+
+        template = template_env.get_template('hotspots_template.html')
+        
+        output_text = template.render()
+        config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+        options = {
+            'orientation': 'Portrait',
             'page-size': 'A4',
         }
         pdfkit.from_string(output_text, pdf_filename, configuration=config, options=options)
 
         return pdf_filename
+
 
     # Takes the map template and pastes the map image with mps marked on it
     def create_centered_pdf_map(self, image_path):
@@ -203,20 +224,52 @@ class MyNode(Node):
         pdf_filename_map = f"map_template.pdf"
         map_canvas.save(pdf_filename_map, "PDF", resolution=100.0, save_all=True)
 
+
+    def create_centered_pdf_hotspots(self, scan_folder):
+        # Load the map template and the map image
+        pdf_template_map = convert_from_path("hotspots_template.pdf")
+        canvas = pdf_template_map[0]
+
+        draw = ImageDraw.Draw(canvas)
+        y_start_therm = 150
+        x_start_therm = 60
+
+        x = x_start_therm
+        y = y_start_therm
+        y_spacing = 50
+        i = 0
+        with open(f'{scan_folder}/2. Monitoring Images/hotspots.txt', 'r') as file:
+            
+            for line in file:
+                i += 1
+                if i <= 29:
+                    draw.text((x, y), line.strip(), font=ImageFont.truetype("src/High_Vis/pdf_generator/pdf_generator/Arial.ttf", 40), fill="black")
+                    y += y_spacing
+                else:
+                    x_save = x
+                    y = y_start_therm
+                    x = x_save + 400
+                    i = 0
+                
+
+        pdf_filename_hotspots = f"hotspots_template.pdf"
+        canvas.save(pdf_filename_hotspots, "PDF", resolution=100.0, save_all=True)
+                
+
     # Pastes the Thermal, Acoustic, and Visual images/data into the pdf template
-    def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp):
+    def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan):
         
         # Load the pdf template (scaling factor set for images)
-        pdf_template_mp = convert_from_path(f"template_{self.mp_formatted}.pdf")
-        scaling_factor = 0.3
+        pdf_template_mp = convert_from_path(f"template_{self.mp_formatted}_pan_{pan}.pdf")
+        scaling_factor = 0.8
         canvas = pdf_template_mp[0]
 
         # Set starting coordinates to paste images and spacing between them
-        x_start, y_start = 160, 1000
+        x_start, y_start = 275, 120
         x, y = x_start, y_start
-        y_ac = y_start + 145
-        x_spacing = 215
-        y_spacing = 300
+        x_ac = x_start + 700
+        #x_spacing = 215
+        y_spacing = 435
 
         # Calculate number of rows and columns in image_paths
         num_rows = len(image_paths_thermal)
@@ -226,67 +279,60 @@ class MyNode(Node):
 
 
         # Paste thermal images onto the canvas
-        for row in image_paths_thermal:
-            for image_path_therm in row:
-
-                img_therm = Image.open(image_path_therm)
-                original_size = img_therm.size
-                new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
-                img_therm = img_therm.resize(new_size)
-                canvas.paste(img_therm, (x, y))
-                x += x_spacing
+        for image_path_therm in image_paths_thermal:
             
-            x = x_start
-            y -= y_spacing
+            img_therm = Image.open(image_path_therm)
+            original_size = img_therm.size
+            new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
+            img_therm = img_therm.resize(new_size)
+            canvas.paste(img_therm, (x, y))
+            #x += x_spacing
+            
+            #x = x_start
+            y += y_spacing
         
-       
+        y_vis = y
+        y = y_start
+
         # Paste acoustic images onto the canvas
-        for row in image_paths_acoustic:
-            for image_path_ac in row:
-
-                img_ac = Image.open(image_path_ac)
-                original_size = img_ac.size
-                new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
-                img_ac = img_ac.resize(new_size)
-                canvas.paste(img_ac, (x, y_ac))
-
-                x += x_spacing
+        for image_path_ac in image_paths_acoustic:
             
-            x = x_start
-            y_ac -= y_spacing
+
+            img_ac = Image.open(image_path_ac)
+            original_size = img_ac.size
+            new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
+            img_ac = img_ac.resize(new_size)
+            canvas.paste(img_ac, (x_ac, y))
+
+            #x += x_spacing
+            
+            #x = x_start
+            y += y_spacing
 
         # Paste visual images onto the canvas
-        y_vis = 1370
-        for image_path_vis in image_paths_visual:
-            img_vis = Image.open(image_path_vis)
-            original_size = img_vis.size
-            new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
-            img_vis = img_vis.resize(new_size)
-            canvas.paste(img_vis, (x, y_vis))
+        #y_vis = 1370
+        x_vis = x_start + 350
+        img_vis = Image.open(image_paths_visual)
+        original_size = img_vis.size
+        new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
+        img_vis = img_vis.resize(new_size)
+        canvas.paste(img_vis, (x_vis, y_vis))
 
-            x += x_spacing
-            
         # Paste decibel values onto the greyscale acoustic images pasted before
         draw = ImageDraw.Draw(canvas)
-        y_ac = 310
-        x = x_start + 40
-        i = 0
+        x_text = x_ac + 160
+        y_text = y_start + 160
+        
         with open(f'{mp}/acoustic/avg_db_values.txt', 'r') as file:
-            
-            for line in file:
-                    i += 1
-
-                    if i > 10:
-                        y_ac += y_spacing
-                        x = x_start + 50
-                        i = 0
-
-                    else:
-                        draw.text((x, y_ac), line.strip(), font=ImageFont.truetype("src/High_Vis/pdf_generator/pdf_generator/Arial.ttf", 40), fill="black")
-                        x += x_spacing
+            lines = itertools.islice(file, self.i, self.i + 4)
+            for line in lines:
+                draw.text((x_text, y_text), line.strip(), font=ImageFont.truetype("src/High_Vis/pdf_generator/pdf_generator/Arial.ttf", 80), fill="black")
+                y_text += y_spacing
+                x = x_start + 50
+            self.i += 4
 
         # Save as PDF
-        pdf_filename_mp = f"template_{self.mp_formatted}.pdf"
+        pdf_filename_mp = f"template_{self.mp_formatted}_pan_{pan}.pdf"
         canvas.save(pdf_filename_mp, "PDF", resolution=100.0, save_all=True)
 
 
@@ -364,6 +410,10 @@ def main(args=None):
         map_pdf_page = node.map_template_creator()
         node.create_centered_pdf_map(image)
         merger.append(map_pdf_page)
+        hotspots_pdf_page = node.hotspots_template_creator()
+        node.create_centered_pdf_hotspots(scan_folder)
+        merger.append(hotspots_pdf_page)
+
 
         # Close all open windows
         cv2.destroyAllWindows()
@@ -393,13 +443,19 @@ def main(args=None):
                 image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
                 img_path_visual[x-1] = image_join_visual
 
-            # Create pdf template for measurement point page
-            node.template_creator(mp_folder)
-            node.create_centered_pdf(img_path_thermal, img_path_acoustic, img_path_visual, mp_folder)
-            
-            # Append the pdf template after the map page
-            pdf_filename_mp = f"template_{node.mp_formatted}.pdf"
-            merger.append(pdf_filename_mp)
+            pan_angles = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
+            x = 0
+            for pan in pan_angles:
+                
+                # Create pdf template for measurement point page
+                node.template_creator(mp_folder, pan, x)
+                node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[x], mp_folder, pan)
+                
+                # Append the pdf template after the map page
+                pdf_filename_mp = f"template_{node.mp_formatted}_pan_{pan}.pdf"
+                merger.append(pdf_filename_mp)
+                x += 1
+
 
 
         # Save PDF
