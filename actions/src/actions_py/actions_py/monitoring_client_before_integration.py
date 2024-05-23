@@ -207,8 +207,8 @@ def main(args=None):
     mp_int = 0
     p_int = 0
     t_int = 0
-    pan_positions = [20, 40, 60]
-    tilt_positions = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
+    pan_positions = [10, 36, 72, 108, 144, 180]
+    tilt_positions = [10, 20, 40, 60]
 
     
 
@@ -247,15 +247,15 @@ def main(args=None):
                 node.pt_result = None
 
                 # Send hs goal
-                node.hs_result= node.send_hs_goal(True, mp_int, p_int, t_int)
-                node.visual_result = node.send_visual_goal(True, mp_int, p_int)
-                node.ac_result = node.send_ac_goal(True, mp_int, p_int, t_int)
+                #node.hs_result= node.send_hs_goal(True, mp_int, p_int, t_int)
+                #node.visual_result = node.send_visual_goal(True, mp_int, p_int)
+                #node.ac_result = node.send_ac_goal(True, mp_int, p_int, t_int)
                                                                           
             
-                while node.hs_result is None:
-                    while node.visual_result is None:
-                        while node.ac_result is None:
-                            rclpy.spin_once(node, timeout_sec=5.0)
+                #while node.hs_result is None:
+                 #   while node.visual_result is None:
+                   #     while node.ac_result is None:
+                    #        rclpy.spin_once(node, timeout_sec=5.0)
                     
                 node.hs_result = None
                 node.visual_result = None

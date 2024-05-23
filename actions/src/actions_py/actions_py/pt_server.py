@@ -41,7 +41,7 @@ class PTServer(Node):
         print(f"{self.p} = {self.pan}")
         print(f"{self.t} = {self.tilt}")
 
-        while not((self.pan-5)<self.p<(self.pan+5) and (self.tilt-5)<self.t<(self.tilt+5)):
+        while not((self.pan-5)<=self.p<=(self.pan+5) and (self.tilt-5)<=self.t<=(self.tilt+5)):
             goal_handle.publish_feedback(PanAndTilt.Feedback(pan_feedback = self.p, tilt_feedback = self.t))
             
 
@@ -62,7 +62,7 @@ class PTServer(Node):
     def subscriber_callback(self, msg: Int32):
         self.p = msg.data&511
         self.t = msg.data>>9
-        print(f"{self.p}, {self.t}")
+        #print(f"{self.p}, {self.t}")
 
         
         
