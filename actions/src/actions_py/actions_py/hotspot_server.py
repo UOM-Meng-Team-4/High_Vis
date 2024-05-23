@@ -7,6 +7,7 @@ import pytesseract
 import re
 import requests
 import os
+import date
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -54,6 +55,7 @@ class MinimalSubscriber(Node):
 
     def execute_callback(self, goal_handle: ServerGoalHandle):
         # Get request from goal
+        today = date.today().strftime("%d-%m-%Y")
         target = goal_handle.request.take_image
         mp = goal_handle.request.measurement_point
         pan = goal_handle.request.pan_position
@@ -61,7 +63,7 @@ class MinimalSubscriber(Node):
         self.get_logger().info(f"Received request to take image")
 
         # Create directory if it doesn't exist
-        directory = os.path.join("photos", f"mp_{mp}", "thermal")
+        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{mp}", "thermal")
         if not os.path.exists(directory):
             os.makedirs(directory)
 

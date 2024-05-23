@@ -210,8 +210,6 @@ def main(args=None):
     pan_positions = [10, 36, 72, 108, 144, 180]
     tilt_positions = [10, 20, 40, 60]
 
-    
-
 
     node = Client()
 
