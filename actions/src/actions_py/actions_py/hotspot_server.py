@@ -7,7 +7,7 @@ import pytesseract
 import re
 import requests
 import os
-import date
+from datetime import date
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image

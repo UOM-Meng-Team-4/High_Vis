@@ -9,6 +9,7 @@ import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
 import yaml
+import os
 
 class IntegrationExecutable(Node):
 
@@ -18,7 +19,7 @@ class IntegrationExecutable(Node):
 
     def run_navigator(self, navigator, inspection_route, client):
         yaml_file = "~/HV_monitoring/route.yaml"
-
+        yaml_file = os.path.expanduser(yaml_file)
         # open the yaml file and load the points
         with open(yaml_file, "r") as f:
             points = yaml.safe_load(f)
@@ -104,7 +105,7 @@ class IntegrationExecutable(Node):
                     navigator.info('Goal succeeded!')
                     current_pose  = self.current_pose
                     navigator.info(f'Current pose {current_pose.pose.position.x}')
-                    pt[3] = True
+                    pt[3] = 1
                     pt[2] = current_pose.pose.orientation.z
                     # Run Pan and Tilt
                     
@@ -115,12 +116,12 @@ class IntegrationExecutable(Node):
                     
                     navigator.info('Goal was canceled!')
                     #continue
-                    pt[3] = False
+                    pt[3] = 1
                     pt[2] = current_pose.pose.orientation.z
                 
                 elif self.result == TaskResult.FAILED:
                     navigator.info('Goal failed!')
-                    pt[3] = False
+                    pt[3] = 1
                     pt[2] = current_pose.pose.orientation.z
                     #continue
 
