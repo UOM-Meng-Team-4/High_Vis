@@ -29,6 +29,7 @@ class IntegrationExecutable(Node):
         
         #Loads in the map from the points.yaml file
         map = points["map"]
+        map = os.path.expanduser(map)
         try:
             navigator.changeMap(map)
         except Exception as e:

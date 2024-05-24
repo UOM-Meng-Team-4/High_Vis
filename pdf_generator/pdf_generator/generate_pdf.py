@@ -184,19 +184,29 @@ class MyNode(Node):
 
         return pdf_filename
     
-    def hotspots_template_creator(self): 
+    def hotspots_template_creator(self, num_mp, scan_folder, mp_folders): 
         pdf_filename = "hotspots_template.pdf"
 
+        
+        thermal_hotspots = []
+        for mp in mp_folders:
+            mp_formatted = mp.split('/')[-1] 
+            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
+                
+                for line in file:
+                    thermal_hotspots.append(line.strip())
+                    
+        num_rows = len(thermal_hotspots)
         template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('hotspots_template.html')
         
-        output_text = template.render()
+        output_text = template.render(num_measurement_points=num_mp, thermal_hotspots=thermal_hotspots, mp=num_rows)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
-            'page-size': 'A4',
+            'page-size': 'A2',
         }
         pdfkit.from_string(output_text, pdf_filename, configuration=config, options=options)
 
@@ -410,8 +420,10 @@ def main(args=None):
         map_pdf_page = node.map_template_creator()
         node.create_centered_pdf_map(image)
         merger.append(map_pdf_page)
-        hotspots_pdf_page = node.hotspots_template_creator()
-        node.create_centered_pdf_hotspots(scan_folder)
+
+        num_mp = len(mp_folders)
+        hotspots_pdf_page = node.hotspots_template_creator(num_mp, scan_folder, mp_folders)
+        #node.create_centered_pdf_hotspots(scan_folder)
         merger.append(hotspots_pdf_page)
 
 
