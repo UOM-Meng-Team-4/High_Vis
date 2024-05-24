@@ -35,9 +35,9 @@ class IntegrationExecutable(Node):
             print(f"Error loading map: {e}")
         
         # Extract the initial x, y, and z values
-        initial_x = data["initial_point"]["initial_x"]
-        initial_y = data["initial_point"]["initial_y"]
-        initial_z = data["initial_point"]["initial_z"]
+        initial_x = points["initial_point"]["initial_x"]
+        initial_y = points["initial_point"]["initial_y"]
+        initial_z = points["initial_point"]["initial_z"]
 
         # Set the initial pose of the robot
         initial_pose = PoseStamped()
@@ -128,7 +128,7 @@ class IntegrationExecutable(Node):
                 else:
                     print('Goal has an invalid return status!')
                     pt[3] = False
-
+            
             # Rewrites back to yaml file
             points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
             data = {"map": map, **points_dict}
