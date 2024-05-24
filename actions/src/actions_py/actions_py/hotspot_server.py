@@ -7,7 +7,7 @@ import pytesseract
 import re
 import requests
 import os
-import date
+from datetime import date
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -68,8 +68,8 @@ class MinimalSubscriber(Node):
             os.makedirs(directory)
 
         self.output_image_path = os.path.join(directory, f"p_{pan}_t_{tilt}.jpg")
-        self.image_name = f"mp_{mp}: p_{pan}_t_{tilt}"
-        self.hotspot_text_file = os.path.join("2. Monitoring Images", "hotspots.txt")
+        self.image_name = f"p_{pan}_t_{tilt}"
+        self.hotspot_text_file = os.path.join("2. Monitoring Images", f"mp_{mp}", "thermal", "hotspots.txt")
         
         # Execute the action
         if target == True: 
@@ -227,18 +227,18 @@ class MinimalSubscriber(Node):
             if 11<hs_temp<20:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 128), 2)     # Yellow
                 with open(self.hotspot_text_file, "a") as file:
-                    file.write(f"self.image_name\n")
+                    file.write(f"{self.image_name}\n")
 
                 
             elif 21<hs_temp<40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
                 with open(self.hotspot_text_file, "a") as file:
-                    file.write(f"self.image_name\n")
+                    file.write(f"{self.image_name}\n")
 
             elif hs_temp>40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)   # Red
                 with open(self.hotspot_text_file, "a") as file:
-                    file.write(f"self.image_name\n")
+                    file.write(f"{self.image_name}\n")
 
             else:
                 pass
