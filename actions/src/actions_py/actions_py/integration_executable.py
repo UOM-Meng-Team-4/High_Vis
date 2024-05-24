@@ -25,7 +25,7 @@ class IntegrationExecutable(Node):
             points = yaml.safe_load(f)
  
         # Extract the x, y, and z values from the points
-        points_list = [[point["x"], point["y"], point["z"],point["Complete"]] for point in points.values()]
+        points_list = [[point["x"], point["y"], point["z"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point]
         
         #Loads in the map from the points.yaml file
         map = points["map"]
