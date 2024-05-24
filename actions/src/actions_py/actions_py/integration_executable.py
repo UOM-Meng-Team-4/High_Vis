@@ -146,8 +146,8 @@ class IntegrationExecutable(Node):
         
         p_int = 0
         t_int = 0
-        pan_positions = [10, 46, 82, 118, 154, 190, 226, 262, 298, 334]
-        tilt_positions = [10, 30, 50, 70]
+        pan_positions = [10, 190]
+        tilt_positions = [10, 50]
 
         self.mp_int += 1
 

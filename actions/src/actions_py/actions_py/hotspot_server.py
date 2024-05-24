@@ -226,19 +226,19 @@ class MinimalSubscriber(Node):
 
             if 11<hs_temp<20:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 128), 2)     # Yellow
-                with open(self.hotspot_text_file, "a") as file:
-                    file.write(f"{self.image_name}\n")
+                #with open(self.hotspot_text_file, "a") as file:
+                 #   file.write(f"{self.image_name}\n")
 
                 
             elif 21<hs_temp<40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
-                with open(self.hotspot_text_file, "a") as file:
-                    file.write(f"{self.image_name}\n")
+                #with open(self.hotspot_text_file, "a") as file:
+                 #   file.write(f"{self.image_name}\n")
 
             elif hs_temp>40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)   # Red
-                with open(self.hotspot_text_file, "a") as file:
-                    file.write(f"{self.image_name}\n")
+                #with open(self.hotspot_text_file, "a") as file:
+                 #   file.write(f"{self.image_name}\n")
 
             else:
                 pass
