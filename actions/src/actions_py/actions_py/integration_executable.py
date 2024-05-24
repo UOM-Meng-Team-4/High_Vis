@@ -17,7 +17,7 @@ class IntegrationExecutable(Node):
         self.mp_int = 0
 
     def run_navigator(self, navigator, inspection_route, client):
-        yaml_file = "route.yaml"
+        yaml_file = "~/HV_monitoring/route.yaml"
 
         # open the yaml file and load the points
         with open(yaml_file, "r") as f:
