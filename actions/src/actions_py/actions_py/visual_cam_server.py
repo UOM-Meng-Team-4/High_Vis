@@ -28,7 +28,8 @@ class VisualCam(Node):
 
         self.get_logger().info(f"Received request to take image")
 
-        directory = os.path.join("photos", f"mp_{mp}", "visual")
+        today = date.today().strftime("%d-%m-%Y")
+        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{mp}", "visual")
         if not os.path.exists(directory):
             os.makedirs(directory)
         

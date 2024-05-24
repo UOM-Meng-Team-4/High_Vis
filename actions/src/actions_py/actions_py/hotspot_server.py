@@ -7,6 +7,7 @@ import pytesseract
 import re
 import requests
 import os
+import date
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -54,6 +55,7 @@ class MinimalSubscriber(Node):
 
     def execute_callback(self, goal_handle: ServerGoalHandle):
         # Get request from goal
+        today = date.today().strftime("%d-%m-%Y")
         target = goal_handle.request.take_image
         mp = goal_handle.request.measurement_point
         pan = goal_handle.request.pan_position
@@ -61,11 +63,13 @@ class MinimalSubscriber(Node):
         self.get_logger().info(f"Received request to take image")
 
         # Create directory if it doesn't exist
-        directory = os.path.join("photos", f"mp_{mp}", "thermal")
+        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{mp}", "thermal")
         if not os.path.exists(directory):
             os.makedirs(directory)
 
         self.output_image_path = os.path.join(directory, f"p_{pan}_t_{tilt}.jpg")
+        self.image_name = f"mp_{mp}: p_{pan}_t_{tilt}"
+        self.hotspot_text_file = os.path.join("2. Monitoring Images", "hotspots.txt")
         
         # Execute the action
         if target == True: 
@@ -108,11 +112,16 @@ class MinimalSubscriber(Node):
 
             # Preprocess the image
             self.HT_ROI = cv2.resize(self.HT_ROI, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
+            cv2.imwrite("HT_ROI_1.jpg", self.HT_ROI)
             gray = cv2.cvtColor(self.HT_ROI, cv2.COLOR_BGR2GRAY)
+            cv2.imwrite("gray.jpg", gray)
             blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+            cv2.imwrite("blurred.jpg", blurred)
             _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
+            cv2.imwrite("HT_ROI_2.jpg", self.HT_ROI)
             self.HT_ROI = cv2.bitwise_not(self.HT_ROI)
-            cv2.imwrite("HT_ROI.jpg", self.HT_ROI)
+            cv2.imwrite("HT_ROI_3.jpg", self.HT_ROI)
+            
             
             # Text Recognition
             custom_config = r'--oem 3 --psm 6'
@@ -152,6 +161,7 @@ class MinimalSubscriber(Node):
             self.x1 = 30
             self.x2 = 602
             self.imROI = self.cv_image[self.y1:self.y2, self.x1:self.x2]
+
 
             # Call hotspot detection function
             MinimalSubscriber.hotspot_detection(self)
@@ -211,17 +221,24 @@ class MinimalSubscriber(Node):
             # Using ANSI/NETA standard for temperature classification
             self.ambient_temp = 15
             hs_temp = int(float(self.HT_text)) - self.ambient_temp
-            if 1<hs_temp<10: 
-                cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
+            #if 1<hs_temp<10: 
+                #cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
 
-            elif 11<hs_temp<20:
+            if 11<hs_temp<20:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 128), 2)     # Yellow
+                with open(self.hotspot_text_file, "a") as file:
+                    file.write(f"self.image_name\n")
+
                 
             elif 21<hs_temp<40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
+                with open(self.hotspot_text_file, "a") as file:
+                    file.write(f"self.image_name\n")
 
             elif hs_temp>40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)   # Red
+                with open(self.hotspot_text_file, "a") as file:
+                    file.write(f"self.image_name\n")
 
             else:
                 pass

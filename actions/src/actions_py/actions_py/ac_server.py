@@ -4,6 +4,7 @@ import rclpy
 import time
 import numpy as np
 import os
+import date
 from std_msgs.msg import Int32
 from PIL import Image
 from rclpy.node import Node
@@ -53,7 +54,7 @@ class ACServer(Node):
         goal_handle.succeed()
         result = Acoustic.Result()
         result.ac_save_path = self.output_reading_path
-        print(f"Avergae dB value saved to {self.filename}")
+        print(f"Average dB value saved to {self.filename}")
         print(f"Grayscale image saved to {self.output_reading_path}")
         return result 
     
@@ -63,7 +64,8 @@ class ACServer(Node):
         time.sleep(5)
 
         # Create directory if it doesn't exist
-        directory = os.path.join("photos", f"mp_{measurement_point}", "acoustic")
+        today = date.today().strftime("%d-%m-%Y")
+        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{measurement_point}", "acoustic")
         if not os.path.exists(directory):
             os.makedirs(directory)
 

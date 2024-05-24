@@ -9,9 +9,7 @@ import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
 import yaml
-"""
-Basic navigation to go to poses.
-"""
+
 class IntegrationExecutable(Node):
 
     def __init__(self):
@@ -206,7 +204,7 @@ def main():
         [7.2, 2.61],
         [10.7, -0.865],
         [-0.2, -1.89],
-	[0.0, 0.0]]
+	    [0.0, 0.0]]
 
     # Define the node and navigator
     node = Client()
