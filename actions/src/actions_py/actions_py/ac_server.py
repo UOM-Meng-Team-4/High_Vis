@@ -4,7 +4,7 @@ import rclpy
 import time
 import numpy as np
 import os
-import date
+from datetime import date
 from std_msgs.msg import Int32
 from PIL import Image
 from rclpy.node import Node

@@ -8,6 +8,8 @@ import rclpy
 import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
+import yaml
+import os
 
 class IntegrationExecutable(Node):
 
@@ -16,54 +18,62 @@ class IntegrationExecutable(Node):
         self.mp_int = 0
 
     def run_navigator(self, navigator, inspection_route, client):
+        yaml_file = "~/HV_monitoring/route.yaml"
+        yaml_file = os.path.expanduser(yaml_file)
+        # open the yaml file and load the points
+        with open(yaml_file, "r") as f:
+            points = yaml.safe_load(f)
+ 
+        # Extract the x, y, and z values from the points
+        points_list = [[point["x"], point["y"], point["z"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point]
         
-        # Set initial pose
+        #Loads in the map from the points.yaml file
+        map = points["map"]
+        map = os.path.expanduser(map)
+        try:
+            navigator.changeMap(map)
+        except Exception as e:
+            print(f"Error loading map: {e}")
+        
+        # Extract the initial x, y, and z values
+        initial_x = data["initial_point"]["initial_x"]
+        initial_y = data["initial_point"]["initial_y"]
+        initial_z = data["initial_point"]["initial_z"]
+
+        # Set the initial pose of the robot
         initial_pose = PoseStamped()
         initial_pose.header.frame_id = 'map'
         initial_pose.header.stamp = navigator.get_clock().now().to_msg()
-        initial_pose.pose.position.x = 0.0
-        initial_pose.pose.position.y = -0.0
-        initial_pose.pose.orientation.z = 0.0
+        initial_pose.pose.position.x = initial_x
+        initial_pose.pose.position.y = initial_y
+        initial_pose.pose.orientation.z = initial_z
         initial_pose.pose.orientation.w = 1.0
-        #navigator.setInitialPose(initial_pose)
-        
-        # Activate navigation, if not autostarted. This should be called after setInitialPose()
-        # or this will initialize at the origin of the map and update the costmap with bogus readings.
-        # If autostart, you should `waitUntilNav2Active()` instead.
-        # navigator.lifecycleStartup()
 
-        # Wait for navigation to fully activate, since autostarting nav2
         navigator.waitUntilNav2Active()
 
         # Load In Correct Map below. 
         # navigator.changeMap('/path/to/map.yaml')
 
-        # You may use the navigator to clear or obtain costmaps
-        navigator.clearAllCostmaps()  # also have clearLocalCostmap() and clearGlobalCostmap()
-        global_costmap = navigator.getGlobalCostmap()
-        local_costmap = navigator.getLocalCostmap()
-        
         while rclpy.ok():
             
-            #navigator.info("Running")
+            #Sets the list of poses for the inspection route
             inspection_points = []
             inspection_pose = PoseStamped()
             inspection_pose.header.frame_id = 'map'
             inspection_pose.header.stamp = navigator.get_clock().now().to_msg()
-            inspection_pose.pose.orientation.z = 0.0
+            #inspection_pose.pose.orientation.z = 0.0
             inspection_pose.pose.orientation.w = 1.0
-            for pt in inspection_route:
+            for pt in points_list:
                 inspection_pose.pose.position.x = pt[0]
                 inspection_pose.pose.position.y = pt[1]
+                inspection_pose.pose.orientation.z = pt[2]
                 inspection_points.append(copy.deepcopy(inspection_pose))
-                nav_start = navigator.get_clock().now()
-
-            # set our demo's goal poses to follow
+                
             
-            path = navigator.getPath(initial_pose, inspection_points[1])
             for point in inspection_points:
                 navigator.goToPose(point)
                 i = 0
+                feedback = navigator.getFeedback()
                 while not navigator.isTaskComplete():
                 
                     i = i +1
@@ -77,18 +87,18 @@ class IntegrationExecutable(Node):
 
                         # Some navigation timeout to demo cancellation
                         if Duration.from_msg(feedback.navigation_time) > Duration(seconds=600.0):
+                            #If the robot is taking too long to reach the goal, cancel the task
                             navigator.cancelTask()
-
+                            break
                         # Some navigation request change to demo preemption
-                        if Duration.from_msg(feedback.navigation_time) > Duration(seconds=18.0):
-                            # Some follow waypoints request change to demo preemption
-                            pass
-                    
-                    # Do something depending on the return code
-
-                    self.current_pose = feedback.current_pose
-
-                    
+                        if Duration.from_msg(feedback.navigation_time) > Duration(seconds=150.0):
+                            # Resends the goal position if the robot is taking too long to reach the goal
+                            navigator.cancelTask()
+                            navigator.spin()
+                            navigator.goToPose(point)
+                            
+                #Get Current Pose of robot
+                self.current_pose = feedback.current_pose
 
                 self.result = navigator.getResult()
                 if self.result == TaskResult.SUCCEEDED:
@@ -96,7 +106,8 @@ class IntegrationExecutable(Node):
                     navigator.info('Goal succeeded!')
                     current_pose  = self.current_pose
                     navigator.info(f'Current pose {current_pose.pose.position.x}')
-
+                    pt[3] = 1
+                    pt[2] = current_pose.pose.orientation.z
                     # Run Pan and Tilt
                     
                     self.run_pan_tilt(client)
@@ -106,15 +117,27 @@ class IntegrationExecutable(Node):
                     
                     navigator.info('Goal was canceled!')
                     #continue
+                    pt[3] = 1
+                    pt[2] = current_pose.pose.orientation.z
                 
                 elif self.result == TaskResult.FAILED:
                     navigator.info('Goal failed!')
+                    pt[3] = 1
+                    pt[2] = current_pose.pose.orientation.z
                     #continue
 
                 else:
                     print('Goal has an invalid return status!')
-        
-        #Add Code Hear to move to action server. 
+                    pt[3] = False
+
+            # Rewrites back to yaml file
+            points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
+            data = {"map": map, **points_dict}
+            data["initial_points"] = {"initial_x": initial_x, "initial_y": initial_y, "initial_z": initial_z}
+            with open(yaml_file, "w") as f:
+                yaml.dump(data, f)
+            break
+        #Add Code Here to move to action server. 
 
                 
 
