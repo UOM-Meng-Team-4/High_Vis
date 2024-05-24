@@ -1,0 +1,35 @@
+map: "/j100/"
+initial_point:
+  initial_x: 2.17
+  initial_y: 2.66
+  initial_z: 0.707
+point1:
+  x: 2.17
+  y: 2.66
+  z: 0.707
+  Complete: True
+point2:
+  x: 7.2
+  y: 2.61
+  z: 0.707
+  Complete: True
+point3:
+  x: 10.7
+  y: -0.865
+  z: 0.707
+  Complete: True
+point4:
+  x: -0.2
+  y: -1.89
+  z: 0.707
+  Complete: True
+point5:
+  x: 0.0
+  y: 0.0
+  z: 0.707
+  Complete: True
+point6:
+  x: 45.0
+  y: -35.0
+  z: 0.95
+  Complete: True
