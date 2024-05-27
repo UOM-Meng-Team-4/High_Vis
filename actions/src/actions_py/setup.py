@@ -28,7 +28,8 @@ setup(
             "camera_topic_sub = actions_py.camera_topic_sub:main",
             "monitoring_client = actions_py.monitoring_client:main",
             "monitoring_client_before_integration = actions_py.monitoring_client_before_integration:main",
-            "integration_executable = actions_py.integration_executable:main"
+            "integration_executable = actions_py.integration_executable:main",
+            "pt_server_old = actions_py.pt_server_old:main"
         ],
     },
 )

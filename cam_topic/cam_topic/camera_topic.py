@@ -22,7 +22,7 @@ class MinimalPublisher(Node):
     def timer_callback(self):
 
         # Define the path to your image file
-        image_path_thermal = 'HS_Tech_Report_1.jpg'
+        image_path_thermal = 'images_pan_7.jpg'
         
         #image_path = 'project_room_roof.jpg'
 

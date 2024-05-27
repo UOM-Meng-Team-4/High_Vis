@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-import time
+from datetime import datetime
 from actions_py.monitoring_client import Client
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
@@ -16,6 +16,7 @@ class IntegrationExecutable(Node):
     def __init__(self):
         super().__init__("integration_executable")
         self.mp_int = 0
+        self.today = datetime.today().strftime('%d-%m-%Y_%H-%M-%S')
 
     def run_navigator(self, navigator, inspection_route, client):
         yaml_file = "~/HV_monitoring/route.yaml"
@@ -164,37 +165,33 @@ class IntegrationExecutable(Node):
 
                 while node.pt_result is None:
                     rclpy.spin_once(node)
-                print("Got to here")
+
                 node.pt_result = None
 
                 # Send hs goal
-                node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int)
-                node.visual_result = node.send_visual_goal(True, self.mp_int, p_int)
-                node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int)
+                node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int, self.today)
+                node.visual_result = node.send_visual_goal(True, self.mp_int, p_int, t_int, self.today)
+                node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int, self.today)
                                                                         
             
                 while node.hs_result is None:
                     while node.visual_result is None:
                         while node.ac_result is None:
-                            print("Before spin")
                             rclpy.spin_once(node, timeout_sec=5.0)
-                            print("Running")
                         rclpy.spin_once(node, timeout_sec=5.0)
-                        print("finished AC loop")
                     rclpy.spin_once(node, timeout_sec=5.0)
-                    print("Visual loop")
-                    print("finished visual loop")
-                print("Finished HS loop")
-                print()
                 node.hs_result = None
                 node.visual_result = None
                 node.ac_result = None
-                print("Finish first loop")
+
+                
                 #time.sleep(2)
 
             t_int = 0
-        print("Finish second loop")
+
         p_int = 0
+
+        node.pt_result = node.send_pt_goal(10, 10)
 
     
 

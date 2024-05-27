@@ -17,6 +17,9 @@ class ACServer(Node):
     def __init__(self):
         super().__init__("ac_server") 
 
+        self.filepath = "~/HV_monitoring"
+        self.filepath = os.path.expanduser(self.filepath)
+
         # Subscriber
         self.counter = 0
         self.previous_average = 0
@@ -46,6 +49,7 @@ class ACServer(Node):
         measurement_point = goal_handle.request.measurement_point
         pan_position = goal_handle.request.pan_position
         tilt_position = goal_handle.request.tilt_position
+        self.today = goal_handle.request.today
         self.get_logger().info(f"Received request to move to take ac reading")
 
         if take_ac_reading == True:
@@ -64,8 +68,8 @@ class ACServer(Node):
         time.sleep(5)
 
         # Create directory if it doesn't exist
-        today = date.today().strftime("%d-%m-%Y")
-        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{measurement_point}", "acoustic")
+        #today = date.today().strftime("%d-%m-%Y")
+        directory = os.path.join(self.filepath, "Scans", f"Substation_Scan_{self.today}", "2. Monitoring Images", f"mp_{measurement_point}", "acoustic")
         if not os.path.exists(directory):
             os.makedirs(directory)
 

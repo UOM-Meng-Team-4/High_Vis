@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from datetime import datetime
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.action.client import ClientGoalHandle
@@ -27,9 +28,11 @@ class Client(Node):
         self.ac_result = None
         self.visual_result = None
 
+        #self.today  = datetime.today().strftime('%d-%m-%Y_%H-%M-%S')
+
     # Hotspot Client
 
-    def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position):
+    def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position, today):
 
         # Wait for the server
         if not self.hs_client.wait_for_server(timeout_sec=1.0):
@@ -42,6 +45,7 @@ class Client(Node):
         goal.measurement_point = measurement_point
         goal.pan_position = pan_position
         goal.tilt_position = tilt_position
+        goal.today = today
 
         # Send the goal       
         self.get_logger().info(f"Sending hs goal")
@@ -63,7 +67,7 @@ class Client(Node):
 
     # Visual Cam
 
-    def send_visual_goal(self, take_visual_image, measurement_point, pan_position):
+    def send_visual_goal(self, take_visual_image, measurement_point, pan_position, tilt_position, today):
 
         # Wait for the server
         if not self.visual_client.wait_for_server(timeout_sec=1.0):
@@ -75,6 +79,8 @@ class Client(Node):
         goal.take_visual_image = take_visual_image
         goal.measurement_point = measurement_point
         goal.pan_position = pan_position
+        goal.tilt_position = tilt_position
+        goal.today = today
 
         # Send the goal       
         self.get_logger().info(f"Sending visual cam goal")
@@ -164,7 +170,7 @@ class Client(Node):
     
     # Acoustic
 
-    def send_ac_goal(self, take_ac_reading, measurement_point, pan_position, tilt_position):
+    def send_ac_goal(self, take_ac_reading, measurement_point, pan_position, tilt_position, today):
         # Wait for the server
         if not self.ac_client.wait_for_server(timeout_sec=1.0):
             self.get_logger().info('Acoustic server not available after waiting')
@@ -176,6 +182,7 @@ class Client(Node):
         goal.measurement_point = measurement_point
         goal.pan_position = pan_position
         goal.tilt_position = tilt_position
+        goal.today = today
 
         # Send the goal       
         self.get_logger().info(f"Sending ac goal")

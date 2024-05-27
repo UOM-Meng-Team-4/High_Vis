@@ -7,7 +7,8 @@ import pytesseract
 import re
 import requests
 import os
-from datetime import date
+from datetime import datetime
+import time
 from pytesseract import Output
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -26,6 +27,9 @@ class MinimalSubscriber(Node):
         pan = 1
         tilt = 1
 
+        self.filepath = "~/HV_monitoring"
+        self.filepath = os.path.expanduser(self.filepath)
+
         # Subscribe to /image_raw topic 
         self.subscription = self.create_subscription(Image, '/j100_0219/sensors/thermal_cam/image_raw', self.image_callback, 10)
         self.subscription  # Prevent unused variable warning
@@ -37,6 +41,8 @@ class MinimalSubscriber(Node):
             "hotspot_server", 
             execute_callback=self.execute_callback)
         self.get_logger().info("Action Server has been started.")
+
+        
 
     '''    
 
@@ -55,26 +61,28 @@ class MinimalSubscriber(Node):
 
     def execute_callback(self, goal_handle: ServerGoalHandle):
         # Get request from goal
-        today = date.today().strftime("%d-%m-%Y")
+        #today = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
         target = goal_handle.request.take_image
         mp = goal_handle.request.measurement_point
         pan = goal_handle.request.pan_position
         tilt = goal_handle.request.tilt_position
+        today = goal_handle.request.today
         self.get_logger().info(f"Received request to take image")
 
         # Create directory if it doesn't exist
-        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{mp}", "thermal")
+        directory = os.path.join(self.filepath, "Scans", f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{mp}", "thermal")
         if not os.path.exists(directory):
             os.makedirs(directory)
 
         self.output_image_path = os.path.join(directory, f"p_{pan}_t_{tilt}.jpg")
         self.image_name = f"p_{pan}_t_{tilt}"
-        self.hotspot_text_file = os.path.join("2. Monitoring Images", f"mp_{mp}", "thermal", "hotspots.txt")
+        self.hotspot_text_file = os.path.join(directory, "hotspots.txt")
         
         # Execute the action
         if target == True: 
            #print("Hi")
-            MinimalSubscriber.image_processing(self)
+           time.sleep(1)
+           MinimalSubscriber.image_processing(self)
                 
         # Once done, set goal final state
         
@@ -204,6 +212,7 @@ class MinimalSubscriber(Node):
 
         # Find contours in the thresholded image
         contours, _ = cv2.findContours(thresholded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        first_time = 0
 
         # Draw a rectangle around each hotspot      
         for contour in contours:
@@ -219,26 +228,44 @@ class MinimalSubscriber(Node):
 
             # Draw the rectangle
             # Using ANSI/NETA standard for temperature classification
-            self.ambient_temp = 15
+            self.ambient_temp = 0
             hs_temp = int(float(self.HT_text)) - self.ambient_temp
             #if 1<hs_temp<10: 
+                #print("Hotspot not drawn")
                 #cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
 
-            if 11<hs_temp<20:
+
+            if 11<hs_temp<=20:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 255, 128), 2)     # Yellow
-                #with open(self.hotspot_text_file, "a") as file:
-                 #   file.write(f"{self.image_name}\n")
+
+                if first_time == 0:
+                    try:
+                        with open(self.hotspot_text_file, "a") as file:
+                            file.write(f"{self.image_name}\n")
+                    except Exception as e:
+                        print(f"Failed to write to file: {e}")
+                first_time = 1
 
                 
-            elif 21<hs_temp<40:
+            elif 20<hs_temp<40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
-                #with open(self.hotspot_text_file, "a") as file:
-                 #   file.write(f"{self.image_name}\n")
+                if first_time == 0:
+                    try:
+                        with open(self.hotspot_text_file, "a") as file:
+                            file.write(f"{self.image_name}\n")
+                    except Exception as e:
+                        print(f"Failed to write to file: {e}")
+                first_time = 1
 
             elif hs_temp>40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 0, 255), 2)   # Red
-                #with open(self.hotspot_text_file, "a") as file:
-                 #   file.write(f"{self.image_name}\n")
+                if first_time == 0:
+                    try:
+                        with open(self.hotspot_text_file, "a") as file:
+                            file.write(f"{self.image_name}\n")
+                    except Exception as e:
+                        print(f"Failed to write to file: {e}")
+                first_time = 1
 
             else:
                 pass
