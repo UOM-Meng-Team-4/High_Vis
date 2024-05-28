@@ -22,7 +22,7 @@ ARGUMENTS = [
     DeclareLaunchArgument('namespace', default_value='j100_0219',
             description='Namespace for sample topics'),
     DeclareLaunchArgument('params_file',
-                          default_value=['nav2.yaml'],
+                          default_value=['nav2_with_shim.yaml'],
                           description='Nav2 Parameters File')
 ]
 
@@ -38,7 +38,7 @@ def generate_launch_description():
             parameters=[{
                 'target_frame': 'lidar3d_0_laser',
                 'transform_tolerance': 0.01,
-                'min_height': -0.5,
+                'min_height': -0.4,
                 'max_height': 0.5,
                 'angle_min': -3.141592,  # -M_PI/2
                 'angle_max': 3.141592,  # M_PI/2
