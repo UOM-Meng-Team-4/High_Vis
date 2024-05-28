@@ -38,7 +38,7 @@ def generate_launch_description():
             parameters=[{
                 'target_frame': 'lidar3d_0_laser',
                 'transform_tolerance': 0.01,
-                'min_height': -0.4,
+                'min_height': -0.3,
                 'max_height': 0.5,
                 'angle_min': -3.141592,  # -M_PI/2
                 'angle_max': 3.141592,  # M_PI/2
