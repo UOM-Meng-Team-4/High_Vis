@@ -108,7 +108,7 @@ class IntegrationExecutable(Node):
                     current_pose  = self.current_pose
                     navigator.info(f'Current pose {current_pose.pose.position.x}')
                     pt[3] = 1
-                    pt[2] = current_pose.pose.orientation.z
+                    pt[2] = self.current_pose.pose.orientation.z
                     # Run Pan and Tilt
                     
                     self.run_pan_tilt(client)
@@ -119,12 +119,12 @@ class IntegrationExecutable(Node):
                     navigator.info('Goal was canceled!')
                     #continue
                     pt[3] = 1
-                    pt[2] = current_pose.pose.orientation.z
+                    pt[2] = self.current_pose.pose.orientation.z
                 
                 elif self.result == TaskResult.FAILED:
                     navigator.info('Goal failed!')
                     pt[3] = 1
-                    pt[2] = current_pose.pose.orientation.z
+                    pt[2] = self.current_pose.pose.orientation.z
                     #continue
 
                 else:
