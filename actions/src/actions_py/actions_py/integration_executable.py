@@ -118,23 +118,37 @@ class IntegrationExecutable(Node):
                     
                     navigator.info('Goal was canceled!')
                     #continue
-                    pt[3] = 1
+                    pt[3] = 0
                     pt[2] = self.current_pose.pose.orientation.z
                 
                 elif self.result == TaskResult.FAILED:
                     navigator.info('Goal failed!')
-                    pt[3] = 1
+                    pt[3] = 0
                     pt[2] = self.current_pose.pose.orientation.z
                     #continue
 
                 else:
                     print('Goal has an invalid return status!')
-                    pt[3] = False
-            
+                    pt[3] = 0
+            navigator.goToPose(initial_pose)
+            while not navigator.isTaskComplete():
+                feedback = navigator.getFeedback()
+                if feedback:
+                    navigator.info('Estimated time of arrival: ' + '{0:.0f}'.format(
+                        Duration.from_msg(feedback.estimated_time_remaining).nanoseconds / 1e9)
+                        + ' seconds.')
+                    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=600.0):
+                        navigator.goToPose(initial_pose)
+                        break
+                    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=1000.0):
+                        navigator.cancelTask()
+                        navigator.info('Failed to return to start position')
+                        break
+
             # Rewrites back to yaml file
             points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
             data = {"map": map, **points_dict}
-            data["initial_points"] = {"initial_x": initial_x, "initial_y": initial_y, "initial_z": initial_z}
+            data["initial_point"] = {"initial_x": initial_x, "initial_y": initial_y, "initial_z": initial_z}
             with open(yaml_file, "w") as f:
                 yaml.dump(data, f)
             break
@@ -147,8 +161,8 @@ class IntegrationExecutable(Node):
         
         p_int = 0
         t_int = 0
-        pan_positions = [10, 190]
-        tilt_positions = [10, 50]
+        pan_positions = [10, 46, 82, 118, 154, 190, 226, 262, 298, 334]
+        tilt_positions = [10, 30, 50, 70]
 
         self.mp_int += 1
 
