@@ -23,7 +23,10 @@ class MyNode(Node):
         self.counter = 0
         self.i = 0
 
-    def quaternion_to_euler(x, y, z, w):
+        self.filepath = "~/HV_monitoring"
+        self.filepath = os.path.expanduser(self.filepath)
+
+    def quaternion_to_euler(self, x, y, z, w):
         t0 = +2.0 * (w * x + y * z)
         t1 = +1.0 - 2.0 * (x * x + y * y)
         X = math.degrees(math.atan2(t0, t1))
@@ -39,9 +42,9 @@ class MyNode(Node):
 
         return Z
     
-    def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y):
-        angle = np.rad2deg(MyNode.quaternion_to_euler(0,0,orientation,1-orientation))
-        
+    def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index):
+        angle = np.rad2deg(self.quaternion_to_euler(0,0,orientation,1-orientation))
+    
         image_height, image_width = map_image.shape[:2]
         # Convert the image to grayscale (if needed)
         # PGM is already grayscale but converting explicitly ensures consistency
@@ -54,7 +57,7 @@ class MyNode(Node):
         image_x = int(((target_x/resolution) + image_origin_x) )
         image_y = int((-(target_y/resolution) + image_origin_y) )
 
-        circle_image = cv2.resize(circle_image, None, fx=0.1, fy=0.1, interpolation=cv2.INTER_AREA)
+        circle_image = cv2.resize(circle_image, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_AREA)
         height, width = circle_image.shape[:2]
         if height % 2 != 0:
             height -= 1
@@ -67,13 +70,15 @@ class MyNode(Node):
         center = (circle_image_width // 2, circle_image_height // 2)
         circle_center_y = circle_image_height // 2
         circle_center_x = circle_image_width // 2
-
+        flag = True
         #Gets the region the circle will be placed in the map image
         while ((image_y-circle_center_y < 0) or (image_y+circle_center_y > image_height) or (image_x-circle_center_x < 0) or (image_x+circle_center_x > image_width)):
             if image_y-circle_center_y < 0:
                 image_y += 1
+                flag = False
             if image_y+circle_center_y > image_height:
                 image_y -= 1
+                flag = True
             if image_x-circle_center_x < 0:
                 image_x += 1
             if image_x+circle_center_x > image_width:
@@ -110,11 +115,30 @@ class MyNode(Node):
         roi3[mask] = red_part[mask]
 
         # Convert the grayscale image to RGBA
-        # Convert the grayscale image to BGRA if it's not already
+    # Convert the grayscale image to BGRA if it's not already
         if map_image.shape[2] != 4:
             map_image = cv2.cvtColor(map_image, cv2.COLOR_BGR2BGRA)
 
         map_image[image_y-circle_center_y:image_y+circle_center_y, image_x-circle_center_x:image_x+circle_center_x] = roi3
+
+        # Adds the Point number to the image
+        text = f"MP{point_index+1}"
+        # Define the position for the text
+        if flag == True:
+            position = (image_x, image_y-circle_center_y-10)  # (x, y)
+        else:
+            position = (image_x, image_y+circle_center_y+10)
+
+        # Define the font
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        # Define the font size
+        font_scale = 0.75
+        # Define the color for the text (B, G, R)
+        color = (0, 0, 255)  # white
+        # Define the line thickness
+        thickness = 2
+        # Add the text to the image
+        cv2.putText(map_image, text, position, font, font_scale, color, thickness)
 
         return map_image
 
@@ -391,7 +415,7 @@ def main(args=None):
         origin_x = map_data["origin"][0] 
         origin_y = map_data["origin"][1]
 
-        resolution = resolution /2
+        resolution = resolution /1.5
         
         # Read the image using cv2.imread() with the -1 flag for unchanged format
         image = cv2.imread(f"{filen}.pgm", 0)
@@ -402,11 +426,12 @@ def main(args=None):
         image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
         image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
         
-        for pt in points_list:
+        for point_index, pt in enumerate(points_list):
             try:
-                image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y)
+                image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index)
             except Exception as e:
                 print(f"Unable to process point {pt[0]},{pt[1]}: {e}")
+
 
         # Check if image reading was successful
         
