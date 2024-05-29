@@ -151,7 +151,8 @@ class MyNode(Node):
         pdf_filename = f"template_{self.mp_formatted}_pan_{pan}.pdf"
         
         # loads template.html
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
+        templates = os.path.join(self.filepath, 'Include', 'Templates')
+        template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
         template = template_env.get_template('mp_template.html')
         
@@ -193,7 +194,7 @@ class MyNode(Node):
     # Creates template for title page
     def title_template_creator(self):
         pdf_filename = "title_template.pdf"
-
+        templates = os.path.join(self.filepath, 'Include', 'Templates')
         template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
 
@@ -222,6 +223,7 @@ class MyNode(Node):
                     thermal_hotspots.append(line.strip())
                     
         num_rows = len(thermal_hotspots)
+        templates = os.path.join(self.filepath, 'Include', 'Templates')
         template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
 
@@ -259,6 +261,7 @@ class MyNode(Node):
         pdf_filename_map = f"map_template.pdf"
         map_canvas.save(pdf_filename_map, "PDF", resolution=100.0, save_all=True)
 
+    '''
 
     def create_centered_pdf_hotspots(self, scan_folder):
         # Load the map template and the map image
@@ -291,6 +294,7 @@ class MyNode(Node):
         pdf_filename_hotspots = f"hotspots_template.pdf"
         canvas.save(pdf_filename_hotspots, "PDF", resolution=100.0, save_all=True)
                 
+    '''
 
     # Pastes the Thermal, Acoustic, and Visual images/data into the pdf template
     def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan):
@@ -392,120 +396,128 @@ def main(args=None):
     title_pdf_page = node.title_template_creator()
     merger.append(title_pdf_page)
 
-    for scan_folder in scan_folders:
-        # Sorts all monitoring point folders in order
-        mp_folders = sorted(glob.glob(f'{scan_folder}/2. Monitoring Images/mp_*'))
-        
-        file = os.path.join(scan_folder, '3. Map', 'substation.pgm')
-        filen = os.path.join(scan_folder, '3. Map', "HVLab")
-        points_yaml = os.path.join(scan_folder, '3. Map', "points.yaml")
-        MP1 = os.path.join(scan_folder, '3. Map', "MP1.png")
-        target_x = 26.8
-        target_y = -3.74
-        orientation = 0.1
+    filepath = "~/HV_monitoring"
+    filepath = os.path.expanduser(filepath)
 
-        # Read YAML file data
-        with open(f"{filen}.yaml") as f:
-            map_data = yaml.safe_load(f)
-        with open(points_yaml, "r") as f:
-            points = yaml.safe_load(f)
+    #file = os.path.join(filepath, 'maps', 'HVLab4')
+    filen = os.path.join(filepath, 'maps', "HVLab3")
+    points_yaml = os.path.join(filepath, "route.yaml")
+    MP1 = os.path.join(filepath, 'Include', "MP1.png")
 
-        points_list = [[point["x"], point["y"], point["z"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point]
-        # Combine x, y, z values into a list
+    scan_folder = "Substation_Scan_28-05-2024_12-54-43"
+    # Sorts all monitoring point folders in order
+    mp_folders = sorted(glob.glob(f'{filepath}/Scans/{scan_folder}/2. Monitoring Images/mp_*'))
+    
+    #file = os.path.join(scan_folder, '3. Map', 'substation.pgm')
+    #filen = os.path.join(scan_folder, '3. Map', "HVLab")
+    #points_yaml = os.path.join(scan_folder, '3. Map', "points.yaml")
+    #MP1 = os.path.join(scan_folder, '3. Map', "MP1.png")
+    target_x = 26.8
+    target_y = -3.74
+    orientation = 0.1
 
-        # Extract resolution and origin
-        resolution = map_data["resolution"]
-        origin_x = map_data["origin"][0] 
-        origin_y = map_data["origin"][1]
+    # Read YAML file data
+    with open(f"{filen}.yaml") as f:
+        map_data = yaml.safe_load(f)
+    with open(points_yaml, "r") as f:
+        points = yaml.safe_load(f)
 
-        resolution = resolution /1.5
-        
-        # Read the image using cv2.imread() with the -1 flag for unchanged format
-        image = cv2.imread(f"{filen}.pgm", 0)
-        circle_image = cv2.imread(MP1, cv2.IMREAD_UNCHANGED)
-        if image is None or circle_image is None:
-            print("Error opening image:", file)
-            exit()
-        image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
-        image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
-        
-        for point_index, pt in enumerate(points_list):
-            try:
-                image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index)
-            except Exception as e:
-                print(f"Unable to process point {pt[0]},{pt[1]}: {e}")
+    points_list = [[point["x"], point["y"], point["z"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point]
+    # Combine x, y, z values into a list
 
-
-        # Check if image reading was successful
-        
-        # Display the image using cv2.imshow(
-        
-        #cv2.imshow("Your Image", image)
-        cv2.waitKey(0)
-        cv2.imwrite(f"{filen}.png", image)
-
-        # creates the map page and append it after title
-        map_pdf_page = node.map_template_creator()
-        node.create_centered_pdf_map(image)
-        merger.append(map_pdf_page)
-
-        num_mp = len(mp_folders)
-        hotspots_pdf_page = node.hotspots_template_creator(num_mp, scan_folder, mp_folders)
-        #node.create_centered_pdf_hotspots(scan_folder)
-        merger.append(hotspots_pdf_page)
+    # Extract resolution and origin
+    resolution = map_data["resolution"]
+    origin_x = map_data["origin"][0] 
+    origin_y = map_data["origin"][1]
+    print(resolution)
+    resolution = resolution /1.5
+    
+    # Read the image using cv2.imread() with the -1 flag for unchanged format
+    image = cv2.imread(f"{filen}.pgm", -1)
+    circle_image = cv2.imread(MP1, cv2.IMREAD_UNCHANGED)
+    if image is None and circle_image is None:
+        print(f"Error opening image: {filen}.pgm")
+        exit()
+    image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
+    image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+    
+    for point_index, pt in enumerate(points_list):
+        try:
+            image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index)
+        except Exception as e:
+            print(f"Unable to process point {pt[0]},{pt[1]}: {e}")
 
 
-        # Close all open windows
-        cv2.destroyAllWindows()
+    # Check if image reading was successful
+    
+    # Display the image using cv2.imshow(
+    
+    #cv2.imshow("Your Image", image)
+    cv2.waitKey(0)
+    cv2.imwrite(f"{filen}.png", image)
 
-        for mp_folder in mp_folders:
+    # creates the map page and append it after title
+    map_pdf_page = node.map_template_creator()
+    node.create_centered_pdf_map(image)
+    merger.append(map_pdf_page)
+
+    num_mp = len(mp_folders)
+    hotspots_pdf_page = node.hotspots_template_creator(num_mp, scan_folder, mp_folders)
+    #node.create_centered_pdf_hotspots(scan_folder)
+    merger.append(hotspots_pdf_page)
+
+
+    # Close all open windows
+    cv2.destroyAllWindows()
+
+    for mp_folder in mp_folders:
+        print(mp_folder)
+        # create empty arrays to store image paths
+        img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
+        img_path_acoustic = np.empty((y_rows, x_columns), dtype=object)
+        img_path_visual = np.empty((x_columns), dtype=object)
+
+        # saves all images in the mp folder to the respective arrays
+        for x in range (1, x_columns + 1):
+            for y in range(1, y_rows + 1):
+                image_filename_thermal = f"p_{x}_t_{y}.jpg"
+                image_join_thermal = os.path.join(mp_folder, 'thermal', image_filename_thermal)
+                img_path_thermal[y-1, x-1] = image_join_thermal
+                
+        for x in range (1, x_columns + 1):
+            for y in range(1, y_rows + 1):
+                image_filename_acoustic = f"p_{x}_t_{y}.jpg"
+                image_join_acoustic = os.path.join(mp_folder, 'acoustic', image_filename_acoustic)
+                img_path_acoustic[y-1, x-1] = image_join_acoustic
+
+        for x in range (1, x_columns + 1):
+            image_filename_visual = f"p_{x}.jpg"
+            image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
+            img_path_visual[x-1] = image_join_visual
+
+        pan_angles = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
+        x = 0
+        for pan in pan_angles:
             
-            # create empty arrays to store image paths
-            img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
-            img_path_acoustic = np.empty((y_rows, x_columns), dtype=object)
-            img_path_visual = np.empty((x_columns), dtype=object)
-
-            # saves all images in the mp folder to the respective arrays
-            for x in range (1, x_columns + 1):
-                for y in range(1, y_rows + 1):
-                    image_filename_thermal = f"p_{x}_t_{y}.jpg"
-                    image_join_thermal = os.path.join(mp_folder, 'thermal', image_filename_thermal)
-                    img_path_thermal[y-1, x-1] = image_join_thermal
-                    
-            for x in range (1, x_columns + 1):
-                for y in range(1, y_rows + 1):
-                    image_filename_acoustic = f"p_{x}_t_{y}.jpg"
-                    image_join_acoustic = os.path.join(mp_folder, 'acoustic', image_filename_acoustic)
-                    img_path_acoustic[y-1, x-1] = image_join_acoustic
-
-            for x in range (1, x_columns + 1):
-                image_filename_visual = f"p_{x}.jpg"
-                image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
-                img_path_visual[x-1] = image_join_visual
-
-            pan_angles = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
-            x = 0
-            for pan in pan_angles:
-                
-                # Create pdf template for measurement point page
-                node.template_creator(mp_folder, pan, x)
-                node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[x], mp_folder, pan)
-                
-                # Append the pdf template after the map page
-                pdf_filename_mp = f"template_{node.mp_formatted}_pan_{pan}.pdf"
-                merger.append(pdf_filename_mp)
-                x += 1
+            # Create pdf template for measurement point page
+            node.template_creator(mp_folder, pan, x)
+            node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[x], mp_folder, pan)
+            
+            # Append the pdf template after the map page
+            pdf_filename_mp = f"template_{node.mp_formatted}_pan_{pan}.pdf"
+            merger.append(pdf_filename_mp)
+            x += 1
 
 
 
-        # Save PDF
-        today = date.today().strftime("%d-%m-%Y")
-        pdf_report_folder = os.path.join(scan_folder, '1. PDF Report')
-        if not os.path.exists(pdf_report_folder):
-            os.makedirs(pdf_report_folder)
-        pdf_report_path = os.path.join(pdf_report_folder, f"substation_scan_{today}.pdf")
-        merger.write(pdf_report_path)
-        merger.close()
+    # Save PDF
+    today = date.today().strftime("%d-%m-%Y")
+    pdf_report_folder = os.path.join(scan_folder, '1. PDF Report')
+    if not os.path.exists(pdf_report_folder):
+        os.makedirs(pdf_report_folder)
+    pdf_report_path = os.path.join(pdf_report_folder, f"substation_scan_{today}.pdf")
+    merger.write(pdf_report_path)
+    merger.close()
         
     print(f"PDF saved")
 
