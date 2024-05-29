@@ -188,9 +188,9 @@ class IntegrationExecutable(Node):
                 node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int, self.today)
                                                                         
             
-                while node.hs_result is None:
+                while node.ac_result is None:
                     while node.visual_result is None:
-                        while node.ac_result is None:
+                        while node.hs_result is None:
                             rclpy.spin_once(node, timeout_sec=5.0)
                         rclpy.spin_once(node, timeout_sec=5.0)
                     rclpy.spin_once(node, timeout_sec=5.0)
@@ -200,6 +200,17 @@ class IntegrationExecutable(Node):
 
                 
                 #time.sleep(2)
+
+            # Step down the tilt angles
+            node.pt_result = node.send_pt_goal(p, 50)
+            while node.pt_result is None:
+                rclpy.spin_once(node)
+            node.pt_result = None
+
+            node.pt_result = node.send_pt_goal(p, 30)
+            while node.pt_result is None:
+                rclpy.spin_once(node)
+            node.pt_result = None
 
             t_int = 0
 

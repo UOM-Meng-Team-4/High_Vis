@@ -65,7 +65,7 @@ class ACServer(Node):
     def ac_reading_sim(self, measurement_point, pan_position, tilt_position):
 
         # Take AC reading
-        time.sleep(5)
+        time.sleep(2)
 
         # Create directory if it doesn't exist
         #today = date.today().strftime("%d-%m-%Y")

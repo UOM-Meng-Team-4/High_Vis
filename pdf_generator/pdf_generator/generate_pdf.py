@@ -174,8 +174,9 @@ class MyNode(Node):
     def map_template_creator(self):
 
         pdf_filename = "map_template.pdf"
-        
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
+
+        templates = os.path.join(self.filepath, 'Include', 'Templates')
+        template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
         template = template_env.get_template('map_template.html')
         
@@ -193,7 +194,7 @@ class MyNode(Node):
     def title_template_creator(self):
         pdf_filename = "title_template.pdf"
 
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
+        template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('title_template.html')
@@ -221,7 +222,7 @@ class MyNode(Node):
                     thermal_hotspots.append(line.strip())
                     
         num_rows = len(thermal_hotspots)
-        template_loader = jinja2.FileSystemLoader('./src/High_Vis/pdf_generator/pdf_generator/Templates')
+        template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('hotspots_template.html')
@@ -272,12 +273,13 @@ class MyNode(Node):
         y = y_start_therm
         y_spacing = 50
         i = 0
+        arial = os.path.join(self.filepath, 'Include', 'Arial.ttf')
         with open(f'{scan_folder}/2. Monitoring Images/hotspots.txt', 'r') as file:
             
             for line in file:
                 i += 1
                 if i <= 29:
-                    draw.text((x, y), line.strip(), font=ImageFont.truetype("src/High_Vis/pdf_generator/pdf_generator/Arial.ttf", 40), fill="black")
+                    draw.text((x, y), line.strip(), font=ImageFont.truetype(arial, 40), fill="black")
                     y += y_spacing
                 else:
                     x_save = x
@@ -357,10 +359,11 @@ class MyNode(Node):
         x_text = x_ac + 160
         y_text = y_start + 160
         
+        arial = os.path.join(self.filepath, 'Include', 'Arial.ttf')
         with open(f'{mp}/acoustic/avg_db_values.txt', 'r') as file:
             lines = itertools.islice(file, self.i, self.i + 4)
             for line in lines:
-                draw.text((x_text, y_text), line.strip(), font=ImageFont.truetype("src/High_Vis/pdf_generator/pdf_generator/Arial.ttf", 80), fill="black")
+                draw.text((x_text, y_text), line.strip(), font=ImageFont.truetype(arial, 80), fill="black")
                 y_text += y_spacing
                 x = x_start + 50
             self.i += 4
