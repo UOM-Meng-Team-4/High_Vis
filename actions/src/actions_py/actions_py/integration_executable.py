@@ -208,10 +208,6 @@ class IntegrationExecutable(Node):
                 rclpy.spin_once(node)
             node.pt_result = None
 
-            node.pt_result = node.send_pt_goal(313, 13)
-            node.pt_result = node.send_pt_goal(313, 13)
-            node.pt_result = None
-
             t_int = 0
 
         p_int = 0
