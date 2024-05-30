@@ -101,8 +101,8 @@ class IntegrationExecutable(Node):
                 #Get Current Pose of robot
                 navigator.spin(1.57,60)
                 while not navigator.isTaskComplete():
-                    feedback = navigator.getFeedback()
-                    if feedback and i % 5==0 :
+                    feedback_spin = navigator.getFeedback()
+                    if feedback_spin and i % 5==0 :
                         self.info(f'Spinning to angle 1.57....')
                         i+=1
                 self.current_pose = feedback.current_pose
