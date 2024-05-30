@@ -65,7 +65,7 @@ class ACServer(Node):
     def ac_reading_sim(self, measurement_point, pan_position, tilt_position):
 
         # Take AC reading
-        time.sleep(5)
+        time.sleep(2)
 
         # Create directory if it doesn't exist
         #today = date.today().strftime("%d-%m-%Y")
@@ -74,7 +74,7 @@ class ACServer(Node):
             os.makedirs(directory)
 
         # Define the filename to write the text into
-        self.filename = os.path.join(directory, f"avg_db_values_{measurement_point}.txt")
+        self.filename = os.path.join(directory, f"avg_db_values.txt")
 
         # Define the path to save the image
         self.output_reading_path = os.path.join(directory, f"p_{pan_position}_t_{tilt_position}.jpg")

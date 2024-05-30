@@ -207,7 +207,15 @@ class IntegrationExecutable(Node):
 
                 
                 #time.sleep(2)
-            
+
+
+            # Step down the tilt angles
+
+            node.pt_result = node.send_pt_goal(p, 50)
+            while node.pt_result is None:
+                rclpy.spin_once(node)
+            node.pt_result = None
+
             t_int = 0
 
         p_int = 0

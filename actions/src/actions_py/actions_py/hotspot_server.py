@@ -228,7 +228,7 @@ class MinimalSubscriber(Node):
 
             # Draw the rectangle
             # Using ANSI/NETA standard for temperature classification
-            self.ambient_temp = 0
+            self.ambient_temp = 15
             hs_temp = int(float(self.HT_text)) - self.ambient_temp
             #if 1<hs_temp<10: 
                 #print("Hotspot not drawn")
