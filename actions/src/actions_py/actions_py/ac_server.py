@@ -74,7 +74,7 @@ class ACServer(Node):
             os.makedirs(directory)
 
         # Define the filename to write the text into
-        self.filename = os.path.join(directory, f"avg_db_values_{measurement_point}.txt")
+        self.filename = os.path.join(directory, f"avg_db_values.txt")
 
         # Define the path to save the image
         self.output_reading_path = os.path.join(directory, f"p_{pan_position}_t_{tilt_position}.jpg")

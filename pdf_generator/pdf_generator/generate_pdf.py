@@ -144,7 +144,7 @@ class MyNode(Node):
 
     # Create template for measurement point pages
     def template_creator(self, mp, pan, x):
-
+        #print("template_creator")
         # essentially changes the mp path to the format MPX (so it looks nicer on the pdf)
         self.mp_preformat = mp.split('/')[-1] 
         self.mp_formatted = 'MP' + self.mp_preformat.split('_')[1]
@@ -173,7 +173,7 @@ class MyNode(Node):
 
     # Creates template for map page
     def map_template_creator(self):
-
+        #print("map_template_creator")
         pdf_filename = "map_template.pdf"
 
         templates = os.path.join(self.filepath, 'Include', 'Templates')
@@ -192,7 +192,8 @@ class MyNode(Node):
         return pdf_filename
 
     # Creates template for title page
-    def title_template_creator(self):
+    def title_template_creator(self, date):
+        #print("title_template_creator")
         pdf_filename = "title_template.pdf"
         templates = os.path.join(self.filepath, 'Include', 'Templates')
         template_loader = jinja2.FileSystemLoader(templates)
@@ -200,7 +201,7 @@ class MyNode(Node):
 
         template = template_env.get_template('title_template.html')
         
-        output_text = template.render(date=date.today().strftime("%d-%m-%Y"))
+        output_text = template.render(date=date)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
@@ -210,26 +211,46 @@ class MyNode(Node):
 
         return pdf_filename
     
-    def hotspots_template_creator(self, num_mp, scan_folder, mp_folders): 
-        pdf_filename = "hotspots_template.pdf"
-
-        
+    def hotspots_template_creator(self, num_mp, scan_folder, mp_folders):
+        #print("hotspots_template_creator") 
+        pdf_filename = "hotspots_template.pdf"        
         thermal_hotspots = []
-        for mp in mp_folders:
-            mp_formatted = mp.split('/')[-1] 
-            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
-                
-                for line in file:
-                    thermal_hotspots.append(line.strip())
-                    
-        num_rows = len(thermal_hotspots)
+        ac_hotspots = []
+        num_rows = []
         templates = os.path.join(self.filepath, 'Include', 'Templates')
         template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
+        i = 0
+        for mp in mp_folders:
+            i+=1
+            j=0
+            mp_formatted = mp.split('/')[-1]
+            thermal_hotspots.append([])  # Add a new list for the current mp
+            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
+                for line in file:
+                    j+=1
+                    thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
+            #print(thermal_hotspots)
+            ac_hotspots.append([])  # Add a new list for the current mp
+            j=0
+            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/avg_db_values.txt', 'r') as file:
+                for line in file:
+                    j+=1
+                    ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
+                            
+            num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
+            print(num_rows)
+            num_ac = len(ac_hotspots)
+        
 
         template = template_env.get_template('hotspots_template.html')
         
-        output_text = template.render(num_measurement_points=num_mp, thermal_hotspots=thermal_hotspots, mp=num_rows)
+        #print(num_mp)
+        #print (thermal_hotspots)
+        #print(ac_hotspots)
+        #print(num_rows)
+        #print(num_ac)
+        output_text = template.render(num_measurement_points=num_mp, thermal_hotspots=thermal_hotspots, ac_hotspots = ac_hotspots, mp=num_rows)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
@@ -242,6 +263,7 @@ class MyNode(Node):
 
     # Takes the map template and pastes the map image with mps marked on it
     def create_centered_pdf_map(self, image_path):
+        #print("create_centered_pdf_map")
         # Load the map template and the map image
         pdf_template_map = convert_from_path("map_template.pdf")
         map_img = Image.fromarray(image_path)
@@ -298,18 +320,18 @@ class MyNode(Node):
 
     # Pastes the Thermal, Acoustic, and Visual images/data into the pdf template
     def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan):
-        
+        #print("create_centered_pdf")
         # Load the pdf template (scaling factor set for images)
         pdf_template_mp = convert_from_path(f"template_{self.mp_formatted}_pan_{pan}.pdf")
-        scaling_factor = 0.8
+        scaling_factor = 0.7
         canvas = pdf_template_mp[0]
 
         # Set starting coordinates to paste images and spacing between them
-        x_start, y_start = 275, 120
+        x_start, y_start = 200, 200
         x, y = x_start, y_start
-        x_ac = x_start + 700
-        #x_spacing = 215
-        y_spacing = 435
+        x_ac = x_start + 470
+        x_vis = x_ac + 470
+        y_spacing = 540
 
         # Calculate number of rows and columns in image_paths
         num_rows = len(image_paths_thermal)
@@ -331,7 +353,6 @@ class MyNode(Node):
             #x = x_start
             y += y_spacing
         
-        y_vis = y
         y = y_start
 
         # Paste acoustic images onto the canvas
@@ -349,28 +370,46 @@ class MyNode(Node):
             #x = x_start
             y += y_spacing
 
+        y = y_start
+
+        for image_path_vis in image_paths_visual:
+            img_vis = Image.open(image_path_vis)
+            original_size = img_vis.size
+            new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
+            img_vis = img_vis.resize(new_size)
+            canvas.paste(img_vis, (x_vis, y))
+
+            y+= y_spacing
         # Paste visual images onto the canvas
         #y_vis = 1370
-        x_vis = x_start + 350
-        img_vis = Image.open(image_paths_visual)
-        original_size = img_vis.size
-        new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
-        img_vis = img_vis.resize(new_size)
-        canvas.paste(img_vis, (x_vis, y_vis))
+        #x_vis = x_start + 350
+        #img_vis = Image.open(image_paths_visual)
+       # original_size = img_vis.size
+        #new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
+        #img_vis = img_vis.resize(new_size)
+        #canvas.paste(img_vis, (x_vis, y_vis))
 
         # Paste decibel values onto the greyscale acoustic images pasted before
         draw = ImageDraw.Draw(canvas)
         x_text = x_ac + 160
         y_text = y_start + 160
         
+        # Create a new ImageDraw object with a white background
+        bg_width, bg_height = 200, 100  # Adjust these values as needed
+        bg = Image.new('RGB', (bg_width, bg_height), 'white')
+        draw_bg = ImageDraw.Draw(bg)
+
         arial = os.path.join(self.filepath, 'Include', 'Arial.ttf')
         with open(f'{mp}/acoustic/avg_db_values.txt', 'r') as file:
             lines = itertools.islice(file, self.i, self.i + 4)
             for line in lines:
-                draw.text((x_text, y_text), line.strip(), font=ImageFont.truetype(arial, 80), fill="black")
+                draw_bg.text((10, 10), line.strip(), font=ImageFont.truetype(arial, 60), fill="black")  # Adjust the coordinates as needed
                 y_text += y_spacing
                 x = x_start + 50
             self.i += 4
+
+        # Paste the new ImageDraw object onto the canvas
+        canvas.paste(bg, (x_text, y_text))
 
         # Save as PDF
         pdf_filename_mp = f"template_{self.mp_formatted}_pan_{pan}.pdf"
@@ -393,8 +432,8 @@ def main(args=None):
     y_rows = 4
 
     # create the title page template and append it in the merger
-    title_pdf_page = node.title_template_creator()
-    merger.append(title_pdf_page)
+
+    
 
     filepath = "~/HV_monitoring"
     filepath = os.path.expanduser(filepath)
@@ -402,11 +441,21 @@ def main(args=None):
     #file = os.path.join(filepath, 'maps', 'HVLab4')
     filen = os.path.join(filepath, 'maps', "HVLab3")
     points_yaml = os.path.join(filepath, "route.yaml")
-    MP1 = os.path.join(filepath, 'Include', "MP1.png")
+    MP1 = os.path.join(filepath, 'Include', "Mp2.png")
 
-    scan_folder = "Substation_Scan_28-05-2024_12-54-43"
+    pdf_filename = "Substation_Scan_30-05-2024_13-01-28"
+    scan_folder = f"{filepath}/Scans/{pdf_filename}"
+
+    # Extract the date from the filename
+    date = pdf_filename.split('_')[2:]
+
+    # Convert the list back to a string, with elements separated by '_'
+    date = '_'.join(date)
+
+    title_pdf_page = node.title_template_creator(date)
+    merger.append(title_pdf_page)
     # Sorts all monitoring point folders in order
-    mp_folders = sorted(glob.glob(f'{filepath}/Scans/{scan_folder}/2. Monitoring Images/mp_*'))
+    mp_folders = sorted(glob.glob(f'{scan_folder}/2. Monitoring Images/mp_*'))
     
     #file = os.path.join(scan_folder, '3. Map', 'substation.pgm')
     #filen = os.path.join(scan_folder, '3. Map', "HVLab")
@@ -429,7 +478,7 @@ def main(args=None):
     resolution = map_data["resolution"]
     origin_x = map_data["origin"][0] 
     origin_y = map_data["origin"][1]
-    print(resolution)
+    #print(resolution)
     resolution = resolution /1.5
     
     # Read the image using cv2.imread() with the -1 flag for unchanged format
@@ -462,6 +511,7 @@ def main(args=None):
     merger.append(map_pdf_page)
 
     num_mp = len(mp_folders)
+    #print(mp_folders)
     hotspots_pdf_page = node.hotspots_template_creator(num_mp, scan_folder, mp_folders)
     #node.create_centered_pdf_hotspots(scan_folder)
     merger.append(hotspots_pdf_page)
@@ -469,31 +519,51 @@ def main(args=None):
 
     # Close all open windows
     cv2.destroyAllWindows()
-
+    #print("im here")
     for mp_folder in mp_folders:
-        print(mp_folder)
+        #print(mp_folder)
         # create empty arrays to store image paths
         img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
         img_path_acoustic = np.empty((y_rows, x_columns), dtype=object)
-        img_path_visual = np.empty((x_columns), dtype=object)
+        img_path_visual = np.empty((y_rows, x_columns), dtype=object)
 
         # saves all images in the mp folder to the respective arrays
         for x in range (1, x_columns + 1):
             for y in range(1, y_rows + 1):
                 image_filename_thermal = f"p_{x}_t_{y}.jpg"
                 image_join_thermal = os.path.join(mp_folder, 'thermal', image_filename_thermal)
+
+                image_therm = cv2.imread(image_join_thermal)
+                if image_therm is None:
+                    print(f"Error opening thermal image: {image_join_thermal}")
+                    image_therm = np.ones((480, 640, 3), dtype=np.uint8)*255
+                    cv2.imwrite(image_join_thermal, image_therm)
+                    #continue
                 img_path_thermal[y-1, x-1] = image_join_thermal
                 
         for x in range (1, x_columns + 1):
             for y in range(1, y_rows + 1):
                 image_filename_acoustic = f"p_{x}_t_{y}.jpg"
                 image_join_acoustic = os.path.join(mp_folder, 'acoustic', image_filename_acoustic)
+                image_ac = cv2.imread(image_join_acoustic)
+                if image_ac is None:
+                    print(f"Error opening acoustic image: {image_join_acoustic}")
+                    image_ac = np.ones((480, 640, 3), dtype=np.uint8)*255
+                    cv2.imwrite(image_join_acoustic, image_ac)
+                    #continue
                 img_path_acoustic[y-1, x-1] = image_join_acoustic
 
         for x in range (1, x_columns + 1):
-            image_filename_visual = f"p_{x}.jpg"
-            image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
-            img_path_visual[x-1] = image_join_visual
+            for y in range(1, y_rows + 1):
+                image_filename_visual = f"p_{x}_t_{y}.jpg"
+                image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
+                image_vis = cv2.imread(image_join_visual)
+                if image_vis is None:
+                    print(f"Error opening visual image: {image_join_visual}")
+                    image_vis = np.ones((480, 640, 3), dtype=np.uint8)*255
+                    cv2.imwrite(image_join_visual, image_vis)
+                    #continue
+                img_path_visual[y-1, x-1] = image_join_visual
 
         pan_angles = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
         x = 0
@@ -501,7 +571,13 @@ def main(args=None):
             
             # Create pdf template for measurement point page
             node.template_creator(mp_folder, pan, x)
-            node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[x], mp_folder, pan)
+
+            # Check if the image paths are None before trying to create the PDF
+            #if np.any(img_path_thermal[:, x] == None) or np.any(img_path_acoustic[:, x] == None) or img_path_visual[x] is None:
+                #print(f"Error: One or more image paths are None for pan angle {pan}")
+                #continue
+
+            node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[:, x], mp_folder, pan)
             
             # Append the pdf template after the map page
             pdf_filename_mp = f"template_{node.mp_formatted}_pan_{pan}.pdf"
@@ -511,11 +587,11 @@ def main(args=None):
 
 
     # Save PDF
-    today = date.today().strftime("%d-%m-%Y")
+    #today = date.today().strftime("%d-%m-%Y")
     pdf_report_folder = os.path.join(scan_folder, '1. PDF Report')
     if not os.path.exists(pdf_report_folder):
         os.makedirs(pdf_report_folder)
-    pdf_report_path = os.path.join(pdf_report_folder, f"substation_scan_{today}.pdf")
+    pdf_report_path = os.path.join(pdf_report_folder, f"{pdf_filename}.pdf")
     merger.write(pdf_report_path)
     merger.close()
         
