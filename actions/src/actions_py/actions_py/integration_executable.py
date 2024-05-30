@@ -9,6 +9,7 @@ import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
 import yaml
+import math
 import os
 
 class IntegrationExecutable(Node):
@@ -29,8 +30,8 @@ class IntegrationExecutable(Node):
         points_list = [[point["x"], point["y"], point["z"], point["Complete"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point and "Complete" in point]
         
         #Loads in the map from the points.yaml file
-        map = points["map"]
-        map = os.path.expanduser(map)
+        map_path = points["map"]
+        map = os.path.expanduser(map_path)
         try:
             navigator.changeMap(map)
         except Exception as e:
@@ -98,8 +99,34 @@ class IntegrationExecutable(Node):
                             navigator.spin()
                             navigator.goToPose(point)
                             
-                #Get Current Pose of robot
                 self.current_pose = feedback.current_pose
+
+                q = [
+                    self.current_pose.pose.orientation.x,
+                    self.current_pose.pose.orientation.y,
+                    self.current_pose.pose.orientation.z,
+                    self.current_pose.pose.orientation.w
+                ]
+
+                # Convert the quaternion to Euler angles
+                _, _, current_yaw = self.euler_from_quaternion(q)
+
+                # Convert current_yaw from radians to degrees
+                current_yaw = math.degrees(current_yaw)
+
+                # Calculate the desired yaw (90 degrees)
+                desired_yaw = 90
+
+                # Calculate the spin angle
+                spin_angle = desired_yaw - current_yaw
+                navigator.spin(spin_angle,60)
+                while not navigator.isTaskComplete():
+                    feedback_spin = navigator.getFeedback()
+                    if feedback_spin and i % 5==0 :
+                        self.navigator.info(f'Spinning to angle 1.57....')
+                        i+=1
+                self.current_pose = feedback.current_pose
+                
 
                 self.result = navigator.getResult()
                 if self.result == TaskResult.SUCCEEDED:
@@ -137,7 +164,7 @@ class IntegrationExecutable(Node):
                     navigator.info('Estimated time of arrival: ' + '{0:.0f}'.format(
                         Duration.from_msg(feedback.estimated_time_remaining).nanoseconds / 1e9)
                         + ' seconds.')
-                    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=600.0):
+                    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=300.0):
                         navigator.goToPose(initial_pose)
                         break
                     if Duration.from_msg(feedback.navigation_time) > Duration(seconds=1000.0):
@@ -147,14 +174,32 @@ class IntegrationExecutable(Node):
 
             # Rewrites back to yaml file
             points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
-            data = {"map": map, **points_dict}
+            data = {"map": map_path, **points_dict}
             data["initial_point"] = {"initial_x": initial_x, "initial_y": initial_y, "initial_z": initial_z}
             with open(yaml_file, "w") as f:
                 yaml.dump(data, f)
             break
         #Add Code Here to move to action server. 
 
-                
+    def euler_from_quaternion(self, q):
+    # roll (x-axis rotation)
+        sinr_cosp = 2 * (q.w * q.x + q.y * q.z)
+        cosr_cosp = 1 - 2 * (q.x**2 + q.y**2)
+        roll = math.atan2(sinr_cosp, cosr_cosp)
+
+        # pitch (y-axis rotation)
+        sinp = 2 * (q.w * q.y - q.z * q.x)
+        if abs(sinp) >= 1:
+            pitch = math.copysign(math.pi / 2, sinp)  # use 90 degrees if out of range
+        else:
+            pitch = math.asin(sinp)
+
+        # yaw (z-axis rotation)
+        siny_cosp = 2 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1 - 2 * (q.y**2 + q.z**2)
+        yaw = math.atan2(siny_cosp, cosy_cosp)
+
+        return roll, pitch, yaw           
 
     def run_pan_tilt(self, node):
         # Define Pan and Tilt Positions
@@ -188,9 +233,9 @@ class IntegrationExecutable(Node):
                 node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int, self.today)
                                                                         
             
-                while node.ac_result is None:
+                while node.hs_result is None:
                     while node.visual_result is None:
-                        while node.hs_result is None:
+                        while node.ac_result is None:
                             rclpy.spin_once(node, timeout_sec=5.0)
                         rclpy.spin_once(node, timeout_sec=5.0)
                     rclpy.spin_once(node, timeout_sec=5.0)
@@ -200,6 +245,7 @@ class IntegrationExecutable(Node):
 
                 
                 #time.sleep(2)
+
 
             # Step down the tilt angles
 
