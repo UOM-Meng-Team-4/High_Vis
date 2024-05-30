@@ -29,8 +29,8 @@ class IntegrationExecutable(Node):
         points_list = [[point["x"], point["y"], point["z"], point["Complete"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point and "Complete" in point]
         
         #Loads in the map from the points.yaml file
-        map = points["map"]
-        map = os.path.expanduser(map)
+        map_path = points["map"]
+        map = os.path.expanduser(map_path)
         try:
             navigator.changeMap(map)
         except Exception as e:
@@ -99,7 +99,14 @@ class IntegrationExecutable(Node):
                             navigator.goToPose(point)
                             
                 #Get Current Pose of robot
+                navigator.spin(1.57,60)
+                while not navigator.isTaskComplete():
+                    feedback = navigator.getFeedback()
+                    if feedback and i % 5==0 :
+                        self.info(f'Spinning to angle 1.57....')
+                        i+=1
                 self.current_pose = feedback.current_pose
+                
 
                 self.result = navigator.getResult()
                 if self.result == TaskResult.SUCCEEDED:
@@ -137,7 +144,7 @@ class IntegrationExecutable(Node):
                     navigator.info('Estimated time of arrival: ' + '{0:.0f}'.format(
                         Duration.from_msg(feedback.estimated_time_remaining).nanoseconds / 1e9)
                         + ' seconds.')
-                    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=600.0):
+                    if Duration.from_msg(feedback.navigation_time) > Duration(seconds=300.0):
                         navigator.goToPose(initial_pose)
                         break
                     if Duration.from_msg(feedback.navigation_time) > Duration(seconds=1000.0):
@@ -147,7 +154,7 @@ class IntegrationExecutable(Node):
 
             # Rewrites back to yaml file
             points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
-            data = {"map": map, **points_dict}
+            data = {"map": map_path, **points_dict}
             data["initial_point"] = {"initial_x": initial_x, "initial_y": initial_y, "initial_z": initial_z}
             with open(yaml_file, "w") as f:
                 yaml.dump(data, f)
@@ -200,7 +207,7 @@ class IntegrationExecutable(Node):
 
                 
                 #time.sleep(2)
-
+            
             t_int = 0
 
         p_int = 0
