@@ -3,12 +3,14 @@
 from datetime import datetime
 from actions_py.monitoring_client import Client
 from geometry_msgs.msg import PoseStamped
+from tf.transformations import euler_from_quaternion
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
 import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
 import yaml
+import math
 import os
 
 class IntegrationExecutable(Node):
@@ -98,12 +100,32 @@ class IntegrationExecutable(Node):
                             navigator.spin()
                             navigator.goToPose(point)
                             
-                #Get Current Pose of robot
-                navigator.spin(1.57,60)
+                self.current_pose = feedback.current_pose.position.x
+                self.current_pose = feedback.current_pose.position.y
+
+                q = [
+                    self.current_pose.pose.orientation.x,
+                    self.current_pose.pose.orientation.y,
+                    self.current_pose.pose.orientation.z,
+                    self.current_pose.pose.orientation.w
+                ]
+
+                # Convert the quaternion to Euler angles
+                _, _, current_yaw = euler_from_quaternion(q)
+
+                # Convert current_yaw from radians to degrees
+                current_yaw = math.degrees(current_yaw)
+
+                # Calculate the desired yaw (90 degrees)
+                desired_yaw = 90
+
+                # Calculate the spin angle
+                spin_angle = desired_yaw - current_yaw
+                navigator.spin(spin_angle,60)
                 while not navigator.isTaskComplete():
                     feedback_spin = navigator.getFeedback()
                     if feedback_spin and i % 5==0 :
-                        self.info(f'Spinning to angle 1.57....')
+                        self.navigator.info(f'Spinning to angle 1.57....')
                         i+=1
                 self.current_pose = feedback.current_pose
                 
