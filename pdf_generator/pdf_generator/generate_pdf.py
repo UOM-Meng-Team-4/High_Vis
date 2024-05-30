@@ -26,6 +26,10 @@ class MyNode(Node):
         self.filepath = "~/HV_monitoring"
         self.filepath = os.path.expanduser(self.filepath)
 
+        self.last_y = None
+        self.savemp = None
+        self.savei = 0
+
     def quaternion_to_euler(self, x, y, z, w):
         t0 = +2.0 * (w * x + y * z)
         t1 = +1.0 - 2.0 * (x * x + y * y)
@@ -319,8 +323,8 @@ class MyNode(Node):
     '''
 
     # Pastes the Thermal, Acoustic, and Visual images/data into the pdf template
-    def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan):
-        #print("create_centered_pdf")
+    def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan, i):
+        
         # Load the pdf template (scaling factor set for images)
         pdf_template_mp = convert_from_path(f"template_{self.mp_formatted}_pan_{pan}.pdf")
         scaling_factor = 0.7
@@ -391,29 +395,48 @@ class MyNode(Node):
 
         # Paste decibel values onto the greyscale acoustic images pasted before
         draw = ImageDraw.Draw(canvas)
-        x_text = x_ac + 160
-        y_text = y_start + 160
-        
-        # Create a new ImageDraw object with a white background
-        bg_width, bg_height = 200, 100  # Adjust these values as needed
-        bg = Image.new('RGB', (bg_width, bg_height), 'white')
-        draw_bg = ImageDraw.Draw(bg)
+        x_text = x_ac + 120
+        y_text = y_start + 130
+    
 
         arial = os.path.join(self.filepath, 'Include', 'Arial.ttf')
+        if self.savemp == mp:
+            self.i = self.savei
+        else:
+            self.i = 0
+
         with open(f'{mp}/acoustic/avg_db_values.txt', 'r') as file:
             lines = itertools.islice(file, self.i, self.i + 4)
+            
+            #print(lines)
             for line in lines:
+                print(line)
+                # Create a new ImageDraw object with a white background for each value
+                bg_width, bg_height = 200, 100  # Adjust these values as needed
+                bg = Image.new('RGB', (bg_width, bg_height), 'white')
+                draw_bg = ImageDraw.Draw(bg)
+
+                # Draw the text onto the new ImageDraw object
                 draw_bg.text((10, 10), line.strip(), font=ImageFont.truetype(arial, 60), fill="black")  # Adjust the coordinates as needed
+
+                # Paste the new ImageDraw object onto the canvas
+                canvas.paste(bg, (x_text, y_text))
+
+                
                 y_text += y_spacing
                 x = x_start + 50
+                
             self.i += 4
+            self.savei = self.i
+            self.savemp = mp
+            
 
-        # Paste the new ImageDraw object onto the canvas
-        canvas.paste(bg, (x_text, y_text))
-
+        #self.last_y = y_text
         # Save as PDF
         pdf_filename_mp = f"template_{self.mp_formatted}_pan_{pan}.pdf"
         canvas.save(pdf_filename_mp, "PDF", resolution=100.0, save_all=True)
+
+        
 
 
 def main(args=None):
@@ -439,8 +462,11 @@ def main(args=None):
     filepath = os.path.expanduser(filepath)
 
     #file = os.path.join(filepath, 'maps', 'HVLab4')
-    filen = os.path.join(filepath, 'maps', "HVLab3")
     points_yaml = os.path.join(filepath, "route.yaml")
+    with open(points_yaml, "r") as f:
+        points = yaml.safe_load(f)
+    
+    filen = points['map']
     MP1 = os.path.join(filepath, 'Include', "Mp2.png")
 
     pdf_filename = "Substation_Scan_30-05-2024_13-01-28"
@@ -468,8 +494,7 @@ def main(args=None):
     # Read YAML file data
     with open(f"{filen}.yaml") as f:
         map_data = yaml.safe_load(f)
-    with open(points_yaml, "r") as f:
-        points = yaml.safe_load(f)
+    
 
     points_list = [[point["x"], point["y"], point["z"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point]
     # Combine x, y, z values into a list
@@ -479,7 +504,7 @@ def main(args=None):
     origin_x = map_data["origin"][0] 
     origin_y = map_data["origin"][1]
     #print(resolution)
-    resolution = resolution /1.5
+    resolution = resolution /2
     
     # Read the image using cv2.imread() with the -1 flag for unchanged format
     image = cv2.imread(f"{filen}.pgm", -1)
@@ -521,6 +546,7 @@ def main(args=None):
     cv2.destroyAllWindows()
     #print("im here")
     for mp_folder in mp_folders:
+        i = 0
         #print(mp_folder)
         # create empty arrays to store image paths
         img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
@@ -577,7 +603,7 @@ def main(args=None):
                 #print(f"Error: One or more image paths are None for pan angle {pan}")
                 #continue
 
-            node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[:, x], mp_folder, pan)
+            node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[:, x], mp_folder, pan, i)
             
             # Append the pdf template after the map page
             pdf_filename_mp = f"template_{node.mp_formatted}_pan_{pan}.pdf"
