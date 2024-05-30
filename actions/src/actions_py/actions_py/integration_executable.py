@@ -3,7 +3,6 @@
 from datetime import datetime
 from actions_py.monitoring_client import Client
 from geometry_msgs.msg import PoseStamped
-from tf.transformations import euler_from_quaternion
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
 import copy
@@ -100,8 +99,7 @@ class IntegrationExecutable(Node):
                             navigator.spin()
                             navigator.goToPose(point)
                             
-                self.current_pose = feedback.current_pose.position.x
-                self.current_pose = feedback.current_pose.position.y
+                self.current_pose = feedback.current_pose
 
                 q = [
                     self.current_pose.pose.orientation.x,
@@ -111,7 +109,7 @@ class IntegrationExecutable(Node):
                 ]
 
                 # Convert the quaternion to Euler angles
-                _, _, current_yaw = euler_from_quaternion(q)
+                _, _, current_yaw = self.euler_from_quaternion(q)
 
                 # Convert current_yaw from radians to degrees
                 current_yaw = math.degrees(current_yaw)
@@ -183,7 +181,25 @@ class IntegrationExecutable(Node):
             break
         #Add Code Here to move to action server. 
 
-                
+    def euler_from_quaternion(self, q):
+    # roll (x-axis rotation)
+        sinr_cosp = 2 * (q.w * q.x + q.y * q.z)
+        cosr_cosp = 1 - 2 * (q.x**2 + q.y**2)
+        roll = math.atan2(sinr_cosp, cosr_cosp)
+
+        # pitch (y-axis rotation)
+        sinp = 2 * (q.w * q.y - q.z * q.x)
+        if abs(sinp) >= 1:
+            pitch = math.copysign(math.pi / 2, sinp)  # use 90 degrees if out of range
+        else:
+            pitch = math.asin(sinp)
+
+        # yaw (z-axis rotation)
+        siny_cosp = 2 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1 - 2 * (q.y**2 + q.z**2)
+        yaw = math.atan2(siny_cosp, cosy_cosp)
+
+        return roll, pitch, yaw           
 
     def run_pan_tilt(self, node):
         # Define Pan and Tilt Positions
