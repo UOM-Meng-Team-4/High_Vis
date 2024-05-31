@@ -248,7 +248,7 @@ class IntegrationExecutable(Node):
 
                 node.pt_result = None
 
-                time.sleep(2)
+                time.sleep(1)
 
                 # Send hs goal
                 node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int, self.today)
@@ -256,11 +256,7 @@ class IntegrationExecutable(Node):
                 node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int, self.today)
                                                                         
             
-                while node.hs_result is None:
-                    while node.visual_result is None:
-                        while node.ac_result is None:
-                            rclpy.spin_once(node, timeout_sec=5.0)
-                        rclpy.spin_once(node, timeout_sec=5.0)
+                while node.hs_result is None and node.visual_result is None and node.ac_result is None:
                     rclpy.spin_once(node, timeout_sec=5.0)
                 node.hs_result = None
                 node.visual_result = None
