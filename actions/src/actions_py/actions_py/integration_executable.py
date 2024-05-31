@@ -198,7 +198,7 @@ class IntegrationExecutable(Node):
         cosy_cosp = 1 - 2 * (q[2]**2 + q[3]**2)
         yaw = math.atan2(siny_cosp, cosy_cosp)
 
-    return roll, pitch, yaw  # in radians        
+        return roll, pitch, yaw  # in radians        
 
     def run_pan_tilt(self, node):
         # Define Pan and Tilt Positions
