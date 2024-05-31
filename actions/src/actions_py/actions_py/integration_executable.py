@@ -180,7 +180,7 @@ class IntegrationExecutable(Node):
             break
         #Add Code Here to move to action server. 
 
-    def euler_from_quaternion(q):
+    def euler_from_quaternion(self, q):
         # roll (x-axis rotation)
         sinr_cosp = 2 * (q[0] * q[1] + q[2] * q[3])
         cosr_cosp = 1 - 2 * (q[1]**2 + q[2]**2)
