@@ -133,12 +133,15 @@ class IntegrationExecutable(Node):
                 desired_yaw = 1.57
 
                 # Calculate the spin angle
+                
                 spin_angle = desired_yaw - current_yaw
+                navigator.info(f'Quat{q[0]} {q[1]} z {q[2]} w {q[3]} ....')
+                navigator.info(f'Current {current_yaw} Desired {desired_yaw} Spin {spin_angle}')
                 navigator.spin(spin_angle,60)
                 while not navigator.isTaskComplete():
                     feedback_spin = navigator.getFeedback()
                     if feedback_spin and i % 5==0 :
-                        self.navigator.info(f'Spinning to angle 1.57....')
+                        navigator.info(f'Spinning to angle 1.57....')
                         i+=1
                 self.current_pose = feedback.current_pose
                 
@@ -198,24 +201,24 @@ class IntegrationExecutable(Node):
         #Add Code Here to move to action server. 
 
     def euler_from_quaternion(self, q):
-    # roll (x-axis rotation)
-        sinr_cosp = 2 * (q.w * q.x + q.y * q.z)
-        cosr_cosp = 1 - 2 * (q.x**2 + q.y**2)
+        # roll (x-axis rotation)
+        sinr_cosp = 2 * (q[0] * q[1] + q[2] * q[3])
+        cosr_cosp = 1 - 2 * (q[1]**2 + q[2]**2)
         roll = math.atan2(sinr_cosp, cosr_cosp)
 
         # pitch (y-axis rotation)
-        sinp = 2 * (q.w * q.y - q.z * q.x)
+        sinp = 2 * (q[0] * q[2] - q[3] * q[1])
         if abs(sinp) >= 1:
             pitch = math.copysign(math.pi / 2, sinp)  # use 90 degrees if out of range
         else:
             pitch = math.asin(sinp)
 
         # yaw (z-axis rotation)
-        siny_cosp = 2 * (q.w * q.z + q.x * q.y)
-        cosy_cosp = 1 - 2 * (q.y**2 + q.z**2)
+        siny_cosp = 2 * (q[0] * q[3] + q[1] * q[2])
+        cosy_cosp = 1 - 2 * (q[2]**2 + q[3]**2)
         yaw = math.atan2(siny_cosp, cosy_cosp)
 
-        return roll, pitch, yaw           
+        return roll, pitch, yaw  # in radians        
 
     def run_pan_tilt(self, node):
         # Define Pan and Tilt Positions
