@@ -11,6 +11,7 @@ from rclpy.node import Node
 import yaml
 import math
 import os
+from squaternion import Quaternion
 
 class IntegrationExecutable(Node):
 
@@ -109,8 +110,8 @@ class IntegrationExecutable(Node):
                 ]
 
                 # Convert the quaternion to Euler angles
-                _, _, current_yaw = self.euler_from_quaternion(q)
-
+                #_, _, current_yaw = self.euler_from_quaternion(q)
+                _, _, current_yaw = q.to_euler()
 
 
                 # Calculate the desired yaw (90 degrees)
