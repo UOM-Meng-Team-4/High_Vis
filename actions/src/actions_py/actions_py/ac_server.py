@@ -75,6 +75,7 @@ class ACServer(Node):
 
         # Define the filename to write the text into
         self.filename = os.path.join(directory, f"avg_db_values.txt")
+        self.ac_hotspots = os.path.join(directory, f"ac_hotspots.txt")
 
         # Define the path to save the image
         self.output_reading_path = os.path.join(directory, f"p_{pan_position}_t_{tilt_position}.jpg")
@@ -106,6 +107,7 @@ class ACServer(Node):
             print(f"average = {self.average}")
 
             scaled_average = self.average * scaling_factor
+            
 
             self.counter = 0
 
@@ -114,6 +116,11 @@ class ACServer(Node):
             image_array = np.full(image_size, scaled_average, dtype=np.uint8)
             img = Image.fromarray(image_array, 'L')
             img.save(self.output_reading_path)
+
+            
+        with open(self.ac_hotspots, 'a') as file:
+            if self.average > 10:
+                file.write(f"p_{pan_position}_t_{tilt_position}\n")
 
         
 
