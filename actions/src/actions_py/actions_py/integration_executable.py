@@ -117,7 +117,10 @@ class IntegrationExecutable(Node):
                 desired_yaw = 1.57
 
                 # Calculate the spin angle
+                
                 spin_angle = desired_yaw - current_yaw
+                self.navigator.info(f'Quat{q[0]} {q[1]} z {q[2]} w {q[3]} ....')
+                self.navigator.info(f'Current {current_yaw} Desired {desired_yaw} Spin {spin_angle}')
                 navigator.spin(spin_angle,60)
                 while not navigator.isTaskComplete():
                     feedback_spin = navigator.getFeedback()
