@@ -119,16 +119,13 @@ class IntegrationExecutable(Node):
                             
                 self.current_pose = feedback.current_pose
 
-                q = [
+
+                q = Quaternion( 
+                    self.current_pose.pose.orientation.w,
                     self.current_pose.pose.orientation.x,
                     self.current_pose.pose.orientation.y,
-                    self.current_pose.pose.orientation.z,
-                    self.current_pose.pose.orientation.w
-                ]
-                q = Quaternion( self.current_pose.pose.orientation.x,
-                    self.current_pose.pose.orientation.y,
-                    self.current_pose.pose.orientation.z,
-                    self.current_pose.pose.orientation.w)
+                    self.current_pose.pose.orientation.z
+                    )
                 # Convert the quaternion to Euler angles
                 #_, _, current_yaw = self.euler_from_quaternion(q)
                 _, _, current_yaw = q.to_euler()
