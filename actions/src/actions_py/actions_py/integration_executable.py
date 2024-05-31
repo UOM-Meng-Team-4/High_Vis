@@ -4,12 +4,28 @@ from datetime import datetime
 from actions_py.monitoring_client import Client
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
+from pdf_generator.generate_pdf import MyNode
 import rclpy
 import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
 import yaml
-
+import rclpy
+import numpy as np
+import os
+import glob
+import yaml
+import cv2
+import jinja2
+import pdfkit
+import math
+import itertools
+from PyPDF2 import PdfMerger
+from PIL import Image, ImageDraw, ImageFont
+from datetime import date
+from rclpy.node import Node
+from pdf2image import convert_from_path
+from datetime import date
 import os
 
 class IntegrationExecutable(Node):
@@ -19,7 +35,7 @@ class IntegrationExecutable(Node):
         self.mp_int = 0
         self.today = datetime.today().strftime('%d-%m-%Y_%H-%M-%S')
 
-    def run_navigator(self, navigator, inspection_route, client):
+    def run_navigator(self, navigator, inspection_route, client, pdf_node, merger):
         yaml_file = "~/HV_monitoring/route.yaml"
         yaml_file = os.path.expanduser(yaml_file)
         # open the yaml file and load the points
@@ -178,6 +194,7 @@ class IntegrationExecutable(Node):
             with open(yaml_file, "w") as f:
                 yaml.dump(data, f)
             break
+        self.pdf_generator(pdf_node, merger)
         #Add Code Here to move to action server. 
 
     def euler_from_quaternion(self, q):
@@ -260,6 +277,186 @@ class IntegrationExecutable(Node):
         node.pt_result = node.send_pt_goal(10, 10)
 
     
+    def pdf_generator(self, node, merger):
+        # Sorts all substation scan folders in order of date
+        scan_folders = sorted(glob.glob('Substation_Scan_*'))
+        
+
+        # Number of rows (tilt positions) and columns (pan positions)
+        x_columns = 10
+        y_rows = 4
+
+        # create the title page template and append it in the merger
+
+        filepath = "~/HV_monitoring"
+        filepath = os.path.expanduser(filepath)
+
+        #file = os.path.join(filepath, 'maps', 'HVLab4')
+        points_yaml = os.path.join(filepath, "route.yaml")
+        with open(points_yaml, "r") as f:
+            points = yaml.safe_load(f)
+        
+        filen = points['map']
+        MP1 = os.path.join(filepath, 'Include', "Mp2.png")
+
+        pdf_filename = f"Substation_Scan_{self.today}"
+        scan_folder = f"{filepath}/Scans/{pdf_filename}"
+
+        # Extract the date from the filename
+        date = pdf_filename.split('_')[2:]
+
+        # Convert the list back to a string, with elements separated by '_'
+        date = '_'.join(date)
+
+        title_pdf_page = node.title_template_creator(date)
+        merger.append(title_pdf_page)
+        # Sorts all monitoring point folders in order
+        mp_folders = sorted(glob.glob(f'{scan_folder}/2. Monitoring Images/mp_*'))
+        
+        #file = os.path.join(scan_folder, '3. Map', 'substation.pgm')
+        #filen = os.path.join(scan_folder, '3. Map', "HVLab")
+        #points_yaml = os.path.join(scan_folder, '3. Map', "points.yaml")
+        #MP1 = os.path.join(scan_folder, '3. Map', "MP1.png")
+        target_x = 26.8
+        target_y = -3.74
+        orientation = 0.1
+
+        # Read YAML file data
+        with open(f"{filen}.yaml") as f:
+            map_data = yaml.safe_load(f)
+        
+
+        points_list = [[point["x"], point["y"], point["z"]] for point in points.values() if isinstance(point, dict) and "x" in point and "y" in point and "z" in point]
+        # Combine x, y, z values into a list
+
+        # Extract resolution and origin
+        resolution = map_data["resolution"]
+        origin_x = map_data["origin"][0] 
+        origin_y = map_data["origin"][1]
+        #print(resolution)
+        resolution = resolution /2
+        
+        # Read the image using cv2.imread() with the -1 flag for unchanged format
+        image = cv2.imread(f"{filen}.pgm", -1)
+        circle_image = cv2.imread(MP1, cv2.IMREAD_UNCHANGED)
+        if image is None and circle_image is None:
+            print(f"Error opening image: {filen}.pgm")
+            exit()
+        image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
+        image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+        
+        for point_index, pt in enumerate(points_list):
+            try:
+                image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index)
+            except Exception as e:
+                print(f"Unable to process point {pt[0]},{pt[1]}: {e}")
+
+
+        # Check if image reading was successful
+        
+        # Display the image using cv2.imshow(
+        
+        #cv2.imshow("Your Image", image)
+        cv2.waitKey(0)
+        cv2.imwrite(f"{filen}.png", image)
+
+        # creates the map page and append it after title
+        map_pdf_page = node.map_template_creator()
+        node.create_centered_pdf_map(image)
+        merger.append(map_pdf_page)
+
+        num_mp = len(mp_folders)
+        #print(mp_folders)
+        hotspots_pdf_page = node.hotspots_template_creator(num_mp, scan_folder, mp_folders)
+        #node.create_centered_pdf_hotspots(scan_folder)
+        merger.append(hotspots_pdf_page)
+
+
+        # Close all open windows
+        cv2.destroyAllWindows()
+        #print("im here")
+        for mp_folder in mp_folders:
+            i = 0
+            #print(mp_folder)
+            # create empty arrays to store image paths
+            img_path_thermal = np.empty((y_rows, x_columns), dtype=object)
+            img_path_acoustic = np.empty((y_rows, x_columns), dtype=object)
+            img_path_visual = np.empty((y_rows, x_columns), dtype=object)
+
+            # saves all images in the mp folder to the respective arrays
+            for x in range (1, x_columns + 1):
+                for y in range(1, y_rows + 1):
+                    image_filename_thermal = f"p_{x}_t_{y}.jpg"
+                    image_join_thermal = os.path.join(mp_folder, 'thermal', image_filename_thermal)
+
+                    image_therm = cv2.imread(image_join_thermal)
+                    if image_therm is None:
+                        print(f"Error opening thermal image: {image_join_thermal}")
+                        image_therm = np.ones((480, 640, 3), dtype=np.uint8)*255
+                        cv2.imwrite(image_join_thermal, image_therm)
+                        #continue
+                    img_path_thermal[y-1, x-1] = image_join_thermal
+                    
+            for x in range (1, x_columns + 1):
+                for y in range(1, y_rows + 1):
+                    image_filename_acoustic = f"p_{x}_t_{y}.jpg"
+                    image_join_acoustic = os.path.join(mp_folder, 'acoustic', image_filename_acoustic)
+                    image_ac = cv2.imread(image_join_acoustic)
+                    if image_ac is None:
+                        print(f"Error opening acoustic image: {image_join_acoustic}")
+                        image_ac = np.ones((480, 640, 3), dtype=np.uint8)*255
+                        cv2.imwrite(image_join_acoustic, image_ac)
+                        #continue
+                    img_path_acoustic[y-1, x-1] = image_join_acoustic
+
+            for x in range (1, x_columns + 1):
+                for y in range(1, y_rows + 1):
+                    image_filename_visual = f"p_{x}_t_{y}.jpg"
+                    image_join_visual = os.path.join(mp_folder, 'visual', image_filename_visual)
+                    image_vis = cv2.imread(image_join_visual)
+                    if image_vis is None:
+                        print(f"Error opening visual image: {image_join_visual}")
+                        image_vis = np.ones((480, 640, 3), dtype=np.uint8)*255
+                        cv2.imwrite(image_join_visual, image_vis)
+                        #continue
+                    img_path_visual[y-1, x-1] = image_join_visual
+
+            pan_angles = [0, 36, 72, 108, 144, 180, 216, 252, 288, 324]
+            x = 0
+            for pan in pan_angles:
+                
+                # Create pdf template for measurement point page
+                node.template_creator(mp_folder, pan, x)
+
+                # Check if the image paths are None before trying to create the PDF
+                #if np.any(img_path_thermal[:, x] == None) or np.any(img_path_acoustic[:, x] == None) or img_path_visual[x] is None:
+                    #print(f"Error: One or more image paths are None for pan angle {pan}")
+                    #continue
+
+                node.create_centered_pdf(img_path_thermal[:, x], img_path_acoustic[:, x], img_path_visual[:, x], mp_folder, pan, i)
+                
+                # Append the pdf template after the map page
+                pdf_filename_mp = f"template_{node.mp_formatted}_pan_{pan}.pdf"
+                merger.append(pdf_filename_mp)
+                x += 1
+
+
+
+        # Save PDF
+        #today = date.today().strftime("%d-%m-%Y")
+        pdf_report_folder = os.path.join(scan_folder, '1. PDF Report')
+        if not os.path.exists(pdf_report_folder):
+            os.makedirs(pdf_report_folder)
+        pdf_report_path = os.path.join(pdf_report_folder, f"{pdf_filename}.pdf")
+        merger.write(pdf_report_path)
+        merger.close()
+
+        # Delete all files with "template" in the filename
+        for filename in glob.glob('*template*'):
+            os.remove(filename)
+            
+        print(f"PDF saved")
+    
 
 def main():
     rclpy.init()
@@ -274,10 +471,12 @@ def main():
     # Define the node and navigator
     node = Client()
     integration = IntegrationExecutable()
+    pdf_node = MyNode()
     navigator = BasicNavigator('basic_navigator', 'j100_0219')
+    merger = PdfMerger()
 
     # Run Navigation
-    integration.run_navigator(navigator, inspection_route, node)
+    integration.run_navigator(navigator, inspection_route, node, pdf_node, merger)
     
    
 
