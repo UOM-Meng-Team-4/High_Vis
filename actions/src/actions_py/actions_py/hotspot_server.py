@@ -247,7 +247,7 @@ class MinimalSubscriber(Node):
                 first_time = 1
 
                 
-            elif 20<hs_temp<40:
+            elif 20<hs_temp<=40:
                 cv2.drawContours(self.cv_image, [box], 0, (0, 165, 255), 2)     # Orange
                 if first_time == 0:
                     try:

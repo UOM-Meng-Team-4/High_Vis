@@ -238,7 +238,7 @@ class MyNode(Node):
             #print(thermal_hotspots)
             ac_hotspots.append([])  # Add a new list for the current mp
             j=0
-            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/avg_db_values.txt', 'r') as file:
+            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
                 for line in file:
                     j+=1
                     ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
