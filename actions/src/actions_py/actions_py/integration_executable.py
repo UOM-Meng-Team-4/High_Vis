@@ -38,8 +38,8 @@ class IntegrationExecutable(Node):
         self.today = datetime.today().strftime('%d-%m-%Y_%H-%M-%S')
 
     def run_navigator(self, navigator, inspection_route, client, pdf_node, merger):
-        yaml_file = "~/HV_monitoring/route.yaml"
-        yaml_file = os.path.expanduser(yaml_file)
+        yaml_file_path = "~/HV_monitoring/route.yaml"
+        yaml_file = os.path.expanduser(yaml_file_path)
         # open the yaml file and load the points
         with open(yaml_file, "r") as f:
             points = yaml.safe_load(f)
@@ -49,7 +49,7 @@ class IntegrationExecutable(Node):
         
         #Loads in the map from the points.yaml file
         map_path = points["map"]
-        map = os.path.expanduser(map_path)
+        map = os.path.expanduser(map_path) + ".yaml"
         try:
             navigator.changeMap(map)
         except Exception as e:
@@ -155,7 +155,7 @@ class IntegrationExecutable(Node):
                     current_pose  = self.current_pose
                     navigator.info(f'Current pose {current_pose.pose.position.x}')
                     pt[3] = 1
-                    pt[2] = self.current_pose.pose.orientation.z
+                    pt[2] = current_pose.pose.orientation.z
                     # Run Pan and Tilt
                     
                     self.run_pan_tilt(client)
