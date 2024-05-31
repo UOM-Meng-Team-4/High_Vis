@@ -196,16 +196,17 @@ class MyNode(Node):
         return pdf_filename
 
     # Creates template for title page
-    def title_template_creator(self, date):
+    def title_template_creator(self, date_time):
         #print("title_template_creator")
+        date, time = date_time.split('_')
+        time = time.replace('-', ':')
         pdf_filename = "title_template.pdf"
         templates = os.path.join(self.filepath, 'Include', 'Templates')
         template_loader = jinja2.FileSystemLoader(templates)
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('title_template.html')
-        
-        output_text = template.render(date=date)
+        output_text = template.render(date=date, time=time)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
@@ -469,7 +470,7 @@ def main(args=None):
     filen = points['map']
     MP1 = os.path.join(filepath, 'Include', "Mp2.png")
 
-    pdf_filename = "Substation_Scan_30-05-2024_13-01-28"
+    pdf_filename = "Substation_Scan_30-05-2024_14-55-05"
     scan_folder = f"{filepath}/Scans/{pdf_filename}"
 
     # Extract the date from the filename
