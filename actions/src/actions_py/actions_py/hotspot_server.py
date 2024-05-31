@@ -81,7 +81,7 @@ class MinimalSubscriber(Node):
         # Execute the action
         if target == True: 
            #print("Hi")
-           time.sleep(1)
+           #time.sleep(1)
            MinimalSubscriber.image_processing(self)
                 
         # Once done, set goal final state

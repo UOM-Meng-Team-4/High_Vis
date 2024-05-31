@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 from datetime import datetime
+from datetime import time
 from actions_py.monitoring_client import Client
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
@@ -245,6 +246,8 @@ class IntegrationExecutable(Node):
                     rclpy.spin_once(node)
 
                 node.pt_result = None
+
+                time.sleep(2)
 
                 # Send hs goal
                 node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int, self.today)

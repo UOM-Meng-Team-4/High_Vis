@@ -65,7 +65,7 @@ class ACServer(Node):
     def ac_reading_sim(self, measurement_point, pan_position, tilt_position):
 
         # Take AC reading
-        time.sleep(3)
+        time.sleep(2)
 
         # Create directory if it doesn't exist
         #today = date.today().strftime("%d-%m-%Y")
@@ -117,7 +117,7 @@ class ACServer(Node):
             img = Image.fromarray(image_array, 'L')
             img.save(self.output_reading_path)
 
-            
+
         with open(self.ac_hotspots, 'a') as file:
             if self.average > 10:
                 file.write(f"p_{pan_position}_t_{tilt_position}\n")
