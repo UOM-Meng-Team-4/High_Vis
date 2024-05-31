@@ -9,7 +9,7 @@ import copy
 from rclpy.duration import Duration
 from rclpy.node import Node
 import yaml
-import math
+
 import os
 
 class IntegrationExecutable(Node):
@@ -111,11 +111,10 @@ class IntegrationExecutable(Node):
                 # Convert the quaternion to Euler angles
                 _, _, current_yaw = self.euler_from_quaternion(q)
 
-                # Convert current_yaw from radians to degrees
-                current_yaw = math.degrees(current_yaw)
+
 
                 # Calculate the desired yaw (90 degrees)
-                desired_yaw = 90
+                desired_yaw = 1.57
 
                 # Calculate the spin angle
                 spin_angle = desired_yaw - current_yaw
