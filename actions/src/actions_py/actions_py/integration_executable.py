@@ -253,6 +253,8 @@ class IntegrationExecutable(Node):
                 # Send hs goal
                 node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int, self.today)
                 node.visual_result = node.send_visual_goal(True, self.mp_int, p_int, t_int, self.today)
+
+                time.sleep(2)
                 node.ac_result = node.send_ac_goal(True, self.mp_int, p_int, t_int, self.today)
                                                                         
             
@@ -464,13 +466,17 @@ class IntegrationExecutable(Node):
 def main():
     rclpy.init()
 
+    '''
     inspection_route = [
         [2.17, 2.66],
         [7.2, 2.61],
         [10.7, -0.865],
         [-0.2, -1.89],
 	    [0.0, 0.0]]
-
+    '''
+    inspection_route = [
+        [2.17, 2.66],
+        ]
     # Define the node and navigator
     node = Client()
     integration = IntegrationExecutable()
