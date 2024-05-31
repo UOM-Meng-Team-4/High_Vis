@@ -45,7 +45,7 @@ class VisualCam(Node):
         self.visual_image_path = os.path.join(directory, f"p_{pan}_t_{tilt}.jpg")
 
         if target == True:
-            time.sleep(1)
+            #(1)
             VisualCam.image_processing(self)
 
         goal_handle.succeed()
