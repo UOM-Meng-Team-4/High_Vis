@@ -231,25 +231,26 @@ class MyNode(Node):
         i = 0
         for mp in mp_folders:
             i+=1
-            j=0
+            
             mp_formatted = mp.split('/')[-1]
             thermal_hotspots.append([])  # Add a new list for the current mp
 
             try:
                 with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
                     for line in file:
-                        j+=1
+                        
                         thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
                 #print(thermal_hotspots)
             except FileNotFoundError:
                 print(f"Could not findd hotspots.txt for {mp_formatted}")
-                ac_hotspots.append([])  # Add a new list for the current mp
-                j=0
+           
+            ac_hotspots.append([])  # Add a new list for the current mp
+                
 
             try:
                 with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
                     for line in file:
-                        j+=1
+                        
                         ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
 
             except FileNotFoundError:
