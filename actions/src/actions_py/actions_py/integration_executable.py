@@ -132,7 +132,7 @@ class IntegrationExecutable(Node):
 
 
                 # Calculate the desired yaw (90 degrees)
-                desired_yaw = 1.57
+                desired_yaw = 0.0
 
                 # Calculate the spin angle
                 
@@ -191,7 +191,25 @@ class IntegrationExecutable(Node):
                         navigator.cancelTask()
                         navigator.info('Failed to return to start position')
                         break
-
+            self.current_pose = feedback.current_pose
+            q = Quaternion( 
+                    self.current_pose.pose.orientation.w,
+                    self.current_pose.pose.orientation.x,
+                    self.current_pose.pose.orientation.y,
+                    self.current_pose.pose.orientation.z
+                    )
+                # Convert the quaternion to Euler angles
+                #_, _, current_yaw = self.euler_from_quaternion(q)
+            _, _, current_yaw = q.to_euler()
+            desired_yaw = 0.0
+            spin_angle = desired_yaw - current_yaw
+            navigator.spin(spin_angle,60)
+            while not navigator.isTaskComplete():
+                    feedback_spin = navigator.getFeedback()
+                    if feedback_spin and i % 5==0 :
+                        navigator.info(f'Spinning to angle 1.57....')
+                        i+=1
+            
             # Rewrites back to yaml file
             points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
             data = {"map": map_path, **points_dict}
