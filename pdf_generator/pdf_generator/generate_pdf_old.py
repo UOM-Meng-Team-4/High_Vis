@@ -31,6 +31,7 @@ class MyNode(Node):
         self.savei = 0
 
     def quaternion_to_euler(self, x, y, z, w):
+        #print("quaternion_to_euler")
         t0 = +2.0 * (w * x + y * z)
         t1 = +1.0 - 2.0 * (x * x + y * y)
         X = math.degrees(math.atan2(t0, t1))
@@ -47,7 +48,9 @@ class MyNode(Node):
         return Z
     
     def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index):
+        #print("add_point")
         angle = np.rad2deg(self.quaternion_to_euler(0,0,orientation,1-orientation))
+        #print("finished quarternion_to_euler")
     
         image_height, image_width = map_image.shape[:2]
         # Convert the image to grayscale (if needed)
@@ -77,6 +80,7 @@ class MyNode(Node):
         flag = True
         #Gets the region the circle will be placed in the map image
         while ((image_y-circle_center_y < 0) or (image_y+circle_center_y > image_height) or (image_x-circle_center_x < 0) or (image_x+circle_center_x > image_width)):
+            #print("inside while")
             if image_y-circle_center_y < 0:
                 image_y += 1
                 flag = False
@@ -88,6 +92,7 @@ class MyNode(Node):
             if image_x+circle_center_x > image_width:
                 image_x -= 1
 
+        #print("finished while")
         roi = map_image[image_y-circle_center_y:image_y+circle_center_y, image_x-circle_center_x:image_x+circle_center_x]    
         # Get the rotation matrix
         rotation_matrix = cv2.getRotationMatrix2D(center, angle, 1.0)
@@ -244,7 +249,7 @@ class MyNode(Node):
                     ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
                             
             num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
-            print(num_rows)
+            #print(num_rows)
             num_ac = len(ac_hotspots)
         
 
@@ -325,7 +330,7 @@ class MyNode(Node):
 
     # Pastes the Thermal, Acoustic, and Visual images/data into the pdf template
     def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan, i):
-        
+        #print("create_centered_pdf")
         # Load the pdf template (scaling factor set for images)
         pdf_template_mp = convert_from_path(f"template_{self.mp_formatted}_pan_{pan}.pdf")
         scaling_factor = 0.7
@@ -411,7 +416,7 @@ class MyNode(Node):
             
             #print(lines)
             for line in lines:
-                print(line)
+                #print(line)
                 # Create a new ImageDraw object with a white background for each value
                 bg_width, bg_height = 200, 100  # Adjust these values as needed
                 bg = Image.new('RGB', (bg_width, bg_height), 'white')
@@ -470,7 +475,7 @@ def main(args=None):
     filen = points['map']
     MP1 = os.path.join(filepath, 'Include', "Mp2.png")
 
-    pdf_filename = "Substation_Scan_30-05-2024_14-55-05"
+    pdf_filename = "Substation_Scan_31-05-2024_15-28-57"
     scan_folder = f"{filepath}/Scans/{pdf_filename}"
 
     # Extract the date from the filename
@@ -505,7 +510,7 @@ def main(args=None):
     origin_x = map_data["origin"][0] 
     origin_y = map_data["origin"][1]
     #print(resolution)
-    resolution = resolution /2
+    
     
     # Read the image using cv2.imread() with the -1 flag for unchanged format
     image = cv2.imread(f"{filen}.pgm", -1)
@@ -513,7 +518,30 @@ def main(args=None):
     if image is None and circle_image is None:
         print(f"Error opening image: {filen}.pgm")
         exit()
-    image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
+
+    image_height, image_width = image.shape[:2]
+    resize_factor = 1
+    while image_height < 1000 and image_width < 1000:
+        
+        
+        resize_factor += 1
+        print(f"resize_factor= {resize_factor}")
+        image_r = cv2.resize(image, None, fx=resize_factor, fy=resize_factor, interpolation=cv2.INTER_AREA)
+        image_height, image_width = image_r.shape[:2]
+        print(f"image_height = {image_height}")
+        print(f"image_width = {image_width}")
+
+    if image_width > 1360 or image_height > 1312:
+        resize_factor -= 1
+        print(resize_factor)
+        image_r = cv2.resize(image, None, fx=resize_factor, fy=resize_factor, interpolation=cv2.INTER_AREA)
+    #image = cv2.resize(image, None, fx=16, fy=16, interpolation=cv2.INTER_AREA)
+
+    image = image_r
+    resolution = resolution /resize_factor
+    print(image_height)
+    print(image_width)
+    
     image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
     
     for point_index, pt in enumerate(points_list):

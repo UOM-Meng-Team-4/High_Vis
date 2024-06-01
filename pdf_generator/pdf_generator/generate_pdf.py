@@ -31,6 +31,7 @@ class MyNode(Node):
         self.savei = 0
 
     def quaternion_to_euler(self, x, y, z, w):
+        print("quaternion_to_euler")
         t0 = +2.0 * (w * x + y * z)
         t1 = +1.0 - 2.0 * (x * x + y * y)
         X = math.degrees(math.atan2(t0, t1))
@@ -47,6 +48,7 @@ class MyNode(Node):
         return Z
     
     def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index):
+        print("add_point")
         angle = np.rad2deg(self.quaternion_to_euler(0,0,orientation,1-orientation))
     
         image_height, image_width = map_image.shape[:2]
@@ -148,6 +150,7 @@ class MyNode(Node):
 
     # Create template for measurement point pages
     def template_creator(self, mp, pan, x):
+        print("template_creator")
         #print("template_creator")
         # essentially changes the mp path to the format MPX (so it looks nicer on the pdf)
         self.mp_preformat = mp.split('/')[-1] 
@@ -197,7 +200,7 @@ class MyNode(Node):
 
     # Creates template for title page
     def title_template_creator(self, date_time):
-        #print("title_template_creator")
+        print("title_template_creator")
         date, time = date_time.split('_')
         time = time.replace('-', ':')
         pdf_filename = "title_template.pdf"
@@ -217,7 +220,7 @@ class MyNode(Node):
         return pdf_filename
     
     def hotspots_template_creator(self, num_mp, scan_folder, mp_folders):
-        #print("hotspots_template_creator") 
+        print("hotspots_template_creator") 
         pdf_filename = "hotspots_template.pdf"        
         thermal_hotspots = []
         ac_hotspots = []
@@ -231,19 +234,33 @@ class MyNode(Node):
             j=0
             mp_formatted = mp.split('/')[-1]
             thermal_hotspots.append([])  # Add a new list for the current mp
-            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
-                for line in file:
-                    j+=1
-                    thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
-            #print(thermal_hotspots)
-            ac_hotspots.append([])  # Add a new list for the current mp
-            j=0
-            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
-                for line in file:
-                    j+=1
-                    ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
-                            
-            num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
+
+            try:
+                with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
+                    for line in file:
+                        j+=1
+                        thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
+                #print(thermal_hotspots)
+            except FileNotFoundError:
+                print(f"Could not findd hotspots.txt for {mp_formatted}")
+                ac_hotspots.append([])  # Add a new list for the current mp
+                j=0
+
+            try:
+                with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
+                    for line in file:
+                        j+=1
+                        ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
+
+            except FileNotFoundError:
+                print(f"Could not find ac_hotspots.txt for {mp_formatted}")
+
+            if thermal_hotspots[i-1] == [] and ac_hotspots[i-1] == []:
+                print(f"No rows found for {mp_formatted}, skipping...")
+                continue
+            else:
+                num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
+
             print(num_rows)
             num_ac = len(ac_hotspots)
         
@@ -268,7 +285,7 @@ class MyNode(Node):
 
     # Takes the map template and pastes the map image with mps marked on it
     def create_centered_pdf_map(self, image_path):
-        #print("create_centered_pdf_map")
+        print("create_centered_pdf_map")
         # Load the map template and the map image
         pdf_template_map = convert_from_path("map_template.pdf")
         map_img = Image.fromarray(image_path)
@@ -325,7 +342,7 @@ class MyNode(Node):
 
     # Pastes the Thermal, Acoustic, and Visual images/data into the pdf template
     def create_centered_pdf(self, image_paths_thermal, image_paths_acoustic, image_paths_visual, mp, pan, i):
-        
+        print("create_centered_pdf")
         # Load the pdf template (scaling factor set for images)
         pdf_template_mp = convert_from_path(f"template_{self.mp_formatted}_pan_{pan}.pdf")
         scaling_factor = 0.7
