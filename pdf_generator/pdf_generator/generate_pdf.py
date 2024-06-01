@@ -47,7 +47,7 @@ class MyNode(Node):
 
         return Z
     
-    def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index):
+    def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index, jackal_image):
         print("add_point")
         angle = np.rad2deg(self.quaternion_to_euler(0,0,orientation,1-orientation))
     
@@ -122,7 +122,7 @@ class MyNode(Node):
         roi3[mask] = red_part[mask]
 
         # Convert the grayscale image to RGBA
-    # Convert the grayscale image to BGRA if it's not already
+        # Convert the grayscale image to BGRA if it's not already
         if map_image.shape[2] != 4:
             map_image = cv2.cvtColor(map_image, cv2.COLOR_BGR2BGRA)
 

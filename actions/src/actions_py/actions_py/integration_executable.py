@@ -217,6 +217,8 @@ class IntegrationExecutable(Node):
             with open(yaml_file, "w") as f:
                 yaml.dump(data, f)
             break
+        
+
         self.pdf_generator(pdf_node, merger)
         #Add Code Here to move to action server. 
 
@@ -321,6 +323,7 @@ class IntegrationExecutable(Node):
         
         filen = points['map']
         MP1 = os.path.join(filepath, 'Include', "Mp2.png")
+        jackal = os.path.join(filepath, 'Include', "jackal.png")
 
         pdf_filename = f"Substation_Scan_{self.today}"
         scan_folder = f"{filepath}/Scans/{pdf_filename}"
@@ -360,6 +363,7 @@ class IntegrationExecutable(Node):
          # Read the image using cv2.imread() with the -1 flag for unchanged format
         image = cv2.imread(f"{filen}.pgm", -1)
         circle_image = cv2.imread(MP1, cv2.IMREAD_UNCHANGED)
+        jackal_image = cv2.imread(jackal, cv2.IMREAD_UNCHANGED)
         if image is None and circle_image is None:
             print(f"Error opening image: {filen}.pgm")
             exit()
@@ -391,7 +395,7 @@ class IntegrationExecutable(Node):
         
         for point_index, pt in enumerate(points_list):
             try:
-                image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index)
+                image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index, jackal_image)
             except Exception as e:
                 print(f"Unable to process point {pt[0]},{pt[1]}: {e}")
 
