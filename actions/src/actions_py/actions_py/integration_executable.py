@@ -38,8 +38,8 @@ class IntegrationExecutable(Node):
         self.today = datetime.today().strftime('%d-%m-%Y_%H-%M-%S')
 
     def run_navigator(self, navigator, inspection_route, client, pdf_node, merger):
-        yaml_file = "~/HV_monitoring/route.yaml"
-        yaml_file = os.path.expanduser(yaml_file)
+        yaml_file_path = "~/HV_monitoring/route.yaml"
+        yaml_file = os.path.expanduser(yaml_file_path)
         # open the yaml file and load the points
         with open(yaml_file, "r") as f:
             points = yaml.safe_load(f)
@@ -132,7 +132,7 @@ class IntegrationExecutable(Node):
 
 
                 # Calculate the desired yaw (90 degrees)
-                desired_yaw = 1.57
+                desired_yaw = 0.0
 
                 # Calculate the spin angle
                 
@@ -155,7 +155,7 @@ class IntegrationExecutable(Node):
                     current_pose  = self.current_pose
                     navigator.info(f'Current pose {current_pose.pose.position.x}')
                     pt[3] = 1
-                    pt[2] = self.current_pose.pose.orientation.z
+                    pt[2] = current_pose.pose.orientation.z
                     # Run Pan and Tilt
                     
                     self.run_pan_tilt(client)
@@ -191,7 +191,25 @@ class IntegrationExecutable(Node):
                         navigator.cancelTask()
                         navigator.info('Failed to return to start position')
                         break
-
+            self.current_pose = feedback.current_pose
+            iq = Quaternion( 
+                    self.current_pose.pose.orientation.w,
+                    self.current_pose.pose.orientation.x,
+                    self.current_pose.pose.orientation.y,
+                    self.current_pose.pose.orientation.z
+                    )
+                # Convert the quaternion to Euler angles
+                #_, _, current_yaw = self.euler_from_quaternion(q)
+            _, _, current_yaw = iq.to_euler()
+            desired_yaw = 0.0
+            spin_angle = desired_yaw - current_yaw
+            navigator.spin(spin_angle,60)
+            while not navigator.isTaskComplete():
+                    feedback_spin = navigator.getFeedback()
+                    if feedback_spin and i % 5==0 :
+                        navigator.info(f'Spinning to angle 1.57....')
+                        i+=1
+            
             # Rewrites back to yaml file
             points_dict = {f"point{i+1}": {"x": pt[0], "y": pt[1], "z": pt[2], "Complete": pt[3]} for i, pt in enumerate(points_list)}
             data = {"map": map_path, **points_dict}
