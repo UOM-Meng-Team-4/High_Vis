@@ -192,7 +192,7 @@ class IntegrationExecutable(Node):
                         navigator.info('Failed to return to start position')
                         break
             self.current_pose = feedback.current_pose
-            q = Quaternion( 
+            iq = Quaternion( 
                     self.current_pose.pose.orientation.w,
                     self.current_pose.pose.orientation.x,
                     self.current_pose.pose.orientation.y,
@@ -200,7 +200,7 @@ class IntegrationExecutable(Node):
                     )
                 # Convert the quaternion to Euler angles
                 #_, _, current_yaw = self.euler_from_quaternion(q)
-            _, _, current_yaw = q.to_euler()
+            _, _, current_yaw = iq.to_euler()
             desired_yaw = 0.0
             spin_angle = desired_yaw - current_yaw
             navigator.spin(spin_angle,60)
