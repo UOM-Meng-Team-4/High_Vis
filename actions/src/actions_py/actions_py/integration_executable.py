@@ -339,15 +339,36 @@ class IntegrationExecutable(Node):
         origin_x = map_data["origin"][0] 
         origin_y = map_data["origin"][1]
         #print(resolution)
-        resolution = resolution /2
-        
-        # Read the image using cv2.imread() with the -1 flag for unchanged format
+         # Read the image using cv2.imread() with the -1 flag for unchanged format
         image = cv2.imread(f"{filen}.pgm", -1)
         circle_image = cv2.imread(MP1, cv2.IMREAD_UNCHANGED)
         if image is None and circle_image is None:
             print(f"Error opening image: {filen}.pgm")
             exit()
-        image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_AREA)
+
+        image_height, image_width = image.shape[:2]
+        resize_factor = 1
+        while image_height < 1000 and image_width < 1000:
+            
+            
+            resize_factor += 1
+            print(f"resize_factor= {resize_factor}")
+            image_r = cv2.resize(image, None, fx=resize_factor, fy=resize_factor, interpolation=cv2.INTER_AREA)
+            image_height, image_width = image_r.shape[:2]
+            print(f"image_height = {image_height}")
+            print(f"image_width = {image_width}")
+
+        if image_width > 1360 or image_height > 1312:
+            resize_factor -= 1
+            print(resize_factor)
+            image_r = cv2.resize(image, None, fx=resize_factor, fy=resize_factor, interpolation=cv2.INTER_AREA)
+        #image = cv2.resize(image, None, fx=16, fy=16, interpolation=cv2.INTER_AREA)
+
+        image = image_r
+        resolution = resolution /resize_factor
+        print(image_height)
+        print(image_width)
+        
         image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
         
         for point_index, pt in enumerate(points_list):

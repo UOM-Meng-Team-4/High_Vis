@@ -149,7 +149,7 @@ class MinimalSubscriber(Node):
                 gray = cv2.cvtColor(self.HT_ROI, cv2.COLOR_BGR2GRAY)
                 blurred = cv2.GaussianBlur(gray, (5, 5), 0)
                 _, self.HT_ROI = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
-                cv2.rectangle(self.HT_ROI, (0, 0), (100, 100), (255, 255, 255), 2)
+                cv2.rectangle(self.HT_ROI, (0, 0), (100, 100), (143, 0, 255), 2)
             
                 
 
