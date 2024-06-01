@@ -234,18 +234,27 @@ class MyNode(Node):
             j=0
             mp_formatted = mp.split('/')[-1]
             thermal_hotspots.append([])  # Add a new list for the current mp
-            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
-                for line in file:
-                    j+=1
-                    thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
-            #print(thermal_hotspots)
-            ac_hotspots.append([])  # Add a new list for the current mp
-            j=0
-            with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
-                for line in file:
-                    j+=1
-                    ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
-                            
+
+            try:
+                with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
+                    for line in file:
+                        j+=1
+                        thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
+                #print(thermal_hotspots)
+            except FileNotFoundError:
+                print(f"Could not findd hotspots.txt for {mp_formatted}")
+                ac_hotspots.append([])  # Add a new list for the current mp
+                j=0
+
+            try:
+                with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
+                    for line in file:
+                        j+=1
+                        ac_hotspots[i-1].append(line.strip())  # Append to the last list in ac_hotspots
+
+            except FileNotFoundError:
+                print(f"Could not find ac_hotspots.txt for {mp_formatted}")
+
             num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
             print(num_rows)
             num_ac = len(ac_hotspots)
