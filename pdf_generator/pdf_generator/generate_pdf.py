@@ -255,9 +255,16 @@ class MyNode(Node):
             except FileNotFoundError:
                 print(f"Could not find ac_hotspots.txt for {mp_formatted}")
 
-            if thermal_hotspots[i-1] == [] and ac_hotspots[i-1] == []:
-                print(f"No rows found for {mp_formatted}, skipping...")
-                continue
+            if thermal_hotspots[i-1] == []: 
+                if ac_hotspots[i-1] == []:
+                    print(f"No rows found for {mp_formatted}, skipping...")
+                    continue
+                else:
+                    num_rows.append(len(ac_hotspots[i-1]))
+
+            elif ac_hotspots[i-1] == []:
+                num_rows.append(len(thermal_hotspots[i-1]))
+                
             else:
                 num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
 
