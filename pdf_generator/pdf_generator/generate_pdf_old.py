@@ -47,7 +47,7 @@ class MyNode(Node):
 
         return Z
     
-    def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index):
+    def add_point(self, map_image, circle_image, target_x, target_y, orientation, resolution, origin_x, origin_y, point_index, jackal_image):
         #print("add_point")
         angle = np.rad2deg(self.quaternion_to_euler(0,0,orientation,1-orientation))
         #print("finished quarternion_to_euler")
@@ -65,6 +65,9 @@ class MyNode(Node):
         image_y = int((-(target_y/resolution) + image_origin_y) )
 
         circle_image = cv2.resize(circle_image, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_AREA)
+        
+        
+
         height, width = circle_image.shape[:2]
         if height % 2 != 0:
             height -= 1
@@ -101,6 +104,7 @@ class MyNode(Node):
         rotated_circle_image = cv2.warpAffine(circle_image, rotation_matrix, (circle_image_width, circle_image_height))
         #cv2.imshow("Rotated Image", rotated_circle_image)
         #cv2.waitKey(0)
+        rotated_circle_image = circle_image
         hsv_circle_image = cv2.cvtColor(rotated_circle_image, cv2.COLOR_BGR2HSV)
         # Define range for red color in HSV
         lower_red = np.array([0, 70, 50])
@@ -148,6 +152,16 @@ class MyNode(Node):
         thickness = 2
         # Add the text to the image
         cv2.putText(map_image, text, position, font, font_scale, color, thickness)
+        #add in the jackal image
+        jackal_image = cv2.resize(jackal_image, None, fx=0.4, fy=0.4, interpolation=cv2.INTER_AREA)
+        jackal_image_height, jackal_image_width = jackal_image.shape[:2]
+        # Calculate the top left position for the jackal image
+        # Convert the jackal image to RGBA
+        jackal_image = cv2.cvtColor(jackal_image, cv2.COLOR_BGR2RGBA)
+        top_left_y = image_origin_y - jackal_image_height // 2
+        top_left_x = image_origin_x - jackal_image_width // 2
+        map_image[top_left_y:top_left_y + jackal_image_height, top_left_x:top_left_x + jackal_image_width] = jackal_image
+
 
         return map_image
 
@@ -474,7 +488,7 @@ def main(args=None):
     
     filen = points['map']
     MP1 = os.path.join(filepath, 'Include', "Mp2.png")
-
+    jackal = os.path.join(filepath, 'Include', "jackal.png")
     pdf_filename = "Substation_Scan_31-05-2024_15-28-57"
     scan_folder = f"{filepath}/Scans/{pdf_filename}"
 
@@ -515,6 +529,7 @@ def main(args=None):
     # Read the image using cv2.imread() with the -1 flag for unchanged format
     image = cv2.imread(f"{filen}.pgm", -1)
     circle_image = cv2.imread(MP1, cv2.IMREAD_UNCHANGED)
+    jackal_image = cv2.imread(jackal, cv2.IMREAD_UNCHANGED)
     if image is None and circle_image is None:
         print(f"Error opening image: {filen}.pgm")
         exit()
@@ -546,9 +561,11 @@ def main(args=None):
     
     for point_index, pt in enumerate(points_list):
         try:
-            image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index)
+            image = node.add_point(image, circle_image, pt[0], pt[1], pt[2], resolution, origin_x, origin_y, point_index, jackal_image)
         except Exception as e:
             print(f"Unable to process point {pt[0]},{pt[1]}: {e}")
+
+    #image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
 
     # Check if image reading was successful

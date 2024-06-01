@@ -98,6 +98,7 @@ class MyNode(Node):
         rotated_circle_image = cv2.warpAffine(circle_image, rotation_matrix, (circle_image_width, circle_image_height))
         #cv2.imshow("Rotated Image", rotated_circle_image)
         #cv2.waitKey(0)
+        rotated_circle_image = circle_image
         hsv_circle_image = cv2.cvtColor(rotated_circle_image, cv2.COLOR_BGR2HSV)
         # Define range for red color in HSV
         lower_red = np.array([0, 70, 50])
@@ -145,6 +146,16 @@ class MyNode(Node):
         thickness = 2
         # Add the text to the image
         cv2.putText(map_image, text, position, font, font_scale, color, thickness)
+
+        #add in the jackal image
+        jackal_image = cv2.resize(jackal_image, None, fx=0.4, fy=0.4, interpolation=cv2.INTER_AREA)
+        jackal_image_height, jackal_image_width = jackal_image.shape[:2]
+        # Calculate the top left position for the jackal image
+        # Convert the jackal image to RGBA
+        jackal_image = cv2.cvtColor(jackal_image, cv2.COLOR_BGR2RGBA)
+        top_left_y = image_origin_y - jackal_image_height // 2
+        top_left_x = image_origin_x - jackal_image_width // 2
+        map_image[top_left_y:top_left_y + jackal_image_height, top_left_x:top_left_x + jackal_image_width] = jackal_image
 
         return map_image
 
@@ -245,7 +256,6 @@ class MyNode(Node):
                 print(f"Could not findd hotspots.txt for {mp_formatted}")
            
             ac_hotspots.append([])  # Add a new list for the current mp
-                
 
             try:
                 with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/acoustic/ac_hotspots.txt', 'r') as file:
