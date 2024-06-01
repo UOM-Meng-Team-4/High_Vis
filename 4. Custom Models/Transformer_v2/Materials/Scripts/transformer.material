@@ -1,0 +1,11 @@
+material transformerMat/Diffuse
+{
+    receive_shadows off
+    technique
+    {
+        pass
+        {
+            diffuse 1.0 0.0 0.0 1.0
+        }
+    }
+}
