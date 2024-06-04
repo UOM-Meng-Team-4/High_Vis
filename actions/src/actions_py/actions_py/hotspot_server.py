@@ -67,6 +67,7 @@ class MinimalSubscriber(Node):
         pan = goal_handle.request.pan_position
         tilt = goal_handle.request.tilt_position
         today = goal_handle.request.today
+        self.ambient = goal_handle.request.ambient
         self.get_logger().info(f"Received request to take image")
 
         # Create directory if it doesn't exist
@@ -228,8 +229,8 @@ class MinimalSubscriber(Node):
 
             # Draw the rectangle
             # Using ANSI/NETA standard for temperature classification
-            self.ambient_temp = 23
-            hs_temp = int(float(self.HT_text)) - self.ambient_temp
+            #self.ambient_temp = 20
+            hs_temp = int(float(self.HT_text)) - self.ambient
             #if 1<hs_temp<10: 
                 #print("Hotspot not drawn")
                 #cv2.drawContours(self.cv_image, [box], 0, (0, 255, 0), 2)       # Green
@@ -241,7 +242,7 @@ class MinimalSubscriber(Node):
                 if first_time == 0:
                     try:
                         with open(self.hotspot_text_file, "a") as file:
-                            file.write(f"{self.image_name}\n")
+                            file.write(f"{self.image_name_green}\n")
                     except Exception as e:
                         print(f"Failed to write to file: {e}")
                 first_time = 1
@@ -252,7 +253,7 @@ class MinimalSubscriber(Node):
                 if first_time == 0:
                     try:
                         with open(self.hotspot_text_file, "a") as file:
-                            file.write(f"{self.image_name}\n")
+                            file.write(f"{self.image_name_orange}\n")
                     except Exception as e:
                         print(f"Failed to write to file: {e}")
                 first_time = 1
@@ -262,7 +263,7 @@ class MinimalSubscriber(Node):
                 if first_time == 0:
                     try:
                         with open(self.hotspot_text_file, "a") as file:
-                            file.write(f"{self.image_name}\n")
+                            file.write(f"{self.image_name_red}\n")
                     except Exception as e:
                         print(f"Failed to write to file: {e}")
                 first_time = 1

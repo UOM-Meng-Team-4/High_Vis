@@ -32,7 +32,7 @@ class Client(Node):
 
     # Hotspot Client
 
-    def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position, today):
+    def send_hs_goal(self, take_image, measurement_point, pan_position, tilt_position, today, ambient):
 
         # Wait for the server
         if not self.hs_client.wait_for_server(timeout_sec=1.0):
@@ -46,6 +46,7 @@ class Client(Node):
         goal.pan_position = pan_position
         goal.tilt_position = tilt_position
         goal.today = today
+        goal.ambient = ambient
 
         # Send the goal       
         self.get_logger().info(f"Sending hs goal")

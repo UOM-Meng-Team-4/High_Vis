@@ -225,7 +225,7 @@ class MyNode(Node):
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('title_template.html')
-        output_text = template.render(date=date, time=time)
+        output_text = template.render(date=date, time=time, ambient=20)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
@@ -253,7 +253,8 @@ class MyNode(Node):
             with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
                 for line in file:
                     j+=1
-                    thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
+                    pt, colour = line.strip().rsplit(' ', 1)
+                    thermal_hotspots[i-1].append((pt, colour))  # Append to the last list in thermal_hotspots
             #print(thermal_hotspots)
             ac_hotspots.append([])  # Add a new list for the current mp
             j=0
@@ -489,7 +490,7 @@ def main(args=None):
     filen = points['map']
     MP1 = os.path.join(filepath, 'Include', "Mp2.png")
     jackal = os.path.join(filepath, 'Include', "jackal.png")
-    pdf_filename = "Substation_Scan_31-05-2024_15-28-57"
+    pdf_filename = "Substation_Scan_03-06-2024_11-14-48"
     scan_folder = f"{filepath}/Scans/{pdf_filename}"
 
     # Extract the date from the filename

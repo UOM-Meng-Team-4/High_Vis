@@ -210,7 +210,7 @@ class MyNode(Node):
         return pdf_filename
 
     # Creates template for title page
-    def title_template_creator(self, date_time):
+    def title_template_creator(self, date_time, ambient):
         print("title_template_creator")
         date, time = date_time.split('_')
         time = time.replace('-', ':')
@@ -220,7 +220,7 @@ class MyNode(Node):
         template_env = jinja2.Environment(loader=template_loader)
 
         template = template_env.get_template('title_template.html')
-        output_text = template.render(date=date, time=time)
+        output_text = template.render(date=date, time=time, ambient=ambient)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
@@ -279,8 +279,8 @@ class MyNode(Node):
             else:
                 num_rows.append(max(len(thermal_hotspots[i-1]), len(ac_hotspots[i-1]))) # Append the maximum number of elements to num_rows
 
-            print(num_rows)
-            num_ac = len(ac_hotspots)
+            #print(num_rows)
+            #num_ac = len(ac_hotspots)
         
 
         template = template_env.get_template('hotspots_template.html')

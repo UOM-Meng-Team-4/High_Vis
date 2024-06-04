@@ -36,6 +36,7 @@ class IntegrationExecutable(Node):
         super().__init__("integration_executable")
         self.mp_int = 0
         self.today = datetime.today().strftime('%d-%m-%Y_%H-%M-%S')
+        self.ambient_temp = 20
 
     def run_navigator(self, navigator, inspection_route, client, pdf_node, merger):
         yaml_file_path = "~/HV_monitoring/route.yaml"
@@ -271,7 +272,7 @@ class IntegrationExecutable(Node):
                 time.sleep(1)
 
                 # Send hs goal
-                node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int, self.today)
+                node.hs_result= node.send_hs_goal(True, self.mp_int, p_int, t_int, self.today, self.ambient_temp)
                 node.visual_result = node.send_visual_goal(True, self.mp_int, p_int, t_int, self.today)
 
                 time.sleep(2)
@@ -334,7 +335,7 @@ class IntegrationExecutable(Node):
         # Convert the list back to a string, with elements separated by '_'
         date = '_'.join(date)
 
-        title_pdf_page = node.title_template_creator(date)
+        title_pdf_page = node.title_template_creator(date, self.ambient_temp)
         merger.append(title_pdf_page)
         # Sorts all monitoring point folders in order
         mp_folders = sorted(glob.glob(f'{scan_folder}/2. Monitoring Images/mp_*'))
