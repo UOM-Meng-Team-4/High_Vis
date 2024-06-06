@@ -15,7 +15,7 @@ launch_robotnav once built can be used to launch the entire Simulation and Navig
 To launch run:
 ``` ros2 launch launch_robotnav robot_launch.py ```
 
-# Documentation for Harry's Packages
+# Documentation for Packages
 
 ## cam_topic
 
@@ -24,41 +24,41 @@ Publishes an image to a topic /image_raw to simulate the thermal camera.
 
 `ros2 run cam_topic cam_top_pub`
 
-### camera_topic_sub node
-Basic subscriber to the topic /image_raw to receive image. Proof of concept.
-
-`ros2 run cam_topic cam_top_sub`
-
-## hotspot_detection
-
-### hs_detect_node node
-Hotspot detection algorithm. Currently takes image from /image_raw topic and detects hotspot on it. It then draws a circle around the hotspot and saves the image with a new name.
-
-`ros2 run hotspot_detection hs_node`
-
 ## pdf_generator
 
 ### pdf_gen_node node
-Takes images saved in file and saves them in a pdf.
+Takes images saved in file and saves them in a pdf. This is run automatically at the end of the integration executable (IE) but there is an old version for you to do this without having to run the IE. Just change `pdf_filename` variable to the name of the substation scan folder
 
-`ros2 run pdf_generator pg_node`
+`ros2 run pdf_generator generate_pdf_old`
 
 ## Clients and Servers
 
 ### Servers
 **Hotspot**
+Server for taking and processing thermal images. Draws rectangle over hotspot on thermal image and colours it based on ANSI standard.
 `ros2 run actions_py hotspot_server`
 
 **Pan/Tilt**
+Server to control the pan and tilt. Interfaces with microros on STM32,
 `ros2 run actions_py pt_server`
 
 **Acoustic**
+Server for taking acoustic measurements. Intergaces with microros on STM32.
 `ros2 run actions_py ac_server`
 
 ### Client
-`ros2 run actions_py monitoring_client_before_integration`
+Filename: `monitoring_client.py`
+IE uses this client to interface with the servers mentioned previously.
 
-### Integration Executable
+### Integration Executable (IE)
+Integration Executable is the script that controls the overall behaviour of the robot. It acts as the overall client controlling all the of the servers responsible for navigation and monitoring. The general process is:
+- Robot navigates the measurement point and stops
+- Pan and tilt moves to desired position
+- thermal, visual and acoustic data is taken
+- Repeat until all pan and tilt angles have been completed
+- Move to next measurement point
+- Once finished return to origin
+
 `ros2 run actions_py integration_executable`
 
 ### How to run integration executable on Jackal
