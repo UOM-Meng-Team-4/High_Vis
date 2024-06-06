@@ -17,6 +17,9 @@ class ACServer(Node):
     def __init__(self):
         super().__init__("ac_server") 
 
+        self.filepath = "~/HV_monitoring"
+        self.filepath = os.path.expanduser(self.filepath)
+
         # Subscriber
         self.counter = 0
         self.previous_average = 0
@@ -46,6 +49,7 @@ class ACServer(Node):
         measurement_point = goal_handle.request.measurement_point
         pan_position = goal_handle.request.pan_position
         tilt_position = goal_handle.request.tilt_position
+        self.today = goal_handle.request.today
         self.get_logger().info(f"Received request to move to take ac reading")
 
         if take_ac_reading == True:
@@ -61,16 +65,17 @@ class ACServer(Node):
     def ac_reading_sim(self, measurement_point, pan_position, tilt_position):
 
         # Take AC reading
-        time.sleep(5)
+        time.sleep(2)
 
         # Create directory if it doesn't exist
-        today = date.today().strftime("%d-%m-%Y")
-        directory = os.path.join(f"Substation_Scan_{today}", "2. Monitoring Images", f"mp_{measurement_point}", "acoustic")
+        #today = date.today().strftime("%d-%m-%Y")
+        directory = os.path.join(self.filepath, "Scans", f"Substation_Scan_{self.today}", "2. Monitoring Images", f"mp_{measurement_point}", "acoustic")
         if not os.path.exists(directory):
             os.makedirs(directory)
 
         # Define the filename to write the text into
-        self.filename = os.path.join(directory, f"avg_db_values_{measurement_point}.txt")
+        self.filename = os.path.join(directory, f"avg_db_values.txt")
+        self.ac_hotspots = os.path.join(directory, f"ac_hotspots.txt")
 
         # Define the path to save the image
         self.output_reading_path = os.path.join(directory, f"p_{pan_position}_t_{tilt_position}.jpg")
@@ -102,6 +107,7 @@ class ACServer(Node):
             print(f"average = {self.average}")
 
             scaled_average = self.average * scaling_factor
+            
 
             self.counter = 0
 
@@ -110,6 +116,11 @@ class ACServer(Node):
             image_array = np.full(image_size, scaled_average, dtype=np.uint8)
             img = Image.fromarray(image_array, 'L')
             img.save(self.output_reading_path)
+
+
+        with open(self.ac_hotspots, 'a') as file:
+            if self.average > 10:
+                file.write(f"p_{pan_position}_t_{tilt_position}\n")
 
         
 

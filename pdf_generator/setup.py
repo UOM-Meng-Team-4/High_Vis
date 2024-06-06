@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             "pg_node = pdf_generator.pdf_gen_node:main",
-            "generate_pdf = pdf_generator.generate_pdf:main"
+            "generate_pdf = pdf_generator.generate_pdf:main",
+            "generate_pdf_old = pdf_generator.generate_pdf_old:main"
         ],
     },
 )

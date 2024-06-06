@@ -23,7 +23,7 @@ class NavServer(Node):
         self.get_logger().info(f"Received request to move to ({coordinate_x}, {coordinate_y})")
 
         for t in range(6, 0, -1):
-            time.sleep(0.1)
+            #time.sleep(0.1)
             goal_handle.publish_feedback(Nav.Feedback(time_to_mp = t))
             print(f"Reaching ({coordinate_x}, {coordinate_y}) in {t} s")
 

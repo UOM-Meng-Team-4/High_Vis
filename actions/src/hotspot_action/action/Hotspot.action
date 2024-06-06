@@ -3,6 +3,8 @@ bool take_image
 int64 measurement_point
 int64 pan_position
 int64 tilt_position
+string today
+int64 ambient
 ---
 # Result
 string hotspot_image_path # need to change this to bool
