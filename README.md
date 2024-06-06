@@ -34,15 +34,15 @@ Takes images saved in file and saves them in a pdf. This is run automatically at
 ## Clients and Servers
 
 ### Servers
-**Hotspot**
+#### Hotspot Server
 Server for taking and processing thermal images. Draws rectangle over hotspot on thermal image and colours it based on ANSI standard.
 `ros2 run actions_py hotspot_server`
 
-**Pan/Tilt**
+#### Pan/Tilt
 Server to control the pan and tilt. Interfaces with microros on STM32,
 `ros2 run actions_py pt_server`
 
-**Acoustic**
+#### Acoustic
 Server for taking acoustic measurements. Intergaces with microros on STM32.
 `ros2 run actions_py ac_server`
 
