@@ -93,4 +93,12 @@ To run mapping run:
 Custom package created from the demo packages provided by clearpath, has 3 launch files, launches slam, navigation and localisation. Appropriate launch files are launched in the above launch files. 
 https://github.com/clearpathrobotics
 
+# Documentation for micro-ROS packages
+
+## stmROS_pd
+Contains the micro-ROS STM32CubeIDE project for acoustic PD detection developed by MEng Team 4 2023/2024.
+
+## stmROS_pt
+Contains the micro-ROS STM32CubeIDE project for pan and tilt system control developed by MEng Team 4 2023/2024.
+
 
