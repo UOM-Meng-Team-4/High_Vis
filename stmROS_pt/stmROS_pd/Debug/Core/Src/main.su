@@ -1,0 +1,14 @@
+../Drivers/CMSIS/Include/core_cm4.h:1938:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
+../Core/Src/main.c:131:5:main	8	static
+../Core/Src/main.c:218:6:SystemClock_Config	88	static
+../Core/Src/main.c:264:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:298:13:MX_I2C3_Init	8	static
+../Core/Src/main.c:332:13:MX_TIM2_Init	64	static
+../Core/Src/main.c:395:13:MX_TIM3_Init	32	static
+../Core/Src/main.c:440:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:471:13:MX_DMA_Init	16	static
+../Core/Src/main.c:492:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:535:6:subscription_callback	24	static
+../Core/Src/main.c:550:6:StartDefaultTask	608	static
+../Core/Src/main.c:861:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:882:6:Error_Handler	4	static,ignoring_inline_asm
