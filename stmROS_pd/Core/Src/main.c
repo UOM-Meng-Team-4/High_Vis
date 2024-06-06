@@ -47,7 +47,12 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define MAX_PEAKS 30
+#define SAMPLES_PER_FRAME 3200
+#define SAMPLES_PER_HALF_FRAME 1600
+#define MIN_PEAK 420
+#define MAX_PEAK_LENGTH 100
+#define MIN_CONSECUTIVE_PEAKS 6
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -72,7 +77,27 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-
+uint16_t AD_RES = 0;
+uint16_t data[SAMPLES_PER_FRAME] = {0};
+uint16_t dataPeak[MAX_PEAKS] = {0};
+uint16_t timePeak[MAX_PEAKS] = {0};
+uint16_t sampleCounter = 0;
+uint16_t peakCounter = 0;
+uint16_t peakCounterEnd = 0;
+uint16_t findPeakCounter = 0;
+uint16_t consPeakCounter = 0;
+uint16_t findPeakFlag = 0;
+uint8_t flagNewSample = 0;
+uint8_t flagOddSample = 0;
+uint8_t flagNewData = 0;
+uint8_t flagNewPeak = 0;
+uint8_t flagPD = 0;
+uint8_t countPD = 0;
+uint16_t peakDiff = 0;
+uint16_t timeOffset = 0;
+uint16_t timeOffsetOld = 0;
+uint16_t minPeak = 0;
+uint16_t maxPeakFrame = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -126,7 +151,8 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start(&htim3);
+  HAL_ADC_Start_IT(&hadc1);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -172,8 +198,16 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
+
 }
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+    AD_RES = HAL_ADC_GetValue(&hadc1); // Read & Update The ADC Result
+    flagNewSample = 1;
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8); // Toggle Interrupt Rate Indicator Pin
+}
+  /* USER CODE END 3 */
+
 
 /**
   * @brief System Clock Configuration
@@ -473,16 +507,323 @@ void StartDefaultTask(void *argument)
 
 	  msg.data = 0;
 
-	  for(;;)
+	  while(1)
 	  {
-	    rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
+		  //-----------------------------------------------------
+		  //----------SAMPLING-----------------------------------
+		  //-----------------------------------------------------
+		  //if(sampleCounter < SAMPLES_PER_FRAME)
+		  //{
+		  if(flagNewSample == 1)
+		  {
+			  //if(flagOddSample == 0)
+			  //{
+				  data[sampleCounter] = AD_RES;
+				  //flagOddSample = 1;
+				  sampleCounter ++;
+				  flagNewData = 1;
+			  //}
+			  /*else
+			  {
+				  data[sampleCounter] = (data[sampleCounter] + AD_RES)/2;
+				  flagOddSample = 0;
+				  sampleCounter ++;
+				  flagNewData = 1;
+			  }*/
+			  flagNewSample = 0;
+		  }
+		  //}
+
+		  //-----------------------------------------------------
+		  //----------FINDING-PEAKS------------------------------
+		  //-----------------------------------------------------
+		  if(flagNewData == 1)
+		  {
+			  flagNewData = 0;
+			  if(findPeakFlag == 0)
+			  {
+				  if(data[sampleCounter-1] >= MIN_PEAK && data[sampleCounter-1] >= minPeak)
+				  {
+					  findPeakFlag = 1;
+					  dataPeak[peakCounter] = data[sampleCounter-1];
+					  timePeak[peakCounter] = sampleCounter - 1 + timeOffset;
+				  }
+			  }
+			  else
+			  {
+				  if(data[sampleCounter-1] >= dataPeak[peakCounter]) //care for >= when max voltage
+				  {
+					  dataPeak[peakCounter] = data[sampleCounter-1];
+					  timePeak[peakCounter] = sampleCounter -1 + timeOffset;
+				  }
+				  else
+				  {
+					  findPeakCounter ++;
+				  }
+			  }
+
+		  }
+
+		  if(findPeakCounter == MAX_PEAK_LENGTH)
+		  {
+			  peakCounter ++;
+			  findPeakFlag = 0;
+			  findPeakCounter = 0;
+			  if(peakCounter == MAX_PEAKS)
+			  {
+				  peakCounter = 0;
+				  for(int i = 0; i < MAX_PEAKS; i ++)
+				  {
+					  dataPeak[i] = 0;
+					  timePeak[i] = 0;
+				  }
+				  sampleCounter = SAMPLES_PER_FRAME;
+			  }
+
+			  else
+			  {
+				  flagNewPeak = 1;
+			  }
+		  }
+
+
+
+		  //-----------------------------------------------------
+		  //----------FINDING-PD---------------------------------
+		  //-----------------------------------------------------
+		  if(flagNewPeak == 1 && peakCounter > 1)
+		  {
+			  flagNewPeak = 0;
+			  for(int i = 0; i < peakCounter; i++)
+			  {
+				  peakDiff = timePeak[peakCounter-1] - timePeak[peakCounter-1-i];
+				  if(peakDiff > 760)
+				  {
+					  if(peakDiff <= 840)
+					  {
+						  if(consPeakCounter < MIN_CONSECUTIVE_PEAKS)
+						  {
+							  consPeakCounter ++;
+						  }
+						  else
+						  {
+							 //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+							  flagPD = 1;
+						  }
+						  break;
+					  }
+					  else if(peakDiff > 1520)
+					  {
+						  if(peakDiff <= 1680)
+						  {
+							  if(consPeakCounter < MIN_CONSECUTIVE_PEAKS)
+							  {
+								  consPeakCounter ++;
+							  }
+							  else
+							  {
+								  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+								  flagPD = 1;
+							  }
+							  break;
+						  }
+						  else
+						  {
+							  if(consPeakCounter != 0)
+							  {
+								  consPeakCounter --;
+							  }
+							  else
+							  {
+								  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+								  flagPD = 0;
+							  }
+							  break;
+						  }
+					  }
+					  else
+					  {
+						  //760 >= peakDiff > 420
+						  //continue with the loop
+					  }
+				  }
+				  else
+				  {
+					  //peakDiff <= 380
+					  //continue with the loop
+				  }
+			  }
+		  }
+
+
+		  //-----------------------------------------------------
+		  //----------END-OF-FRAME-------------------------------
+		  //-----------------------------------------------------
+		  if(sampleCounter == SAMPLES_PER_FRAME)
+		  {
+			  if(findPeakFlag == 1)
+			  {
+				  peakCounter ++;
+			  }
+
+
+			  peakCounterEnd = peakCounter;
+			  for(int i = 0; i < peakCounterEnd; i++)
+			  {
+				  if(timePeak[i] <= SAMPLES_PER_HALF_FRAME + timeOffset)
+				  {
+					  //timePeak[i] = 0;
+					  //dataPeak[i] = 0;
+					  peakCounter--;
+				  }
+				  else
+				  {
+					  /*if(timePeak[i] >= 2 * SAMPLES_PER_FRAME)
+					  {
+						  timePeak[i] = 0;
+						  dataPeak[i] = 0;
+						  peakCounter--;
+					  }*/
+					  //else
+					  //{
+					  break;
+					  //}
+				  }
+			  }
+
+			  if(peakCounter != 0)
+			  {
+				  timeOffsetOld = timeOffset;
+				  timeOffset = timeOffset + SAMPLES_PER_FRAME - timePeak[peakCounterEnd - peakCounter];
+				  for(int i = 0; i < peakCounterEnd; i ++)
+				  {
+					  if(i>=peakCounter)
+					  {
+						  dataPeak[i] = 0;
+						  timePeak[i] = 0;
+					  }
+					  else
+					  {
+						  dataPeak[i] = dataPeak[peakCounterEnd - peakCounter + i];
+						  timePeak[i] = timePeak[peakCounterEnd - peakCounter + i] + timeOffset - SAMPLES_PER_FRAME - timeOffsetOld;
+					  }
+				  }
+			  }
+			  else
+			  {
+				  for(int i = 0; i < peakCounterEnd; i ++)
+				  {
+					  dataPeak[i] = 0;
+					  timePeak[i] = 0;
+				  }
+				  timeOffset = 0;
+				  timeOffsetOld = timeOffset;
+			  }
+
+			  maxPeakFrame = 0;
+			  for(int i = 0; i < peakCounter; i++)
+			  {
+				  if(maxPeakFrame < dataPeak[i])
+				  {
+					  maxPeakFrame = dataPeak[i];
+				  }
+			  }
+			  minPeak = 0.7 * maxPeakFrame;
+
+
+			  if(findPeakFlag == 1)
+			  {
+				  peakCounter --;
+			  }
+
+			  sampleCounter = 0;
+
+			  if(consPeakCounter != 0)
+			  {
+				  consPeakCounter --;
+			  }
+			  else
+			  {
+				  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+				  flagPD = 0;
+			  }
+		  }
+
+
+		  //-----------------------------------------------------
+		  //-------------REPORTING-------------------------------
+		  //-----------------------------------------------------
+		  if(sampleCounter == 1)
+		  {
+			  if(flagPD == 1)
+			  {
+				  if(countPD != 10)
+				  {
+					  countPD ++;
+				  }
+				  else
+				  {
+
+				  }
+
+			  }
+			  else
+			  {
+				  if(countPD !=0)
+				  {
+					  countPD --;
+				  }
+				  else
+				  {
+
+				  }
+
+			  }
+
+
+			  if(countPD > 5)
+			  {
+				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+				  //sprintf(MSG, "%d\r\n", maxPeakFrame);
+				  //HAL_UART_Transmit(&huart2, MSG, sizeof(MSG), 20);
+				  if (maxPeakFrame >= 1500)
+				  {
+					  msg.data = 22 + (maxPeakFrame-1500)/250;
+				  }
+				  else
+				  {
+					  msg.data = maxPeakFrame/69;
+				  }
+				  //msg.data = maxPeakFrame;
+				  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
+				  if (ret != RCL_RET_OK)
+				  {
+				    printf("Error publishing (line %d)\n", __LINE__);
+				  }
+
+
+			  }
+			  else
+			  {
+				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+				  //sprintf(MSG, "%d\r\n", 1);
+				  //HAL_UART_Transmit(&huart2, MSG, sizeof(MSG), 20);
+				  msg.data = 1;
+				  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
+				  if (ret != RCL_RET_OK)
+				  {
+				    printf("Error publishing (line %d)\n", __LINE__);
+				  }
+			  }
+
+		  }
+	    /*rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
 	    if (ret != RCL_RET_OK)
 	    {
 	      printf("Error publishing (line %d)\n", __LINE__);
 	    }
 
-	    msg.data++;
-	    osDelay(10);
+	    msg.data++;*/
 	  }
   /* USER CODE END 5 */
 }
