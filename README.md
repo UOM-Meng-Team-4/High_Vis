@@ -35,22 +35,31 @@ Takes images saved in file and saves them in a pdf. This is run automatically at
 
 ### Servers
 #### Hotspot Server
-Server for taking and processing thermal images. Draws rectangle over hotspot on thermal image and colours it based on ANSI standard.
+- Filepath: actions/src/actions_py/actions_py/hotspot_server.py
+- Server for taking and processing thermal images. Draws rectangle over hotspot on thermal image and colours it based on ANSI standard.
 `ros2 run actions_py hotspot_server`
 
-#### Pan/Tilt
-Server to control the pan and tilt. Interfaces with microros on STM32,
+#### Pan/Tilt Server
+- Filepath: actions/src/actions_py/actions_py/pt_server.py
+- Server to control the pan and tilt. Interfaces with microros on STM32,
 `ros2 run actions_py pt_server`
 
-#### Acoustic
-Server for taking acoustic measurements. Intergaces with microros on STM32.
+#### Acoustic Server
+- Filepath: actions/src/actions_py/actions_py/ac_server.py
+- Server for taking acoustic measurements. Intergaces with microros on STM32.
 `ros2 run actions_py ac_server`
 
+#### Visual Server
+- Filepath: actions/src/actions_py/actions_py/visual_cam_server.py
+- Server for taking visual camera image
+`ros2 run actions_py visual_cam_server`
+
 ### Client
-Filename: `monitoring_client.py`
-IE uses this client to interface with the servers mentioned previously.
+- Filepath: actions/src/actions_py/actions_py/monitoring_client.py
+- IE uses this client to interface with the servers mentioned previously.
 
 ### Integration Executable (IE)
+- Filepath: actions/src/actions_py/actions_py/integration_executable.py
 Integration Executable is the script that controls the overall behaviour of the robot. It acts as the overall client controlling all the of the servers responsible for navigation and monitoring. The general process is:
 - Robot navigates the measurement point and stops
 - Pan and tilt moves to desired position
@@ -93,12 +102,22 @@ To run mapping run:
 Custom package created from the demo packages provided by clearpath, has 3 launch files, launches slam, navigation and localisation. Appropriate launch files are launched in the above launch files. 
 https://github.com/clearpathrobotics
 
-# Documentation for micro-ROS packages
+## Documentation for micro-ROS packages
 
-## stmROS_pd
+### stmROS_pd
 Contains the micro-ROS STM32CubeIDE project for acoustic PD detection developed by MEng Team 4 2023/2024.
 
-## stmROS_pt
+### stmROS_pt
 Contains the micro-ROS STM32CubeIDE project for pan and tilt system control developed by MEng Team 4 2023/2024.
+
+## Documentation for usb_cam package
+This package is used to publish images from the visual and thermal cameras to a topic. The servers then take the image from this topic and process them.
+Important files:
+- Visual Camera params file: usb_cam/config/params_1.yaml
+- Visual Camera info file: usb_cam/config/camera_info1.yaml
+- Thermal Camera params file: usb_cam/config/params_2.yaml
+- Thermal Camera info file: usb_cam/config/camera_info.yaml
+
+Thermal Camera 
 
 
