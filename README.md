@@ -73,7 +73,9 @@ Takes images saved in file and saves them in a pdf.
 
 
 ## Documentation for Starting Navigation. 
-`ros2 launch launch_robotnav robot_launch.py params_file:=nav2.yaml`
+All the navigation packages are found in the `/jackal/` folder.
+To run mapping run: 
+`ros2 launch launch_robotnav robot_launch.py params_file:=nav2_with_shim.yaml`
 ### Launch Robot_Launch.py Launch File
 - Launches Pointcloud to Laser scan node with params for Velodyne.
 - Launches Navigation 2 node with params file.
@@ -81,6 +83,14 @@ Takes images saved in file and saves them in a pdf.
 
 ### Launch Local_launch.py Launch File.
 `ros2 launch launch_robotnav local_launch.py`
-- Launches with Localisation instead of SLAM. Requires Map Change. 
+- Launches with Localisation instead of SLAM. Requires Map Change.
+
+### Pointcloud to laserscan package 
+- Used to convert 3D Lidar in to a laserscan. configured in the previous launch files.
+- https://github.com/ros-perception/pointcloud_to_laserscan/tree/rolling/launch
+
+### Clearpath_nav2 
+Custom package created from the demo packages provided by clearpath, has 3 launch files, launches slam, navigation and localisation. Appropriate launch files are launched in the above launch files. 
+https://github.com/clearpathrobotics
 
 
