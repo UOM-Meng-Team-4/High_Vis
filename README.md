@@ -1,8 +1,6 @@
 # High_Vis
 General Repository For Project
 
-# Please Use Own repository when working on Project code.
-
 # Robot Launch WS
 Robot_launch_ws_(src) Is Designed to be downloaded and renamed into your workspace src file. 
 It Includes the following Packages: 
@@ -16,7 +14,6 @@ Also includes up to date robot.yaml file. This must be placed in ~/clearpath/ fo
 launch_robotnav once built can be used to launch the entire Simulation and Navigation with all required nodes. ch
 To launch run:
 ``` ros2 launch launch_robotnav robot_launch.py ```
-
 
 # Documentation for Harry's Packages
 
