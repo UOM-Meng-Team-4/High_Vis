@@ -200,6 +200,7 @@ int main(void)
   }
 
 }
+//Callback to be executed after each ADC conversion has finished
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
     AD_RES = HAL_ADC_GetValue(&hadc1); // Read & Update The ADC Result
@@ -512,65 +513,54 @@ void StartDefaultTask(void *argument)
 		  //-----------------------------------------------------
 		  //----------SAMPLING-----------------------------------
 		  //-----------------------------------------------------
-		  //if(sampleCounter < SAMPLES_PER_FRAME)
-		  //{
 		  if(flagNewSample == 1)
 		  {
-			  //if(flagOddSample == 0)
-			  //{
-				  data[sampleCounter] = AD_RES;
-				  //flagOddSample = 1;
-				  sampleCounter ++;
-				  flagNewData = 1;
-			  //}
-			  /*else
-			  {
-				  data[sampleCounter] = (data[sampleCounter] + AD_RES)/2;
-				  flagOddSample = 0;
-				  sampleCounter ++;
-				  flagNewData = 1;
-			  }*/
+			  data[sampleCounter] = AD_RES; //save the newly aquired data sample in the data buffer
+			  sampleCounter ++;
+			  flagNewData = 1;
 			  flagNewSample = 0;
 		  }
-		  //}
 
 		  //-----------------------------------------------------
 		  //----------FINDING-PEAKS------------------------------
 		  //-----------------------------------------------------
-		  if(flagNewData == 1)
+		  if(flagNewData == 1) //enter if a new data was saved in the buffer
 		  {
 			  flagNewData = 0;
-			  if(findPeakFlag == 0)
+			  if(findPeakFlag == 0) //if a peak finding has not been started
 			  {
-				  if(data[sampleCounter-1] >= MIN_PEAK && data[sampleCounter-1] >= minPeak)
+				  if(data[sampleCounter-1] >= MIN_PEAK && data[sampleCounter-1] >= minPeak) //if the new data is big enough to be considered part of a peak
 				  {
-					  findPeakFlag = 1;
-					  dataPeak[peakCounter] = data[sampleCounter-1];
-					  timePeak[peakCounter] = sampleCounter - 1 + timeOffset;
+					  findPeakFlag = 1; //start peak finding
+					  dataPeak[peakCounter] = data[sampleCounter-1]; //save the amplitude of the data as the peaks amplitude
+					  timePeak[peakCounter] = sampleCounter - 1 + timeOffset; //save timing of data as the peak's timing (by saving the position in the data buffer)
+																			  //timeOffset comes from the end of frame, where there might be peaks left in the peak 
+																			  //buffer from the previous mains cycle
 				  }
+				  //else do nothing
 			  }
-			  else
+			  else //if a peak finding has already been started
 			  {
-				  if(data[sampleCounter-1] >= dataPeak[peakCounter]) //care for >= when max voltage
+				  if(data[sampleCounter-1] >= dataPeak[peakCounter]) //if the new data is larger than the previous biggest in the peak
 				  {
-					  dataPeak[peakCounter] = data[sampleCounter-1];
-					  timePeak[peakCounter] = sampleCounter -1 + timeOffset;
+					  dataPeak[peakCounter] = data[sampleCounter-1]; //change the new data to be the current peak
+					  timePeak[peakCounter] = sampleCounter -1 + timeOffset; //change the timing
 				  }
 				  else
 				  {
-					  findPeakCounter ++;
+					  findPeakCounter ++; //increment the counter that determines when the peak finishes
 				  }
 			  }
 
 		  }
 
-		  if(findPeakCounter == MAX_PEAK_LENGTH)
+		  if(findPeakCounter == MAX_PEAK_LENGTH) //if the peak is finished
 		  {
-			  peakCounter ++;
+			  peakCounter ++; //increment the counter of peaks in the buffer
 			  findPeakFlag = 0;
 			  findPeakCounter = 0;
-			  if(peakCounter == MAX_PEAKS)
-			  {
+			  if(peakCounter == MAX_PEAKS) 	// if the peak buffer is full which is irregular -> delete all peaks
+			  {							   	// and skip to the end of frame to start looking for peaks from the beginning
 				  peakCounter = 0;
 				  for(int i = 0; i < MAX_PEAKS; i ++)
 				  {
@@ -580,9 +570,9 @@ void StartDefaultTask(void *argument)
 				  sampleCounter = SAMPLES_PER_FRAME;
 			  }
 
-			  else
+			  else //if the peak buffer is not full
 			  {
-				  flagNewPeak = 1;
+				  flagNewPeak = 1; //signify there is a new peak
 			  }
 		  }
 
@@ -591,10 +581,10 @@ void StartDefaultTask(void *argument)
 		  //-----------------------------------------------------
 		  //----------FINDING-PD---------------------------------
 		  //-----------------------------------------------------
-		  if(flagNewPeak == 1 && peakCounter > 1)
+		  if(flagNewPeak == 1 && peakCounter > 1) //if there is a newly finished peak and there is more than one peak in the buffer
 		  {
 			  flagNewPeak = 0;
-			  for(int i = 0; i < peakCounter; i++)
+			  for(int i = 0; i < peakCounter; i++) // loop to try and find peaks before spaced by half a mains cycle or full cycle
 			  {
 				  peakDiff = timePeak[peakCounter-1] - timePeak[peakCounter-1-i];
 				  if(peakDiff > 760)
@@ -607,8 +597,7 @@ void StartDefaultTask(void *argument)
 						  }
 						  else
 						  {
-							 //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-							  flagPD = 1;
+							  flagPD = 1; //possible pd detected
 						  }
 						  break;
 					  }
@@ -622,8 +611,7 @@ void StartDefaultTask(void *argument)
 							  }
 							  else
 							  {
-								  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-								  flagPD = 1;
+								  flagPD = 1; //possible pd detected
 							  }
 							  break;
 						  }
@@ -635,8 +623,7 @@ void StartDefaultTask(void *argument)
 							  }
 							  else
 							  {
-								  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-								  flagPD = 0;
+								  flagPD = 0; //pd not detected
 							  }
 							  break;
 						  }
@@ -659,7 +646,7 @@ void StartDefaultTask(void *argument)
 		  //-----------------------------------------------------
 		  //----------END-OF-FRAME-------------------------------
 		  //-----------------------------------------------------
-		  if(sampleCounter == SAMPLES_PER_FRAME)
+		  if(sampleCounter == SAMPLES_PER_FRAME) //end of frame
 		  {
 			  if(findPeakFlag == 1)
 			  {
@@ -668,30 +655,19 @@ void StartDefaultTask(void *argument)
 
 
 			  peakCounterEnd = peakCounter;
-			  for(int i = 0; i < peakCounterEnd; i++)
+			  for(int i = 0; i < peakCounterEnd; i++) //remove all peaks from buffer except for the ones in the second half of the frame
 			  {
 				  if(timePeak[i] <= SAMPLES_PER_HALF_FRAME + timeOffset)
 				  {
-					  //timePeak[i] = 0;
-					  //dataPeak[i] = 0;
 					  peakCounter--;
 				  }
 				  else
 				  {
-					  /*if(timePeak[i] >= 2 * SAMPLES_PER_FRAME)
-					  {
-						  timePeak[i] = 0;
-						  dataPeak[i] = 0;
-						  peakCounter--;
-					  }*/
-					  //else
-					  //{
 					  break;
-					  //}
 				  }
 			  }
 
-			  if(peakCounter != 0)
+			  if(peakCounter != 0) //shift all remaining (if any) peaks in the buffer and set the timeOffset for next frame
 			  {
 				  timeOffsetOld = timeOffset;
 				  timeOffset = timeOffset + SAMPLES_PER_FRAME - timePeak[peakCounterEnd - peakCounter];
@@ -721,7 +697,7 @@ void StartDefaultTask(void *argument)
 			  }
 
 			  maxPeakFrame = 0;
-			  for(int i = 0; i < peakCounter; i++)
+			  for(int i = 0; i < peakCounter; i++) //set the minimum value a data can be considered as a peak to be at 70% of the biggest peak in the previous cycle
 			  {
 				  if(maxPeakFrame < dataPeak[i])
 				  {
@@ -744,7 +720,6 @@ void StartDefaultTask(void *argument)
 			  }
 			  else
 			  {
-				  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 				  flagPD = 0;
 			  }
 		  }
@@ -753,7 +728,7 @@ void StartDefaultTask(void *argument)
 		  //-----------------------------------------------------
 		  //-------------REPORTING-------------------------------
 		  //-----------------------------------------------------
-		  if(sampleCounter == 1)
+		  if(sampleCounter == 1) //determine if PD has to be reported or not
 		  {
 			  if(flagPD == 1)
 			  {
@@ -781,21 +756,18 @@ void StartDefaultTask(void *argument)
 			  }
 
 
-			  if(countPD > 5)
+			  if(countPD > 5) //if pd is to be reported
 			  {
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-				  //sprintf(MSG, "%d\r\n", maxPeakFrame);
-				  //HAL_UART_Transmit(&huart2, MSG, sizeof(MSG), 20);
+				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); //set LED for debugging 
 				  if (maxPeakFrame >= 1500)
 				  {
-					  msg.data = 22 + (maxPeakFrame-1500)/250;
+					  msg.data = 22 + (maxPeakFrame-1500)/250; //send the max peak after transforming to dB
 				  }
 				  else
 				  {
 					  msg.data = maxPeakFrame/69;
 				  }
-				  //msg.data = maxPeakFrame;
-				  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
+				  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL); //bublish to the topic via micro-ROS
 				  if (ret != RCL_RET_OK)
 				  {
 				    printf("Error publishing (line %d)\n", __LINE__);
@@ -803,13 +775,11 @@ void StartDefaultTask(void *argument)
 
 
 			  }
-			  else
+			  else //if no consistent PD is detected to be reported
 			  {
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-				  //sprintf(MSG, "%d\r\n", 1);
-				  //HAL_UART_Transmit(&huart2, MSG, sizeof(MSG), 20);
+				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); //reset LED for debugging 
 				  msg.data = 1;
-				  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
+				  rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL); //send "1" via micro-ROS signifying no PD
 				  if (ret != RCL_RET_OK)
 				  {
 				    printf("Error publishing (line %d)\n", __LINE__);
@@ -817,13 +787,6 @@ void StartDefaultTask(void *argument)
 			  }
 
 		  }
-	    /*rcl_ret_t ret = rcl_publish(&publisher, &msg, NULL);
-	    if (ret != RCL_RET_OK)
-	    {
-	      printf("Error publishing (line %d)\n", __LINE__);
-	    }
-
-	    msg.data++;*/
 	  }
   /* USER CODE END 5 */
 }
