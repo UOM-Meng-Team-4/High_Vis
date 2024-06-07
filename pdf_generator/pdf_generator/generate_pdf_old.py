@@ -195,8 +195,9 @@ class MyNode(Node):
         return pdf_filename
 
     # Creates template for map page
-    def map_template_creator(self):
+    def map_template_creator(self, date_time):
         #print("map_template_creator")
+        date, time = date_time.split('_')
         pdf_filename = "map_template.pdf"
 
         templates = os.path.join(self.filepath, 'Include', 'Templates')
@@ -204,7 +205,7 @@ class MyNode(Node):
         template_env = jinja2.Environment(loader=template_loader)
         template = template_env.get_template('map_template.html')
         
-        output_text = template.render(date=date.today().strftime("%d-%m-%Y"))
+        output_text = template.render(date=date)
         config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
         options = {
             'orientation': 'Portrait',
@@ -253,8 +254,7 @@ class MyNode(Node):
             with open(f'{scan_folder}/2. Monitoring Images/{mp_formatted}/thermal/hotspots.txt', 'r') as file:
                 for line in file:
                     j+=1
-                    pt, colour = line.strip().rsplit(' ', 1)
-                    thermal_hotspots[i-1].append((pt, colour))  # Append to the last list in thermal_hotspots
+                    thermal_hotspots[i-1].append(line.strip())  # Append to the last list in thermal_hotspots
             #print(thermal_hotspots)
             ac_hotspots.append([])  # Add a new list for the current mp
             j=0
@@ -490,7 +490,7 @@ def main(args=None):
     filen = points['map']
     MP1 = os.path.join(filepath, 'Include', "Mp2.png")
     jackal = os.path.join(filepath, 'Include', "jackal.png")
-    pdf_filename = "Substation_Scan_03-06-2024_11-14-48"
+    pdf_filename = "Substation_Scan_03-06-2024_10-09-36"
     scan_folder = f"{filepath}/Scans/{pdf_filename}"
 
     # Extract the date from the filename
@@ -578,7 +578,7 @@ def main(args=None):
     cv2.imwrite(f"{filen}.png", image)
 
     # creates the map page and append it after title
-    map_pdf_page = node.map_template_creator()
+    map_pdf_page = node.map_template_creator(date)
     node.create_centered_pdf_map(image)
     merger.append(map_pdf_page)
 
