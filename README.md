@@ -25,8 +25,6 @@ Publishes an image to a topic /image_raw to simulate the thermal camera.
 `ros2 run cam_topic cam_top_pub`
 
 ## pdf_generator
-
-### pdf_gen_node node
 Takes images saved in file and saves them in a pdf. This is run automatically at the end of the integration executable (IE) but there is an old version for you to do this without having to run the IE. Just change `pdf_filename` variable to the name of the substation scan folder
 
 `ros2 run pdf_generator generate_pdf_old`
@@ -70,7 +68,7 @@ Integration Executable is the script that controls the overall behaviour of the 
 
 `ros2 run actions_py integration_executable`
 
-### How to run integration executable on Jackal
+#### How to run integration executable on Jackal
 - Run launch file (see nodes launched below): `ros2 launch actions_bringup actions.launch.py`
   - hotspot server
   - acoustic server
@@ -80,6 +78,24 @@ Integration Executable is the script that controls the overall behaviour of the 
 - Ensure Navigation is prepped and running (see below)
 - Run integration_executable: `ros2 run actions_py integration_executable`
 
+### Monitoring Launch File
+Filepath: actions/src/actions_bringup/launch/actions.launch.py
+Launch file for:
+- Hotspot server
+- Visual camera server
+- Acoustic server
+- Pan and Tilt server
+- usb_cam packages with both thermal and visual camera params files
+
+`ros2 launch actions_bringup actions.launch.py`
+
+### Actions files
+Filepaths: actions/src/hotspot_action/action
+Contains all the actions files for client/servers. The files that are in use are:
+- Acoustic server -> Acoustic.action
+- Hotspot server -> Hotspot.action
+- Visual Cam server -> Visual.action
+- Pan and Tilt server -> PanAndTilt.action
 
 ## Documentation for Starting Navigation. 
 All the navigation packages are found in the `/jackal/` folder.
@@ -107,17 +123,24 @@ https://github.com/clearpathrobotics
 ### stmROS_pd
 Contains the micro-ROS STM32CubeIDE project for acoustic PD detection developed by MEng Team 4 2023/2024.
 
+To run micro-ROS for acoustic: `ros2 run micro_ros_agent micro_ros_agent serial -b 115200 --dev /dev/ttyACM2` (or sometimes ACM1 try both)
+
 ### stmROS_pt
 Contains the micro-ROS STM32CubeIDE project for pan and tilt system control developed by MEng Team 4 2023/2024.
 
+To run micro-ROS for pan and tilt: `ros2 run micro_ros_agent micro_ros_agent serial -b 115200 --dev /dev/ttyACM0`
+
 ## Documentation for usb_cam package
 This package is used to publish images from the visual and thermal cameras to a topic. The servers then take the image from this topic and process them.
+
 Important files:
 - Visual Camera params file: usb_cam/config/params_1.yaml
 - Visual Camera info file: usb_cam/config/camera_info1.yaml
 - Thermal Camera params file: usb_cam/config/params_2.yaml
 - Thermal Camera info file: usb_cam/config/camera_info.yaml
 
-Thermal Camera 
+Ros2 run commands:
+- Thermal Camera node: `ros2 run usb_cam usb_cam_node_exe --ros-args --params-file (path to folder)/usb_cam/config/params_2.yaml`
+- Visual Camera node: `ros2 run usb_cam usb_cam_node_exe --ros-args --params-file (path to folder)/usb_cam/config/params_1.yaml`
 
 
