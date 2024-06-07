@@ -22,10 +22,12 @@ To launch run:
 ### camera_topic node
 Publishes an image to a topic /image_raw to simulate the thermal camera.
 
+
 `ros2 run cam_topic cam_top_pub`
 
 ## pdf_generator
-Takes images saved in file and saves them in a pdf. This is run automatically at the end of the integration executable (IE) but there is an old version for you to do this without having to run the IE. Just change `pdf_filename` variable to the name of the substation scan folder
+Takes images saved in file and saves them in a pdf. This is run automatically at the end of the integration executable (IE) but there is an old version for you to do this without having to run the IE. Just change `pdf_filename` variable to the name of the substation scan folder.
+
 
 `ros2 run pdf_generator generate_pdf_old`
 
@@ -35,21 +37,29 @@ Takes images saved in file and saves them in a pdf. This is run automatically at
 #### Hotspot Server
 - Filepath: actions/src/actions_py/actions_py/hotspot_server.py
 - Server for taking and processing thermal images. Draws rectangle over hotspot on thermal image and colours it based on ANSI standard.
+
+  
 `ros2 run actions_py hotspot_server`
 
 #### Pan/Tilt Server
 - Filepath: actions/src/actions_py/actions_py/pt_server.py
-- Server to control the pan and tilt. Interfaces with microros on STM32,
+- Server to control the pan and tilt. Interfaces with microros on STM32.
+
+  
 `ros2 run actions_py pt_server`
 
 #### Acoustic Server
 - Filepath: actions/src/actions_py/actions_py/ac_server.py
 - Server for taking acoustic measurements. Intergaces with microros on STM32.
+
+  
 `ros2 run actions_py ac_server`
 
 #### Visual Server
 - Filepath: actions/src/actions_py/actions_py/visual_cam_server.py
-- Server for taking visual camera image
+- Server for taking visual camera image.
+
+  
 `ros2 run actions_py visual_cam_server`
 
 ### Client
@@ -86,6 +96,7 @@ Launch file for:
 - Acoustic server
 - Pan and Tilt server
 - usb_cam packages with both thermal and visual camera params files
+  
 
 `ros2 launch actions_bringup actions.launch.py`
 
